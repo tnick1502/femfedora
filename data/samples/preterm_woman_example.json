@@ -1,0 +1,16 @@
+{
+  "gestational_week": 28,
+  "gestational_day": 3,
+  "age_at_due_date_years": 30,
+  "singleton_confirmed": true,
+  "pregnancy_ongoing": true,
+  "dating_confirmed": true,
+  "prepregnancy_bmi": 24,
+  "previous_live_births": 1,
+  "previous_terminations": 0,
+  "previous_preterm_birth": false,
+  "chronic_hypertension": false,
+  "preexisting_diabetes": false,
+  "previous_cesarean": false,
+  "prepregnancy_cigarettes_per_day": 0
+}

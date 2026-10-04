@@ -1,0 +1,73 @@
+{
+  "registry_version": 1,
+  "acquired_on": "2026-09-23",
+  "datasets": [
+    {
+      "id": "cdc_natality_2023_nber_csv",
+      "source_owner": "CDC/NCHS",
+      "storage": "zip",
+      "distribution": "NBER CSV conversion of the NCHS public-use file",
+      "version": "2023",
+      "url": "https://data.nber.org/nvss/natality/csv/2023/natality2023us.zip",
+      "official_page": "https://www.cdc.gov/nchs/data_access/vitalstatsonline.htm",
+      "local_path": "data/external/cdc_natality/2023/natality2023us.csv.zip",
+      "license": "NCHS public-use data; NCHS Data Users Agreement applies",
+      "roles": ["ptb_static_baseline", "gdm_static_baseline", "hdp_proxy_static_baseline"],
+      "clinical_limit": "Birth record, not a longitudinal pregnancy cohort; outcome timing is unavailable."
+    },
+    {
+      "id": "cdc_natality_2024_nber_csv",
+      "source_owner": "CDC/NCHS",
+      "storage": "zip",
+      "distribution": "NBER CSV conversion of the NCHS public-use file",
+      "version": "2024",
+      "url": "https://data.nber.org/nvss/natality/csv/2024/natality2024us.zip",
+      "official_page": "https://www.cdc.gov/nchs/data_access/vitalstatsonline.htm",
+      "local_path": "data/external/cdc_natality/2024/natality2024us.csv.zip",
+      "license": "NCHS public-use data; NCHS Data Users Agreement applies",
+      "roles": ["temporal_test_ptb", "temporal_test_gdm", "temporal_test_hdp_proxy"],
+      "clinical_limit": "Birth record, not a longitudinal pregnancy cohort; outcome timing is unavailable."
+    },
+    {
+      "id": "ctu_uhb_ctgdb_1_0_0",
+      "source_owner": "PhysioNet / CTU-UHB",
+      "storage": "s3_directory",
+      "version": "1.0.0",
+      "url": "https://physionet.org/content/ctu-uhb-ctgdb/get-zip/1.0.0/",
+      "mirror_s3_prefix": "ctu-uhb-ctgdb/1.0.0/",
+      "official_page": "https://physionet.org/content/ctu-uhb-ctgdb/1.0.0/",
+      "local_path": "data/external/ctu_uhb_ctg/1.0.0/files",
+      "license": "Open Data Commons Attribution License v1.0",
+      "doi": "10.13026/C22013",
+      "roles": ["ctg_signal_quality", "ctg_outcome_linked_benchmark"],
+      "clinical_limit": "552 selected intrapartum recordings; not an antenatal screening cohort."
+    },
+    {
+      "id": "uci_cardiotocography_193",
+      "source_owner": "UCI Machine Learning Repository",
+      "storage": "zip",
+      "version": "repository snapshot acquired 2026-09-23",
+      "url": "https://archive.ics.uci.edu/static/public/193/cardiotocography.zip",
+      "official_page": "https://archive.ics.uci.edu/dataset/193/cardiotocography",
+      "local_path": "data/external/uci_cardiotocography/1.0.0/cardiotocography.zip",
+      "license": "CC BY 4.0",
+      "doi": "10.24432/C51S4N",
+      "roles": ["ctg_feature_classification_tutorial"],
+      "clinical_limit": "Derived CTG features with expert classes; not raw signal and not a direct pregnancy outcome."
+    },
+    {
+      "id": "tpehgdb_1_0_1",
+      "source_owner": "PhysioNet / University of Ljubljana",
+      "storage": "s3_directory",
+      "version": "1.0.1",
+      "url": "https://physionet.org/content/tpehgdb/get-zip/1.0.1/",
+      "mirror_s3_prefix": "tpehgdb/1.0.1/",
+      "official_page": "https://physionet.org/content/tpehgdb/1.0.1/",
+      "local_path": "data/external/tpehg/1.0.1/files",
+      "license": "Open Data Commons Attribution License v1.0",
+      "doi": "10.13026/C2FW2V",
+      "roles": ["ehg_term_preterm_r_and_d"],
+      "clinical_limit": "300 records and 38 preterm outcomes; small exploratory signal dataset."
+    }
+  ]
+}

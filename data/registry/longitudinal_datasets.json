@@ -1,0 +1,70 @@
+{
+  "registry_version": 1,
+  "reviewed_on": "2026-10-01",
+  "datasets": [
+    {
+      "id": "cpp_v3_3_1",
+      "name": "Collaborative Perinatal Project, modern release",
+      "source_url": "https://github.com/ljlasker/CollaborativePerinatalProject/releases/download/v3.3.1/CPP_Data_Release.zip",
+      "source_page": "https://github.com/ljlasker/CollaborativePerinatalProject/releases/tag/v3.3.1",
+      "original_archive_page": "https://www.archives.gov/research/electronic-records/nih.html",
+      "version": "v3.3.1",
+      "local_path": "data/external/cpp/v3.3.1/CPP_Data_Release.zip",
+      "status": "downloaded",
+      "grain": "pregnancy-child case in core; multiple visits per case in visitfle",
+      "license_note": "Author repository lists MIT; verify underlying NARA/NBER terms separately",
+      "documentation": "data/external/cpp/DATASET.md"
+    },
+    {
+      "id": "maric_multiomics_github",
+      "name": "Marić et al., Multiomics Preeclampsia",
+      "source_url": "https://codeload.github.com/ivanam5/Multiomics_Preeclampsia/zip/refs/heads/main",
+      "source_page": "https://github.com/ivanam5/Multiomics_Preeclampsia",
+      "related_study": "https://www.immport.org/shared/study/SDY2177/summary",
+      "version_commit": "a0ae323a54a8c2c77348e185b0d37b44860c64fa",
+      "local_path": "data/external/maric_multiomics/main/Multiomics_Preeclampsia-main.zip",
+      "status": "downloaded_author_repository; ImmPort study package not downloaded",
+      "grain": "sample at gestational time point, grouped by individual",
+      "license_note": "No repository-wide data license identified; check source and modality-specific reuse terms",
+      "documentation": "data/external/maric_multiomics/DATASET.md"
+    },
+    {
+      "id": "dream_sdy2187",
+      "name": "Microbiome Preterm Birth DREAM",
+      "source_page": "https://www.immport.org/shared/study/SDY2187/summary",
+      "download_guide": "https://docs.immport.org/download/guide/",
+      "metadata_url": "https://www.immport.org/data/query/ui/study/studyfile/SDY2187",
+      "local_metadata_path": "data/external/dream_sdy2187/immport_study_files.json",
+      "expected_files": ["Training.zip", "Validation.zip", "IDmapping_participantID_ImmPortSUBacc.txt"],
+      "version_note": "Validation.zip SFL72960 marked updated 2024-12-13; obtain authenticated current release and check correction",
+      "status": "metadata_only; archives require ImmPort authentication",
+      "grain": "vaginal microbiome sample, grouped by participant",
+      "license_note": "Check ImmPort terms and restrictions of underlying cohorts",
+      "documentation": "data/external/dream_sdy2187/DATASET.md"
+    },
+    {
+      "id": "nlsy79_full_1979_2022",
+      "name": "NLSY79 full public-use cohort",
+      "source_url": "https://nlsinfo.org/cohort-data/nlsy79_all_1979-2022.zip",
+      "source_page": "https://www.nlsinfo.org/content/access-data-investigator/accessing-data-cohorts",
+      "source_updated": "2025-01-21",
+      "local_path": "data/external/nlsy79/1979-2022/nlsy79_all_1979-2022.zip",
+      "status": "downloaded",
+      "grain": "NLSY79 respondent in wide file; fertility events require reshaping",
+      "license_note": "BLS/NLS public-use data; restricted-use files not included",
+      "documentation": "data/external/nlsy79/DATASET.md"
+    },
+    {
+      "id": "nlscya_full_1979_2020",
+      "name": "NLSY79 Child & Young Adult full public-use cohort",
+      "source_url": "https://nlsinfo.org/cohort-data/nlscya_all_1979-2020.zip",
+      "source_page": "https://www.nlsinfo.org/content/access-data-investigator/accessing-data-cohorts",
+      "source_updated": "2025-08-27",
+      "local_path": "data/external/nlsy79_child_young_adult/1979-2020/nlscya_all_1979-2020.zip",
+      "status": "downloaded",
+      "grain": "child/young adult in wide file, linked by mother ID",
+      "license_note": "BLS/NLS public-use data; restricted-use files not included",
+      "documentation": "data/external/nlsy79_child_young_adult/DATASET.md"
+    }
+  ]
+}

@@ -1,0 +1,176 @@
+{
+  "audit_version": "preterm-woman-input-audit-v2",
+  "source_rows": {
+    "2023": 3480382,
+    "2024": 3512780
+  },
+  "feature_order": [
+    "maternal_age_at_birth",
+    "prepregnancy_bmi",
+    "previous_live_births",
+    "previous_terminations",
+    "previous_preterm_birth",
+    "chronic_hypertension",
+    "preexisting_diabetes",
+    "previous_cesarean",
+    "prepregnancy_cigarettes_per_day",
+    "prepregnancy_bmi_missing",
+    "previous_live_births_missing",
+    "previous_terminations_missing",
+    "previous_preterm_birth_missing",
+    "chronic_hypertension_missing",
+    "preexisting_diabetes_missing",
+    "previous_cesarean_missing",
+    "prepregnancy_cigarettes_per_day_missing"
+  ],
+  "base_features": [
+    "maternal_age_at_birth",
+    "prepregnancy_bmi",
+    "previous_live_births",
+    "previous_terminations",
+    "previous_preterm_birth",
+    "chronic_hypertension",
+    "preexisting_diabetes",
+    "previous_cesarean",
+    "prepregnancy_cigarettes_per_day"
+  ],
+  "missing_mask_mismatches": {
+    "2023": {
+      "prepregnancy_bmi": 0,
+      "previous_live_births": 0,
+      "previous_terminations": 0,
+      "previous_preterm_birth": 0,
+      "chronic_hypertension": 0,
+      "preexisting_diabetes": 0,
+      "previous_cesarean": 0,
+      "prepregnancy_cigarettes_per_day": 0
+    },
+    "2024": {
+      "prepregnancy_bmi": 0,
+      "previous_live_births": 0,
+      "previous_terminations": 0,
+      "previous_preterm_birth": 0,
+      "chronic_hypertension": 0,
+      "preexisting_diabetes": 0,
+      "previous_cesarean": 0,
+      "prepregnancy_cigarettes_per_day": 0
+    }
+  },
+  "missing_counts": {
+    "2023": {
+      "maternal_age_at_birth": 0,
+      "prepregnancy_bmi": 78065,
+      "previous_live_births": 8427,
+      "previous_terminations": 9838,
+      "previous_preterm_birth": 4803,
+      "chronic_hypertension": 4803,
+      "preexisting_diabetes": 4803,
+      "previous_cesarean": 4803,
+      "prepregnancy_cigarettes_per_day": 13447
+    },
+    "2024": {
+      "maternal_age_at_birth": 0,
+      "prepregnancy_bmi": 82315,
+      "previous_live_births": 12160,
+      "previous_terminations": 13465,
+      "previous_preterm_birth": 4591,
+      "chronic_hypertension": 4591,
+      "preexisting_diabetes": 4591,
+      "previous_cesarean": 4591,
+      "prepregnancy_cigarettes_per_day": 15639
+    }
+  },
+  "observed_support": {
+    "2023": {
+      "maternal_age_at_birth": {
+        "min": 12.0,
+        "max": 50.0
+      },
+      "prepregnancy_bmi": {
+        "min": 13.0,
+        "max": 69.80000305175781
+      },
+      "previous_live_births": {
+        "min": 0.0,
+        "max": 22.0
+      },
+      "previous_terminations": {
+        "min": 0.0,
+        "max": 28.0
+      },
+      "previous_preterm_birth": {
+        "min": 0.0,
+        "max": 1.0
+      },
+      "chronic_hypertension": {
+        "min": 0.0,
+        "max": 1.0
+      },
+      "preexisting_diabetes": {
+        "min": 0.0,
+        "max": 1.0
+      },
+      "previous_cesarean": {
+        "min": 0.0,
+        "max": 1.0
+      },
+      "prepregnancy_cigarettes_per_day": {
+        "min": 0.0,
+        "max": 96.0
+      }
+    },
+    "2024": {
+      "maternal_age_at_birth": {
+        "min": 12.0,
+        "max": 50.0
+      },
+      "prepregnancy_bmi": {
+        "min": 13.0,
+        "max": 69.80000305175781
+      },
+      "previous_live_births": {
+        "min": 0.0,
+        "max": 23.0
+      },
+      "previous_terminations": {
+        "min": 0.0,
+        "max": 30.0
+      },
+      "previous_preterm_birth": {
+        "min": 0.0,
+        "max": 1.0
+      },
+      "chronic_hypertension": {
+        "min": 0.0,
+        "max": 1.0
+      },
+      "preexisting_diabetes": {
+        "min": 0.0,
+        "max": 1.0
+      },
+      "previous_cesarean": {
+        "min": 0.0,
+        "max": 1.0
+      },
+      "prepregnancy_cigarettes_per_day": {
+        "min": 0.0,
+        "max": 95.0
+      }
+    }
+  },
+  "2024_outside_2023_observed_support": {
+    "maternal_age_at_birth": 0,
+    "prepregnancy_bmi": 0,
+    "previous_live_births": 1,
+    "previous_terminations": 3,
+    "previous_preterm_birth": 0,
+    "chronic_hypertension": 0,
+    "preexisting_diabetes": 0,
+    "previous_cesarean": 0,
+    "prepregnancy_cigarettes_per_day": 0
+  },
+  "prediction_input_parity_rows": 580,
+  "prediction_input_parity_mismatches": 0,
+  "age_mapping_caveat": "Source age is integer age at birth; serving requires integer age at expected delivery, an approximation",
+  "population_caveat": "Singleton live-birth records are not all ongoing pregnancies"
+}

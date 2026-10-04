@@ -1,0 +1,112 @@
+{
+  "dataset_id": "cdc_natality_2023_2024_baseline",
+  "grain": "one NCHS live-birth record for a U.S. resident",
+  "population": {
+    "include": "RESTATUS in {1, 2, 3}",
+    "exclude": "RESTATUS == 4 (foreign resident)",
+    "reason": "Aligns the prepared denominator with the national resident-birth population reported in the source specification."
+  },
+  "split": {
+    "train_validation_year": 2023,
+    "temporal_test_year": 2024,
+    "warning": "The public-use file has no stable maternal identifier, so pregnancies of the same woman cannot be grouped across births."
+  },
+  "intended_use": "Offline methodological baseline only",
+  "predictor_policy": "Use only demographic, pre-pregnancy and prior-history fields that plausibly precede the current pregnancy outcome.",
+  "features": [
+    "mager",
+    "mbstate_rec",
+    "mrace6",
+    "mhisp_r",
+    "dmar",
+    "meduc",
+    "priorlive",
+    "priordead",
+    "priorterm",
+    "lbo_rec",
+    "tbo_rec",
+    "illb_r",
+    "ilop_r",
+    "ilp_r",
+    "cig_0",
+    "m_ht_in",
+    "bmi",
+    "bmi_r",
+    "pwgt_r",
+    "rf_pdiab",
+    "rf_phype",
+    "rf_ppterm",
+    "rf_inftr",
+    "rf_fedrg",
+    "rf_artec",
+    "rf_cesar",
+    "rf_cesarn",
+    "dplural"
+  ],
+  "labels": {
+    "target_ptb37": "oegest_comb < 37 weeks",
+    "target_ptb32": "oegest_comb < 32 weeks",
+    "target_gdm": "RF_GDIAB == Y",
+    "target_hdp_proxy": "RF_GHYPE == Y or RF_EHYPE == Y",
+    "target_eclampsia": "RF_EHYPE == Y",
+    "target_low_birthweight_2500g": "DBWT < 2500 g; explicitly not an SGA or FGR label"
+  },
+  "excluded_predictors": [
+    "gestational diabetes",
+    "gestational hypertension/eclampsia",
+    "gestational age at delivery",
+    "birth weight",
+    "delivery interventions",
+    "newborn outcomes",
+    "restatus (population filter, not a predictor)",
+    "total prenatal visits when claiming an early-pregnancy prediction"
+  ],
+  "claim_limits": [
+    "HDP is a heterogeneous proxy and is not an early preeclampsia diagnosis.",
+    "The GDM field has no diagnosis timestamp and does not validate first-trimester screening.",
+    "PTB phenotype cannot always be separated reliably into spontaneous and indicated births.",
+    "Low birth weight is not SGA and is not fetal growth restriction.",
+    "Results require external and local validation before any clinical interpretation."
+  ],
+  "hdp_proxy_study": {
+    "cohort": "U.S. resident singleton live births, 2023+2024, known RF_GHYPE and RF_EHYPE, RF_PHYPE=0",
+    "primary_outcome": "RF_GHYPE=Y OR RF_EHYPE=Y; recorded HDP proxy, not a separate preeclampsia diagnosis",
+    "secondary_outcomes": [
+      "primary outcome AND OEGEST_COMB<37, unknown if gestation unknown",
+      "primary outcome AND OEGEST_COMB<34, unknown if gestation unknown"
+    ],
+    "pooled_cross_validation": "stable 5 folds over all eligible 2023 and 2024 births, one OOF prediction per record",
+    "temporal_validation": "5-fold development within 2023, then frozen 2023 fit and full 2024 retrospective test",
+    "primary_features": [
+      "mager",
+      "bmi",
+      "priorlive",
+      "priordead",
+      "priorterm",
+      "rf_pdiab",
+      "rf_ppterm",
+      "rf_cesar"
+    ],
+    "conception_sensitivity": [
+      "rf_inftr",
+      "rf_artec"
+    ],
+    "demographic_sensitivity": [
+      "mrace6",
+      "mhisp_r",
+      "meduc"
+    ],
+    "forbidden_predictors": [
+      "rf_phype",
+      "rf_ghype",
+      "rf_ehype",
+      "oegest_comb",
+      "target_hdp_proxy",
+      "target_hdp_preterm37",
+      "target_hdp_preterm34",
+      "cig_0"
+    ],
+    "rule_limitation": "observable subset of USPSTF factors; missing clinical factors prevent a full recommendation",
+    "source_reporting": "2024 ART/infertility fields must honor F_RF_INFT and F_RF_INF_ART flags; ILLB_R 888 differs from 999"
+  }
+}

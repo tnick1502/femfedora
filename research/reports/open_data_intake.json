@@ -1,0 +1,279 @@
+{
+  "profiled_on": "2026-09-23",
+  "archives": [
+    {
+      "dataset_id": "cdc_natality_2023_nber_csv",
+      "local_path": "data/external/cdc_natality/2023/natality2023us.csv.zip",
+      "exists": true,
+      "size_bytes": 197536375,
+      "source_valid": true,
+      "file_count": 1,
+      "sha256": "576a16bde51a9b7ebb36c9928d6605dd6eeba15e5dcd9fa35674d35c8bbcdba2"
+    },
+    {
+      "dataset_id": "cdc_natality_2024_nber_csv",
+      "local_path": "data/external/cdc_natality/2024/natality2024us.csv.zip",
+      "exists": true,
+      "size_bytes": 199583331,
+      "source_valid": true,
+      "file_count": 1,
+      "sha256": "9f1d6575baa6381e43c2fc81d00ff8a1de9926a014d5856483497b1e35731875"
+    },
+    {
+      "dataset_id": "ctu_uhb_ctgdb_1_0_0",
+      "local_path": "data/external/ctu_uhb_ctg/1.0.0/files",
+      "exists": true,
+      "size_bytes": 39897278,
+      "source_valid": true,
+      "file_count": 1108,
+      "sha256": "edd29f16747d5300dabce77ca484cb5ff8399589f2128d85714477aefb300088"
+    },
+    {
+      "dataset_id": "uci_cardiotocography_193",
+      "local_path": "data/external/uci_cardiotocography/1.0.0/cardiotocography.zip",
+      "exists": true,
+      "size_bytes": 338866,
+      "source_valid": true,
+      "file_count": 1,
+      "sha256": "ba2853564e282779907242b7bd8a83265d9fc4e79bb008573967daa16677bb6c"
+    },
+    {
+      "dataset_id": "tpehgdb_1_0_1",
+      "local_path": "data/external/tpehg/1.0.1/files",
+      "exists": true,
+      "size_bytes": 257361301,
+      "source_valid": true,
+      "file_count": 607,
+      "sha256": "d98674703ea502620bec782f86d0f6099aea2003fd4e8d6b34d9092a532acdd8"
+    }
+  ],
+  "prepared": {
+    "cdc_natality": {
+      "available": true,
+      "path": "data/processed/cdc_natality/natality_ml_2023_2024.sqlite",
+      "size_bytes": 1030406144,
+      "rows_by_year": {
+        "2023": 3596017,
+        "2024": 3628934
+      },
+      "source_metadata": [
+        {
+          "source_year": 2023,
+          "raw_rows": 3605081,
+          "resident_rows": 3596017,
+          "excluded_rows": 9064,
+          "population_filter": "restatus in {1,2,3}; excludes foreign residents (4)"
+        },
+        {
+          "source_year": 2024,
+          "raw_rows": 3638436,
+          "resident_rows": 3628934,
+          "excluded_rows": 9502,
+          "population_filter": "restatus in {1,2,3}; excludes foreign residents (4)"
+        }
+      ],
+      "target_prevalence": [
+        {
+          "source_year": 2023,
+          "target": "target_ptb37",
+          "known": 3593375,
+          "positive": 373902,
+          "prevalence": 0.10405315337252583
+        },
+        {
+          "source_year": 2024,
+          "target": "target_ptb37",
+          "known": 3624477,
+          "positive": 377204,
+          "prevalence": 0.10407129083727114
+        },
+        {
+          "source_year": 2023,
+          "target": "target_ptb32",
+          "known": 3593375,
+          "positive": 56249,
+          "prevalence": 0.01565352906390232
+        },
+        {
+          "source_year": 2024,
+          "target": "target_ptb32",
+          "known": 3624477,
+          "positive": 55667,
+          "prevalence": 0.015358629672639667
+        },
+        {
+          "source_year": 2023,
+          "target": "target_gdm",
+          "known": 3590265,
+          "positive": 296661,
+          "prevalence": 0.0826292766689924
+        },
+        {
+          "source_year": 2024,
+          "target": "target_gdm",
+          "known": 3621633,
+          "positive": 307048,
+          "prevalence": 0.08478164408155106
+        },
+        {
+          "source_year": 2023,
+          "target": "target_hdp_proxy",
+          "known": 3590265,
+          "positive": 368908,
+          "prevalence": 0.10275230379930173
+        },
+        {
+          "source_year": 2024,
+          "target": "target_hdp_proxy",
+          "known": 3621633,
+          "positive": 384056,
+          "prevalence": 0.10604498026166649
+        },
+        {
+          "source_year": 2023,
+          "target": "target_eclampsia",
+          "known": 3590265,
+          "positive": 8494,
+          "prevalence": 0.0023658420757242155
+        },
+        {
+          "source_year": 2024,
+          "target": "target_eclampsia",
+          "known": 3621633,
+          "positive": 8212,
+          "prevalence": 0.0022674854133480672
+        }
+      ],
+      "feature_missingness": [
+        {
+          "source_year": 2023,
+          "feature": "mager",
+          "missing": 0,
+          "missing_rate": 0.0
+        },
+        {
+          "source_year": 2024,
+          "feature": "mager",
+          "missing": 0,
+          "missing_rate": 0.0
+        },
+        {
+          "source_year": 2023,
+          "feature": "meduc",
+          "missing": 64454,
+          "missing_rate": 0.01792371949298349
+        },
+        {
+          "source_year": 2024,
+          "feature": "meduc",
+          "missing": 68905,
+          "missing_rate": 0.01898766965726023
+        },
+        {
+          "source_year": 2023,
+          "feature": "priorlive",
+          "missing": 5459,
+          "missing_rate": 0.0015180684629688902
+        },
+        {
+          "source_year": 2024,
+          "feature": "priorlive",
+          "missing": 9415,
+          "missing_rate": 0.0025944258010754673
+        },
+        {
+          "source_year": 2023,
+          "feature": "cig_0",
+          "missing": 14186,
+          "missing_rate": 0.003944920171400747
+        },
+        {
+          "source_year": 2024,
+          "feature": "cig_0",
+          "missing": 18242,
+          "missing_rate": 0.005026820548403471
+        },
+        {
+          "source_year": 2023,
+          "feature": "bmi",
+          "missing": 82195,
+          "missing_rate": 0.022857233433546058
+        },
+        {
+          "source_year": 2024,
+          "feature": "bmi",
+          "missing": 88355,
+          "missing_rate": 0.024347370329689106
+        },
+        {
+          "source_year": 2023,
+          "feature": "pwgt_r",
+          "missing": 71900,
+          "missing_rate": 0.019994343741978973
+        },
+        {
+          "source_year": 2024,
+          "feature": "pwgt_r",
+          "missing": 77111,
+          "missing_rate": 0.021248939771293718
+        },
+        {
+          "source_year": 2023,
+          "feature": "rf_ppterm",
+          "missing": 5752,
+          "missing_rate": 0.001599547499358318
+        },
+        {
+          "source_year": 2024,
+          "feature": "rf_ppterm",
+          "missing": 7301,
+          "missing_rate": 0.002011885584031013
+        },
+        {
+          "source_year": 2023,
+          "feature": "dplural",
+          "missing": 0,
+          "missing_rate": 0.0
+        },
+        {
+          "source_year": 2024,
+          "feature": "dplural",
+          "missing": 0,
+          "missing_rate": 0.0
+        }
+      ],
+      "duplicate_source_keys": 0
+    },
+    "uci_cardiotocography": {
+      "available": true,
+      "path": "data/processed/uci_cardiotocography/ctg_features.csv",
+      "rows": 2126,
+      "columns": 25,
+      "exact_duplicate_rows": 11,
+      "duplicate_features_and_target": 12,
+      "nsp_counts": {
+        "1": 1655,
+        "2": 295,
+        "3": 176
+      },
+      "null_cells": 0
+    },
+    "ctu_uhb_ctg": {
+      "available": true,
+      "path": "data/processed/ctu_uhb_ctg/record_index.csv",
+      "records": 552,
+      "missing_signal_files": 0,
+      "duplicate_record_ids": 0,
+      "known_cord_ph": 552
+    },
+    "tpehg": {
+      "available": true,
+      "path": "data/processed/tpehg/record_index.csv",
+      "records": 300,
+      "missing_signal_files": 0,
+      "duplicate_record_ids": 0,
+      "known_preterm_labels": 300,
+      "preterm_positive": 38
+    }
+  }
+}

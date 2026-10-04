@@ -1,0 +1,5 @@
+# Индекс и признаки TPEHG
+
+`record_index.csv` — **300 строк, по одной EHG-записи**. `record_id`, `header_path`, `signal_path` связывают сигнал с заголовком; `sample_frequency_hz`, `sample_count`, `signal_count` описывают запись. `gestation_weeks` — срок родов, `recording_gestational_age_weeks` — срок снятия EHG; `maternal_age`, `parity`, `abortions`, `maternal_weight_kg`, `hypertension`, `diabetes`, `funneling`, `smoker` — дополнительные сведения. `target_preterm` и `recorded_before_26_weeks` — производные индикаторы.
+
+`tpehgdb_features__filter_*.csv` — опубликованные авторами признаки для разных полос фильтра, с отдельными строками на канал записи: `rms`, `fmed`, `fpeak`, `samp_en`, `rec_time`, `gestation`, `premature`, `early`, `group`. При моделировании исхода не подавать `gestation`, `premature`, `early` и любые группы, сформированные из исхода, в предикторы; разделять по `record`, а не по строке канала. Назначение — исследовательский сигналовый baseline PTB, с ограничением 38 положительных исходов. Источник и лицензия — [`data/external/tpehg/DATASET.md`](../../external/tpehg/DATASET.md).

@@ -1,0 +1,140 @@
+{
+  "evaluation_version": "serving-v2",
+  "model_sha256": "a9de1e15430866d9863e6c2d48541cf97319f9b2fa9a89584460e8f130b8f2da",
+  "input_contract_version": "preterm-woman-input-v2",
+  "landmark_week": 28,
+  "eligible_2024_rows": 3398514,
+  "total_2024_rows": 3512780,
+  "eligible_2024_landmark_rows": 3381603,
+  "checklist_fields": [
+    "previous_preterm_birth",
+    "chronic_hypertension",
+    "preexisting_diabetes"
+  ],
+  "checklist_selected_fraction": 0.07785006105092762,
+  "age_proxy_caveat": "Evaluation has age at actual birth; serving receives integer age at expected delivery",
+  "weekly_metrics": {
+    "weekly_log_loss": 0.4017880173510087,
+    "weekly_brier": 0.15180722111587275,
+    "frequency_weekly_log_loss": 0.4139888427701427,
+    "frequency_weekly_brier": 0.15475777807982655
+  },
+  "weekly_calibration": [
+    {
+      "landmark_week": 28,
+      "birth_week": 28,
+      "n_ongoing_live_births": 3381603,
+      "observed_rate": 0.0012068241008776016,
+      "mean_predicted": 0.0012559203508398554
+    },
+    {
+      "landmark_week": 28,
+      "birth_week": 29,
+      "n_ongoing_live_births": 3381603,
+      "observed_rate": 0.001389873382534851,
+      "mean_predicted": 0.0013582637821654621
+    },
+    {
+      "landmark_week": 28,
+      "birth_week": 30,
+      "n_ongoing_live_births": 3381603,
+      "observed_rate": 0.002049619662627458,
+      "mean_predicted": 0.0020817645982977692
+    },
+    {
+      "landmark_week": 28,
+      "birth_week": 31,
+      "n_ongoing_live_births": 3381603,
+      "observed_rate": 0.0023311429520260067,
+      "mean_predicted": 0.0023443923956438916
+    },
+    {
+      "landmark_week": 28,
+      "birth_week": 32,
+      "n_ongoing_live_births": 3381603,
+      "observed_rate": 0.003643242568687099,
+      "mean_predicted": 0.003810491808390977
+    },
+    {
+      "landmark_week": 28,
+      "birth_week": 33,
+      "n_ongoing_live_births": 3381603,
+      "observed_rate": 0.00529955763583129,
+      "mean_predicted": 0.005146685425515302
+    },
+    {
+      "landmark_week": 28,
+      "birth_week": 34,
+      "n_ongoing_live_births": 3381603,
+      "observed_rate": 0.012060552347510928,
+      "mean_predicted": 0.011874142246198467
+    },
+    {
+      "landmark_week": 28,
+      "birth_week": 35,
+      "n_ongoing_live_births": 3381603,
+      "observed_rate": 0.01666901762270734,
+      "mean_predicted": 0.016524376912775307
+    },
+    {
+      "landmark_week": 28,
+      "birth_week": 36,
+      "n_ongoing_live_births": 3381603,
+      "observed_rate": 0.03698334783828853,
+      "mean_predicted": 0.036644860082407686
+    },
+    {
+      "landmark_week": 28,
+      "birth_week": "37+",
+      "n_ongoing_live_births": 3381603,
+      "observed_rate": 0.918366821888909,
+      "mean_predicted": 0.9189591023977652
+    }
+  ],
+  "horizons": {
+    "before_32": {
+      "events": 23595,
+      "observed_rate": 0.006977460098065917,
+      "mean_predicted": 0.0070403411269469775,
+      "auroc": 0.6614629812148861,
+      "auprc": 0.017346360091184895,
+      "brier": 0.006899926661957134,
+      "frequency_brier": 0.006928775165306928,
+      "relative_brier_improvement": 0.00416357908310272,
+      "nulliparous_rows": 1373760,
+      "nulliparous_auroc": 0.6112293432398942,
+      "checklist": {
+        "selected": 263258,
+        "ppv": 0.020892052663166932,
+        "sensitivity": 0.2331002331002331
+      },
+      "model_at_same_selection": {
+        "selected": 263258,
+        "ppv": 0.021868281305791278,
+        "sensitivity": 0.24399237126509854
+      }
+    },
+    "before_37": {
+      "events": 276051,
+      "observed_rate": 0.0816331781110911,
+      "mean_predicted": 0.08104089760223472,
+      "auroc": 0.6361251360972763,
+      "auprc": 0.16355307828521998,
+      "brier": 0.07256535507085934,
+      "frequency_brier": 0.07496977248814507,
+      "relative_brier_improvement": 0.032071824916714786,
+      "nulliparous_rows": 1373760,
+      "nulliparous_auroc": 0.588651527429055,
+      "checklist": {
+        "selected": 263258,
+        "ppv": 0.21824218067447143,
+        "sensitivity": 0.20812820819341354
+      },
+      "model_at_same_selection": {
+        "selected": 263258,
+        "ppv": 0.22271687849941882,
+        "sensitivity": 0.21239553560755078
+      }
+    }
+  }
+}

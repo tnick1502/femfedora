@@ -1,0 +1,7 @@
+# Подготовленная CDC Natality 2023–2024
+
+`natality_ml_2023_2024.sqlite` — локальная SQLite-база с таблицами `births_baseline` и `source_metadata`, построенная из ZIP в `data/external/cdc_natality/`. **Строка — одно живорождение резидентки США**, а не повторный визит. После фильтра `RESTATUS` 1/2/3: 3 596 017 строк за 2023 и 3 628 934 за 2024. Подробные происхождение, ограничения и трактовка исходных полей — в [`data/external/cdc_natality/DATASET.md`](../../external/cdc_natality/DATASET.md).
+
+`births_baseline` содержит `source_year`, `source_row` для связи с источником; демографию (`mager`, `mrace6`, `mhisp_r`, `meduc`), анамнез (`priorlive`, `priordead`, `priorterm`, `rf_pdiab`, `rf_phype`, `rf_ppterm`), факторы до беременности (`bmi`, `cig_0`) и зарегистрированные состояния/исходы (`rf_gdiab`, `rf_ghype`, `rf_ehype`, `oegest_comb`, `dbwt`). Производные метки: `target_ptb37`, `target_ptb32`, `target_gdm`, `target_hdp_proxy`, `target_eclampsia`, `target_low_birthweight_2500g`; точные формулы и запреты на утечку — `data/registry/cdc_natality_baseline_contract.json`. `source_metadata` фиксирует год, источник, число строк и фильтр популяции.
+
+Назначение — статический исследовательский baseline и временная проверка 2023→2024. По этой таблице нельзя строить динамику беременности или считать HDP-proxy диагнозом преэклампсии. Записи одной женщины невозможно сгруппировать по открытому ID матери.
