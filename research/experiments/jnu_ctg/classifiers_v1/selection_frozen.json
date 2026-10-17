@@ -1,0 +1,268 @@
+{
+  "cache_fingerprint": "ab078e5f5c935f67",
+  "champions": {
+    "minimal": "spline_logit",
+    "variability": "spline_logit",
+    "sonomed_fields": "linear",
+    "mfmon_fields": "spline_logit",
+    "mak_fields": "spline_logit"
+  },
+  "choices": [
+    {
+      "profile": "minimal",
+      "family": "catboost",
+      "params": {
+        "auto_class_weights": "SqrtBalanced",
+        "depth": 3,
+        "l2_leaf_reg": 10,
+        "learning_rate": 0.03,
+        "iterations": 300
+      },
+      "mode": "single",
+      "research_threshold": 0.5104030951091807,
+      "calibrator_slope": 1.0125549154106972,
+      "calibrator_intercept": 0.13232678112879512,
+      "champion": false
+    },
+    {
+      "profile": "minimal",
+      "family": "spline_logit",
+      "params": {
+        "C": 30.0,
+        "interactions": true,
+        "n_knots": 3,
+        "weight_policy": null
+      },
+      "mode": "single",
+      "research_threshold": 0.5315194963589915,
+      "calibrator_slope": 0.9965366544406352,
+      "calibrator_intercept": 0.04909731738795737,
+      "champion": true
+    },
+    {
+      "profile": "minimal",
+      "family": "linear",
+      "params": {
+        "C": 1.0,
+        "weight_policy": null
+      },
+      "mode": "single",
+      "research_threshold": 0.5254394708539836,
+      "calibrator_slope": 0.9938847561559943,
+      "calibrator_intercept": 0.042564977333741615,
+      "champion": false
+    },
+    {
+      "profile": "variability",
+      "family": "catboost",
+      "params": {
+        "auto_class_weights": null,
+        "depth": 3,
+        "l2_leaf_reg": 10,
+        "learning_rate": 0.03,
+        "iterations": 700
+      },
+      "mode": "single",
+      "research_threshold": 0.48463951042881315,
+      "calibrator_slope": 1.0185153331029395,
+      "calibrator_intercept": 0.04589513303325623,
+      "champion": false
+    },
+    {
+      "profile": "variability",
+      "family": "spline_logit",
+      "params": {
+        "C": 30.0,
+        "interactions": false,
+        "n_knots": 5,
+        "weight_policy": null
+      },
+      "mode": "single",
+      "research_threshold": 0.4934830799833493,
+      "calibrator_slope": 0.9771969286372431,
+      "calibrator_intercept": 0.04416418959203318,
+      "champion": true
+    },
+    {
+      "profile": "variability",
+      "family": "linear",
+      "params": {
+        "C": 0.1,
+        "weight_policy": null
+      },
+      "mode": "single",
+      "research_threshold": 0.5143981621278703,
+      "calibrator_slope": 0.9999258253180263,
+      "calibrator_intercept": 0.02574733469717138,
+      "champion": false
+    },
+    {
+      "profile": "sonomed_fields",
+      "family": "catboost",
+      "params": {
+        "auto_class_weights": null,
+        "depth": 3,
+        "l2_leaf_reg": 3,
+        "learning_rate": 0.03,
+        "iterations": 700
+      },
+      "mode": "single",
+      "research_threshold": 0.5456291372584352,
+      "calibrator_slope": 1.0889638098071743,
+      "calibrator_intercept": 0.0067409156616771255,
+      "champion": false
+    },
+    {
+      "profile": "sonomed_fields",
+      "family": "spline_logit",
+      "params": {
+        "C": 30.0,
+        "interactions": false,
+        "n_knots": 3,
+        "weight_policy": null
+      },
+      "mode": "single",
+      "research_threshold": 0.5417130518574295,
+      "calibrator_slope": 1.0157919112645946,
+      "calibrator_intercept": 0.008104086787196851,
+      "champion": false
+    },
+    {
+      "profile": "sonomed_fields",
+      "family": "linear",
+      "params": {
+        "C": 10.0,
+        "weight_policy": null
+      },
+      "mode": "single",
+      "research_threshold": 0.4917647371946448,
+      "calibrator_slope": 1.0132918828057291,
+      "calibrator_intercept": 0.00789714265754427,
+      "champion": true
+    },
+    {
+      "profile": "mfmon_fields",
+      "family": "catboost",
+      "params": {
+        "auto_class_weights": "SqrtBalanced",
+        "depth": 3,
+        "l2_leaf_reg": 10,
+        "learning_rate": 0.1,
+        "iterations": 300
+      },
+      "mode": "single",
+      "research_threshold": 0.5055109441452375,
+      "calibrator_slope": 1.0418691938979487,
+      "calibrator_intercept": 0.09621772420162253,
+      "champion": false
+    },
+    {
+      "profile": "mfmon_fields",
+      "family": "spline_logit",
+      "params": {
+        "C": 30.0,
+        "interactions": true,
+        "n_knots": 5,
+        "weight_policy": null
+      },
+      "mode": "single",
+      "research_threshold": 0.517798180842049,
+      "calibrator_slope": 1.0014779102281268,
+      "calibrator_intercept": 0.007992843448657954,
+      "champion": true
+    },
+    {
+      "profile": "mfmon_fields",
+      "family": "linear",
+      "params": {
+        "C": 1.0,
+        "weight_policy": null
+      },
+      "mode": "single",
+      "research_threshold": 0.4787548959073863,
+      "calibrator_slope": 1.0261190904920108,
+      "calibrator_intercept": -0.0006907207488616069,
+      "champion": false
+    },
+    {
+      "profile": "mak_fields",
+      "family": "catboost",
+      "params": {
+        "auto_class_weights": null,
+        "depth": 3,
+        "l2_leaf_reg": 10,
+        "learning_rate": 0.1,
+        "iterations": 300
+      },
+      "mode": "single",
+      "research_threshold": 0.4354803494279918,
+      "calibrator_slope": 1.037183697722058,
+      "calibrator_intercept": 0.005509946314574848,
+      "champion": false
+    },
+    {
+      "profile": "mak_fields",
+      "family": "spline_logit",
+      "params": {
+        "C": 30.0,
+        "interactions": true,
+        "n_knots": 3,
+        "weight_policy": null
+      },
+      "mode": "single",
+      "research_threshold": 0.5465898379929446,
+      "calibrator_slope": 1.0040093206860146,
+      "calibrator_intercept": 0.01745449879191193,
+      "champion": true
+    },
+    {
+      "profile": "mak_fields",
+      "family": "linear",
+      "params": {
+        "C": 10.0,
+        "weight_policy": null
+      },
+      "mode": "single",
+      "research_threshold": 0.4649201571528605,
+      "calibrator_slope": 1.0141456697707336,
+      "calibrator_intercept": 0.006907413901602972,
+      "champion": false
+    }
+  ],
+  "export_sha256": {
+    "models/exported/jnu_ctg/classifiers_v1/minimal_catboost.joblib": "fa7b50cc4095d5227a25e5e7cd19b86bfa8b376f8a6c85b6a3b4ec1b6255b28e",
+    "models/exported/jnu_ctg/classifiers_v1/minimal_catboost_0.cbm": "94f70c3a10b3d26ce78a273adb06b650073262b2f93e525079a6c6d3e5694a8e",
+    "models/exported/jnu_ctg/classifiers_v1/minimal_spline_logit.joblib": "a98192540a06518690937955c4ded41870fe46c73823cf67ef9f15e992693fa5",
+    "models/exported/jnu_ctg/classifiers_v1/minimal_spline_logit_0_preprocessor.joblib": "5240d12ebc2adc53737cf5d53976421e7dfb1b8dfa306cb594012ae744dc4414",
+    "models/exported/jnu_ctg/classifiers_v1/minimal_linear.joblib": "1c668bf983a95bb2b94554e198bbf7913e1ffa30b8dd62d69b3ba01c3b256ecf",
+    "models/exported/jnu_ctg/classifiers_v1/minimal_linear_0_preprocessor.joblib": "32e54ded9baa2c478629ed8f2b0f98d695ce86dc6946aa58ce0cf7c850d1bb4e",
+    "models/exported/jnu_ctg/classifiers_v1/variability_catboost.joblib": "51c04b3ed1f7671ee11d6d07d8fc6d7eb177650a1c77e70539d4e3ee2c89355b",
+    "models/exported/jnu_ctg/classifiers_v1/variability_catboost_0.cbm": "410c7c0facc72ba59b51f6323018b147a538cde28d44966e2ac781094d5f84a3",
+    "models/exported/jnu_ctg/classifiers_v1/variability_spline_logit.joblib": "eb6a94b30d43e6cb5638746c568b9ff009d980ad5cd6e624ebc05aa30716ca5e",
+    "models/exported/jnu_ctg/classifiers_v1/variability_spline_logit_0_preprocessor.joblib": "7b7ded473e0db6e1489d322545a049647714e38fba5de85f65a2bbaad5679951",
+    "models/exported/jnu_ctg/classifiers_v1/variability_linear.joblib": "4b42f8491c17f481da8e6cd4fb944a61aace12117a016b7b5a28af4564877576",
+    "models/exported/jnu_ctg/classifiers_v1/variability_linear_0_preprocessor.joblib": "29e1cc3acf72330ffb461615d4766bdbb96eb1d7615614dd4e55f4677c21f207",
+    "models/exported/jnu_ctg/classifiers_v1/sonomed_fields_catboost.joblib": "6a21a0b344691216207783c1de3def00fcd0125251e2f6a8c0b9b147f89d60b8",
+    "models/exported/jnu_ctg/classifiers_v1/sonomed_fields_catboost_0.cbm": "89f7c22d978225101cf3c18c529ac605eb62ff1976ac80bb8948e3fc171886bb",
+    "models/exported/jnu_ctg/classifiers_v1/sonomed_fields_spline_logit.joblib": "c7bb23d0a64cf9f558a6ae78f7cabc091cf7a367cf7cbc3f84253e2dd5bcc5d3",
+    "models/exported/jnu_ctg/classifiers_v1/sonomed_fields_spline_logit_0_preprocessor.joblib": "6f161ca474477be8284510f95bf9e6101e6b7009225cfe3d8aa24f41b53cb6fc",
+    "models/exported/jnu_ctg/classifiers_v1/sonomed_fields_linear.joblib": "1fbc711690d73deec57651a95cde846774464fe9cf910df16d90f09795db0433",
+    "models/exported/jnu_ctg/classifiers_v1/sonomed_fields_linear_0_preprocessor.joblib": "04f1af4930daf600ee8c387da4e7f3ff0d83f381796e12d2768e3c7083df7bfa",
+    "models/exported/jnu_ctg/classifiers_v1/mfmon_fields_catboost.joblib": "cd50e1d418531c641b0e4e165abcf9a17ecc23346ea3eda21b79faaf8363e5ee",
+    "models/exported/jnu_ctg/classifiers_v1/mfmon_fields_catboost_0.cbm": "800233e9af266928bb5a0223d74d94d276e4f7336200f8f44c183643b228d0a4",
+    "models/exported/jnu_ctg/classifiers_v1/mfmon_fields_spline_logit.joblib": "7e324fb3fc8069d5c62fd9823fd7967caf9ddd154cb42f0838f67caa73c9ef59",
+    "models/exported/jnu_ctg/classifiers_v1/mfmon_fields_spline_logit_0_preprocessor.joblib": "59d9399a6877b6071ea90566f342267932ca0b48651b6bb22c1fc6ed37ba73c1",
+    "models/exported/jnu_ctg/classifiers_v1/mfmon_fields_linear.joblib": "df4477e56f69118d508b7c13a6beae82b9ab6082499875dce4dcafe8a3a66bb1",
+    "models/exported/jnu_ctg/classifiers_v1/mfmon_fields_linear_0_preprocessor.joblib": "8f1140874f633bb9546f55dac9e1fbde51484c5b1b4291bc6fd44a15f816efec",
+    "models/exported/jnu_ctg/classifiers_v1/mak_fields_catboost.joblib": "7c94c3cad1f25dea4d11ab406dbf42710f7ff51669e3be503947a58019b1b211",
+    "models/exported/jnu_ctg/classifiers_v1/mak_fields_catboost_0.cbm": "12877c847218a87077650b005ef54a62c4ac423fd4d0e834650d660c8f886f51",
+    "models/exported/jnu_ctg/classifiers_v1/mak_fields_spline_logit.joblib": "a8c013e298009b471234036d3d06b1be83b00ce4f288221e4fef1a59e3c31f6a",
+    "models/exported/jnu_ctg/classifiers_v1/mak_fields_spline_logit_0_preprocessor.joblib": "e422935e9321d1f19802992e0152b6b1200f12f8d65d49b4ce51fb07393fb7d9",
+    "models/exported/jnu_ctg/classifiers_v1/mak_fields_linear.joblib": "21684fe63686fede1faeec996f12af0a1921a9f363da50e0b57a8f327dde1d99",
+    "models/exported/jnu_ctg/classifiers_v1/mak_fields_linear_0_preprocessor.joblib": "878c69f55eb76b6ab28ec22120dcad70a932a80fbf0efefb8d0a05e2b8c5d6da"
+  },
+  "test_predictions_created": false,
+  "selected_with": "train nested OOF only",
+  "calibrators_fit": "validation calibration only",
+  "threshold_fit": "validation operating-point only"
+}

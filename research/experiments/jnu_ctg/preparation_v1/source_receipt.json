@@ -1,0 +1,12 @@
+{
+  "archive_md5": "ac1cfcba2f1b3336596544211d776771",
+  "archive_sha256": "6efe9ce43f5ef803eb4ef65c87892e1a768899ff3bb82de56c18c834d5e09a98",
+  "columns": 215,
+  "doi": "10.5281/zenodo.21800730",
+  "duplicate_headers": {},
+  "patients": 12606,
+  "rows": 20769,
+  "source_definitions": "README and LICENSE inside original archive; no downloaded code executed",
+  "source_url": "https://zenodo.org/records/21800730",
+  "version": "jnu_preparation_v1_20261017"
+}

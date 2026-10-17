@@ -1,0 +1,565 @@
+[
+  {
+    "profile": "core2",
+    "mode": "selected",
+    "outer_fold": 0,
+    "family": "B_balanced",
+    "engineered": false,
+    "params": {
+      "depth": 5,
+      "iterations": 600,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.06
+    }
+  },
+  {
+    "profile": "core2",
+    "mode": "raw",
+    "outer_fold": 0,
+    "family": "B_balanced",
+    "engineered": false,
+    "params": {
+      "depth": 5,
+      "iterations": 600,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.06
+    }
+  },
+  {
+    "profile": "core2",
+    "mode": "engineered",
+    "outer_fold": 0,
+    "family": "B_balanced",
+    "engineered": true,
+    "params": {
+      "depth": 5,
+      "iterations": 600,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.06
+    }
+  },
+  {
+    "profile": "common3",
+    "mode": "selected",
+    "outer_fold": 0,
+    "family": "logistic",
+    "engineered": false,
+    "params": {
+      "C": 10.0,
+      "class_weight": "balanced"
+    }
+  },
+  {
+    "profile": "common3",
+    "mode": "raw",
+    "outer_fold": 0,
+    "family": "logistic",
+    "engineered": false,
+    "params": {
+      "C": 10.0,
+      "class_weight": "balanced"
+    }
+  },
+  {
+    "profile": "common3",
+    "mode": "engineered",
+    "outer_fold": 0,
+    "family": "logistic",
+    "engineered": true,
+    "params": {
+      "C": 0.1,
+      "class_weight": "balanced"
+    }
+  },
+  {
+    "profile": "sisporto9",
+    "mode": "selected",
+    "outer_fold": 0,
+    "family": "B_sqrt",
+    "engineered": true,
+    "params": {
+      "depth": 3,
+      "iterations": 600,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.06
+    }
+  },
+  {
+    "profile": "sisporto9",
+    "mode": "raw",
+    "outer_fold": 0,
+    "family": "A_multiclass",
+    "engineered": false,
+    "params": {
+      "depth": 3,
+      "iterations": 300,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.06
+    }
+  },
+  {
+    "profile": "sisporto9",
+    "mode": "engineered",
+    "outer_fold": 0,
+    "family": "B_sqrt",
+    "engineered": true,
+    "params": {
+      "depth": 3,
+      "iterations": 600,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.06
+    }
+  },
+  {
+    "profile": "core2",
+    "mode": "selected",
+    "outer_fold": 1,
+    "family": "B_sqrt",
+    "engineered": false,
+    "params": {
+      "depth": 3,
+      "iterations": 300,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.06
+    }
+  },
+  {
+    "profile": "core2",
+    "mode": "raw",
+    "outer_fold": 1,
+    "family": "B_sqrt",
+    "engineered": false,
+    "params": {
+      "depth": 3,
+      "iterations": 300,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.06
+    }
+  },
+  {
+    "profile": "core2",
+    "mode": "engineered",
+    "outer_fold": 1,
+    "family": "B_sqrt",
+    "engineered": true,
+    "params": {
+      "depth": 3,
+      "iterations": 300,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.06
+    }
+  },
+  {
+    "profile": "common3",
+    "mode": "selected",
+    "outer_fold": 1,
+    "family": "logistic",
+    "engineered": true,
+    "params": {
+      "C": 0.1,
+      "class_weight": "balanced"
+    }
+  },
+  {
+    "profile": "common3",
+    "mode": "raw",
+    "outer_fold": 1,
+    "family": "B_balanced",
+    "engineered": false,
+    "params": {
+      "depth": 3,
+      "iterations": 300,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.06
+    }
+  },
+  {
+    "profile": "common3",
+    "mode": "engineered",
+    "outer_fold": 1,
+    "family": "logistic",
+    "engineered": true,
+    "params": {
+      "C": 0.1,
+      "class_weight": "balanced"
+    }
+  },
+  {
+    "profile": "sisporto9",
+    "mode": "selected",
+    "outer_fold": 1,
+    "family": "D_hierarchy",
+    "engineered": true,
+    "params": {
+      "depth": 3,
+      "iterations": 600,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.06
+    }
+  },
+  {
+    "profile": "sisporto9",
+    "mode": "raw",
+    "outer_fold": 1,
+    "family": "C_ovr",
+    "engineered": false,
+    "params": {
+      "depth": 5,
+      "iterations": 300,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.06
+    }
+  },
+  {
+    "profile": "sisporto9",
+    "mode": "engineered",
+    "outer_fold": 1,
+    "family": "D_hierarchy",
+    "engineered": true,
+    "params": {
+      "depth": 3,
+      "iterations": 600,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.06
+    }
+  },
+  {
+    "profile": "core2",
+    "mode": "selected",
+    "outer_fold": 2,
+    "family": "B_sqrt",
+    "engineered": true,
+    "params": {
+      "depth": 3,
+      "iterations": 300,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.06
+    }
+  },
+  {
+    "profile": "core2",
+    "mode": "raw",
+    "outer_fold": 2,
+    "family": "B_sqrt",
+    "engineered": false,
+    "params": {
+      "depth": 3,
+      "iterations": 300,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.06
+    }
+  },
+  {
+    "profile": "core2",
+    "mode": "engineered",
+    "outer_fold": 2,
+    "family": "B_sqrt",
+    "engineered": true,
+    "params": {
+      "depth": 3,
+      "iterations": 300,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.06
+    }
+  },
+  {
+    "profile": "common3",
+    "mode": "selected",
+    "outer_fold": 2,
+    "family": "B_balanced",
+    "engineered": true,
+    "params": {
+      "depth": 5,
+      "iterations": 300,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.06
+    }
+  },
+  {
+    "profile": "common3",
+    "mode": "raw",
+    "outer_fold": 2,
+    "family": "B_balanced",
+    "engineered": false,
+    "params": {
+      "depth": 5,
+      "iterations": 300,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.06
+    }
+  },
+  {
+    "profile": "common3",
+    "mode": "engineered",
+    "outer_fold": 2,
+    "family": "B_balanced",
+    "engineered": true,
+    "params": {
+      "depth": 5,
+      "iterations": 300,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.06
+    }
+  },
+  {
+    "profile": "sisporto9",
+    "mode": "selected",
+    "outer_fold": 2,
+    "family": "D_hierarchy",
+    "engineered": false,
+    "params": {
+      "depth": 5,
+      "iterations": 300,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.06
+    }
+  },
+  {
+    "profile": "sisporto9",
+    "mode": "raw",
+    "outer_fold": 2,
+    "family": "D_hierarchy",
+    "engineered": false,
+    "params": {
+      "depth": 5,
+      "iterations": 300,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.06
+    }
+  },
+  {
+    "profile": "sisporto9",
+    "mode": "engineered",
+    "outer_fold": 2,
+    "family": "D_hierarchy",
+    "engineered": true,
+    "params": {
+      "depth": 3,
+      "iterations": 300,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.06
+    }
+  },
+  {
+    "profile": "core2",
+    "mode": "selected",
+    "outer_fold": 3,
+    "family": "B_balanced",
+    "engineered": false,
+    "params": {
+      "depth": 3,
+      "iterations": 600,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.06
+    }
+  },
+  {
+    "profile": "core2",
+    "mode": "raw",
+    "outer_fold": 3,
+    "family": "B_balanced",
+    "engineered": false,
+    "params": {
+      "depth": 3,
+      "iterations": 600,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.06
+    }
+  },
+  {
+    "profile": "core2",
+    "mode": "engineered",
+    "outer_fold": 3,
+    "family": "B_balanced",
+    "engineered": true,
+    "params": {
+      "depth": 3,
+      "iterations": 600,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.06
+    }
+  },
+  {
+    "profile": "common3",
+    "mode": "selected",
+    "outer_fold": 3,
+    "family": "B_balanced",
+    "engineered": true,
+    "params": {
+      "depth": 3,
+      "iterations": 300,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.06
+    }
+  },
+  {
+    "profile": "common3",
+    "mode": "raw",
+    "outer_fold": 3,
+    "family": "B_balanced",
+    "engineered": false,
+    "params": {
+      "depth": 5,
+      "iterations": 600,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.06
+    }
+  },
+  {
+    "profile": "common3",
+    "mode": "engineered",
+    "outer_fold": 3,
+    "family": "B_balanced",
+    "engineered": true,
+    "params": {
+      "depth": 3,
+      "iterations": 300,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.06
+    }
+  },
+  {
+    "profile": "sisporto9",
+    "mode": "selected",
+    "outer_fold": 3,
+    "family": "D_hierarchy",
+    "engineered": false,
+    "params": {
+      "depth": 5,
+      "iterations": 300,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.06
+    }
+  },
+  {
+    "profile": "sisporto9",
+    "mode": "raw",
+    "outer_fold": 3,
+    "family": "D_hierarchy",
+    "engineered": false,
+    "params": {
+      "depth": 5,
+      "iterations": 300,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.06
+    }
+  },
+  {
+    "profile": "sisporto9",
+    "mode": "engineered",
+    "outer_fold": 3,
+    "family": "D_hierarchy",
+    "engineered": true,
+    "params": {
+      "depth": 3,
+      "iterations": 600,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.06
+    }
+  },
+  {
+    "profile": "core2",
+    "mode": "selected",
+    "outer_fold": 4,
+    "family": "logistic",
+    "engineered": true,
+    "params": {
+      "C": 0.1,
+      "class_weight": "balanced"
+    }
+  },
+  {
+    "profile": "core2",
+    "mode": "raw",
+    "outer_fold": 4,
+    "family": "logistic",
+    "engineered": false,
+    "params": {
+      "C": 1.0,
+      "class_weight": "balanced"
+    }
+  },
+  {
+    "profile": "core2",
+    "mode": "engineered",
+    "outer_fold": 4,
+    "family": "logistic",
+    "engineered": true,
+    "params": {
+      "C": 0.1,
+      "class_weight": "balanced"
+    }
+  },
+  {
+    "profile": "common3",
+    "mode": "selected",
+    "outer_fold": 4,
+    "family": "logistic",
+    "engineered": true,
+    "params": {
+      "C": 0.1,
+      "class_weight": "balanced"
+    }
+  },
+  {
+    "profile": "common3",
+    "mode": "raw",
+    "outer_fold": 4,
+    "family": "logistic",
+    "engineered": false,
+    "params": {
+      "C": 10.0,
+      "class_weight": "balanced"
+    }
+  },
+  {
+    "profile": "common3",
+    "mode": "engineered",
+    "outer_fold": 4,
+    "family": "logistic",
+    "engineered": true,
+    "params": {
+      "C": 0.1,
+      "class_weight": "balanced"
+    }
+  },
+  {
+    "profile": "sisporto9",
+    "mode": "selected",
+    "outer_fold": 4,
+    "family": "C_ovr",
+    "engineered": false,
+    "params": {
+      "depth": 3,
+      "iterations": 300,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.06
+    }
+  },
+  {
+    "profile": "sisporto9",
+    "mode": "raw",
+    "outer_fold": 4,
+    "family": "C_ovr",
+    "engineered": false,
+    "params": {
+      "depth": 3,
+      "iterations": 300,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.06
+    }
+  },
+  {
+    "profile": "sisporto9",
+    "mode": "engineered",
+    "outer_fold": 4,
+    "family": "C_ovr",
+    "engineered": true,
+    "params": {
+      "depth": 3,
+      "iterations": 300,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.06
+    }
+  }
+]

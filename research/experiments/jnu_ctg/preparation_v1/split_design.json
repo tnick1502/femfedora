@@ -1,0 +1,26 @@
+{
+  "attempt_selected": 6,
+  "candidates": 64,
+  "components": 12605,
+  "feature_or_model_scores_used": false,
+  "fractions": {
+    "test": 0.2,
+    "train": 0.6,
+    "validation": 0.2
+  },
+  "objective": 3.272996805154443e-05,
+  "patient_groups": 12606,
+  "primary_unit": "patient_id + connected exact signal duplicates",
+  "rare_positive_patients": 91,
+  "seed": 20261017,
+  "selection_inputs": [
+    "records",
+    "normal",
+    "abnormal",
+    "patients",
+    "positive_patients",
+    "known_patients",
+    "target-presence strata"
+  ],
+  "test_status": "allocated and sealed before model development"
+}

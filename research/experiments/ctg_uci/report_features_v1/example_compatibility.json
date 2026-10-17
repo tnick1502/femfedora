@@ -1,0 +1,63 @@
+{
+  "status": "blocked_incompatible_measurements",
+  "measurements": {
+    "low_variation_min": 0.0,
+    "decelerations_over_20_lost_beats_count": 0.0,
+    "accelerations_15_15_count": 1.0,
+    "decelerations_15_15_count": 0.0,
+    "oscillation_frequency_per_min": 2.2,
+    "oscillation_amplitude_bpm": 14.1,
+    "duration_min": 17.0,
+    "movements_per_hour": 7.1,
+    "stv_bpm": 2.2,
+    "stv_ms": 7.6,
+    "oscillation_amplitude_ms": 47.6,
+    "vstv_bpm": 1.1,
+    "vstv_ms": 3.7,
+    "sinusoidal_min": 0.0,
+    "accelerations_10_15_count": 5.0,
+    "high_variation_min": 13.0,
+    "baseline_bpm": 131.4,
+    "signal_loss_pct": 8.5
+  },
+  "derived": {
+    "duration_s": 1020.0,
+    "accelerations_per_s": 0.000980392156862745,
+    "decelerations_per_s": 0.0,
+    "high_variation_fraction": 0.7647058823529411,
+    "low_variation_fraction": 0.0,
+    "sinusoidal_fraction": 0.0,
+    "nominal_nonlost_min": 15.555,
+    "baseline_rr_ms": 456.62100456621005,
+    "stv_bpm_linear_unit_check": 2.1870216
+  },
+  "missing_mask": {
+    "low_variation_min": false,
+    "decelerations_over_20_lost_beats_count": false,
+    "accelerations_15_15_count": false,
+    "decelerations_15_15_count": false,
+    "oscillation_frequency_per_min": false,
+    "oscillation_amplitude_bpm": false,
+    "duration_min": false,
+    "movements_per_hour": false,
+    "stv_bpm": false,
+    "stv_ms": false,
+    "oscillation_amplitude_ms": false,
+    "vstv_bpm": false,
+    "vstv_ms": false,
+    "sinusoidal_min": false,
+    "accelerations_10_15_count": false,
+    "high_variation_min": false,
+    "baseline_bpm": false,
+    "signal_loss_pct": false
+  },
+  "issues": [
+    "Unverified metadata: device",
+    "Unverified metadata: software_version",
+    "Unverified metadata: analysis_context",
+    "Unverified metadata: gestational_weeks",
+    "No verified measurement bridge to UCI SisPorto 2",
+    "Event denominator (wall-time vs valid signal) is unverified"
+  ],
+  "clinical_validation": false
+}

@@ -1,0 +1,26 @@
+{
+  "fingerprint": "54e923bb77b4598944f5b5075ab2f03f00aaf43d38364d92b534a83e2001ef1c",
+  "passed": true,
+  "nested_candidates": 1380,
+  "inner_evaluations": 4140,
+  "final_candidates": 276,
+  "final_inner_evaluations": 828,
+  "verified_predictions": [
+    "common3/test",
+    "common3/validation",
+    "core2/test",
+    "core2/validation",
+    "sisporto9/test",
+    "sisporto9/validation"
+  ],
+  "grouped_boundaries": true,
+  "same_outer_folds_as_v2": true,
+  "manual_arithmetic": true,
+  "inference_roundtrip": true,
+  "batch_invariant": true,
+  "native_roundtrip": true,
+  "scaler_fit_verified": true,
+  "calibration_validation_only_recomputed": true,
+  "previous_results_unchanged": true,
+  "clinical_transfer_validated": false
+}

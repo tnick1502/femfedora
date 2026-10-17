@@ -1,0 +1,23 @@
+{
+  "frozen_sha256": "b6b4a3de2e58e4796f09e3048577a518191a95d535d8cac14c981a215c5a508f",
+  "code_sha256": "948597e6a854dc2a0ba2a79fcbb570ebad6bff45a65ee608b0a02c82d1078a1d",
+  "component_bootstrap_repetitions": 1000,
+  "conditional_on_frozen_models": true,
+  "test_used_for_selection": false,
+  "negative_control_train_only": true,
+  "measurement_perturbations_not_clinically_validated": true,
+  "clinical_validation": false,
+  "artifacts_sha256": {
+    "research/experiments/jnu_ctg/classifiers_v1/bootstrap_component_multiplicities.npz": "4ae17cd050dbdf7c5a59ca73aba448fc988d6f609e65cf15e7a039c1b70435bb",
+    "research/experiments/jnu_ctg/classifiers_v1/test_bootstrap_intervals.csv": "56a1515b02cd50c252239c73aed494ecd309b5581e085368056e2e529cb9bf5f",
+    "research/experiments/jnu_ctg/classifiers_v1/paired_family_differences.csv": "2e86e812aed7479da4faddb403c392bc059969fb545aa5ea92a682970cdc3d34",
+    "research/experiments/jnu_ctg/classifiers_v1/bootstrap_metric_samples.parquet": "6bfdc9a5a9623ed7c8f54ab98406f79bcd3aa3e4f235820b601e43b940dd20dd",
+    "research/experiments/jnu_ctg/classifiers_v1/test_reliability_bins.csv": "adcaa65b2e4740c28243e4f8af659581b8693508ef7d69de129ceda05f7788ba",
+    "research/experiments/jnu_ctg/classifiers_v1/calibration_changes.csv": "6f2c8fa06d8e5b7839a5a8a896cf339da632a50f1d12551a6ba6c9b7476f191e",
+    "research/experiments/jnu_ctg/classifiers_v1/stress_tests.csv": "e059cc15651da230b78f6aef285ae71e29cd706e24c069ed0a713db1bbe4816a",
+    "research/experiments/jnu_ctg/classifiers_v1/quality_subgroups.csv": "edff375152b05f635debfd16fb90c498cee4fc37431c6507cc2c8fbe075f2a7a",
+    "research/experiments/jnu_ctg/classifiers_v1/train_only_negative_controls.csv": "a06a7ded647baf1521e9c6152f7337fe194b5834799438a6eb0a65a4ceede429",
+    "research/experiments/jnu_ctg/classifiers_v1/duration_probability_drift.parquet": "07cc4ac1be1973bcdde76be62d542e797ae64ff3b535e097ab694a6f0262dd74",
+    "research/experiments/jnu_ctg/classifiers_v1/test_error_cases.csv": "8de151ff9978a48075d30d2becc48fb48c82c51e4f883813362c08ff79ef693f"
+  }
+}

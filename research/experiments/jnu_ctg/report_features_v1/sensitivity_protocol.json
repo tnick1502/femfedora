@@ -1,0 +1,141 @@
+{
+  "seed": 20261017,
+  "train_only": true,
+  "no_label_based_selection": true,
+  "independent_components": 128,
+  "configs": {
+    "median_180s": {
+      "fs": 4,
+      "baseline_window_s": 180,
+      "baseline_method": "median",
+      "max_internal_gap_s": 2.0,
+      "min_baseline_segment_s": 60,
+      "event_smoothing_s": 3,
+      "return_band_bpm": 2.0,
+      "minute_min_observed_fraction": 0.75,
+      "epoch_min_observed_fraction": 0.8,
+      "min_report_observed_fraction": 0.8
+    },
+    "median_300s": {
+      "fs": 4,
+      "baseline_window_s": 300,
+      "baseline_method": "median",
+      "max_internal_gap_s": 2.0,
+      "min_baseline_segment_s": 60,
+      "event_smoothing_s": 3,
+      "return_band_bpm": 2.0,
+      "minute_min_observed_fraction": 0.75,
+      "epoch_min_observed_fraction": 0.8,
+      "min_report_observed_fraction": 0.8
+    },
+    "median_600s": {
+      "fs": 4,
+      "baseline_window_s": 600,
+      "baseline_method": "median",
+      "max_internal_gap_s": 2.0,
+      "min_baseline_segment_s": 60,
+      "event_smoothing_s": 3,
+      "return_band_bpm": 2.0,
+      "minute_min_observed_fraction": 0.75,
+      "epoch_min_observed_fraction": 0.8,
+      "min_report_observed_fraction": 0.8
+    },
+    "median_trim_180s": {
+      "fs": 4,
+      "baseline_window_s": 180,
+      "baseline_method": "median_trim",
+      "max_internal_gap_s": 2.0,
+      "min_baseline_segment_s": 60,
+      "event_smoothing_s": 3,
+      "return_band_bpm": 2.0,
+      "minute_min_observed_fraction": 0.75,
+      "epoch_min_observed_fraction": 0.8,
+      "min_report_observed_fraction": 0.8
+    },
+    "median_trim_300s": {
+      "fs": 4,
+      "baseline_window_s": 300,
+      "baseline_method": "median_trim",
+      "max_internal_gap_s": 2.0,
+      "min_baseline_segment_s": 60,
+      "event_smoothing_s": 3,
+      "return_band_bpm": 2.0,
+      "minute_min_observed_fraction": 0.75,
+      "epoch_min_observed_fraction": 0.8,
+      "min_report_observed_fraction": 0.8
+    },
+    "median_trim_600s": {
+      "fs": 4,
+      "baseline_window_s": 600,
+      "baseline_method": "median_trim",
+      "max_internal_gap_s": 2.0,
+      "min_baseline_segment_s": 60,
+      "event_smoothing_s": 3,
+      "return_band_bpm": 2.0,
+      "minute_min_observed_fraction": 0.75,
+      "epoch_min_observed_fraction": 0.8,
+      "min_report_observed_fraction": 0.8
+    },
+    "no_fill": {
+      "fs": 4,
+      "baseline_window_s": 300,
+      "baseline_method": "median_trim",
+      "max_internal_gap_s": 0,
+      "min_baseline_segment_s": 60,
+      "event_smoothing_s": 3,
+      "return_band_bpm": 2.0,
+      "minute_min_observed_fraction": 0.75,
+      "epoch_min_observed_fraction": 0.8,
+      "min_report_observed_fraction": 0.8
+    },
+    "fill_1s": {
+      "fs": 4,
+      "baseline_window_s": 300,
+      "baseline_method": "median_trim",
+      "max_internal_gap_s": 1,
+      "min_baseline_segment_s": 60,
+      "event_smoothing_s": 3,
+      "return_band_bpm": 2.0,
+      "minute_min_observed_fraction": 0.75,
+      "epoch_min_observed_fraction": 0.8,
+      "min_report_observed_fraction": 0.8
+    },
+    "return_1bpm": {
+      "fs": 4,
+      "baseline_window_s": 300,
+      "baseline_method": "median_trim",
+      "max_internal_gap_s": 2.0,
+      "min_baseline_segment_s": 60,
+      "event_smoothing_s": 3,
+      "return_band_bpm": 1,
+      "minute_min_observed_fraction": 0.75,
+      "epoch_min_observed_fraction": 0.8,
+      "min_report_observed_fraction": 0.8
+    },
+    "return_3bpm": {
+      "fs": 4,
+      "baseline_window_s": 300,
+      "baseline_method": "median_trim",
+      "max_internal_gap_s": 2.0,
+      "min_baseline_segment_s": 60,
+      "event_smoothing_s": 3,
+      "return_band_bpm": 3,
+      "minute_min_observed_fraction": 0.75,
+      "epoch_min_observed_fraction": 0.8,
+      "min_report_observed_fraction": 0.8
+    },
+    "smooth_1s": {
+      "fs": 4,
+      "baseline_window_s": 300,
+      "baseline_method": "median_trim",
+      "max_internal_gap_s": 2.0,
+      "min_baseline_segment_s": 60,
+      "event_smoothing_s": 1,
+      "return_band_bpm": 2.0,
+      "minute_min_observed_fraction": 0.75,
+      "epoch_min_observed_fraction": 0.8,
+      "min_report_observed_fraction": 0.8
+    }
+  },
+  "prefix_labels_assigned": false
+}

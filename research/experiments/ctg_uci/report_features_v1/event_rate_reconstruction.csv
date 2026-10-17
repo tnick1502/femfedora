@@ -1,0 +1,7 @@
+feature,unit,denominator,rows,max_abs_error
+AC,events/second,e-b,2126,0.0
+FM,events/second,e-b,2126,0.0
+UC,events/second,e-b,2126,0.0
+DL,events/second,e-b,2126,0.0
+DS,events/second,e-b,2126,0.0
+DP,events/second,e-b,2126,0.0

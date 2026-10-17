@@ -1,0 +1,31 @@
+{
+  "passed": true,
+  "review_points": 23,
+  "archived_notebooks": 12,
+  "archived_documents": 20,
+  "uci": {
+    "records": 2126,
+    "prefix_proxy_groups": 177,
+    "repeats": 3,
+    "native_models": 8,
+    "patient_identity_verified": false,
+    "independent_new_test": false,
+    "manual_metrics": true
+  },
+  "jnu": {
+    "source_records": 20769,
+    "final_models": 12,
+    "outer_bundles": 60,
+    "checked_report_model_members": 76,
+    "reference_models": 35,
+    "no_missing_inference": true,
+    "no_duplicate_variability_units": true,
+    "no_quality_duration_in_report_X": true,
+    "actual_aggregate_calibration_disjoint": true,
+    "reference_cohorts_identical": true,
+    "clinical_validation": false
+  },
+  "historical_model_binaries_preserved": true,
+  "checks_scope": "specified numerical/group/input/export invariants; not exhaustive proof of scientific correctness",
+  "clinical_validation": false
+}

@@ -1,0 +1,410 @@
+[
+  {
+    "family": "C_ovr",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.03,
+      "iterations": 300
+    },
+    "mean_loss": 0.1882751373779805,
+    "sd_loss": 0.04909843966835067,
+    "folds": 3,
+    "fold_losses": [
+      0.15853931754507067,
+      0.16134002656608115,
+      0.24494606802278965
+    ]
+  },
+  {
+    "family": "C_ovr",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.1,
+      "iterations": 300
+    },
+    "mean_loss": 0.16700413443908166,
+    "sd_loss": 0.05662917056325343,
+    "folds": 3,
+    "fold_losses": [
+      0.13037368798733104,
+      0.1384096491469847,
+      0.23222906618292927
+    ]
+  },
+  {
+    "family": "C_ovr",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.03,
+      "iterations": 300
+    },
+    "mean_loss": 0.18201395438852852,
+    "sd_loss": 0.0492237609570315,
+    "folds": 3,
+    "fold_losses": [
+      0.15046094060901474,
+      0.1568480122329811,
+      0.2387329103235897
+    ]
+  },
+  {
+    "family": "C_ovr",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.1,
+      "iterations": 300
+    },
+    "mean_loss": 0.1714128037976823,
+    "sd_loss": 0.06993938585326279,
+    "folds": 3,
+    "fold_losses": [
+      0.1274523810028095,
+      0.13472335852061962,
+      0.2520626718696178
+    ]
+  },
+  {
+    "family": "C_ovr",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.03,
+      "iterations": 600
+    },
+    "mean_loss": 0.17474410360088144,
+    "sd_loss": 0.05584426789583732,
+    "folds": 3,
+    "fold_losses": [
+      0.14114925405724282,
+      0.14387474937592706,
+      0.23920830736947435
+    ]
+  },
+  {
+    "family": "C_ovr",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.1,
+      "iterations": 600
+    },
+    "mean_loss": 0.17062582548301952,
+    "sd_loss": 0.06909614236085336,
+    "folds": 3,
+    "fold_losses": [
+      0.12579192189632124,
+      0.13588757011170782,
+      0.2501979844410295
+    ]
+  },
+  {
+    "family": "C_ovr",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.03,
+      "iterations": 600
+    },
+    "mean_loss": 0.17303052864028834,
+    "sd_loss": 0.059841546551692104,
+    "folds": 3,
+    "fold_losses": [
+      0.13458511821955185,
+      0.14252926068997504,
+      0.24197720701133812
+    ]
+  },
+  {
+    "family": "C_ovr",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.1,
+      "iterations": 600
+    },
+    "mean_loss": 0.17784062495167827,
+    "sd_loss": 0.07729651870431076,
+    "folds": 3,
+    "fold_losses": [
+      0.1293375525727279,
+      0.13720502234495136,
+      0.2669792999373555
+    ]
+  },
+  {
+    "family": "C_ovr",
+    "params": {
+      "depth": 5,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.03,
+      "iterations": 300
+    },
+    "mean_loss": 0.18077952968528144,
+    "sd_loss": 0.04957290322735188,
+    "folds": 3,
+    "fold_losses": [
+      0.1526284047530264,
+      0.1516913532242166,
+      0.2380188310786013
+    ]
+  },
+  {
+    "family": "C_ovr",
+    "params": {
+      "depth": 5,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.1,
+      "iterations": 300
+    },
+    "mean_loss": 0.17421709204533994,
+    "sd_loss": 0.06917374997680949,
+    "folds": 3,
+    "fold_losses": [
+      0.1306616466764836,
+      0.13801033344473299,
+      0.2539792960148031
+    ]
+  },
+  {
+    "family": "C_ovr",
+    "params": {
+      "depth": 5,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.03,
+      "iterations": 300
+    },
+    "mean_loss": 0.17198681928746487,
+    "sd_loss": 0.05270910960179858,
+    "folds": 3,
+    "fold_losses": [
+      0.1405699809472575,
+      0.142551169782455,
+      0.23283930713268217
+    ]
+  },
+  {
+    "family": "C_ovr",
+    "params": {
+      "depth": 5,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.1,
+      "iterations": 300
+    },
+    "mean_loss": 0.1788993091587517,
+    "sd_loss": 0.07477072604882731,
+    "folds": 3,
+    "fold_losses": [
+      0.133052460937852,
+      0.13846492905357144,
+      0.2651805374848317
+    ]
+  },
+  {
+    "family": "C_ovr",
+    "params": {
+      "depth": 5,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.03,
+      "iterations": 600
+    },
+    "mean_loss": 0.17266782993401017,
+    "sd_loss": 0.05799156689147811,
+    "folds": 3,
+    "fold_losses": [
+      0.13816428171149114,
+      0.14021899337929283,
+      0.23962021471124648
+    ]
+  },
+  {
+    "family": "C_ovr",
+    "params": {
+      "depth": 5,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.1,
+      "iterations": 600
+    },
+    "mean_loss": 0.18183620933973668,
+    "sd_loss": 0.0824074540509424,
+    "folds": 3,
+    "fold_losses": [
+      0.1299868039359263,
+      0.138661578813226,
+      0.27686024527005787
+    ]
+  },
+  {
+    "family": "C_ovr",
+    "params": {
+      "depth": 5,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.03,
+      "iterations": 600
+    },
+    "mean_loss": 0.1676061252811404,
+    "sd_loss": 0.06480932920624213,
+    "folds": 3,
+    "fold_losses": [
+      0.1265427773355955,
+      0.13395661946064522,
+      0.24231897904718064
+    ]
+  },
+  {
+    "family": "C_ovr",
+    "params": {
+      "depth": 5,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.1,
+      "iterations": 600
+    },
+    "mean_loss": 0.1904969785942693,
+    "sd_loss": 0.08256277944580388,
+    "folds": 3,
+    "fold_losses": [
+      0.13976174361005095,
+      0.14596420625814815,
+      0.2857649859146088
+    ]
+  },
+  {
+    "family": "C_ovr",
+    "params": {
+      "depth": 7,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.03,
+      "iterations": 300
+    },
+    "mean_loss": 0.17465167914283383,
+    "sd_loss": 0.05634297479679305,
+    "folds": 3,
+    "fold_losses": [
+      0.14452933239084334,
+      0.1397727486085778,
+      0.23965295642908033
+    ]
+  },
+  {
+    "family": "C_ovr",
+    "params": {
+      "depth": 7,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.1,
+      "iterations": 300
+    },
+    "mean_loss": 0.1762925284438478,
+    "sd_loss": 0.07051021220192419,
+    "folds": 3,
+    "fold_losses": [
+      0.14344895636261554,
+      0.1281955973981094,
+      0.25723303157081845
+    ]
+  },
+  {
+    "family": "C_ovr",
+    "params": {
+      "depth": 7,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.03,
+      "iterations": 300
+    },
+    "mean_loss": 0.16986514630595062,
+    "sd_loss": 0.05858615411113065,
+    "folds": 3,
+    "fold_losses": [
+      0.13953944412563096,
+      0.13265814639397305,
+      0.2373978483982478
+    ]
+  },
+  {
+    "family": "C_ovr",
+    "params": {
+      "depth": 7,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.1,
+      "iterations": 300
+    },
+    "mean_loss": 0.1811868195122619,
+    "sd_loss": 0.07537191699868005,
+    "folds": 3,
+    "fold_losses": [
+      0.14058705712072359,
+      0.13481833982845876,
+      0.2681550615876034
+    ]
+  },
+  {
+    "family": "C_ovr",
+    "params": {
+      "depth": 7,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.03,
+      "iterations": 600
+    },
+    "mean_loss": 0.168759012050544,
+    "sd_loss": 0.06415349653822254,
+    "folds": 3,
+    "fold_losses": [
+      0.13402175231182265,
+      0.12946492748207358,
+      0.24279035635773571
+    ]
+  },
+  {
+    "family": "C_ovr",
+    "params": {
+      "depth": 7,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.1,
+      "iterations": 600
+    },
+    "mean_loss": 0.18539559730993602,
+    "sd_loss": 0.08330157600621008,
+    "folds": 3,
+    "fold_losses": [
+      0.14264718765806728,
+      0.13214686551920135,
+      0.28139273875253945
+    ]
+  },
+  {
+    "family": "C_ovr",
+    "params": {
+      "depth": 7,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.03,
+      "iterations": 600
+    },
+    "mean_loss": 0.17374954142295318,
+    "sd_loss": 0.07162960640196689,
+    "folds": 3,
+    "fold_losses": [
+      0.13410677111660518,
+      0.13070488975870648,
+      0.2564369633935479
+    ]
+  },
+  {
+    "family": "C_ovr",
+    "params": {
+      "depth": 7,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.1,
+      "iterations": 600
+    },
+    "mean_loss": 0.19629621652064452,
+    "sd_loss": 0.08539143933030764,
+    "folds": 3,
+    "fold_losses": [
+      0.14912877277003725,
+      0.1448924587848385,
+      0.2948674180070578
+    ]
+  }
+]

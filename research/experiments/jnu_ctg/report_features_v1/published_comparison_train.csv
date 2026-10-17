@@ -1,0 +1,6 @@
+ours,published,n,ours_median,published_median,spearman,unit_equivalence_confirmed,measurement_error_estimated
+baseline_bpm,F_BL,12456,140.33963518403223,138.96354165,0.9799086483777518,False,False
+acc15_count,F_A_N,12456,4.0,13.0,0.7057256387358636,False,False
+dec15_count,F_D_N,12456,1.0,0.0,0.6696564375355907,False,False
+stv_ms,F_STV,12442,8.367725907884818,2.534840056,0.795355588578478,False,False
+amplitude_bpm,F_LTV,12446,21.8,16.783114275,0.050517637495415255,False,False

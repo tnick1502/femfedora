@@ -1,0 +1,410 @@
+[
+  {
+    "family": "B_balanced",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.03,
+      "iterations": 300
+    },
+    "mean_loss": 0.3364070163084789,
+    "sd_loss": 0.10414040620255535,
+    "folds": 3,
+    "fold_losses": [
+      0.28466378103478707,
+      0.26827223838315173,
+      0.45628502950749794
+    ]
+  },
+  {
+    "family": "B_balanced",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.1,
+      "iterations": 300
+    },
+    "mean_loss": 0.26236032895277056,
+    "sd_loss": 0.12950751070074584,
+    "folds": 3,
+    "fold_losses": [
+      0.20248966875888877,
+      0.173620373653529,
+      0.4109709444458939
+    ]
+  },
+  {
+    "family": "B_balanced",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.03,
+      "iterations": 300
+    },
+    "mean_loss": 0.319307278534287,
+    "sd_loss": 0.10748937394285168,
+    "folds": 3,
+    "fold_losses": [
+      0.2677523678692128,
+      0.24730675116947365,
+      0.4428627165641746
+    ]
+  },
+  {
+    "family": "B_balanced",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.1,
+      "iterations": 300
+    },
+    "mean_loss": 0.24146810303518848,
+    "sd_loss": 0.12882489389975219,
+    "folds": 3,
+    "fold_losses": [
+      0.17632976852469076,
+      0.1582201674032502,
+      0.38985437317762445
+    ]
+  },
+  {
+    "family": "B_balanced",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.03,
+      "iterations": 600
+    },
+    "mean_loss": 0.27953425018415634,
+    "sd_loss": 0.12353022490708035,
+    "folds": 3,
+    "fold_losses": [
+      0.21894652252922983,
+      0.19799537323860988,
+      0.42166085478462934
+    ]
+  },
+  {
+    "family": "B_balanced",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.1,
+      "iterations": 600
+    },
+    "mean_loss": 0.2377980112700835,
+    "sd_loss": 0.13534713474381943,
+    "folds": 3,
+    "fold_losses": [
+      0.17476872730466217,
+      0.14546060883904083,
+      0.3931646976665475
+    ]
+  },
+  {
+    "family": "B_balanced",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.03,
+      "iterations": 600
+    },
+    "mean_loss": 0.2589989053978355,
+    "sd_loss": 0.12213146450371426,
+    "folds": 3,
+    "fold_losses": [
+      0.1983268261512159,
+      0.1790840097791214,
+      0.3995858802631692
+    ]
+  },
+  {
+    "family": "B_balanced",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.1,
+      "iterations": 600
+    },
+    "mean_loss": 0.21343309894776083,
+    "sd_loss": 0.1255003764876291,
+    "folds": 3,
+    "fold_losses": [
+      0.14900330374268553,
+      0.13323382655420463,
+      0.35806216654639234
+    ]
+  },
+  {
+    "family": "B_balanced",
+    "params": {
+      "depth": 5,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.03,
+      "iterations": 300
+    },
+    "mean_loss": 0.30232826500142423,
+    "sd_loss": 0.10503099414383818,
+    "folds": 3,
+    "fold_losses": [
+      0.2567662591457982,
+      0.22777177542171526,
+      0.4224467604367592
+    ]
+  },
+  {
+    "family": "B_balanced",
+    "params": {
+      "depth": 5,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.1,
+      "iterations": 300
+    },
+    "mean_loss": 0.23414517019165867,
+    "sd_loss": 0.12486622763153557,
+    "folds": 3,
+    "fold_losses": [
+      0.1725729662661002,
+      0.15202324506715534,
+      0.3778392992417205
+    ]
+  },
+  {
+    "family": "B_balanced",
+    "params": {
+      "depth": 5,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.03,
+      "iterations": 300
+    },
+    "mean_loss": 0.2776636634821212,
+    "sd_loss": 0.11428786335066575,
+    "folds": 3,
+    "fold_losses": [
+      0.22287049484733074,
+      0.20108911136021404,
+      0.40903138423881863
+    ]
+  },
+  {
+    "family": "B_balanced",
+    "params": {
+      "depth": 5,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.1,
+      "iterations": 300
+    },
+    "mean_loss": 0.21526128800081445,
+    "sd_loss": 0.1299897032312845,
+    "folds": 3,
+    "fold_losses": [
+      0.14732150521139675,
+      0.1333197374147918,
+      0.36514262137625475
+    ]
+  },
+  {
+    "family": "B_balanced",
+    "params": {
+      "depth": 5,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.03,
+      "iterations": 600
+    },
+    "mean_loss": 0.2561863505901834,
+    "sd_loss": 0.12222355609533841,
+    "folds": 3,
+    "fold_losses": [
+      0.1994038838788176,
+      0.17268294032866807,
+      0.3964722275630646
+    ]
+  },
+  {
+    "family": "B_balanced",
+    "params": {
+      "depth": 5,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.1,
+      "iterations": 600
+    },
+    "mean_loss": 0.2152675343919055,
+    "sd_loss": 0.12728143466223754,
+    "folds": 3,
+    "fold_losses": [
+      0.1514044657901106,
+      0.13256183669006621,
+      0.36183630069553957
+    ]
+  },
+  {
+    "family": "B_balanced",
+    "params": {
+      "depth": 5,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.03,
+      "iterations": 600
+    },
+    "mean_loss": 0.23152866234458344,
+    "sd_loss": 0.12604755113511032,
+    "folds": 3,
+    "fold_losses": [
+      0.16773223283594188,
+      0.1501330253962635,
+      0.37672072880154495
+    ]
+  },
+  {
+    "family": "B_balanced",
+    "params": {
+      "depth": 5,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.1,
+      "iterations": 600
+    },
+    "mean_loss": 0.1991922304879817,
+    "sd_loss": 0.12821526298312233,
+    "folds": 3,
+    "fold_losses": [
+      0.13222576488590165,
+      0.11832611687460055,
+      0.34702480970344285
+    ]
+  },
+  {
+    "family": "B_balanced",
+    "params": {
+      "depth": 7,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.03,
+      "iterations": 300
+    },
+    "mean_loss": 0.293126524494051,
+    "sd_loss": 0.10958918947873272,
+    "folds": 3,
+    "fold_losses": [
+      0.25013056822854185,
+      0.21155510241890485,
+      0.41769390283470625
+    ]
+  },
+  {
+    "family": "B_balanced",
+    "params": {
+      "depth": 7,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.1,
+      "iterations": 300
+    },
+    "mean_loss": 0.2286622767105828,
+    "sd_loss": 0.12903279281906502,
+    "folds": 3,
+    "fold_losses": [
+      0.17333666968397135,
+      0.1365178620438453,
+      0.37613229840393175
+    ]
+  },
+  {
+    "family": "B_balanced",
+    "params": {
+      "depth": 7,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.03,
+      "iterations": 300
+    },
+    "mean_loss": 0.26234902070055366,
+    "sd_loss": 0.11228439206618275,
+    "folds": 3,
+    "fold_losses": [
+      0.22128421573048165,
+      0.17637768594482564,
+      0.3893851604263537
+    ]
+  },
+  {
+    "family": "B_balanced",
+    "params": {
+      "depth": 7,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.1,
+      "iterations": 300
+    },
+    "mean_loss": 0.2081629803663617,
+    "sd_loss": 0.12265632090084642,
+    "folds": 3,
+    "fold_losses": [
+      0.1501148448653381,
+      0.1253059347394472,
+      0.3490681614942998
+    ]
+  },
+  {
+    "family": "B_balanced",
+    "params": {
+      "depth": 7,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.03,
+      "iterations": 600
+    },
+    "mean_loss": 0.24867182472235796,
+    "sd_loss": 0.12466239592987023,
+    "folds": 3,
+    "fold_losses": [
+      0.1938806340371709,
+      0.1607888139558806,
+      0.3913460261740225
+    ]
+  },
+  {
+    "family": "B_balanced",
+    "params": {
+      "depth": 7,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.1,
+      "iterations": 600
+    },
+    "mean_loss": 0.20850297833935896,
+    "sd_loss": 0.12557435027668085,
+    "folds": 3,
+    "fold_losses": [
+      0.15246037897681525,
+      0.12070831305928542,
+      0.3523402429819763
+    ]
+  },
+  {
+    "family": "B_balanced",
+    "params": {
+      "depth": 7,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.03,
+      "iterations": 600
+    },
+    "mean_loss": 0.22294465378735642,
+    "sd_loss": 0.1255992174114379,
+    "folds": 3,
+    "fold_losses": [
+      0.16562410177355186,
+      0.1362319296946245,
+      0.3669779298938929
+    ]
+  },
+  {
+    "family": "B_balanced",
+    "params": {
+      "depth": 7,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.1,
+      "iterations": 600
+    },
+    "mean_loss": 0.19560345433843096,
+    "sd_loss": 0.1181440046641011,
+    "folds": 3,
+    "fold_losses": [
+      0.1389849525919248,
+      0.11642426498178395,
+      0.3314011454415841
+    ]
+  }
+]

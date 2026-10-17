@@ -1,0 +1,17 @@
+{
+  "scope": "Independent read-only review of new ctg_audit.py",
+  "code_sha256": "f55199c3440a8e428e284812a82fdfe21d0f6de895d8cfd2113298c9fb1de0c4",
+  "no_P0_P1_observed": true,
+  "confirmed": [
+    "class probability soft voting",
+    "outer holdout independence",
+    "development-only shortlist",
+    "separate validation architecture selection",
+    "independent nonlinear arithmetic regression oracle"
+  ],
+  "limits": [
+    "Internal calibration crossfit is a selection score; outer CV protects the full procedure",
+    "Final cutoff fits crossfitted probabilities while fold cutoff fits its calibrator probabilities; validation architecture score is approximate",
+    "Winner selection among six families adds optimism; fixed-family outer scores do not remove it"
+  ]
+}

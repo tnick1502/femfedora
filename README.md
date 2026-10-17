@@ -142,7 +142,7 @@ data/raw
 
 ## Открытые данные для первого ML-этапа
 
-В проекте зарегистрированы CDC/NCHS Natality 2023–2024, CTU-UHB CTG, UCI Cardiotocography и TPEHG. Тяжёлые архивы находятся локально в `data/external/` и не попадают в обычный Git. Их происхождение, лицензии и ограничения описаны в `data/registry/open_datasets.json` и в базе знаний.
+В проекте зарегистрированы CDC/NCHS Natality 2023–2024, CTU-UHB CTG, UCI Cardiotocography, TPEHG и дородовая JNU-CTG 1.0.0. Тяжёлые архивы находятся локально в `data/external/` и не попадают в обычный Git. Их происхождение, лицензии и ограничения описаны в `data/registry/open_datasets.json`; аудит JNU-CTG — в отдельной серии jnu_ctg, ноутбук 01.
 
 Дополнительно локально загружены современный архив Collaborative Perinatal Project v3.3.1, авторский Multiomics Preeclampsia (Marić et al.) и полные public-use архивы NLSY79 и NLSY79 Child & Young Adult. Для DREAM/SDY2187 сохранён официальный манифест; сам пакет ImmPort требует авторизованной загрузки. Состояние, URL и версии новых источников — в `data/registry/longitudinal_datasets.json`. В каждом каталоге `data/external/<набор>/DATASET.md` описаны поля, зерно данных, цель исследования и применимость к проекту.
 
@@ -160,6 +160,13 @@ python -m src.data.profile_open_datasets
 - `data/processed/ctu_uhb_ctg/record_index.csv` — индекс КТГ-сигналов и метаданных;
 - `data/processed/tpehg/record_index.csv` — индекс EHG-сигналов;
 - `data/processed/uci_cardiotocography/ctg_features.csv` — очищенный учебный feature benchmark.
+
+Серии КТГ обновлены после критического разбора 23 замечаний эксперта:
+
+- [UCI — 8 ноутбуков](research/notebooks/ctg_uci/README.md): benchmark с 177 группами-прокси, 3 повтора 5×3 nested CV, proper-score selection/calibration. Средний group Macro-F1 исправленной процедуры 0.855. Кластерная ветка сохранена и закрыта для клинических выводов.
+- [JNU — 4 ноутбука](research/notebooks/jnu_ctg/README.md): strict report-модели без learned missing fallback, дублирующих единиц и quality/duration в X; одинаковые внешние группы для сигнальных ориентиров. Цель — expert normal/abnormal, не риск асфиксии.
+- [Ответ по каждому пункту](research/notebooks/ctg_uci/07_deep_audit_and_recommendations.ipynb), новые модели — `models/exported/ctg_uci/reviewed_v3/` и `models/exported/jnu_ctg/reviewed_v2/`. Прежние notebooks/results сохранены.
+- Единый вход бланка: `src.features.ctg_report_contract`. При missing/unconfirmed fields прогноз не вычисляется. Внешне валидированных bridges приборов пока нет, поэтому application mode возвращает отказ и clinical_risk=None.
 
 ## CDC HDP-proxy: общие фолды и временная проверка
 

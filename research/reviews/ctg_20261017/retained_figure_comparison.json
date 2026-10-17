@@ -1,0 +1,34 @@
+[
+  {
+    "notebook": "01_prepare_data.ipynb",
+    "original_figures": 11,
+    "identical_original_render": 11,
+    "matches": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  {
+    "notebook": "02_report_features.ipynb",
+    "original_figures": 7,
+    "identical_original_render": 7,
+    "matches": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  }
+]

@@ -1,0 +1,7 @@
+{
+  "frozen_sha256": "b6b4a3de2e58e4796f09e3048577a518191a95d535d8cac14c981a215c5a508f",
+  "predictions_sha256": "ea23f84e37f1caf695262e6738442b87af8ff0ada6f6bd8c6d2d6f5ad43308d6",
+  "metrics_sha256": "50d0dcd9ae12a229cdf319819b12e107cf17092a26de6f4ef38fe80f8e8c836b",
+  "test_used_for_selection": false,
+  "one_frozen_evaluation": true
+}

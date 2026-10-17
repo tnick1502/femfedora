@@ -1,0 +1,92 @@
+{
+  "fingerprint": "f9c52010a79720e3324ce3e301e530240df3dfc32f44d6823e6a9e4974353060",
+  "family": "D_hierarchy",
+  "architecture": "single",
+  "ensemble_minimum_gain": 0.01,
+  "selection_source": "train_nested_CV_then_validation_crossfit",
+  "policies": {
+    "A_multiclass/single": {
+      "mode": "threshold",
+      "threshold": 0.4,
+      "params": {
+        "depth": 3,
+        "iterations": 600,
+        "l2_leaf_reg": 3,
+        "learning_rate": 0.1
+      },
+      "validation_score": 0.8357351510162184,
+      "sensitivity_threshold": 0.16
+    },
+    "B_sqrt/single": {
+      "mode": "calibrated",
+      "threshold": null,
+      "params": {
+        "depth": 3,
+        "iterations": 600,
+        "l2_leaf_reg": 3,
+        "learning_rate": 0.1
+      },
+      "validation_score": 0.8448906868429708,
+      "sensitivity_threshold": 0.15000000000000002
+    },
+    "B_balanced/single": {
+      "mode": "raw",
+      "threshold": null,
+      "params": {
+        "depth": 5,
+        "iterations": 600,
+        "l2_leaf_reg": 3,
+        "learning_rate": 0.03
+      },
+      "validation_score": 0.8219907550478025,
+      "sensitivity_threshold": 0.12
+    },
+    "C_ovr/single": {
+      "mode": "calibrated",
+      "threshold": null,
+      "params": {
+        "depth": 3,
+        "iterations": 600,
+        "l2_leaf_reg": 3,
+        "learning_rate": 0.1
+      },
+      "validation_score": 0.8209967520947624,
+      "sensitivity_threshold": 0.33
+    },
+    "D_hierarchy/single": {
+      "mode": "raw",
+      "threshold": null,
+      "params": {
+        "depth": 5,
+        "iterations": 300,
+        "l2_leaf_reg": 10,
+        "learning_rate": 0.1
+      },
+      "validation_score": 0.8397376073578143,
+      "sensitivity_threshold": 0.22
+    },
+    "D_hierarchy/fold_ensemble": {
+      "mode": "calibrated",
+      "threshold": null,
+      "params": {
+        "depth": 5,
+        "iterations": 300,
+        "l2_leaf_reg": 10,
+        "learning_rate": 0.1
+      },
+      "validation_score": 0.8463037158660326,
+      "sensitivity_threshold": 0.3
+    },
+    "logistic/single": {
+      "mode": "calibrated",
+      "threshold": null,
+      "params": {
+        "C": 0.1,
+        "class_weight": "balanced"
+      },
+      "validation_score": 0.7446092607083319,
+      "sensitivity_threshold": 0.08
+    }
+  },
+  "test_used_for_selection": false
+}

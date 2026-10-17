@@ -1,0 +1,40 @@
+{
+  "version": "JNU_report_operational_1.0",
+  "fingerprint": "aed1582a8467403309308e09323d41c40352ae151aaf81de914805aef93b75bd",
+  "config": {
+    "fs": 4,
+    "baseline_window_s": 300,
+    "baseline_method": "median_trim",
+    "max_internal_gap_s": 2.0,
+    "min_baseline_segment_s": 60,
+    "event_smoothing_s": 3,
+    "return_band_bpm": 2.0,
+    "minute_min_observed_fraction": 0.75,
+    "epoch_min_observed_fraction": 0.8,
+    "min_report_observed_fraction": 0.8
+  },
+  "records": 20769,
+  "labels_used": false,
+  "test_used_for_selection": false,
+  "clinical_validation": false,
+  "vendor_equivalence_verified": false,
+  "artifacts_sha256": {
+    "data/processed/jnu_ctg/report_features_v1/measurements.parquet": "f834e4b177a3bab119db62dc7a7bcf0cac9b8d2fd2fe251823389dc9e367b08c",
+    "data/processed/jnu_ctg/report_features_v1/measurement_dictionary.csv": "64b8695f2f268745a09d67c777b61ad1fbcc536f5686076a54bbe99fb4b68ba1",
+    "data/processed/jnu_ctg/report_features_v1/X_minimal_train.parquet": "5e623de2deed557257affe07aa438922cb0f017c582bd5f4fed532ea33470d53",
+    "data/processed/jnu_ctg/report_features_v1/X_minimal_validation.parquet": "4f209f755f770e4fff11c0d0130fa14d93d9b5e8e90d8878a0b76a26e4c5729d",
+    "data/processed/jnu_ctg/report_features_v1/X_minimal_test.parquet": "5a451cf3e831ab23c7c2cae12afd0cef48c6bb13b0908afdce7eddafafdf8519",
+    "data/processed/jnu_ctg/report_features_v1/X_variability_train.parquet": "4d210b1884812d7cc28107dd6eee08cbd754ab6b97720652471e128b44b8f890",
+    "data/processed/jnu_ctg/report_features_v1/X_variability_validation.parquet": "2e3bf9c693d1137bff1f71eef0347abde630b0171bb47a9b600e8c9467e45346",
+    "data/processed/jnu_ctg/report_features_v1/X_variability_test.parquet": "b4d7e0a8378494d61b1c64d89ca014dbb2b16eb6ecb83a00db30b0423c846579",
+    "data/processed/jnu_ctg/report_features_v1/X_sonomed_fields_train.parquet": "112218546d660eedeb1abed38c4aff533f664dec4dcac882210d78eb04554b17",
+    "data/processed/jnu_ctg/report_features_v1/X_sonomed_fields_validation.parquet": "bf83bbca01b5c3edb866bc846f1b59eb925428ad33c19a4d99f6bd722f5bf439",
+    "data/processed/jnu_ctg/report_features_v1/X_sonomed_fields_test.parquet": "f89b21a88ea4332d2a0ba156b36e0ddfdf68d8106ff51e805092383f53925aff",
+    "data/processed/jnu_ctg/report_features_v1/X_mfmon_fields_train.parquet": "5b8704b4f022fb218ce06824360eedf185dd29f608735b702a2562b7c37a14b5",
+    "data/processed/jnu_ctg/report_features_v1/X_mfmon_fields_validation.parquet": "094b7dedc0818ba78146d7ebdaf16b00105a81c9c216feefe234af6ac6d211c5",
+    "data/processed/jnu_ctg/report_features_v1/X_mfmon_fields_test.parquet": "124acb23989c11253abadbd2abe90ca32a98dcefaa73de0dadcf6aa8f314e5f1",
+    "data/processed/jnu_ctg/report_features_v1/X_mak_fields_train.parquet": "f3b82b7f10884acfc4434b9b443558b81604a396beb6fed4299046aabfc243d6",
+    "data/processed/jnu_ctg/report_features_v1/X_mak_fields_validation.parquet": "80033fb2346ba620414a21bca8b18cf37d9b94b7f07bf2f50f9c830d4fabb0b9",
+    "data/processed/jnu_ctg/report_features_v1/X_mak_fields_test.parquet": "146ffb2b4ccdb2ad87d8d6cddc82fc0a9ff286d94a31a2d66c2517f8e85df118"
+  }
+}

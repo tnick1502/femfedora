@@ -1,0 +1,18 @@
+[
+  {
+    "series": "ctg_uci",
+    "old_fingerprint": "ee2401d56ac6c506bad8704260a9938d634411d2d272498c3c191c9147034ea8",
+    "new_fingerprint": "3ba84fa0b44c8b40fdc3808ded0b94edce484933f16b138d9fa130d71c6c1bc2",
+    "migrated_checkpoints": 543,
+    "discarded_incomplete_cache_files": [],
+    "change": "Only __main__ dispatch changed to imported module; estimator algorithms, parameters, inputs, folds and scores unchanged. Existing complete checkpoints reused."
+  },
+  {
+    "series": "jnu_ctg",
+    "old_fingerprint": "ec65b10616e601c13e69cea88cdac4a2988666f56918cdaf77a6729f74880049",
+    "new_fingerprint": "e5b67436a8d3b2b44c47a800d4951e9046322306d3849b95be1810b85bfcca29",
+    "migrated_checkpoints": 323,
+    "discarded_incomplete_cache_files": [],
+    "change": "Only __main__ dispatch changed to imported module; estimator algorithms, parameters, inputs, folds and scores unchanged. Existing complete checkpoints reused."
+  }
+]

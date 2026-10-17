@@ -1,0 +1,28 @@
+{
+  "fingerprint": "3ba84fa0b44c8b40fdc3808ded0b94edce484933f16b138d9fa130d71c6c1bc2",
+  "selected_family": "A_multiclass",
+  "clinical_validation": false,
+  "artifacts_sha256": {
+    "research/experiments/ctg_uci/reviewed_v3/repeat_metrics.csv": "1fbfd2629a6adc6f1b1dccc68e2de0c8afdd8f7f029d3eabbefb1b4ffe93c092",
+    "research/experiments/ctg_uci/reviewed_v3/fold_metrics.csv": "5361bc3f477d7aac0c03d4ae44b2bcba0a8479b15263c7032c77abc349c1391f",
+    "research/experiments/ctg_uci/reviewed_v3/outer_assignments.parquet": "11f70acd551c96c15c38d0963e9c4944e49212064dcf7e97f221e76869bb14bf",
+    "research/experiments/ctg_uci/reviewed_v3/nested_predictions.parquet": "ef802fe2bd7d8cfbbf3a48b76bbbb84a7d69e17a7cc4dfda4765391d0f328ee9",
+    "research/experiments/ctg_uci/reviewed_v3/nested_choices.json": "34249aa5a2ef9f99539a73604c0511944945c6d612cde488e72f82a45147773c",
+    "models/exported/ctg_uci/reviewed_v3/B_balanced_0.cbm": "6e597b820a0a21c3d89773e6025d138d4a32ae23bfe35c9d9c0ad2813e312b53",
+    "models/exported/ctg_uci/reviewed_v3/B_sqrt.joblib": "d9ad6e4ceab4a3a651f14531ae371e9dba5866e5b24059e635ff20b4a1cd2b5f",
+    "models/exported/ctg_uci/reviewed_v3/C_ovr.joblib": "e00edbfaafefa522543a24543672305441fbb6f76376820ae880b4e292b15fa3",
+    "models/exported/ctg_uci/reviewed_v3/B_sqrt_0.cbm": "d26a809be88196326c088a88bb77c64574b65903953e191c082dc881307e9cf5",
+    "models/exported/ctg_uci/reviewed_v3/model_card.json": "b332fcf3573b6f8bf587149fc477897680f5c353d6db7429dab973d31cecfe70",
+    "models/exported/ctg_uci/reviewed_v3/C_ovr_2.cbm": "ae1d596fa9e67bf3b7ff47dfe036e913aa75c269d321bcaa66791e53305dae11",
+    "models/exported/ctg_uci/reviewed_v3/logistic.joblib": "7dea2e97717b4072313b76855095a7c8074bed2a7fc77c8acfac183a17b577e6",
+    "models/exported/ctg_uci/reviewed_v3/A_multiclass_0.cbm": "6dc2a50faa3df6258d23f3f5deb524e6a8a5472d363559cff6830dc33ffae5b5",
+    "models/exported/ctg_uci/reviewed_v3/C_ovr_0.cbm": "34bc78cd0d69225c795140b63258672809ccec6ffd88b49374c102179f0bf29f",
+    "models/exported/ctg_uci/reviewed_v3/C_ovr_1.cbm": "f20e14e559fe1f35ff020e5f28f51b99fd019b005201cd58bdb93b8de244e04b",
+    "models/exported/ctg_uci/reviewed_v3/D_hierarchy_0.cbm": "b0e886b3c89fd6884d981ca4af21cb56531773d5bebfc281ec014d3df3f3ad16",
+    "models/exported/ctg_uci/reviewed_v3/A_multiclass.joblib": "64129193ec41da2f16d19a02a2715f58c49f396bc8784c94c0549d1d7a2aea09",
+    "models/exported/ctg_uci/reviewed_v3/D_hierarchy_1.cbm": "368ce659c0cac71a4da1f378aab99adf87c893814b888d585f6dd30b75d12625",
+    "models/exported/ctg_uci/reviewed_v3/logistic_preprocessor.joblib": "eb68c81cb23e1ec93112ae698831e1099d31f6b26591f8cb97e7ec6ac392fbcc",
+    "models/exported/ctg_uci/reviewed_v3/D_hierarchy.joblib": "e583fc0d4b88e5e2810b7995345fb0fb1242e5a34ee82dd3b5a742402efb5a25",
+    "models/exported/ctg_uci/reviewed_v3/B_balanced.joblib": "1bcb662ced3c9b41b0ad606d62da7ff3e00d7fb2b105b48fe9f46a2021a93785"
+  }
+}

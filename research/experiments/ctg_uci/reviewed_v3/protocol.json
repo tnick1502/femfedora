@@ -1,0 +1,183 @@
+{
+  "fingerprint": "3ba84fa0b44c8b40fdc3808ded0b94edce484933f16b138d9fa130d71c6c1bc2",
+  "input_sha256": {
+    "src/training/ctg_prefix_benchmark.py": "99875c6506fefb12d3883fb13b1f004cbeb2cbbe2ddbbc09dab57346dd42c2eb",
+    "src/training/ctg_review_models.py": "cb2acb3106391cc220e5982a001e99a0f535c9e7d5b5df7bf7f2132ed2ad2b03",
+    "src/training/ctg_review_evidence.py": "7bae374ecb50b76fda8069b6b3b382331489310204f8b414caa5e9739b1b006e",
+    "data/processed/ctg_uci/ctg_primary.parquet": "0e067949cc641f3ef8c46dcfc17cb2d049915aeae8c8568f78d45b2eee06f67b"
+  },
+  "environment": {
+    "numpy": "2.4.6",
+    "pandas": "2.3.3",
+    "scikit-learn": "1.9.1",
+    "catboost": "1.2.10"
+  },
+  "grouping": "initials-like prefix proxy; S+digits kept; union exact feature duplicates; identity unverified",
+  "repeats": 3,
+  "outer": 5,
+  "inner": 3,
+  "cat_grid": [
+    {
+      "depth": 3,
+      "iterations": 300,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.03
+    },
+    {
+      "depth": 3,
+      "iterations": 300,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.1
+    },
+    {
+      "depth": 3,
+      "iterations": 300,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.03
+    },
+    {
+      "depth": 3,
+      "iterations": 300,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.1
+    },
+    {
+      "depth": 3,
+      "iterations": 600,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.03
+    },
+    {
+      "depth": 3,
+      "iterations": 600,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.1
+    },
+    {
+      "depth": 3,
+      "iterations": 600,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.03
+    },
+    {
+      "depth": 3,
+      "iterations": 600,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.1
+    },
+    {
+      "depth": 5,
+      "iterations": 300,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.03
+    },
+    {
+      "depth": 5,
+      "iterations": 300,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.1
+    },
+    {
+      "depth": 5,
+      "iterations": 300,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.03
+    },
+    {
+      "depth": 5,
+      "iterations": 300,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.1
+    },
+    {
+      "depth": 5,
+      "iterations": 600,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.03
+    },
+    {
+      "depth": 5,
+      "iterations": 600,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.1
+    },
+    {
+      "depth": 5,
+      "iterations": 600,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.03
+    },
+    {
+      "depth": 5,
+      "iterations": 600,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.1
+    },
+    {
+      "depth": 7,
+      "iterations": 300,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.03
+    },
+    {
+      "depth": 7,
+      "iterations": 300,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.1
+    },
+    {
+      "depth": 7,
+      "iterations": 300,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.03
+    },
+    {
+      "depth": 7,
+      "iterations": 300,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.1
+    },
+    {
+      "depth": 7,
+      "iterations": 600,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.03
+    },
+    {
+      "depth": 7,
+      "iterations": 600,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.1
+    },
+    {
+      "depth": 7,
+      "iterations": 600,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.03
+    },
+    {
+      "depth": 7,
+      "iterations": 600,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.1
+    }
+  ],
+  "logistic_grid": [
+    {
+      "C": 0.1
+    },
+    {
+      "C": 1.0
+    },
+    {
+      "C": 10.0
+    }
+  ],
+  "selector": "minimum group-balanced log loss, one-SE parsimony heuristic within each fit",
+  "calibration": "fixed temperature on current fit-side selected-configuration OOF; outer labels never enter calibration",
+  "decision": "argmax; no posthoc threshold tuning",
+  "sample_weight": "1/current-fit-prefix-segment-count, normalized mean 1",
+  "evaluation": "all 2126 observations already seen; exploratory repeated nested CV, not a new blind test",
+  "ensemble": "single predeclared; previous mode comparison not evidence against all ensembles",
+  "clinical_application": false
+}

@@ -1,0 +1,19 @@
+{
+  "notebook_executed": true,
+  "code_cells": 12,
+  "figures": 11,
+  "html_tables": 23,
+  "unit_tests_passed": 9,
+  "visual_review": "All 11 local plot PNGs inspected; labels/axes/units/data reviewed. Saved HTML tables and structure inspected; browser-rendered HTML inspection unavailable.",
+  "previous_UCI_results_unchanged": true,
+  "clinical_validation": false,
+  "sha256": {
+    "research/notebooks/jnu_ctg/01_prepare_data.ipynb": "bef55e649cdaa0fa1000a89b70755a93068ce95acca495ec32adbfff759e3c56",
+    "research/experiments/jnu_ctg/preparation_v1/01_prepare_data.html": "d81b2dbdbdc06817def3df80b913d9d9f0360593e032cd9349a56931bd99b7bb",
+    "research/notebooks/jnu_ctg/ANALYSIS_PLAN.md": "5c744aafbb41dcdc343a2f7c0f6df01c62802b42d0e5a12ec528d80f2319df59",
+    "research/notebooks/jnu_ctg/README.md": "154c78234f2f77af04f25e6b2e8e51ac9e39c67f5a58fc544a1202e8c2bcb262",
+    "tools/build_jnu_preparation_notebook.py": "1aa8023038321ca7b510535892486ebd0e848b2ee51a396455ed9e377d71c14a",
+    "tools/validate_jnu_preparation.py": "815d49ed6f4051afbdc95e990e03ccea04625e2c27acc4439f98cbbe0692ac82",
+    "tests/unit/test_jnu_ctg_preparation.py": "289daf32306c46cf40c191839754a75e38ff64a61f49b6ec40aac609b43b4df1"
+  }
+}

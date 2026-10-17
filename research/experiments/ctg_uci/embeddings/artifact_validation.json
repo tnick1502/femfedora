@@ -1,0 +1,21 @@
+{
+  "code_data_version_match": true,
+  "notebook_sha256": "d5c0a5807a82e0011f9132fc2c2354545006c6223989827bc8fabb15a72dfdc2",
+  "model_sha256": "20bf28a7d09bf078f12541dc3c90e9e64c6aad720a743f09baed91ccf1724af3",
+  "code_cells_executed": 10,
+  "png_outputs": 6,
+  "legacy_unchanged": true,
+  "targeted_tests": "16 passed",
+  "saved_model_inference": "12 bundles checked in notebook",
+  "figures_reviewed": [
+    "01_geometry.png",
+    "02_autoencoder.png",
+    "03_stability.png",
+    "04_nsp_association.png",
+    "05_pathologic_enrichment.png",
+    "06_fcm_projections.png"
+  ],
+  "html_preview": "exported; browser review unavailable because local file protocol is blocked; PNGs visually reviewed with local image viewer",
+  "split": "unchanged original source-file-disjoint train/validation/test",
+  "stability_repeats": 84
+}

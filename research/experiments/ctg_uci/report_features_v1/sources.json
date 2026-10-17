@@ -1,0 +1,18 @@
+{
+  "accessed": "2026-10-17",
+  "sources": {
+    "uci": "https://archive.ics.uci.edu/dataset/193/cardiotocography",
+    "sisporto2_validation": "https://www.sciencedirect.com/science/article/abs/pii/S030121150400212X",
+    "sisporto_features_primary_study": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7516409/",
+    "sonomed_manual": "https://cordismed.ru/image/pdf/spektromed-sonomed-200-instrukcija.pdf",
+    "mfmon_manual": "https://usontec.com/uploads/s/9/2/c/92ckun9gej9h/file/raxxmfuv.pdf",
+    "dawes_redman_manufacturer": "https://www.huntleigh-diagnostics.com/wp-content/uploads/2025/07/749339EN-1.1-English-DAWES-REDMAN-CTG-ANALYSIS-Clinical-Application-Guide.pdf"
+  },
+  "notes": [
+    "Manufacturer manuals are primary documents, not proof of the attached device identity",
+    "Russian report layout resembles Sonomed/MFMon family; identity not inferred",
+    "Later SisPorto studies explain related definitions but do not prove equality of software versions",
+    "No hospital labels, no paired device-versus-SisPorto measurements available"
+  ],
+  "xls_sha256": "d6aa62e82625e59f9d5b05bc8fc52af9ea67bdf2a23f1faca8511d5618fcb421"
+}

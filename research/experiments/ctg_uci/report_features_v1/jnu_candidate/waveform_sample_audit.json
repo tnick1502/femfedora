@@ -1,0 +1,7 @@
+{
+  "record_id": "10000_1_210208000001",
+  "FHR_zero_pct": 0.7916666666666667,
+  "UC_zero_pct": 0.0,
+  "sampling_hz": 4,
+  "note": "FHR zero masked; UC zero not automatically treated as missing"
+}

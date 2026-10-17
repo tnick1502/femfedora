@@ -1,0 +1,121 @@
+{
+  "measurements": {
+    "duration_min": 17.0,
+    "signal_loss_pct": 8.5,
+    "baseline_bpm": 131.4,
+    "acc10_count": 5.0,
+    "acc15_count": 1.0,
+    "dec15_count": 0.0,
+    "dec20lost_count": 0.0,
+    "high_variation_min": 13.0,
+    "low_variation_min": 0.0,
+    "sinusoidal_min": 0.0,
+    "amplitude_ms": 47.6,
+    "amplitude_bpm": 14.1,
+    "oscillation_frequency_per_min": 2.2,
+    "stv_ms": 7.6,
+    "stv_bpm": 2.2,
+    "vstv_ms": 3.7,
+    "vstv_bpm": 1.1,
+    "movements_per_hour": 7.1
+  },
+  "evidence": [
+    {
+      "field": "duration_min",
+      "value": 17.0,
+      "line": "Время анализа 17,0 (10–60) мин"
+    },
+    {
+      "field": "signal_loss_pct",
+      "value": 8.5,
+      "line": "Потери сигнала 8,5 %"
+    },
+    {
+      "field": "baseline_bpm",
+      "value": 131.4,
+      "line": "Базальная ЧСС 131,4 (115–160) BPM"
+    },
+    {
+      "field": "acc10_count",
+      "value": 5.0,
+      "line": "Акцелерации >10 BPM и 15 с 5"
+    },
+    {
+      "field": "acc15_count",
+      "value": 1.0,
+      "line": "Акцелерации >15 BPM и 15 с ✓ 1 (≥1)"
+    },
+    {
+      "field": "dec15_count",
+      "value": 0.0,
+      "line": "Децелерации >15 BPM и 15 с 0"
+    },
+    {
+      "field": "dec20lost_count",
+      "value": 0.0,
+      "line": "Децелерации >20 ударов ✓ 0 (≤0)"
+    },
+    {
+      "field": "high_variation_min",
+      "value": 13.0,
+      "line": "Высокая вариабельность ✓ 13 (≥3) мин"
+    },
+    {
+      "field": "low_variation_min",
+      "value": 0.0,
+      "line": "Низкая вариабельность 0 мин"
+    },
+    {
+      "field": "sinusoidal_min",
+      "value": 0.0,
+      "line": "Синусоидальный ритм ✓ 0 (≤0) мин"
+    },
+    {
+      "field": "amplitude_ms",
+      "value": 47.6,
+      "line": "Амплитуда осцилляций 47,6 мс; 14,1 BPM"
+    },
+    {
+      "field": "amplitude_bpm",
+      "value": 14.1,
+      "line": "Амплитуда осцилляций 47,6 мс; 14,1 BPM"
+    },
+    {
+      "field": "oscillation_frequency_per_min",
+      "value": 2.2,
+      "line": "Частота осцилляций 2,2 1/мин"
+    },
+    {
+      "field": "stv_ms",
+      "value": 7.6,
+      "line": "STV ✓ 7,6 (≥4) мс; 2,2 BPM"
+    },
+    {
+      "field": "stv_bpm",
+      "value": 2.2,
+      "line": "STV ✓ 7,6 (≥4) мс; 2,2 BPM"
+    },
+    {
+      "field": "vstv_ms",
+      "value": 3.7,
+      "line": "ВКИ 3,7 мс; 1,1 BPM"
+    },
+    {
+      "field": "vstv_bpm",
+      "value": 1.1,
+      "line": "ВКИ 3,7 мс; 1,1 BPM"
+    },
+    {
+      "field": "movements_per_hour",
+      "value": 7.1,
+      "line": "Частота шевелений ✓ 7,1 (≥6) 1/час"
+    }
+  ],
+  "unparsed_lines": [
+    "Оценка КТГ плода 1 (Пользовательская)",
+    "8 из 8 параметров в норме"
+  ],
+  "conflicts": [],
+  "requires_confirmation": true,
+  "ocr_accuracy_evaluated": false
+}

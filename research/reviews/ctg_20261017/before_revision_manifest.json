@@ -1,0 +1,82 @@
+{
+  "research/notebooks/ctg_uci/07_deep_audit_and_recommendations.ipynb": {
+    "sha256": "d6700d206186ad1ad92d0336493dae152c53f6b7226c79b2e11ead0bd454fbe3",
+    "archive": "research/reviews/ctg_20261017/before_revision/ctg_uci/07_deep_audit_and_recommendations.ipynb"
+  },
+  "research/notebooks/ctg_uci/05_results_and_error_analysis.ipynb": {
+    "sha256": "68917837a171f963831761f2daf35f972bca94583ea7bc8102abbff2cbe531d3",
+    "archive": "research/reviews/ctg_20261017/before_revision/ctg_uci/05_results_and_error_analysis.ipynb"
+  },
+  "research/notebooks/ctg_uci/04_clustering_without_outcomes.ipynb": {
+    "sha256": "9916f353726b9d1c7b8dfafdd75b5997e90815c5edab583da41cbe751b9c0d01",
+    "archive": "research/reviews/ctg_20261017/before_revision/ctg_uci/04_clustering_without_outcomes.ipynb"
+  },
+  "research/notebooks/ctg_uci/PREGNANCY_APP_INPUT.md": {
+    "sha256": "2a503331b7bd51be3dbeb93dfb51b4a9f7239a3d5e03aa428a192d2e5ed0a219",
+    "archive": "research/reviews/ctg_20261017/before_revision/ctg_uci/PREGNANCY_APP_INPUT.md"
+  },
+  "research/notebooks/ctg_uci/README.md": {
+    "sha256": "b25720efa5daefa586076abeb9c94834f424dcfd6a39c62a899305e31e375d39",
+    "archive": "research/reviews/ctg_20261017/before_revision/ctg_uci/README.md"
+  },
+  "research/notebooks/ctg_uci/02_nested_grid_search.ipynb": {
+    "sha256": "fd048b228488ac8131af2327918b70a6baf11866f573570dc9238b5ddf396586",
+    "archive": "research/reviews/ctg_20261017/before_revision/ctg_uci/02_nested_grid_search.ipynb"
+  },
+  "research/notebooks/ctg_uci/01_prepare_data.ipynb": {
+    "sha256": "602ca5ba375fc07ffd6bf86bf252408700bf255fc0184e7c1432602b605e751d",
+    "archive": "research/reviews/ctg_20261017/before_revision/ctg_uci/01_prepare_data.ipynb"
+  },
+  "research/notebooks/ctg_uci/EXPERIMENT_PLAN_V2.md": {
+    "sha256": "06272cbd3a9bfa4a9083e566c8b81da59ec428f3439eabc8790b26d46bff8417",
+    "archive": "research/reviews/ctg_20261017/before_revision/ctg_uci/EXPERIMENT_PLAN_V2.md"
+  },
+  "research/notebooks/ctg_uci/03_calibration_ensemble_and_test.ipynb": {
+    "sha256": "8ea19e8d4add3e41a2fa9fbb2994a2c833374ff4d696b4a31fdd5146b9e627e1",
+    "archive": "research/reviews/ctg_20261017/before_revision/ctg_uci/03_calibration_ensemble_and_test.ipynb"
+  },
+  "research/notebooks/ctg_uci/EXPERIMENT_PLAN.md": {
+    "sha256": "1fc49c4ddc6b06ac0473a3528f23b053b462dbb1f6d3f5116dc4340a07261d8a",
+    "archive": "research/reviews/ctg_20261017/before_revision/ctg_uci/EXPERIMENT_PLAN.md"
+  },
+  "research/notebooks/ctg_uci/06_clustering_embeddings_grid_search.ipynb": {
+    "sha256": "d5c0a5807a82e0011f9132fc2c2354545006c6223989827bc8fabb15a72dfdc2",
+    "archive": "research/reviews/ctg_20261017/before_revision/ctg_uci/06_clustering_embeddings_grid_search.ipynb"
+  },
+  "research/notebooks/ctg_uci/08_hospital_reports_feature_engineering.ipynb": {
+    "sha256": "017e656c28a9090cefacca51bb240866ce48897f3bdf612c7746835a2a0e7649",
+    "archive": "research/reviews/ctg_20261017/before_revision/ctg_uci/08_hospital_reports_feature_engineering.ipynb"
+  },
+  "research/notebooks/jnu_ctg/CLASSIFIER_PROTOCOL.md": {
+    "sha256": "c3abe98870d77eff78b236e30aa20f6e969f34787fd51cbbfc95d36706f62445",
+    "archive": "research/reviews/ctg_20261017/before_revision/jnu_ctg/CLASSIFIER_PROTOCOL.md"
+  },
+  "research/notebooks/jnu_ctg/README.md": {
+    "sha256": "9c232026216e85cb3003ef6ae440fe3043a6fe3b0609628ceba2d2d3051d2214",
+    "archive": "research/reviews/ctg_20261017/before_revision/jnu_ctg/README.md"
+  },
+  "research/notebooks/jnu_ctg/01_prepare_data.ipynb": {
+    "sha256": "bef55e649cdaa0fa1000a89b70755a93068ce95acca495ec32adbfff759e3c56",
+    "archive": "research/reviews/ctg_20261017/before_revision/jnu_ctg/01_prepare_data.ipynb"
+  },
+  "research/notebooks/jnu_ctg/ANALYSIS_PLAN.md": {
+    "sha256": "2915980a3543deef203353bc8b320542505eb8e139a728962c6dc1a3832c5840",
+    "archive": "research/reviews/ctg_20261017/before_revision/jnu_ctg/ANALYSIS_PLAN.md"
+  },
+  "research/notebooks/jnu_ctg/04_classifier_assessment.ipynb": {
+    "sha256": "1e0b9d3b7cac4f63b06e22551995e58ce9900e7f4c081b68104c15e0e5c3dacb",
+    "archive": "research/reviews/ctg_20261017/before_revision/jnu_ctg/04_classifier_assessment.ipynb"
+  },
+  "research/notebooks/jnu_ctg/02_report_features.ipynb": {
+    "sha256": "7bd995e2c4b715dddb4fb66514db374bc8cd41c65e0165ae5d229f869d2e091e",
+    "archive": "research/reviews/ctg_20261017/before_revision/jnu_ctg/02_report_features.ipynb"
+  },
+  "research/notebooks/jnu_ctg/03_report_classifiers.ipynb": {
+    "sha256": "3b833ab8911639c5c7673aab98b1f570077385065cccf50db8e18aee88a8187d",
+    "archive": "research/reviews/ctg_20261017/before_revision/jnu_ctg/03_report_classifiers.ipynb"
+  },
+  "research/notebooks/jnu_ctg/REPORT_FEATURE_METHODS.md": {
+    "sha256": "3f01f1fdf12095cd14ec2f2c3afae983473991b75d84bf2c824af8b518df48a0",
+    "archive": "research/reviews/ctg_20261017/before_revision/jnu_ctg/REPORT_FEATURE_METHODS.md"
+  }
+}

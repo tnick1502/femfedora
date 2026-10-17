@@ -1,0 +1,25 @@
+{
+  "source": "https://zenodo.org/records/21800730",
+  "doi": "10.5281/zenodo.21800730",
+  "archive_md5": "ac1cfcba2f1b3336596544211d776771",
+  "archive_sha256": "6efe9ce43f5ef803eb4ef65c87892e1a768899ff3bb82de56c18c834d5e09a98",
+  "archive_members_checked": true,
+  "waveform_count": 20769,
+  "rows": 20769,
+  "columns": 215,
+  "unique_patients": 12606,
+  "license_file": "CC BY 4.0 text included inside archive",
+  "outcome_missing": 58,
+  "positive_outcome_patients": 91,
+  "inconsistent_patient_outcome": 0,
+  "hospital_mapping_verified": false,
+  "models_trained": false,
+  "blockers": [
+    "F_STV/F_LTV names do not document equality to the hospital extractor",
+    "Binary FIGO normal/abnormal cannot validate separate suspect/pathologic classes",
+    "Rare neonatal outcome is distinct from morphology and UCI NSP",
+    "Delivery and neonatal columns are unavailable at antenatal prediction time",
+    "Gestational age is described at delivery; recording-time gestation must be established",
+    "Single center; independent device and clinical validation still needed"
+  ]
+}

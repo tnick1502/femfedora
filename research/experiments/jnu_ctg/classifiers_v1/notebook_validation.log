@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "model_bundles": 15,
+  "records_train": 12464,
+  "records_test": 4140,
+  "all_nested_oof_rows_once": true,
+  "finite_probabilities": true,
+  "manual_test_arithmetic": true,
+  "exact_native_model_roundtrip": true,
+  "previous_preparation_and_UCI_artifacts_preserved": true,
+  "clinical_validation": false
+}

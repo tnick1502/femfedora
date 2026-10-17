@@ -1,0 +1,5 @@
+target,label,recordings,patients_with_label,missing_target
+figo_label,0,9598,7270,0
+figo_label,1,11171,8342,0
+neonatal_asphyxia,0,20557,12477,58
+neonatal_asphyxia,1,154,91,58

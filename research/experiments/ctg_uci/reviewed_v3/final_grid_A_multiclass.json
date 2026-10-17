@@ -1,0 +1,410 @@
+[
+  {
+    "family": "A_multiclass",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.03,
+      "iterations": 300
+    },
+    "mean_loss": 0.22548497277036184,
+    "sd_loss": 0.03847206396155712,
+    "folds": 3,
+    "fold_losses": [
+      0.20670936338409046,
+      0.2000057862742257,
+      0.2697397686527694
+    ]
+  },
+  {
+    "family": "A_multiclass",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.1,
+      "iterations": 300
+    },
+    "mean_loss": 0.18744992887209574,
+    "sd_loss": 0.04829583054153222,
+    "folds": 3,
+    "fold_losses": [
+      0.1610463342862332,
+      0.15811204007773366,
+      0.24319141225232027
+    ]
+  },
+  {
+    "family": "A_multiclass",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.03,
+      "iterations": 300
+    },
+    "mean_loss": 0.20938028142517048,
+    "sd_loss": 0.04266545863152108,
+    "folds": 3,
+    "fold_losses": [
+      0.18705916411694729,
+      0.18250576216661782,
+      0.25857591799194635
+    ]
+  },
+  {
+    "family": "A_multiclass",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.1,
+      "iterations": 300
+    },
+    "mean_loss": 0.18360604178965512,
+    "sd_loss": 0.05184717219857886,
+    "folds": 3,
+    "fold_losses": [
+      0.16178291847631532,
+      0.14623776571226504,
+      0.24279744118038502
+    ]
+  },
+  {
+    "family": "A_multiclass",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.03,
+      "iterations": 600
+    },
+    "mean_loss": 0.19684562845945267,
+    "sd_loss": 0.04674164743150817,
+    "folds": 3,
+    "fold_losses": [
+      0.1749486392133091,
+      0.16507207957946718,
+      0.25051616658558173
+    ]
+  },
+  {
+    "family": "A_multiclass",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.1,
+      "iterations": 600
+    },
+    "mean_loss": 0.17685115786679287,
+    "sd_loss": 0.050817095539524355,
+    "folds": 3,
+    "fold_losses": [
+      0.15288031516689599,
+      0.14245310991715418,
+      0.23522004851632852
+    ]
+  },
+  {
+    "family": "A_multiclass",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.03,
+      "iterations": 600
+    },
+    "mean_loss": 0.1849768674869984,
+    "sd_loss": 0.04758348798278584,
+    "folds": 3,
+    "fold_losses": [
+      0.15969240075285504,
+      0.1553732710588652,
+      0.239864930649275
+    ]
+  },
+  {
+    "family": "A_multiclass",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.1,
+      "iterations": 600
+    },
+    "mean_loss": 0.17828217851245895,
+    "sd_loss": 0.05695851506238195,
+    "folds": 3,
+    "fold_losses": [
+      0.1579126613268586,
+      0.1343089781764854,
+      0.24262489603403284
+    ]
+  },
+  {
+    "family": "A_multiclass",
+    "params": {
+      "depth": 5,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.03,
+      "iterations": 300
+    },
+    "mean_loss": 0.21470727906342815,
+    "sd_loss": 0.0366164138330763,
+    "folds": 3,
+    "fold_losses": [
+      0.19789591338893506,
+      0.1895154136253324,
+      0.25671051017601704
+    ]
+  },
+  {
+    "family": "A_multiclass",
+    "params": {
+      "depth": 5,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.1,
+      "iterations": 300
+    },
+    "mean_loss": 0.18212392208956465,
+    "sd_loss": 0.04850634578622962,
+    "folds": 3,
+    "fold_losses": [
+      0.16512082870564618,
+      0.14440819178399206,
+      0.23684274577905576
+    ]
+  },
+  {
+    "family": "A_multiclass",
+    "params": {
+      "depth": 5,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.03,
+      "iterations": 300
+    },
+    "mean_loss": 0.1973945622486406,
+    "sd_loss": 0.04232334947258615,
+    "folds": 3,
+    "fold_losses": [
+      0.18045682541982716,
+      0.1661632957272936,
+      0.245563565598801
+    ]
+  },
+  {
+    "family": "A_multiclass",
+    "params": {
+      "depth": 5,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.1,
+      "iterations": 300
+    },
+    "mean_loss": 0.1773123317334844,
+    "sd_loss": 0.05755833131269258,
+    "folds": 3,
+    "fold_losses": [
+      0.15624434140128593,
+      0.1332563430103803,
+      0.242436310788787
+    ]
+  },
+  {
+    "family": "A_multiclass",
+    "params": {
+      "depth": 5,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.03,
+      "iterations": 600
+    },
+    "mean_loss": 0.19047052372929354,
+    "sd_loss": 0.04504033981131912,
+    "folds": 3,
+    "fold_losses": [
+      0.16974043190321805,
+      0.1595278260585799,
+      0.24214331322608273
+    ]
+  },
+  {
+    "family": "A_multiclass",
+    "params": {
+      "depth": 5,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.1,
+      "iterations": 600
+    },
+    "mean_loss": 0.1747690512880429,
+    "sd_loss": 0.05224802575505478,
+    "folds": 3,
+    "fold_losses": [
+      0.15673517737328824,
+      0.13392677907579026,
+      0.23364519741505024
+    ]
+  },
+  {
+    "family": "A_multiclass",
+    "params": {
+      "depth": 5,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.03,
+      "iterations": 600
+    },
+    "mean_loss": 0.17995992775908387,
+    "sd_loss": 0.04985038784028179,
+    "folds": 3,
+    "fold_losses": [
+      0.15774905240330458,
+      0.1450754868790338,
+      0.2370552439949132
+    ]
+  },
+  {
+    "family": "A_multiclass",
+    "params": {
+      "depth": 5,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.1,
+      "iterations": 600
+    },
+    "mean_loss": 0.17659327144865067,
+    "sd_loss": 0.065999062575639,
+    "folds": 3,
+    "fold_losses": [
+      0.1487875726612366,
+      0.12904688490674326,
+      0.2519453567779722
+    ]
+  },
+  {
+    "family": "A_multiclass",
+    "params": {
+      "depth": 7,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.03,
+      "iterations": 300
+    },
+    "mean_loss": 0.21406960573327805,
+    "sd_loss": 0.04282082038050952,
+    "folds": 3,
+    "fold_losses": [
+      0.19628267844136776,
+      0.18300882591005857,
+      0.2629173128484078
+    ]
+  },
+  {
+    "family": "A_multiclass",
+    "params": {
+      "depth": 7,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.1,
+      "iterations": 300
+    },
+    "mean_loss": 0.18742594529472487,
+    "sd_loss": 0.05202270669419213,
+    "folds": 3,
+    "fold_losses": [
+      0.16435210886282503,
+      0.15093099319496261,
+      0.24699473382638695
+    ]
+  },
+  {
+    "family": "A_multiclass",
+    "params": {
+      "depth": 7,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.03,
+      "iterations": 300
+    },
+    "mean_loss": 0.19685680131720198,
+    "sd_loss": 0.04307108954097395,
+    "folds": 3,
+    "fold_losses": [
+      0.17767786677678066,
+      0.16670655159461975,
+      0.24618598558020552
+    ]
+  },
+  {
+    "family": "A_multiclass",
+    "params": {
+      "depth": 7,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.1,
+      "iterations": 300
+    },
+    "mean_loss": 0.17918585122616748,
+    "sd_loss": 0.05529141014282427,
+    "folds": 3,
+    "fold_losses": [
+      0.15477956575017549,
+      0.14029701849315335,
+      0.24248096943517355
+    ]
+  },
+  {
+    "family": "A_multiclass",
+    "params": {
+      "depth": 7,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.03,
+      "iterations": 600
+    },
+    "mean_loss": 0.19134422207009863,
+    "sd_loss": 0.050630204054380124,
+    "folds": 3,
+    "fold_losses": [
+      0.17212408341403718,
+      0.15313842305801134,
+      0.24877015973824734
+    ]
+  },
+  {
+    "family": "A_multiclass",
+    "params": {
+      "depth": 7,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.1,
+      "iterations": 600
+    },
+    "mean_loss": 0.180599282965619,
+    "sd_loss": 0.05483418915583355,
+    "folds": 3,
+    "fold_losses": [
+      0.15468979383900838,
+      0.14352091768877678,
+      0.24358713736907187
+    ]
+  },
+  {
+    "family": "A_multiclass",
+    "params": {
+      "depth": 7,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.03,
+      "iterations": 600
+    },
+    "mean_loss": 0.18219848652952222,
+    "sd_loss": 0.05248818300332882,
+    "folds": 3,
+    "fold_losses": [
+      0.15669740846875507,
+      0.14733305535772537,
+      0.24256499576208618
+    ]
+  },
+  {
+    "family": "A_multiclass",
+    "params": {
+      "depth": 7,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.1,
+      "iterations": 600
+    },
+    "mean_loss": 0.18018182066320254,
+    "sd_loss": 0.06195733019339826,
+    "folds": 3,
+    "fold_losses": [
+      0.15224986168426757,
+      0.1371077702140988,
+      0.25118783009124124
+    ]
+  }
+]

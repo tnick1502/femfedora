@@ -1,0 +1,11 @@
+{
+  "scope": "Five newly authored figures, full image inspection at reading size",
+  "observations": {
+    "01_fold_support.png": "Old path files9/8/6/2/8 vs new6/6/7/7/7; zero axis and labels readable.",
+    "02_nested_scores.png": "Five dots per family, common0–1axes; no independent-fold CI claim.",
+    "03_confusion.png": "C and D matrices both32/35pathologic; labels and segment counts agree with predictions.",
+    "04_path_curves.png": "Step PR curves; AP C .910 vs D .940, prevalence .08235; ROC axes0–1; legends readable.",
+    "05_probability_reliability.png": "Three classes,5quantile bins; descriptive label and dependence caveat; no claim of perfect calibration."
+  },
+  "limits": "Historical charts sampled. Full HTML browser review unavailable because local file protocol is blocked; saved notebook outputs and all new PNGs inspected."
+}

@@ -1,0 +1,1177 @@
+[
+  {
+    "profile": "minimal",
+    "family": "catboost",
+    "outer_fold": 0,
+    "params": {
+      "auto_class_weights": "Balanced",
+      "depth": 3,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.03,
+      "iterations": 300
+    },
+    "mode": "single",
+    "single_f1": 0.673949190094325,
+    "ensemble_f1": 0.6742091837048912,
+    "single_log_loss": 0.5960124486209426,
+    "ensemble_log_loss": 0.5959011397001072
+  },
+  {
+    "profile": "minimal",
+    "family": "spline_logit",
+    "outer_fold": 0,
+    "params": {
+      "C": 30.0,
+      "interactions": false,
+      "n_knots": 3,
+      "weight_policy": null
+    },
+    "mode": "single",
+    "single_f1": 0.6780368627129988,
+    "ensemble_f1": 0.6785619423507298,
+    "single_log_loss": 0.5916681695970905,
+    "ensemble_log_loss": 0.5916889686789658
+  },
+  {
+    "profile": "minimal",
+    "family": "linear",
+    "outer_fold": 0,
+    "params": {
+      "C": 1.0,
+      "weight_policy": null
+    },
+    "mode": "single",
+    "single_f1": 0.669777109928413,
+    "ensemble_f1": null,
+    "single_log_loss": 0.5986148335251479,
+    "ensemble_log_loss": null
+  },
+  {
+    "profile": "variability",
+    "family": "catboost",
+    "outer_fold": 0,
+    "params": {
+      "auto_class_weights": null,
+      "depth": 3,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.03,
+      "iterations": 700
+    },
+    "mode": "single",
+    "single_f1": 0.7231338414324985,
+    "ensemble_f1": 0.7220316569579882,
+    "single_log_loss": 0.5387404052644806,
+    "ensemble_log_loss": 0.5388082008921001
+  },
+  {
+    "profile": "variability",
+    "family": "spline_logit",
+    "outer_fold": 0,
+    "params": {
+      "C": 3.0,
+      "interactions": true,
+      "n_knots": 5,
+      "weight_policy": null
+    },
+    "mode": "single",
+    "single_f1": 0.723070607204641,
+    "ensemble_f1": 0.7231945430651868,
+    "single_log_loss": 0.5366663230056323,
+    "ensemble_log_loss": 0.5366564110415898
+  },
+  {
+    "profile": "variability",
+    "family": "linear",
+    "outer_fold": 0,
+    "params": {
+      "C": 0.1,
+      "weight_policy": null
+    },
+    "mode": "single",
+    "single_f1": 0.717812892234829,
+    "ensemble_f1": null,
+    "single_log_loss": 0.549479436776067,
+    "ensemble_log_loss": null
+  },
+  {
+    "profile": "sonomed_fields",
+    "family": "catboost",
+    "outer_fold": 0,
+    "params": {
+      "auto_class_weights": "SqrtBalanced",
+      "depth": 4,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.1,
+      "iterations": 300
+    },
+    "mode": "single",
+    "single_f1": 0.746491027625436,
+    "ensemble_f1": 0.7427240433480762,
+    "single_log_loss": 0.5088220579724839,
+    "ensemble_log_loss": 0.5084408869445298
+  },
+  {
+    "profile": "sonomed_fields",
+    "family": "spline_logit",
+    "outer_fold": 0,
+    "params": {
+      "C": 30.0,
+      "interactions": false,
+      "n_knots": 5,
+      "weight_policy": null
+    },
+    "mode": "single",
+    "single_f1": 0.7515159201757342,
+    "ensemble_f1": 0.7513326833220058,
+    "single_log_loss": 0.5017124188023685,
+    "ensemble_log_loss": 0.5016183670846869
+  },
+  {
+    "profile": "sonomed_fields",
+    "family": "linear",
+    "outer_fold": 0,
+    "params": {
+      "C": 10.0,
+      "weight_policy": null
+    },
+    "mode": "single",
+    "single_f1": 0.7500938497794394,
+    "ensemble_f1": null,
+    "single_log_loss": 0.5026584432514748,
+    "ensemble_log_loss": null
+  },
+  {
+    "profile": "mfmon_fields",
+    "family": "catboost",
+    "outer_fold": 0,
+    "params": {
+      "auto_class_weights": "SqrtBalanced",
+      "depth": 3,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.1,
+      "iterations": 300
+    },
+    "mode": "single",
+    "single_f1": 0.7378982238015402,
+    "ensemble_f1": 0.736904183935058,
+    "single_log_loss": 0.5162131230565672,
+    "ensemble_log_loss": 0.5150534932363077
+  },
+  {
+    "profile": "mfmon_fields",
+    "family": "spline_logit",
+    "outer_fold": 0,
+    "params": {
+      "C": 3.0,
+      "interactions": true,
+      "n_knots": 3,
+      "weight_policy": null
+    },
+    "mode": "single",
+    "single_f1": 0.7424627355200734,
+    "ensemble_f1": 0.7423130726214145,
+    "single_log_loss": 0.5113941399707518,
+    "ensemble_log_loss": 0.5116666424402069
+  },
+  {
+    "profile": "mfmon_fields",
+    "family": "linear",
+    "outer_fold": 0,
+    "params": {
+      "C": 1.0,
+      "weight_policy": null
+    },
+    "mode": "single",
+    "single_f1": 0.7356633940500594,
+    "ensemble_f1": null,
+    "single_log_loss": 0.5202841674802395,
+    "ensemble_log_loss": null
+  },
+  {
+    "profile": "mak_fields",
+    "family": "catboost",
+    "outer_fold": 0,
+    "params": {
+      "auto_class_weights": null,
+      "depth": 4,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.03,
+      "iterations": 300
+    },
+    "mode": "single",
+    "single_f1": 0.7345920970840955,
+    "ensemble_f1": 0.7338305178286154,
+    "single_log_loss": 0.5196246944050991,
+    "ensemble_log_loss": 0.5194321396241578
+  },
+  {
+    "profile": "mak_fields",
+    "family": "spline_logit",
+    "outer_fold": 0,
+    "params": {
+      "C": 30.0,
+      "interactions": true,
+      "n_knots": 3,
+      "weight_policy": null
+    },
+    "mode": "single",
+    "single_f1": 0.7414089979561104,
+    "ensemble_f1": 0.7415989609031978,
+    "single_log_loss": 0.5152499860709724,
+    "ensemble_log_loss": 0.5151882679468187
+  },
+  {
+    "profile": "mak_fields",
+    "family": "linear",
+    "outer_fold": 0,
+    "params": {
+      "C": 1.0,
+      "weight_policy": null
+    },
+    "mode": "single",
+    "single_f1": 0.727488431218653,
+    "ensemble_f1": null,
+    "single_log_loss": 0.5296021637185245,
+    "ensemble_log_loss": null
+  },
+  {
+    "profile": "minimal",
+    "family": "catboost",
+    "outer_fold": 1,
+    "params": {
+      "auto_class_weights": "SqrtBalanced",
+      "depth": 4,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.03,
+      "iterations": 300
+    },
+    "mode": "single",
+    "single_f1": 0.6754602330409929,
+    "ensemble_f1": 0.67410031943565,
+    "single_log_loss": 0.592336393813205,
+    "ensemble_log_loss": 0.5919324761106133
+  },
+  {
+    "profile": "minimal",
+    "family": "spline_logit",
+    "outer_fold": 1,
+    "params": {
+      "C": 30.0,
+      "interactions": true,
+      "n_knots": 3,
+      "weight_policy": null
+    },
+    "mode": "single",
+    "single_f1": 0.6746608211759199,
+    "ensemble_f1": 0.6741883672381205,
+    "single_log_loss": 0.5903824147396312,
+    "ensemble_log_loss": 0.5903729626371983
+  },
+  {
+    "profile": "minimal",
+    "family": "linear",
+    "outer_fold": 1,
+    "params": {
+      "C": 1.0,
+      "weight_policy": "Balanced"
+    },
+    "mode": "single",
+    "single_f1": 0.6687159095042366,
+    "ensemble_f1": null,
+    "single_log_loss": 0.5987688245520643,
+    "ensemble_log_loss": null
+  },
+  {
+    "profile": "variability",
+    "family": "catboost",
+    "outer_fold": 1,
+    "params": {
+      "auto_class_weights": "SqrtBalanced",
+      "depth": 3,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.1,
+      "iterations": 300
+    },
+    "mode": "single",
+    "single_f1": 0.7238805941361345,
+    "ensemble_f1": 0.7183091344251528,
+    "single_log_loss": 0.5386914994960825,
+    "ensemble_log_loss": 0.5375523990602397
+  },
+  {
+    "profile": "variability",
+    "family": "spline_logit",
+    "outer_fold": 1,
+    "params": {
+      "C": 30.0,
+      "interactions": false,
+      "n_knots": 5,
+      "weight_policy": null
+    },
+    "mode": "single",
+    "single_f1": 0.725346457265094,
+    "ensemble_f1": 0.7253131653371158,
+    "single_log_loss": 0.5350903962347814,
+    "ensemble_log_loss": 0.5350550071051867
+  },
+  {
+    "profile": "variability",
+    "family": "linear",
+    "outer_fold": 1,
+    "params": {
+      "C": 1.0,
+      "weight_policy": null
+    },
+    "mode": "single",
+    "single_f1": 0.715799695696061,
+    "ensemble_f1": null,
+    "single_log_loss": 0.5459674924568934,
+    "ensemble_log_loss": null
+  },
+  {
+    "profile": "sonomed_fields",
+    "family": "catboost",
+    "outer_fold": 1,
+    "params": {
+      "auto_class_weights": null,
+      "depth": 3,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.03,
+      "iterations": 700
+    },
+    "mode": "single",
+    "single_f1": 0.7507406103150062,
+    "ensemble_f1": 0.7503307217183844,
+    "single_log_loss": 0.5037654488053649,
+    "ensemble_log_loss": 0.5027880490877988
+  },
+  {
+    "profile": "sonomed_fields",
+    "family": "spline_logit",
+    "outer_fold": 1,
+    "params": {
+      "C": 30.0,
+      "interactions": false,
+      "n_knots": 3,
+      "weight_policy": null
+    },
+    "mode": "single",
+    "single_f1": 0.7525362893482758,
+    "ensemble_f1": 0.7523969543613322,
+    "single_log_loss": 0.49774491712082813,
+    "ensemble_log_loss": 0.49780448500691205
+  },
+  {
+    "profile": "sonomed_fields",
+    "family": "linear",
+    "outer_fold": 1,
+    "params": {
+      "C": 100.0,
+      "weight_policy": null
+    },
+    "mode": "single",
+    "single_f1": 0.7521799712096929,
+    "ensemble_f1": null,
+    "single_log_loss": 0.49869347927207874,
+    "ensemble_log_loss": null
+  },
+  {
+    "profile": "mfmon_fields",
+    "family": "catboost",
+    "outer_fold": 1,
+    "params": {
+      "auto_class_weights": "SqrtBalanced",
+      "depth": 3,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.1,
+      "iterations": 300
+    },
+    "mode": "single",
+    "single_f1": 0.7452967549689516,
+    "ensemble_f1": 0.7405091112258546,
+    "single_log_loss": 0.5128748076486128,
+    "ensemble_log_loss": 0.5120450486698461
+  },
+  {
+    "profile": "mfmon_fields",
+    "family": "spline_logit",
+    "outer_fold": 1,
+    "params": {
+      "C": 30.0,
+      "interactions": false,
+      "n_knots": 5,
+      "weight_policy": null
+    },
+    "mode": "single",
+    "single_f1": 0.7433744386908726,
+    "ensemble_f1": 0.7433382396572225,
+    "single_log_loss": 0.5101040618383424,
+    "ensemble_log_loss": 0.5100432181394745
+  },
+  {
+    "profile": "mfmon_fields",
+    "family": "linear",
+    "outer_fold": 1,
+    "params": {
+      "C": 10.0,
+      "weight_policy": null
+    },
+    "mode": "single",
+    "single_f1": 0.7397422344468015,
+    "ensemble_f1": null,
+    "single_log_loss": 0.5147761331951474,
+    "ensemble_log_loss": null
+  },
+  {
+    "profile": "mak_fields",
+    "family": "catboost",
+    "outer_fold": 1,
+    "params": {
+      "auto_class_weights": null,
+      "depth": 4,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.03,
+      "iterations": 300
+    },
+    "mode": "single",
+    "single_f1": 0.7375892573607041,
+    "ensemble_f1": 0.736805604308509,
+    "single_log_loss": 0.5159656434861045,
+    "ensemble_log_loss": 0.5157134366731703
+  },
+  {
+    "profile": "mak_fields",
+    "family": "spline_logit",
+    "outer_fold": 1,
+    "params": {
+      "C": 30.0,
+      "interactions": false,
+      "n_knots": 5,
+      "weight_policy": null
+    },
+    "mode": "single",
+    "single_f1": 0.7434567491911914,
+    "ensemble_f1": 0.7424378152521056,
+    "single_log_loss": 0.5125296394683254,
+    "ensemble_log_loss": 0.5125302598628236
+  },
+  {
+    "profile": "mak_fields",
+    "family": "linear",
+    "outer_fold": 1,
+    "params": {
+      "C": 1.0,
+      "weight_policy": null
+    },
+    "mode": "single",
+    "single_f1": 0.7311519749992613,
+    "ensemble_f1": null,
+    "single_log_loss": 0.5264135937373949,
+    "ensemble_log_loss": null
+  },
+  {
+    "profile": "minimal",
+    "family": "catboost",
+    "outer_fold": 2,
+    "params": {
+      "auto_class_weights": "Balanced",
+      "depth": 3,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.03,
+      "iterations": 300
+    },
+    "mode": "single",
+    "single_f1": 0.6743829925051378,
+    "ensemble_f1": 0.674418432052632,
+    "single_log_loss": 0.5944944499445578,
+    "ensemble_log_loss": 0.5947035280171545
+  },
+  {
+    "profile": "minimal",
+    "family": "spline_logit",
+    "outer_fold": 2,
+    "params": {
+      "C": 30.0,
+      "interactions": true,
+      "n_knots": 3,
+      "weight_policy": null
+    },
+    "mode": "single",
+    "single_f1": 0.6762524316576077,
+    "ensemble_f1": 0.6757220218328964,
+    "single_log_loss": 0.591595547138226,
+    "ensemble_log_loss": 0.5916634999804055
+  },
+  {
+    "profile": "minimal",
+    "family": "linear",
+    "outer_fold": 2,
+    "params": {
+      "C": 0.1,
+      "weight_policy": "Balanced"
+    },
+    "mode": "single",
+    "single_f1": 0.6718320033463576,
+    "ensemble_f1": null,
+    "single_log_loss": 0.6008207446347135,
+    "ensemble_log_loss": null
+  },
+  {
+    "profile": "variability",
+    "family": "catboost",
+    "outer_fold": 2,
+    "params": {
+      "auto_class_weights": null,
+      "depth": 3,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.1,
+      "iterations": 300
+    },
+    "mode": "single",
+    "single_f1": 0.7221177503521563,
+    "ensemble_f1": 0.7204729909523834,
+    "single_log_loss": 0.5392868491547967,
+    "ensemble_log_loss": 0.5381443721597288
+  },
+  {
+    "profile": "variability",
+    "family": "spline_logit",
+    "outer_fold": 2,
+    "params": {
+      "C": 30.0,
+      "interactions": true,
+      "n_knots": 3,
+      "weight_policy": "Balanced"
+    },
+    "mode": "single",
+    "single_f1": 0.7247525072531779,
+    "ensemble_f1": 0.7244431484013981,
+    "single_log_loss": 0.538312478589767,
+    "ensemble_log_loss": 0.5383087495686535
+  },
+  {
+    "profile": "variability",
+    "family": "linear",
+    "outer_fold": 2,
+    "params": {
+      "C": 1.0,
+      "weight_policy": null
+    },
+    "mode": "single",
+    "single_f1": 0.7160088854519085,
+    "ensemble_f1": null,
+    "single_log_loss": 0.5489319068681614,
+    "ensemble_log_loss": null
+  },
+  {
+    "profile": "sonomed_fields",
+    "family": "catboost",
+    "outer_fold": 2,
+    "params": {
+      "auto_class_weights": "Balanced",
+      "depth": 4,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.03,
+      "iterations": 700
+    },
+    "mode": "single",
+    "single_f1": 0.7470045507822034,
+    "ensemble_f1": 0.7439816421714646,
+    "single_log_loss": 0.5087691079770379,
+    "ensemble_log_loss": 0.5086417536836917
+  },
+  {
+    "profile": "sonomed_fields",
+    "family": "spline_logit",
+    "outer_fold": 2,
+    "params": {
+      "C": 3.0,
+      "interactions": true,
+      "n_knots": 3,
+      "weight_policy": null
+    },
+    "mode": "single",
+    "single_f1": 0.7505547325537737,
+    "ensemble_f1": 0.7501820234341005,
+    "single_log_loss": 0.501009844057954,
+    "ensemble_log_loss": 0.5013459031106088
+  },
+  {
+    "profile": "sonomed_fields",
+    "family": "linear",
+    "outer_fold": 2,
+    "params": {
+      "C": 10.0,
+      "weight_policy": null
+    },
+    "mode": "single",
+    "single_f1": 0.7547040832830367,
+    "ensemble_f1": null,
+    "single_log_loss": 0.5025363800516666,
+    "ensemble_log_loss": null
+  },
+  {
+    "profile": "mfmon_fields",
+    "family": "catboost",
+    "outer_fold": 2,
+    "params": {
+      "auto_class_weights": "SqrtBalanced",
+      "depth": 6,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.03,
+      "iterations": 300
+    },
+    "mode": "single",
+    "single_f1": 0.7406121955863508,
+    "ensemble_f1": 0.7385389522217652,
+    "single_log_loss": 0.515316466100756,
+    "ensemble_log_loss": 0.5146608062252437
+  },
+  {
+    "profile": "mfmon_fields",
+    "family": "spline_logit",
+    "outer_fold": 2,
+    "params": {
+      "C": 30.0,
+      "interactions": true,
+      "n_knots": 3,
+      "weight_policy": null
+    },
+    "mode": "single",
+    "single_f1": 0.7434681997056306,
+    "ensemble_f1": 0.743593123353261,
+    "single_log_loss": 0.5109779669988419,
+    "ensemble_log_loss": 0.5109669540571712
+  },
+  {
+    "profile": "mfmon_fields",
+    "family": "linear",
+    "outer_fold": 2,
+    "params": {
+      "C": 1.0,
+      "weight_policy": null
+    },
+    "mode": "single",
+    "single_f1": 0.7389896428573618,
+    "ensemble_f1": null,
+    "single_log_loss": 0.519384221122508,
+    "ensemble_log_loss": null
+  },
+  {
+    "profile": "mak_fields",
+    "family": "catboost",
+    "outer_fold": 2,
+    "params": {
+      "auto_class_weights": "SqrtBalanced",
+      "depth": 3,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.1,
+      "iterations": 300
+    },
+    "mode": "single",
+    "single_f1": 0.741096560831627,
+    "ensemble_f1": 0.7408667107499093,
+    "single_log_loss": 0.5194624971524529,
+    "ensemble_log_loss": 0.5180215434090442
+  },
+  {
+    "profile": "mak_fields",
+    "family": "spline_logit",
+    "outer_fold": 2,
+    "params": {
+      "C": 30.0,
+      "interactions": false,
+      "n_knots": 3,
+      "weight_policy": null
+    },
+    "mode": "single",
+    "single_f1": 0.7408013156836294,
+    "ensemble_f1": 0.7413513670186859,
+    "single_log_loss": 0.5170452188396284,
+    "ensemble_log_loss": 0.5170504018749541
+  },
+  {
+    "profile": "mak_fields",
+    "family": "linear",
+    "outer_fold": 2,
+    "params": {
+      "C": 100.0,
+      "weight_policy": null
+    },
+    "mode": "single",
+    "single_f1": 0.7317121216072989,
+    "ensemble_f1": null,
+    "single_log_loss": 0.5294324028099426,
+    "ensemble_log_loss": null
+  },
+  {
+    "profile": "minimal",
+    "family": "catboost",
+    "outer_fold": 3,
+    "params": {
+      "auto_class_weights": "SqrtBalanced",
+      "depth": 3,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.03,
+      "iterations": 300
+    },
+    "mode": "single",
+    "single_f1": 0.6770345284938252,
+    "ensemble_f1": 0.6756228114719757,
+    "single_log_loss": 0.5912972262720786,
+    "ensemble_log_loss": 0.591108854617568
+  },
+  {
+    "profile": "minimal",
+    "family": "spline_logit",
+    "outer_fold": 3,
+    "params": {
+      "C": 30.0,
+      "interactions": false,
+      "n_knots": 3,
+      "weight_policy": null
+    },
+    "mode": "single",
+    "single_f1": 0.675996130366839,
+    "ensemble_f1": 0.6759351288653427,
+    "single_log_loss": 0.5894305937044996,
+    "ensemble_log_loss": 0.5894531375675159
+  },
+  {
+    "profile": "minimal",
+    "family": "linear",
+    "outer_fold": 3,
+    "params": {
+      "C": 100.0,
+      "weight_policy": null
+    },
+    "mode": "single",
+    "single_f1": 0.6709462745141191,
+    "ensemble_f1": null,
+    "single_log_loss": 0.59572822096378,
+    "ensemble_log_loss": null
+  },
+  {
+    "profile": "variability",
+    "family": "catboost",
+    "outer_fold": 3,
+    "params": {
+      "auto_class_weights": null,
+      "depth": 4,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.03,
+      "iterations": 700
+    },
+    "mode": "single",
+    "single_f1": 0.7219211261841983,
+    "ensemble_f1": 0.7214170296323003,
+    "single_log_loss": 0.5358990752499324,
+    "ensemble_log_loss": 0.5359858113371124
+  },
+  {
+    "profile": "variability",
+    "family": "spline_logit",
+    "outer_fold": 3,
+    "params": {
+      "C": 30.0,
+      "interactions": true,
+      "n_knots": 5,
+      "weight_policy": null
+    },
+    "mode": "single",
+    "single_f1": 0.7213191001343189,
+    "ensemble_f1": 0.7210679435299113,
+    "single_log_loss": 0.537523443413133,
+    "ensemble_log_loss": 0.537487279692709
+  },
+  {
+    "profile": "variability",
+    "family": "linear",
+    "outer_fold": 3,
+    "params": {
+      "C": 100.0,
+      "weight_policy": null
+    },
+    "mode": "single",
+    "single_f1": 0.7111404045926483,
+    "ensemble_f1": null,
+    "single_log_loss": 0.5477973164145736,
+    "ensemble_log_loss": null
+  },
+  {
+    "profile": "sonomed_fields",
+    "family": "catboost",
+    "outer_fold": 3,
+    "params": {
+      "auto_class_weights": null,
+      "depth": 6,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.03,
+      "iterations": 300
+    },
+    "mode": "single",
+    "single_f1": 0.7499155291758083,
+    "ensemble_f1": 0.7499925305390867,
+    "single_log_loss": 0.5025364733196933,
+    "ensemble_log_loss": 0.5029751271209087
+  },
+  {
+    "profile": "sonomed_fields",
+    "family": "spline_logit",
+    "outer_fold": 3,
+    "params": {
+      "C": 30.0,
+      "interactions": true,
+      "n_knots": 3,
+      "weight_policy": null
+    },
+    "mode": "single",
+    "single_f1": 0.7487521126415784,
+    "ensemble_f1": 0.7485950081415722,
+    "single_log_loss": 0.49977125385905996,
+    "ensemble_log_loss": 0.499765923046041
+  },
+  {
+    "profile": "sonomed_fields",
+    "family": "linear",
+    "outer_fold": 3,
+    "params": {
+      "C": 100.0,
+      "weight_policy": null
+    },
+    "mode": "single",
+    "single_f1": 0.7491838585423262,
+    "ensemble_f1": null,
+    "single_log_loss": 0.5031198130060487,
+    "ensemble_log_loss": null
+  },
+  {
+    "profile": "mfmon_fields",
+    "family": "catboost",
+    "outer_fold": 3,
+    "params": {
+      "auto_class_weights": null,
+      "depth": 4,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.03,
+      "iterations": 700
+    },
+    "mode": "single",
+    "single_f1": 0.741426959229512,
+    "ensemble_f1": 0.740180356222237,
+    "single_log_loss": 0.5120107177932929,
+    "ensemble_log_loss": 0.5115436763623618
+  },
+  {
+    "profile": "mfmon_fields",
+    "family": "spline_logit",
+    "outer_fold": 3,
+    "params": {
+      "C": 30.0,
+      "interactions": true,
+      "n_knots": 3,
+      "weight_policy": null
+    },
+    "mode": "single",
+    "single_f1": 0.7421856964491699,
+    "ensemble_f1": 0.7426946800507533,
+    "single_log_loss": 0.5104475075704978,
+    "ensemble_log_loss": 0.5103670736288388
+  },
+  {
+    "profile": "mfmon_fields",
+    "family": "linear",
+    "outer_fold": 3,
+    "params": {
+      "C": 10.0,
+      "weight_policy": null
+    },
+    "mode": "single",
+    "single_f1": 0.7381240639872542,
+    "ensemble_f1": null,
+    "single_log_loss": 0.5192906567812829,
+    "ensemble_log_loss": null
+  },
+  {
+    "profile": "mak_fields",
+    "family": "catboost",
+    "outer_fold": 3,
+    "params": {
+      "auto_class_weights": "SqrtBalanced",
+      "depth": 4,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.03,
+      "iterations": 700
+    },
+    "mode": "single",
+    "single_f1": 0.7384028152350425,
+    "ensemble_f1": 0.7361447272495291,
+    "single_log_loss": 0.5149607707240179,
+    "ensemble_log_loss": 0.514823189908749
+  },
+  {
+    "profile": "mak_fields",
+    "family": "spline_logit",
+    "outer_fold": 3,
+    "params": {
+      "C": 30.0,
+      "interactions": true,
+      "n_knots": 3,
+      "weight_policy": null
+    },
+    "mode": "single",
+    "single_f1": 0.7385443704425461,
+    "ensemble_f1": 0.7383667650938733,
+    "single_log_loss": 0.5149611268164325,
+    "ensemble_log_loss": 0.5148817847534114
+  },
+  {
+    "profile": "mak_fields",
+    "family": "linear",
+    "outer_fold": 3,
+    "params": {
+      "C": 1.0,
+      "weight_policy": null
+    },
+    "mode": "single",
+    "single_f1": 0.7303742035172376,
+    "ensemble_f1": null,
+    "single_log_loss": 0.529398141121694,
+    "ensemble_log_loss": null
+  },
+  {
+    "profile": "minimal",
+    "family": "catboost",
+    "outer_fold": 4,
+    "params": {
+      "auto_class_weights": null,
+      "depth": 3,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.03,
+      "iterations": 300
+    },
+    "mode": "single",
+    "single_f1": 0.6786231723240905,
+    "ensemble_f1": 0.6775273315078044,
+    "single_log_loss": 0.5924827648212809,
+    "ensemble_log_loss": 0.5924300653753032
+  },
+  {
+    "profile": "minimal",
+    "family": "spline_logit",
+    "outer_fold": 4,
+    "params": {
+      "C": 30.0,
+      "interactions": true,
+      "n_knots": 5,
+      "weight_policy": null
+    },
+    "mode": "single",
+    "single_f1": 0.6789090959633547,
+    "ensemble_f1": 0.678506392355013,
+    "single_log_loss": 0.5920178844778766,
+    "ensemble_log_loss": 0.5920469644082632
+  },
+  {
+    "profile": "minimal",
+    "family": "linear",
+    "outer_fold": 4,
+    "params": {
+      "C": 0.01,
+      "weight_policy": null
+    },
+    "mode": "single",
+    "single_f1": 0.6712725428992746,
+    "ensemble_f1": null,
+    "single_log_loss": 0.5978559247376561,
+    "ensemble_log_loss": null
+  },
+  {
+    "profile": "variability",
+    "family": "catboost",
+    "outer_fold": 4,
+    "params": {
+      "auto_class_weights": null,
+      "depth": 3,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.1,
+      "iterations": 300
+    },
+    "mode": "single",
+    "single_f1": 0.7246137523115407,
+    "ensemble_f1": 0.7225635312871358,
+    "single_log_loss": 0.5382333610569963,
+    "ensemble_log_loss": 0.5383256805473584
+  },
+  {
+    "profile": "variability",
+    "family": "spline_logit",
+    "outer_fold": 4,
+    "params": {
+      "C": 30.0,
+      "interactions": true,
+      "n_knots": 3,
+      "weight_policy": null
+    },
+    "mode": "single",
+    "single_f1": 0.7247381093188962,
+    "ensemble_f1": 0.7249974510729992,
+    "single_log_loss": 0.5338071674417313,
+    "ensemble_log_loss": 0.5338056539937027
+  },
+  {
+    "profile": "variability",
+    "family": "linear",
+    "outer_fold": 4,
+    "params": {
+      "C": 0.1,
+      "weight_policy": null
+    },
+    "mode": "single",
+    "single_f1": 0.7124880669761683,
+    "ensemble_f1": null,
+    "single_log_loss": 0.5482639470277492,
+    "ensemble_log_loss": null
+  },
+  {
+    "profile": "sonomed_fields",
+    "family": "catboost",
+    "outer_fold": 4,
+    "params": {
+      "auto_class_weights": null,
+      "depth": 3,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.1,
+      "iterations": 300
+    },
+    "mode": "single",
+    "single_f1": 0.7521860398974004,
+    "ensemble_f1": 0.7534068633128124,
+    "single_log_loss": 0.5054280037015314,
+    "ensemble_log_loss": 0.5026509011964424
+  },
+  {
+    "profile": "sonomed_fields",
+    "family": "spline_logit",
+    "outer_fold": 4,
+    "params": {
+      "C": 30.0,
+      "interactions": false,
+      "n_knots": 7,
+      "weight_policy": null
+    },
+    "mode": "single",
+    "single_f1": 0.7518247428987866,
+    "ensemble_f1": 0.7520149785677024,
+    "single_log_loss": 0.5021239421264111,
+    "ensemble_log_loss": 0.5020529668709437
+  },
+  {
+    "profile": "sonomed_fields",
+    "family": "linear",
+    "outer_fold": 4,
+    "params": {
+      "C": 1.0,
+      "weight_policy": null
+    },
+    "mode": "single",
+    "single_f1": 0.7518071528635346,
+    "ensemble_f1": null,
+    "single_log_loss": 0.500431713095422,
+    "ensemble_log_loss": null
+  },
+  {
+    "profile": "mfmon_fields",
+    "family": "catboost",
+    "outer_fold": 4,
+    "params": {
+      "auto_class_weights": "SqrtBalanced",
+      "depth": 4,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.03,
+      "iterations": 300
+    },
+    "mode": "single",
+    "single_f1": 0.7431507931687392,
+    "ensemble_f1": 0.7443018741990045,
+    "single_log_loss": 0.5144049983287248,
+    "ensemble_log_loss": 0.513732796346526
+  },
+  {
+    "profile": "mfmon_fields",
+    "family": "spline_logit",
+    "outer_fold": 4,
+    "params": {
+      "C": 30.0,
+      "interactions": true,
+      "n_knots": 3,
+      "weight_policy": null
+    },
+    "mode": "single",
+    "single_f1": 0.7437771579739003,
+    "ensemble_f1": 0.7435171958068588,
+    "single_log_loss": 0.5088247115321481,
+    "ensemble_log_loss": 0.5087520800494933
+  },
+  {
+    "profile": "mfmon_fields",
+    "family": "linear",
+    "outer_fold": 4,
+    "params": {
+      "C": 1.0,
+      "weight_policy": null
+    },
+    "mode": "single",
+    "single_f1": 0.7378416945962322,
+    "ensemble_f1": null,
+    "single_log_loss": 0.5177958741332089,
+    "ensemble_log_loss": null
+  },
+  {
+    "profile": "mak_fields",
+    "family": "catboost",
+    "outer_fold": 4,
+    "params": {
+      "auto_class_weights": null,
+      "depth": 3,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.1,
+      "iterations": 300
+    },
+    "mode": "single",
+    "single_f1": 0.7400013914577818,
+    "ensemble_f1": 0.7387394697406949,
+    "single_log_loss": 0.5163108199842444,
+    "ensemble_log_loss": 0.5160551827979553
+  },
+  {
+    "profile": "mak_fields",
+    "family": "spline_logit",
+    "outer_fold": 4,
+    "params": {
+      "C": 3.0,
+      "interactions": true,
+      "n_knots": 3,
+      "weight_policy": null
+    },
+    "mode": "single",
+    "single_f1": 0.7395233300627796,
+    "ensemble_f1": 0.7395987281047557,
+    "single_log_loss": 0.5138638284333594,
+    "ensemble_log_loss": 0.514152507704296
+  },
+  {
+    "profile": "mak_fields",
+    "family": "linear",
+    "outer_fold": 4,
+    "params": {
+      "C": 10.0,
+      "weight_policy": null
+    },
+    "mode": "single",
+    "single_f1": 0.7287922653918177,
+    "ensemble_f1": null,
+    "single_log_loss": 0.5262483805454959,
+    "ensemble_log_loss": null
+  }
+]

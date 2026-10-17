@@ -1,0 +1,218 @@
+{
+  "fingerprint": "e5b67436a8d3b2b44c47a800d4951e9046322306d3849b95be1810b85bfcca29",
+  "input_sha256": {
+    "src/training/jnu_review_experiment.py": "6a3321b0ff3a9212a19c5a71c82ad905843733d15f7f1fe87b4b5ce2cd1da202",
+    "src/training/ctg_review_models.py": "cb2acb3106391cc220e5982a001e99a0f535c9e7d5b5df7bf7f2132ed2ad2b03",
+    "src/features/ctg_report_contract.py": "255cdde4b612863447822e9a17257b1eedcc60df81d517b8519cc7042bb0a63e",
+    "src/features/jnu_review_representations.py": "51747f3f8c4ab01478f0b5d33116080c3c30ba5424818ae8d3db018e42ba470e",
+    "src/training/jnu_report_models.py": "7fe512ff71bd680ea338b8decb03253faf63c9191882806020cd2dfd665a0c37",
+    "data/processed/jnu_ctg/report_features_v1/measurements.parquet": "f834e4b177a3bab119db62dc7a7bcf0cac9b8d2fd2fe251823389dc9e367b08c",
+    "data/processed/jnu_ctg/v1/splits.parquet": "c152e87345d9750ee82f67a8405fa0dcf950820aa60073d6fffebe5523e73e75"
+  },
+  "environment": {
+    "numpy": "2.4.6",
+    "pandas": "2.3.3",
+    "scikit-learn": "1.9.1",
+    "catboost": "1.2.10"
+  },
+  "profiles": {
+    "core3": [
+      "baseline_bpm",
+      "acc15_per_10min",
+      "dec15_per_10min"
+    ],
+    "report5": [
+      "baseline_bpm",
+      "acc15_per_10min",
+      "dec15_per_10min",
+      "stv_ms",
+      "amplitude_bpm"
+    ],
+    "report7": [
+      "baseline_bpm",
+      "acc15_per_10min",
+      "dec15_per_10min",
+      "stv_ms",
+      "amplitude_bpm",
+      "acc10_per_10min",
+      "dec20lost_per_10min"
+    ],
+    "report4s5": [
+      "baseline_bpm",
+      "acc15_per_10min",
+      "dec15_per_10min",
+      "stv_4s_ms",
+      "amplitude_bpm"
+    ]
+  },
+  "grids": {
+    "catboost": [
+      {
+        "auto_class_weights": null,
+        "depth": 3,
+        "iterations": 300,
+        "l2_leaf_reg": 3,
+        "learning_rate": 0.05
+      },
+      {
+        "auto_class_weights": null,
+        "depth": 3,
+        "iterations": 300,
+        "l2_leaf_reg": 10,
+        "learning_rate": 0.05
+      },
+      {
+        "auto_class_weights": null,
+        "depth": 3,
+        "iterations": 700,
+        "l2_leaf_reg": 3,
+        "learning_rate": 0.05
+      },
+      {
+        "auto_class_weights": null,
+        "depth": 3,
+        "iterations": 700,
+        "l2_leaf_reg": 10,
+        "learning_rate": 0.05
+      },
+      {
+        "auto_class_weights": null,
+        "depth": 5,
+        "iterations": 300,
+        "l2_leaf_reg": 3,
+        "learning_rate": 0.05
+      },
+      {
+        "auto_class_weights": null,
+        "depth": 5,
+        "iterations": 300,
+        "l2_leaf_reg": 10,
+        "learning_rate": 0.05
+      },
+      {
+        "auto_class_weights": null,
+        "depth": 5,
+        "iterations": 700,
+        "l2_leaf_reg": 3,
+        "learning_rate": 0.05
+      },
+      {
+        "auto_class_weights": null,
+        "depth": 5,
+        "iterations": 700,
+        "l2_leaf_reg": 10,
+        "learning_rate": 0.05
+      },
+      {
+        "auto_class_weights": "Balanced",
+        "depth": 3,
+        "iterations": 300,
+        "l2_leaf_reg": 3,
+        "learning_rate": 0.05
+      },
+      {
+        "auto_class_weights": "Balanced",
+        "depth": 3,
+        "iterations": 300,
+        "l2_leaf_reg": 10,
+        "learning_rate": 0.05
+      },
+      {
+        "auto_class_weights": "Balanced",
+        "depth": 3,
+        "iterations": 700,
+        "l2_leaf_reg": 3,
+        "learning_rate": 0.05
+      },
+      {
+        "auto_class_weights": "Balanced",
+        "depth": 3,
+        "iterations": 700,
+        "l2_leaf_reg": 10,
+        "learning_rate": 0.05
+      },
+      {
+        "auto_class_weights": "Balanced",
+        "depth": 5,
+        "iterations": 300,
+        "l2_leaf_reg": 3,
+        "learning_rate": 0.05
+      },
+      {
+        "auto_class_weights": "Balanced",
+        "depth": 5,
+        "iterations": 300,
+        "l2_leaf_reg": 10,
+        "learning_rate": 0.05
+      },
+      {
+        "auto_class_weights": "Balanced",
+        "depth": 5,
+        "iterations": 700,
+        "l2_leaf_reg": 3,
+        "learning_rate": 0.05
+      },
+      {
+        "auto_class_weights": "Balanced",
+        "depth": 5,
+        "iterations": 700,
+        "l2_leaf_reg": 10,
+        "learning_rate": 0.05
+      }
+    ],
+    "spline": [
+      {
+        "C": 0.3,
+        "n_knots": 3
+      },
+      {
+        "C": 0.3,
+        "n_knots": 5
+      },
+      {
+        "C": 3.0,
+        "n_knots": 3
+      },
+      {
+        "C": 3.0,
+        "n_knots": 5
+      },
+      {
+        "C": 30.0,
+        "n_knots": 3
+      },
+      {
+        "C": 30.0,
+        "n_knots": 5
+      }
+    ],
+    "linear": [
+      {
+        "C": 0.1
+      },
+      {
+        "C": 1.0
+      },
+      {
+        "C": 10.0
+      }
+    ]
+  },
+  "outer_folds": 5,
+  "inner_folds": 3,
+  "eligibility": "complete required profile measurements; coverage over every source row",
+  "missingness": "no imputation or indicators in report models; missing/unconfirmed required fields abstain before inference",
+  "removed_inputs": [
+    "signal_loss_pct",
+    "duration_min",
+    "duplicate variability units",
+    "unverified episode rules"
+  ],
+  "selector": "one-SE group-log-loss parsimony heuristic",
+  "mode_selection": "separate grouped 20% mode holdout excluded from grid; compare chosen params at identical holdout",
+  "calibration": "separate 20% outer-fit patients, actual selected aggregate, positive sigmoid with intercept",
+  "decision": "fixed 0.5; no post-review threshold tuning",
+  "evaluation": "all JNU data already seen; exploratory post-review grouped nested CV; no new blind test",
+  "signal_reference": "same outer patient folds/common report5 cohort/HGB grid; not a mathematical or clinical ceiling",
+  "clinical_validation": false
+}

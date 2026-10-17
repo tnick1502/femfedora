@@ -1,0 +1,287 @@
+{
+  "reason": "Reference models written before driver import fix still named __main__.BinarySigmoid. Re-serialized identical fitted objects under stable module; no refit or selection.",
+  "old_binary_archive": "models/exported/.history/jnu_ctg_reference_before_portability.zip",
+  "archive_sha256": "1017bb741c2752d9446a53a308228a93ea3117eb71cb5cd85e0c3fdbe747de86",
+  "models": [
+    {
+      "file": "models/exported/jnu_ctg/reviewed_v2/reference_models/outer0_fhr_std_only.joblib",
+      "before_sha256": "3ff9d097188debceb42e3f5b149b6c9df37def0e108c6b0944155863c4d9aa07",
+      "after_sha256": "4f71bf62bf2d21c6621cbf9a89145cbd4bd8d19323f2e1444e72de6def3292c7",
+      "all_outer_hold_predictions_identical": true,
+      "hold_records": 4144,
+      "calibrator_module": "src.training.jnu_review_experiment"
+    },
+    {
+      "file": "models/exported/jnu_ctg/reviewed_v2/reference_models/outer0_published_F_quarantined.joblib",
+      "before_sha256": "267713eb131190aced6c0b8e8b1afac474c502e22f840d39346a1e7b369e3cad",
+      "after_sha256": "327ab904b9808a63633b6d32d77755708ca31422dd8b9d800bec931a10861374",
+      "all_outer_hold_predictions_identical": true,
+      "hold_records": 4144,
+      "calibrator_module": "src.training.jnu_review_experiment"
+    },
+    {
+      "file": "models/exported/jnu_ctg/reviewed_v2/reference_models/outer0_quality_only.joblib",
+      "before_sha256": "f11645908c799de0071df640f71a73fbeb8eeee5160258324fe496c1fea40061",
+      "after_sha256": "8a60cf65a2d7190309712142931dc39dfed615532b52ec2952ab5510088ca1bd",
+      "all_outer_hold_predictions_identical": true,
+      "hold_records": 4144,
+      "calibrator_module": "src.training.jnu_review_experiment"
+    },
+    {
+      "file": "models/exported/jnu_ctg/reviewed_v2/reference_models/outer0_raw_minute210.joblib",
+      "before_sha256": "4da0300659ec552f04f4aa39461919e9202278f52e84dcdc214368a3071e4544",
+      "after_sha256": "324e1ade52fef67e08a6db043e30693c9cc88adda1606fc190438c709a45da0b",
+      "all_outer_hold_predictions_identical": true,
+      "hold_records": 4144,
+      "calibrator_module": "src.training.jnu_review_experiment"
+    },
+    {
+      "file": "models/exported/jnu_ctg/reviewed_v2/reference_models/outer0_report5.joblib",
+      "before_sha256": "40fdb2f32d1e9f2c97471e828dd2a365e8b28b163b82c605ecdf52a99bfb20e3",
+      "after_sha256": "bdc1c07707c3b88de76dc4c22ae522e28571fd819820d42ba20411c9966aff16",
+      "all_outer_hold_predictions_identical": true,
+      "hold_records": 4144,
+      "calibrator_module": "src.training.jnu_review_experiment"
+    },
+    {
+      "file": "models/exported/jnu_ctg/reviewed_v2/reference_models/outer0_report5_plus_quality.joblib",
+      "before_sha256": "59d008df5983d9697a26ccdec2658daa32aada60e1c0cdf101f5014bdca4fda9",
+      "after_sha256": "2d0eaa26a5f596caca0510551eb1c52b043d3fdc4a91a4f3ff26bd9eb886b62d",
+      "all_outer_hold_predictions_identical": true,
+      "hold_records": 4144,
+      "calibrator_module": "src.training.jnu_review_experiment"
+    },
+    {
+      "file": "models/exported/jnu_ctg/reviewed_v2/reference_models/outer0_signal27.joblib",
+      "before_sha256": "b079a71d2f135815dca45f5ecbf205914c584b254193dacc8a80a86680407901",
+      "after_sha256": "0f9e6e65f0d2e598ce376b9cb8b0913b13cbd8d4456b1c2437f977ee2ebd0c2e",
+      "all_outer_hold_predictions_identical": true,
+      "hold_records": 4144,
+      "calibrator_module": "src.training.jnu_review_experiment"
+    },
+    {
+      "file": "models/exported/jnu_ctg/reviewed_v2/reference_models/outer1_fhr_std_only.joblib",
+      "before_sha256": "9448d2c0452272e667d25208f16980d9f00316891a5ae4a51e6f66399fbeca25",
+      "after_sha256": "e9ac569bcffe566263ce28cac96306dab060973831c19f0b6226528015a8ed5a",
+      "all_outer_hold_predictions_identical": true,
+      "hold_records": 4146,
+      "calibrator_module": "src.training.jnu_review_experiment"
+    },
+    {
+      "file": "models/exported/jnu_ctg/reviewed_v2/reference_models/outer1_published_F_quarantined.joblib",
+      "before_sha256": "17abf8d9d01b9591c56b042e627377af9c5c65a8db5480cd8c2e95f2e7ae6ccb",
+      "after_sha256": "6387a580a22a1c076cffd399761e29db30968cd9d07441c46d069dff7c0acca9",
+      "all_outer_hold_predictions_identical": true,
+      "hold_records": 4146,
+      "calibrator_module": "src.training.jnu_review_experiment"
+    },
+    {
+      "file": "models/exported/jnu_ctg/reviewed_v2/reference_models/outer1_quality_only.joblib",
+      "before_sha256": "d9ea534b29d5e45babeb2c01f2af2dcc617fca8e02b7fb28bcb4270738e30e87",
+      "after_sha256": "0fa1f9e10d4f9711d8fef7780899c75f768e80b5610582fb301ed616b4b6d8f6",
+      "all_outer_hold_predictions_identical": true,
+      "hold_records": 4146,
+      "calibrator_module": "src.training.jnu_review_experiment"
+    },
+    {
+      "file": "models/exported/jnu_ctg/reviewed_v2/reference_models/outer1_raw_minute210.joblib",
+      "before_sha256": "a38936ed7f5cdfbeecb5a04a1bc240d7d9c68f56b6f4dddec8234da4671c21eb",
+      "after_sha256": "b3ab1ec5908f086668425b745e9478671d14caa13b0aae62cf9b55e5c40d329b",
+      "all_outer_hold_predictions_identical": true,
+      "hold_records": 4146,
+      "calibrator_module": "src.training.jnu_review_experiment"
+    },
+    {
+      "file": "models/exported/jnu_ctg/reviewed_v2/reference_models/outer1_report5.joblib",
+      "before_sha256": "96a0b73d90edb719b60a885d5135bbb034d4babd5b00337b6c2e55425c409590",
+      "after_sha256": "130b7cb5450b1f3667de82341092efefdbcd4d01dd2b064210e7c9e261aad631",
+      "all_outer_hold_predictions_identical": true,
+      "hold_records": 4146,
+      "calibrator_module": "src.training.jnu_review_experiment"
+    },
+    {
+      "file": "models/exported/jnu_ctg/reviewed_v2/reference_models/outer1_report5_plus_quality.joblib",
+      "before_sha256": "23cc8c5ecf3630be4c3467b514d55a90329468d2c6be50b5c6496b6f91d8af9a",
+      "after_sha256": "b798e3fdf3f4e5a52fb13a2b4b68ca38adec7477220e3aed35ef8a9b546ace41",
+      "all_outer_hold_predictions_identical": true,
+      "hold_records": 4146,
+      "calibrator_module": "src.training.jnu_review_experiment"
+    },
+    {
+      "file": "models/exported/jnu_ctg/reviewed_v2/reference_models/outer1_signal27.joblib",
+      "before_sha256": "595464907d320bb7331d8ebcd9563a5fee8c7a74111370d2d63a06b7fdb21d01",
+      "after_sha256": "b05e0c144f6fffa3de4dc2901d72ab8a183bc633ed5513aa9610d1f2a58f4248",
+      "all_outer_hold_predictions_identical": true,
+      "hold_records": 4146,
+      "calibrator_module": "src.training.jnu_review_experiment"
+    },
+    {
+      "file": "models/exported/jnu_ctg/reviewed_v2/reference_models/outer2_fhr_std_only.joblib",
+      "before_sha256": "9de05d40c367d59599d9164b354e693e7438c92357dc155d42c3089bf679359f",
+      "after_sha256": "26124703a58fa6d9dd42f6b24724053ca8416c87c0b15a09108f659d9ab09480",
+      "all_outer_hold_predictions_identical": true,
+      "hold_records": 4136,
+      "calibrator_module": "src.training.jnu_review_experiment"
+    },
+    {
+      "file": "models/exported/jnu_ctg/reviewed_v2/reference_models/outer2_published_F_quarantined.joblib",
+      "before_sha256": "340d4b64caa90bbc82f1122852ad05e10d8e3143614e3bb3b87806d3ec6ce092",
+      "after_sha256": "d01c896b565849dc530f810d6de3223f2335157fd9efec4a75b9fdd5b7ff3de5",
+      "all_outer_hold_predictions_identical": true,
+      "hold_records": 4136,
+      "calibrator_module": "src.training.jnu_review_experiment"
+    },
+    {
+      "file": "models/exported/jnu_ctg/reviewed_v2/reference_models/outer2_quality_only.joblib",
+      "before_sha256": "8c4fcb5d6988c5f5627f3a5568729a2fcf3baad644b6604d101930fc7fe26719",
+      "after_sha256": "b06db4c9ad72944940a938b1885678af9096dc5e1146362f9701445a2636dad4",
+      "all_outer_hold_predictions_identical": true,
+      "hold_records": 4136,
+      "calibrator_module": "src.training.jnu_review_experiment"
+    },
+    {
+      "file": "models/exported/jnu_ctg/reviewed_v2/reference_models/outer2_raw_minute210.joblib",
+      "before_sha256": "c28a0fbc44ae12b92bcfd7cb6a88ac460abc1e310faeb23e7f9ece99aa6b851e",
+      "after_sha256": "52a687104de8f8ceedba177c2e0288dfcbc093c0b118ae13e4bd3c8a89d67477",
+      "all_outer_hold_predictions_identical": true,
+      "hold_records": 4136,
+      "calibrator_module": "src.training.jnu_review_experiment"
+    },
+    {
+      "file": "models/exported/jnu_ctg/reviewed_v2/reference_models/outer2_report5.joblib",
+      "before_sha256": "418b967f3ca787a9f24810ae629d7b61b00bcc6a0ff50164ef32dc2a004fb12d",
+      "after_sha256": "511dc261edc234a155235c66117d64a0ea7ac5fc5e897559be2dac6ba606ae26",
+      "all_outer_hold_predictions_identical": true,
+      "hold_records": 4136,
+      "calibrator_module": "src.training.jnu_review_experiment"
+    },
+    {
+      "file": "models/exported/jnu_ctg/reviewed_v2/reference_models/outer2_report5_plus_quality.joblib",
+      "before_sha256": "45de8c790d1fe12466404b6bca100b063fa75f6bbd6cab63d5cd89aebb5a2076",
+      "after_sha256": "4624abedb9fc3be126d95a3045812df9e09384ec17cec954713cc7229f456c86",
+      "all_outer_hold_predictions_identical": true,
+      "hold_records": 4136,
+      "calibrator_module": "src.training.jnu_review_experiment"
+    },
+    {
+      "file": "models/exported/jnu_ctg/reviewed_v2/reference_models/outer2_signal27.joblib",
+      "before_sha256": "4c4a8dc7abad3ca9ebde2336dccc82f2a14eca0ce123d95f85e34b879434df64",
+      "after_sha256": "78139a3cbb3fc4edee769e857dd18e187ecb28900bcd999466edc235acd34fc1",
+      "all_outer_hold_predictions_identical": true,
+      "hold_records": 4136,
+      "calibrator_module": "src.training.jnu_review_experiment"
+    },
+    {
+      "file": "models/exported/jnu_ctg/reviewed_v2/reference_models/outer3_fhr_std_only.joblib",
+      "before_sha256": "357bd56f36b97aad3b5f18d03306ddce97e7cb037580c076a9b1f896111e172e",
+      "after_sha256": "445aee2a61ffcf8c45e8f380dc33a212ed246a9a44325d194b71ba8240cf44d2",
+      "all_outer_hold_predictions_identical": true,
+      "hold_records": 4152,
+      "calibrator_module": "src.training.jnu_review_experiment"
+    },
+    {
+      "file": "models/exported/jnu_ctg/reviewed_v2/reference_models/outer3_published_F_quarantined.joblib",
+      "before_sha256": "15fdb5a3414237ba135794b28ce258f70aa201aba21673104f2b5289a7869ad6",
+      "after_sha256": "9d4175bbd40da8d1035090a7b824a8b98ded643cdffbca56028c0ad1c340c364",
+      "all_outer_hold_predictions_identical": true,
+      "hold_records": 4152,
+      "calibrator_module": "src.training.jnu_review_experiment"
+    },
+    {
+      "file": "models/exported/jnu_ctg/reviewed_v2/reference_models/outer3_quality_only.joblib",
+      "before_sha256": "d01bd73cc371703196f6b2dd839eccef04c7b1b80f160be22ac7c7248e435a66",
+      "after_sha256": "1d4a9854c3bcf65be10e2eb26a8777ea3cb0f140747a8a87b0007097f467d078",
+      "all_outer_hold_predictions_identical": true,
+      "hold_records": 4152,
+      "calibrator_module": "src.training.jnu_review_experiment"
+    },
+    {
+      "file": "models/exported/jnu_ctg/reviewed_v2/reference_models/outer3_raw_minute210.joblib",
+      "before_sha256": "e5d1a03f6f12932bbb9803bca8749800cdeb4a1091ec760a1af9db16fa644a80",
+      "after_sha256": "a8258d48d410826669b1c915811d100b0e2cef3f0691ab77e64688013817cfab",
+      "all_outer_hold_predictions_identical": true,
+      "hold_records": 4152,
+      "calibrator_module": "src.training.jnu_review_experiment"
+    },
+    {
+      "file": "models/exported/jnu_ctg/reviewed_v2/reference_models/outer3_report5.joblib",
+      "before_sha256": "dc11ecceed59c0f988a819e13474fd976d089ed14b12b1e830a3ca618d45e837",
+      "after_sha256": "6ee16049f7a560f3ba2162fc89194d4e44238071414d4f25eeaeb85e338dda49",
+      "all_outer_hold_predictions_identical": true,
+      "hold_records": 4152,
+      "calibrator_module": "src.training.jnu_review_experiment"
+    },
+    {
+      "file": "models/exported/jnu_ctg/reviewed_v2/reference_models/outer3_report5_plus_quality.joblib",
+      "before_sha256": "c0f58f66947cd3689a23e1f0c9a38da8d095b88321614720d2b05f47ff63c363",
+      "after_sha256": "dd0514e54e36626fa98909ddcced0729d90007b3e25e48e752f8b024b434a874",
+      "all_outer_hold_predictions_identical": true,
+      "hold_records": 4152,
+      "calibrator_module": "src.training.jnu_review_experiment"
+    },
+    {
+      "file": "models/exported/jnu_ctg/reviewed_v2/reference_models/outer3_signal27.joblib",
+      "before_sha256": "b8effaa08b3933723b0f9665226fe2c1acda0086e2eb865bcfec6fc7c8376103",
+      "after_sha256": "a59de3cd239286b2fe4de6116a3c61761e7269151f8da97830d9bcd64b3508ec",
+      "all_outer_hold_predictions_identical": true,
+      "hold_records": 4152,
+      "calibrator_module": "src.training.jnu_review_experiment"
+    },
+    {
+      "file": "models/exported/jnu_ctg/reviewed_v2/reference_models/outer4_fhr_std_only.joblib",
+      "before_sha256": "d5517c6be247f549e24b2b6fe4a634090f2bbc3bd2cb993f908e859ecc1f899c",
+      "after_sha256": "8ebbb57a7c59bffc39f758560c8c21e02ea335f4870110755fec19febc2abad7",
+      "all_outer_hold_predictions_identical": true,
+      "hold_records": 4148,
+      "calibrator_module": "src.training.jnu_review_experiment"
+    },
+    {
+      "file": "models/exported/jnu_ctg/reviewed_v2/reference_models/outer4_published_F_quarantined.joblib",
+      "before_sha256": "5e178ca4861f069910ba3fedbede1c382bbc662604d504a5ecd00d77810ab4c7",
+      "after_sha256": "46ebd2fc37e3e07edd72289c4f3c233d4f288b34f2ae9941d1b6cf3f911a0e83",
+      "all_outer_hold_predictions_identical": true,
+      "hold_records": 4148,
+      "calibrator_module": "src.training.jnu_review_experiment"
+    },
+    {
+      "file": "models/exported/jnu_ctg/reviewed_v2/reference_models/outer4_quality_only.joblib",
+      "before_sha256": "74eabceef048786f65b455b5421dda982c15b4d4a1ac10ed42861fe60fe024db",
+      "after_sha256": "8a2ee2a26e40384ef6bf7ff137e3b254ab47f69b479355b108c63be6b438a7d6",
+      "all_outer_hold_predictions_identical": true,
+      "hold_records": 4148,
+      "calibrator_module": "src.training.jnu_review_experiment"
+    },
+    {
+      "file": "models/exported/jnu_ctg/reviewed_v2/reference_models/outer4_raw_minute210.joblib",
+      "before_sha256": "f1321c271944610252245a0d3ea92f9dbc7da1820b88cb34c090980cec0b5e3c",
+      "after_sha256": "f26c90508dcb1df21d81c9e880aa53949f840a3bce00a03007b61bf045e6fac0",
+      "all_outer_hold_predictions_identical": true,
+      "hold_records": 4148,
+      "calibrator_module": "src.training.jnu_review_experiment"
+    },
+    {
+      "file": "models/exported/jnu_ctg/reviewed_v2/reference_models/outer4_report5.joblib",
+      "before_sha256": "4bb9b2b5a439ee4e77de89dfbac202e3eccf66ee0084ee93677117ef1369dbb7",
+      "after_sha256": "7777c7b7ea3a2e276bcfe617fbe5959c34372c42ce9365af4b137b2f913fdbbe",
+      "all_outer_hold_predictions_identical": true,
+      "hold_records": 4148,
+      "calibrator_module": "src.training.jnu_review_experiment"
+    },
+    {
+      "file": "models/exported/jnu_ctg/reviewed_v2/reference_models/outer4_report5_plus_quality.joblib",
+      "before_sha256": "f922c310bce345dfcc188dccd53e3dd82dbb49a797de8f561eb60595df3805d2",
+      "after_sha256": "569b8d66fc3ccb19cf1ebd276039318fbf95e66941f0b5ced8e9c04f37ed1e86",
+      "all_outer_hold_predictions_identical": true,
+      "hold_records": 4148,
+      "calibrator_module": "src.training.jnu_review_experiment"
+    },
+    {
+      "file": "models/exported/jnu_ctg/reviewed_v2/reference_models/outer4_signal27.joblib",
+      "before_sha256": "5aaf0f5655f560739edd1947efd0a12910ad31745c54f3333915a1b25fa06518",
+      "after_sha256": "84f04fb474b2d2120a5c2e6179b7acac5f3ec2fc37cd107bb73b95ccbd145fa6",
+      "all_outer_hold_predictions_identical": true,
+      "hold_records": 4148,
+      "calibrator_module": "src.training.jnu_review_experiment"
+    }
+  ]
+}

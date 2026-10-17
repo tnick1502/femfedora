@@ -1,0 +1,482 @@
+[
+  {
+    "status": "research_prediction",
+    "profile": "core3",
+    "reasons": [],
+    "probability_expert_abnormal": 0.32161436479002675,
+    "clinical_risk": null,
+    "supported_for_clinical_inference": false,
+    "family": "linear",
+    "pattern": "quiet"
+  },
+  {
+    "status": "research_prediction",
+    "profile": "core3",
+    "reasons": [],
+    "probability_expert_abnormal": 0.3278658334140592,
+    "clinical_risk": null,
+    "supported_for_clinical_inference": false,
+    "family": "linear",
+    "pattern": "reactive"
+  },
+  {
+    "status": "research_prediction",
+    "profile": "core3",
+    "reasons": [],
+    "probability_expert_abnormal": 0.32161436479002675,
+    "clinical_risk": null,
+    "supported_for_clinical_inference": false,
+    "family": "linear",
+    "pattern": "high_variation"
+  },
+  {
+    "status": "research_prediction",
+    "profile": "core3",
+    "reasons": [],
+    "probability_expert_abnormal": 0.9914309605700656,
+    "clinical_risk": null,
+    "supported_for_clinical_inference": false,
+    "family": "linear",
+    "pattern": "decelerative"
+  },
+  {
+    "status": "research_prediction",
+    "profile": "core3",
+    "reasons": [],
+    "probability_expert_abnormal": 0.29112006608933233,
+    "clinical_risk": null,
+    "supported_for_clinical_inference": false,
+    "family": "spline",
+    "pattern": "quiet"
+  },
+  {
+    "status": "research_prediction",
+    "profile": "core3",
+    "reasons": [],
+    "probability_expert_abnormal": 0.2911503333299675,
+    "clinical_risk": null,
+    "supported_for_clinical_inference": false,
+    "family": "spline",
+    "pattern": "reactive"
+  },
+  {
+    "status": "research_prediction",
+    "profile": "core3",
+    "reasons": [],
+    "probability_expert_abnormal": 0.29112006608933233,
+    "clinical_risk": null,
+    "supported_for_clinical_inference": false,
+    "family": "spline",
+    "pattern": "high_variation"
+  },
+  {
+    "status": "research_prediction",
+    "profile": "core3",
+    "reasons": [],
+    "probability_expert_abnormal": 0.9735455262331109,
+    "clinical_risk": null,
+    "supported_for_clinical_inference": false,
+    "family": "spline",
+    "pattern": "decelerative"
+  },
+  {
+    "status": "research_prediction",
+    "profile": "core3",
+    "reasons": [],
+    "probability_expert_abnormal": 0.3197389251254988,
+    "clinical_risk": null,
+    "supported_for_clinical_inference": false,
+    "family": "catboost",
+    "pattern": "quiet"
+  },
+  {
+    "status": "research_prediction",
+    "profile": "core3",
+    "reasons": [],
+    "probability_expert_abnormal": 0.30140401389773774,
+    "clinical_risk": null,
+    "supported_for_clinical_inference": false,
+    "family": "catboost",
+    "pattern": "reactive"
+  },
+  {
+    "status": "research_prediction",
+    "profile": "core3",
+    "reasons": [],
+    "probability_expert_abnormal": 0.3197389251254988,
+    "clinical_risk": null,
+    "supported_for_clinical_inference": false,
+    "family": "catboost",
+    "pattern": "high_variation"
+  },
+  {
+    "status": "research_prediction",
+    "profile": "core3",
+    "reasons": [],
+    "probability_expert_abnormal": 0.9783597426084395,
+    "clinical_risk": null,
+    "supported_for_clinical_inference": false,
+    "family": "catboost",
+    "pattern": "decelerative"
+  },
+  {
+    "status": "research_prediction",
+    "profile": "report5",
+    "reasons": [],
+    "probability_expert_abnormal": 0.0978949499755854,
+    "clinical_risk": null,
+    "supported_for_clinical_inference": false,
+    "family": "linear",
+    "pattern": "quiet"
+  },
+  {
+    "status": "research_prediction",
+    "profile": "report5",
+    "reasons": [],
+    "probability_expert_abnormal": 0.35488053811319886,
+    "clinical_risk": null,
+    "supported_for_clinical_inference": false,
+    "family": "linear",
+    "pattern": "reactive"
+  },
+  {
+    "status": "research_prediction",
+    "profile": "report5",
+    "reasons": [],
+    "probability_expert_abnormal": 0.8368315912436347,
+    "clinical_risk": null,
+    "supported_for_clinical_inference": false,
+    "family": "linear",
+    "pattern": "high_variation"
+  },
+  {
+    "status": "research_prediction",
+    "profile": "report5",
+    "reasons": [],
+    "probability_expert_abnormal": 0.9492834457540176,
+    "clinical_risk": null,
+    "supported_for_clinical_inference": false,
+    "family": "linear",
+    "pattern": "decelerative"
+  },
+  {
+    "status": "research_prediction",
+    "profile": "report5",
+    "reasons": [],
+    "probability_expert_abnormal": 0.22053038966280172,
+    "clinical_risk": null,
+    "supported_for_clinical_inference": false,
+    "family": "spline",
+    "pattern": "quiet"
+  },
+  {
+    "status": "research_prediction",
+    "profile": "report5",
+    "reasons": [],
+    "probability_expert_abnormal": 0.33610683733765995,
+    "clinical_risk": null,
+    "supported_for_clinical_inference": false,
+    "family": "spline",
+    "pattern": "reactive"
+  },
+  {
+    "status": "research_prediction",
+    "profile": "report5",
+    "reasons": [],
+    "probability_expert_abnormal": 0.8696584814840759,
+    "clinical_risk": null,
+    "supported_for_clinical_inference": false,
+    "family": "spline",
+    "pattern": "high_variation"
+  },
+  {
+    "status": "research_prediction",
+    "profile": "report5",
+    "reasons": [],
+    "probability_expert_abnormal": 0.9153531214927126,
+    "clinical_risk": null,
+    "supported_for_clinical_inference": false,
+    "family": "spline",
+    "pattern": "decelerative"
+  },
+  {
+    "status": "research_prediction",
+    "profile": "report5",
+    "reasons": [],
+    "probability_expert_abnormal": 0.26334175494068507,
+    "clinical_risk": null,
+    "supported_for_clinical_inference": false,
+    "family": "catboost",
+    "pattern": "quiet"
+  },
+  {
+    "status": "research_prediction",
+    "profile": "report5",
+    "reasons": [],
+    "probability_expert_abnormal": 0.28155710661275724,
+    "clinical_risk": null,
+    "supported_for_clinical_inference": false,
+    "family": "catboost",
+    "pattern": "reactive"
+  },
+  {
+    "status": "research_prediction",
+    "profile": "report5",
+    "reasons": [],
+    "probability_expert_abnormal": 0.94332253189529,
+    "clinical_risk": null,
+    "supported_for_clinical_inference": false,
+    "family": "catboost",
+    "pattern": "high_variation"
+  },
+  {
+    "status": "research_prediction",
+    "profile": "report5",
+    "reasons": [],
+    "probability_expert_abnormal": 0.9389257741510433,
+    "clinical_risk": null,
+    "supported_for_clinical_inference": false,
+    "family": "catboost",
+    "pattern": "decelerative"
+  },
+  {
+    "status": "research_prediction",
+    "profile": "report7",
+    "reasons": [],
+    "probability_expert_abnormal": 0.13126816674349054,
+    "clinical_risk": null,
+    "supported_for_clinical_inference": false,
+    "family": "linear",
+    "pattern": "quiet"
+  },
+  {
+    "status": "research_prediction",
+    "profile": "report7",
+    "reasons": [],
+    "probability_expert_abnormal": 0.2887281967588397,
+    "clinical_risk": null,
+    "supported_for_clinical_inference": false,
+    "family": "linear",
+    "pattern": "reactive"
+  },
+  {
+    "status": "research_prediction",
+    "profile": "report7",
+    "reasons": [],
+    "probability_expert_abnormal": 0.9213446282612969,
+    "clinical_risk": null,
+    "supported_for_clinical_inference": false,
+    "family": "linear",
+    "pattern": "high_variation"
+  },
+  {
+    "status": "research_prediction",
+    "profile": "report7",
+    "reasons": [],
+    "probability_expert_abnormal": 0.9996347052038363,
+    "clinical_risk": null,
+    "supported_for_clinical_inference": false,
+    "family": "linear",
+    "pattern": "decelerative"
+  },
+  {
+    "status": "research_prediction",
+    "profile": "report7",
+    "reasons": [],
+    "probability_expert_abnormal": 0.2005970621492054,
+    "clinical_risk": null,
+    "supported_for_clinical_inference": false,
+    "family": "spline",
+    "pattern": "quiet"
+  },
+  {
+    "status": "research_prediction",
+    "profile": "report7",
+    "reasons": [],
+    "probability_expert_abnormal": 0.2772220278757634,
+    "clinical_risk": null,
+    "supported_for_clinical_inference": false,
+    "family": "spline",
+    "pattern": "reactive"
+  },
+  {
+    "status": "research_prediction",
+    "profile": "report7",
+    "reasons": [],
+    "probability_expert_abnormal": 0.9242668971288575,
+    "clinical_risk": null,
+    "supported_for_clinical_inference": false,
+    "family": "spline",
+    "pattern": "high_variation"
+  },
+  {
+    "status": "research_prediction",
+    "profile": "report7",
+    "reasons": [],
+    "probability_expert_abnormal": 0.9997368894341737,
+    "clinical_risk": null,
+    "supported_for_clinical_inference": false,
+    "family": "spline",
+    "pattern": "decelerative"
+  },
+  {
+    "status": "research_prediction",
+    "profile": "report7",
+    "reasons": [],
+    "probability_expert_abnormal": 0.25586430485660344,
+    "clinical_risk": null,
+    "supported_for_clinical_inference": false,
+    "family": "catboost",
+    "pattern": "quiet"
+  },
+  {
+    "status": "research_prediction",
+    "profile": "report7",
+    "reasons": [],
+    "probability_expert_abnormal": 0.26829807323064514,
+    "clinical_risk": null,
+    "supported_for_clinical_inference": false,
+    "family": "catboost",
+    "pattern": "reactive"
+  },
+  {
+    "status": "research_prediction",
+    "profile": "report7",
+    "reasons": [],
+    "probability_expert_abnormal": 0.953638560780328,
+    "clinical_risk": null,
+    "supported_for_clinical_inference": false,
+    "family": "catboost",
+    "pattern": "high_variation"
+  },
+  {
+    "status": "research_prediction",
+    "profile": "report7",
+    "reasons": [],
+    "probability_expert_abnormal": 0.9903572855523958,
+    "clinical_risk": null,
+    "supported_for_clinical_inference": false,
+    "family": "catboost",
+    "pattern": "decelerative"
+  },
+  {
+    "status": "research_prediction",
+    "profile": "report4s5",
+    "reasons": [],
+    "probability_expert_abnormal": 0.09815250521054927,
+    "clinical_risk": null,
+    "supported_for_clinical_inference": false,
+    "family": "linear",
+    "pattern": "quiet"
+  },
+  {
+    "status": "research_prediction",
+    "profile": "report4s5",
+    "reasons": [],
+    "probability_expert_abnormal": 0.36136543513059,
+    "clinical_risk": null,
+    "supported_for_clinical_inference": false,
+    "family": "linear",
+    "pattern": "reactive"
+  },
+  {
+    "status": "research_prediction",
+    "profile": "report4s5",
+    "reasons": [],
+    "probability_expert_abnormal": 0.8400047126432402,
+    "clinical_risk": null,
+    "supported_for_clinical_inference": false,
+    "family": "linear",
+    "pattern": "high_variation"
+  },
+  {
+    "status": "research_prediction",
+    "profile": "report4s5",
+    "reasons": [],
+    "probability_expert_abnormal": 0.9487511522075983,
+    "clinical_risk": null,
+    "supported_for_clinical_inference": false,
+    "family": "linear",
+    "pattern": "decelerative"
+  },
+  {
+    "status": "research_prediction",
+    "profile": "report4s5",
+    "reasons": [],
+    "probability_expert_abnormal": 0.2484118509070487,
+    "clinical_risk": null,
+    "supported_for_clinical_inference": false,
+    "family": "spline",
+    "pattern": "quiet"
+  },
+  {
+    "status": "research_prediction",
+    "profile": "report4s5",
+    "reasons": [],
+    "probability_expert_abnormal": 0.33812836486340614,
+    "clinical_risk": null,
+    "supported_for_clinical_inference": false,
+    "family": "spline",
+    "pattern": "reactive"
+  },
+  {
+    "status": "research_prediction",
+    "profile": "report4s5",
+    "reasons": [],
+    "probability_expert_abnormal": 0.8723980496190497,
+    "clinical_risk": null,
+    "supported_for_clinical_inference": false,
+    "family": "spline",
+    "pattern": "high_variation"
+  },
+  {
+    "status": "research_prediction",
+    "profile": "report4s5",
+    "reasons": [],
+    "probability_expert_abnormal": 0.923225884864658,
+    "clinical_risk": null,
+    "supported_for_clinical_inference": false,
+    "family": "spline",
+    "pattern": "decelerative"
+  },
+  {
+    "status": "research_prediction",
+    "profile": "report4s5",
+    "reasons": [],
+    "probability_expert_abnormal": 0.2660107750035301,
+    "clinical_risk": null,
+    "supported_for_clinical_inference": false,
+    "family": "catboost",
+    "pattern": "quiet"
+  },
+  {
+    "status": "research_prediction",
+    "profile": "report4s5",
+    "reasons": [],
+    "probability_expert_abnormal": 0.31436728144843,
+    "clinical_risk": null,
+    "supported_for_clinical_inference": false,
+    "family": "catboost",
+    "pattern": "reactive"
+  },
+  {
+    "status": "research_prediction",
+    "profile": "report4s5",
+    "reasons": [],
+    "probability_expert_abnormal": 0.9415605747582225,
+    "clinical_risk": null,
+    "supported_for_clinical_inference": false,
+    "family": "catboost",
+    "pattern": "high_variation"
+  },
+  {
+    "status": "research_prediction",
+    "profile": "report4s5",
+    "reasons": [],
+    "probability_expert_abnormal": 0.9385169058940814,
+    "clinical_risk": null,
+    "supported_for_clinical_inference": false,
+    "family": "catboost",
+    "pattern": "decelerative"
+  }
+]

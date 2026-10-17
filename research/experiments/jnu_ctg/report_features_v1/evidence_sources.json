@@ -1,0 +1,152 @@
+{
+  "review_date": "2026-10-17",
+  "exhaustive_systematic_review": false,
+  "methods_document_sha256": "aec8edbfa31dbcd8fba999606c0017aedbce0b675b452b8a47b6f6fa285979c8",
+  "sources": [
+    {
+      "id": "S1",
+      "description": "[Сономед-200, руководство v2.0, ред.1](https://cordismed.ru/image/pdf/spektromed-sonomed-200-instrukcija.pdf), разделы 6.1–6.8, прочитаны",
+      "urls": [
+        "https://cordismed.ru/image/pdf/spektromed-sonomed-200-instrukcija.pdf"
+      ],
+      "critical_decision": "События 15 s с пиком 10/15 BPM; площадь децелерации в потерянных ударах. STV: эпохи 3.75 s. Высокая вариабельность: ≥3 последовательных минут с LTV ≥11 BPM. Точная базальная линия и ВКИ не раскрыты. В правилах пропусков есть граничное расхождение: исключение при ≥25% в 6.1 и разрешение ≤25% в 6.6; v1 выбирает строго <25%."
+    },
+    {
+      "id": "S2",
+      "description": "[MFMon v2023-1](https://usontec.com/uploads/s/9/2/c/92ckun9gej9h/file/raxxmfuv.pdf), печатные с.28–33, прочитаны",
+      "urls": [
+        "https://usontec.com/uploads/s/9/2/c/92ckun9gej9h/file/raxxmfuv.pdf"
+      ],
+      "critical_decision": "Иные эпизоды: ≥5 последовательных минут с LTV ≥32 ms / <32 ms. Вариабельность исключает децелерации и синусоидальные интервалы. Полный детектор синусоидального ритма не воспроизведён, поэтому соответствие прибора не заявляется."
+    },
+    {
+      "id": "S3",
+      "description": "[МАК-02-«Ч», руководство ПО](https://chetp.ru/upload/Руководство_пользователя_ПО.pdf), с.66–70, прочитаны",
+      "urls": [
+        "https://chetp.ru/upload/Руководство_пользователя_ПО.pdf"
+      ],
+      "critical_decision": "Описан STV на **4 s**, иной учёт LTV при длительной акцелерации; адаптация порогов высокой/низкой вариабельности после 20 min. Частота осцилляций связана с пересечениями плавающей линии. Недостаточно описания фильтрации для полного клона."
+    },
+    {
+      "id": "S4",
+      "description": "[Huntleigh, Dawes–Redman Clinical Guide 1.2](https://www.huntleigh-diagnostics.com/wp-content/uploads/2025/09/Dawes-Redman-Clinical-Application-Guide-1.2.pdf), с.3–6 и глоссарий, прочитаны",
+      "urls": [
+        "https://www.huntleigh-diagnostics.com/wp-content/uploads/2025/09/Dawes-Redman-Clinical-Application-Guide-1.2.pdf"
+      ],
+      "critical_decision": "Эпохальный STV в ms; высокая вариабельность: 5 из 6 минут >32 ms с дальнейшим подтверждением по сроку. Считать лишь примитив, не итоговое выполнение критериев."
+    },
+    {
+      "id": "S5",
+      "description": "[Philips, CTG analysis based on Dawes/Redman, 2016](https://www.philips.com/c-dam/b2bhc/master/healthcare/room-layout/mri/CTG_analysis_based_on_Dawes_Redman_criteria.pdf), прочитано",
+      "urls": [
+        "https://www.philips.com/c-dam/b2bhc/master/healthcare/room-layout/mri/CTG_analysis_based_on_Dawes_Redman_criteria.pdf"
+      ],
+      "critical_decision": "Минуты с децелерациями исключаются из STV; шевеления получают отдельным маркером. Программная версия, окно и режим анализа входят в контракт измерения."
+    },
+    {
+      "id": "S6",
+      "description": "[РПТ Уникос, официальный производитель](https://unicosme.ru/), описание продукта",
+      "urls": [
+        "https://unicosme.ru/"
+      ],
+      "critical_decision": "ПСП относится к собственному алгоритму Демидова. Проверенной полной формулы нет: не вычислять ПСП из JNU и не выдавать его за размеченный исход. Руководство по ссылке дистрибьютора недоступно через просмотрщик; формулы из пересказов не заимствованы."
+    },
+    {
+      "id": "P1",
+      "description": "[Dawes et al., 1982, baseline](https://doi.org/10.1111/j.1471-0528.1982.tb04695.x), аннотация",
+      "urls": [
+        "https://doi.org/10.1111/j.1471-0528.1982.tb04695.x"
+      ],
+      "critical_decision": "Гистограмма может быть плоской или двухмодальной: mode/mean не гарантируют базальную линию. Не называем собственную реализацию Dawes."
+    },
+    {
+      "id": "P2",
+      "description": "[Mantel et al., 1990](https://pubmed.ncbi.nlm.nih.gov/2194979/), аннотация",
+      "urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/2194979/"
+      ],
+      "critical_decision": "Семейство итеративной фильтрации и отсечения отклонений; мотивирует контроль чувствительности. Детали не восстановлены по аннотации."
+    },
+    {
+      "id": "P3",
+      "description": "[Street et al., 1991, STV](https://pubmed.ncbi.nlm.nih.gov/1892175/), аннотация",
+      "urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/1892175/"
+      ],
+      "critical_decision": "Первичная работа об эпохальной кратковременной вариабельности при дородовых аномальных записях. Детали реализации сверены с руководствами."
+    },
+    {
+      "id": "P4",
+      "description": "[Pardey et al., 2002](https://pubmed.ncbi.nlm.nih.gov/12015543/), аннотация",
+      "urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/12015543/"
+      ],
+      "critical_decision": "Реактивность зависит от срока беременности; нельзя заменить её простым числом акцелераций."
+    },
+    {
+      "id": "P5",
+      "description": "[Evaluation of standardized computerized Dawes/Redman heart-rate analysis](https://pubmed.ncbi.nlm.nih.gov/26584353/), аннотация исследования",
+      "urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/26584353/"
+      ],
+      "critical_decision": "STV по усреднённым эпохам и истинная beat-to-beat HRV — разные измерения, даже при корреляции."
+    },
+    {
+      "id": "P6",
+      "description": "[SisPorto, дородовая валидация, 2005](https://www.sciencedirect.com/science/article/abs/pii/S030121150400212X), доступные методы",
+      "urls": [
+        "https://www.sciencedirect.com/science/article/abs/pii/S030121150400212X"
+      ],
+      "critical_decision": "Соседние точки для abnormal STV и 60 s размах для abnormal LTV. Проценты ASTV/ALTV из UCI не заменять STV(ms) и минутами вариабельности на бланке."
+    },
+    {
+      "id": "P7",
+      "description": "[Boudet et al., SoftwareX 2020](https://doi.org/10.1016/j.softx.2020.100428) и [авторский FHRMA](https://github.com/data-coeur/FHRMA), аннотация и исходник WMFB",
+      "urls": [
+        "https://doi.org/10.1016/j.softx.2020.100428",
+        "https://github.com/data-coeur/FHRMA"
+      ],
+      "critical_decision": "Семейства Dawes/Pardey, Mantel, Ayres/SisPorto, Maeda, Taylor, Cazares, Jimenez, Lu, Houzé и WMFB сравниваются с экспертной разметкой. Копирования MATLAB-кода нет; опубликованный WMFB имеет GPLv3+. Для выбора точного детектора нужен отдельный benchmark, которого на JNU FIGO нет."
+    },
+    {
+      "id": "P8",
+      "description": "[DeepCTG 1.0, 2023](https://www.frontiersin.org/journals/pediatrics/articles/10.3389/fped.2023.1190441/full), методы прочитаны",
+      "urls": [
+        "https://www.frontiersin.org/journals/pediatrics/articles/10.3389/fped.2023.1190441/full"
+      ],
+      "critical_decision": "Полезны базальная линия, площади и длительности событий. Интерполяцию до 10 min не принимаем для оценки вариабельности. Называть децелерацию «поздней» только из-за длительности >2 min, как в части статьи, нельзя: нужна связь с сокращением. Работа интранатальная."
+    },
+    {
+      "id": "P9",
+      "description": "[Spairani et al., 2022, 2CTG2](https://www.frontiersin.org/journals/bioengineering-and-biotechnology/articles/10.3389/fbioe.2022.887549/full), методы прочитаны",
+      "urls": [
+        "https://www.frontiersin.org/journals/bioengineering-and-biotechnology/articles/10.3389/fbioe.2022.887549/full"
+      ],
+      "critical_decision": "DELTA/II/LTI, спектр, ApEn и гибридные сети требуют сигнала. Их нельзя получить из одного STV или нескольких агрегатов. Пропуск вырезанного времени нарушает ось времени; наш код сохраняет разрывы."
+    },
+    {
+      "id": "P10",
+      "description": "[Xiao et al., 2022, DFFN](https://www.frontiersin.org/journals/physiology/articles/10.3389/fphys.2022.969052/full), методы прочитаны",
+      "urls": [
+        "https://www.frontiersin.org/journals/physiology/articles/10.3389/fphys.2022.969052/full"
+      ],
+      "critical_decision": "В статье старый JNU: 784 интранатальные записи, pH-метки. Это **не** выпущенная в 2026 база из 20769 записей с FIGO. Смешивать условия и метрики нельзя."
+    },
+    {
+      "id": "G1",
+      "description": "[FIGO 2015](https://doi.org/10.1016/j.ijgo.2015.06.020), определения прочитаны",
+      "urls": [
+        "https://doi.org/10.1016/j.ijgo.2015.06.020"
+      ],
+      "critical_decision": "Интранатальные определения помогают терминологии; не превращаем их в дородовую метку. Критерий синусоидального паттерна >30 min нельзя доказать 30-минутной записью."
+    },
+    {
+      "id": "D1",
+      "description": "[JNU-CTG 1.0.0, Zenodo](https://zenodo.org/records/21800730), публикация + README архива",
+      "urls": [
+        "https://zenodo.org/records/21800730"
+      ],
+      "critical_decision": "4 Hz FHR/UC, нет канала шевелений/материнской ЭКГ/истинных RR. FIGO бинарный, клинический исход отдельный."
+    }
+  ]
+}

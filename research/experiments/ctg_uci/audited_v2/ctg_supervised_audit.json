@@ -1,0 +1,14 @@
+{
+  "scope": "Read-only audit of historical supervised results; independent computations retained",
+  "report": "tmp/ctg_supervised_audit.md",
+  "evidence": "tmp/ctg_supervised_recompute.json",
+  "findings": [
+    {"severity":"P1","path":"src/training/ctg_experiments.py","lines":[328,331,386],"issue":"Averaging hierarchical conditional heads is not probability soft voting","validation_max_probability_error":0.020244642188668227,"test_max_probability_error":0.023765475016143428,"remedy":"Average a and use abnormal-probability-weighted conditional b, then refit corresponding calibrator"},
+    {"severity":"P1","path":"src/training/ctg_experiments.py","lines":[64,72,244,307],"issue":"Row-stratified groups yield poor independent-positive recording support","outer_path_files":[9,8,6,2,8],"validation_hold_path_files":[4,2,1],"remedy":"Balance both per-class row counts and per-class recording presence; repeat grouped development CV"},
+    {"severity":"P2","path":"research/experiments/ctg_uci/test_metrics.csv","issue":"Observed A versus D difference does not establish unique superiority","paired_group_bootstrap_A_minus_D_macro_f1_95CI":[-0.010148626885033792,0.0327509190955613],"remedy":"Keep test out of reselection; use development-based shortlist and paired uncertainty"},
+    {"severity":"P2","path":"src/training/ctg_experiments.py","lines":[181,198],"issue":"Current random-segment estimand weights long recordings more heavily","file_balanced_macro_f1":{"A":0.88016,"D":0.88527},"file_balanced_path_recall":0.85763,"remedy":"Add recording-balanced segment metrics as secondary, with clear estimand"},
+    {"severity":"P2","path":"src/training/ctg_experiments.py","lines":[53,57,262,366,377],"issue":"Cache fingerprint omits preprocessing source and runtime package versions","remedy":"Fingerprint all behavior-changing sources and dependency versions; immutable new run directory"},
+    {"severity":"P2","path":"tests/unit/test_ctg_experiments.py","lines":[1,35],"issue":"No independent ensemble arithmetic oracle or minimum positive-recording-support test","remedy":"Add targeted regression tests and serialization checks"}
+  ],
+  "confirmed_correct":["No direct supervised outer/test leakage found","All saved test macro-F1/path recall/AP independently reproduced","Hierarchy second model and calibrator conditional targets are correct","Grouped bootstrap is appropriate for fixed fitted model uncertainty, as documented","Training class weights do not leak into natural-prevalence evaluation"]
+}

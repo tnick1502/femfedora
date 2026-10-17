@@ -1,0 +1,16 @@
+{
+  "fingerprint": "f9c52010a79720e3324ce3e301e530240df3dfc32f44d6823e6a9e4974353060",
+  "selection": "validation silhouette without outcomes",
+  "chosen": {
+    "FCM": "FCM_2_1.5",
+    "GMM": "GMM_2_full",
+    "KMeans": "KMeans_2_None"
+  },
+  "pca_components": 10,
+  "explained_variance": 0.9109955732359224,
+  "removed_distance_columns": [
+    "rare_present__DP",
+    "rare_present__Nzeros"
+  ],
+  "minimum_cluster_fraction": 0.03
+}

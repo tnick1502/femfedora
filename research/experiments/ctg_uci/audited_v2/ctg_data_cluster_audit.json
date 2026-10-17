@@ -1,0 +1,143 @@
+{
+  "scope": "Read-only independent data/preprocessing/clustering audit. Existing notebooks/results were not edited.",
+  "findings": [
+    {
+      "id": "UMAP_BATCH_SENSITIVITY",
+      "severity": "P2",
+      "scope": "src/training/ctg_embeddings.py:178",
+      "evidence": {
+        "variant": "UMAP_08_05/GMM",
+        "checked_records": 20,
+        "full_batch": 425,
+        "single_full_label_disagreements": 1,
+        "batch20_full_label_disagreements": 1,
+        "single_full_embedding_rmse": 0.33636394
+      },
+      "conclusion": "Exported UMAP assignments do not have a batch-invariant inference contract. This is algorithm sensitivity, not label leakage.",
+      "fix": "Keep exploratory; for deployable features define/test a stable transform contract and refit cluster models under that contract."
+    },
+    {
+      "id": "INDEPENDENT_POSITIVE_SUPPORT",
+      "severity": "P2",
+      "scope": "src/training/ctg_embeddings.py:405; src/training/ctg_clustering.py:205",
+      "evidence": {
+        "AE_GMM_enriched_cluster": {
+          "segments": 45,
+          "source_files": 10,
+          "pathological_segments": 20,
+          "pathological_source_files": 2,
+          "base_small_cluster": false
+        },
+        "existing_mitigation": "test_risk_summary_with_support.csv and notebook06 already contain path_source_files/limited_path_support and correct caveats"
+      },
+      "conclusion": "Base small_cluster flag confuses segment support and independent positive-file support; rendered06 already mitigates.",
+      "fix": "Use separate total-files and positive-files support in all new summaries; preserve historical files."
+    },
+    {
+      "id": "CACHE_SOURCE_DEPENDENCY",
+      "severity": "P2",
+      "scope": "src/training/ctg_experiments.py:57; src/training/ctg_embeddings.py:274",
+      "evidence": "Fingerprint omits live ctg_preprocessing.py implementation. Serialized guard references current imported class. Embedding completion receipt accepts artifact existence without authenticating exported artifact or evidence tables.",
+      "fix": "New versioned fingerprint should include live source dependencies and runtime versions; persist output artifact hashes and verify before cache acceptance."
+    },
+    {
+      "id": "AE_CLUSTER_INSTABILITY",
+      "severity": "P2",
+      "scope": "research/experiments/ctg_uci/embeddings/stability.csv",
+      "evidence": {
+        "AE_GMM_seed_ARI": [
+          0.074522,
+          -0.010243
+        ],
+        "AE_GMM_subsample_ARI_min": -0.032633,
+        "AE_GMM_subsample_ARI_max": 0.714314,
+        "path_enrichment_CI": [
+          0,
+          8.518791
+        ]
+      },
+      "conclusion": "High observed test ARI and pathological percentage do not establish repeatable risk groups; do not select supervised champion from these associations.",
+      "fix": "Treat as exploratory and prefer development-only supervised comparison. Include cluster features only through training-only cross-fit ablation; acknowledge reused test."
+    },
+    {
+      "id": "NOTEBOOK01_WIDTH_WORDING",
+      "severity": "P3",
+      "scope": "research/notebooks/ctg_uci/01_prepare_data.ipynb cell18",
+      "evidence": "Preparation text says Width remains for trees/audit, while current CTGFamily.features drops Width for all CatBoost families. Primary data retains Width, so implementation/data contract remains valid.",
+      "fix": "Clarify the current main tree baseline also excludes Width; an all-feature sensitivity experiment is optional."
+    }
+  ],
+  "verified": {
+    "all_21_features_reconstructed_exactly_from_raw_sheet": true,
+    "raw_count_denominator": "e-b for AC/FM/UC/DL/DS/DP",
+    "missing": 0,
+    "no_group_or_duplicate_overlap": true,
+    "pathological_source_files": {
+      "test": 10,
+      "train": 33,
+      "validation": 7
+    },
+    "saved_preprocessor_equals_train_only_refit": true,
+    "dense_medians_match_train": true,
+    "dense_iqr_match_train": true,
+    "all_data_fit_changes_transform": 0.3214285714285714,
+    "manifest_artifact_hashes_match": {
+      "preprocessor.joblib": true,
+      "scalers.joblib": true,
+      "scaler_parameters.json": true
+    },
+    "legacy_matches_snapshot": true,
+    "notebooks": {
+      "05_results_and_error_analysis.ipynb": {
+        "code": 10,
+        "unexecuted": 0,
+        "errors": 0
+      },
+      "04_clustering_without_outcomes.ipynb": {
+        "code": 5,
+        "unexecuted": 0,
+        "errors": 0
+      },
+      "02_nested_grid_search.ipynb": {
+        "code": 7,
+        "unexecuted": 0,
+        "errors": 0
+      },
+      "01_prepare_data.ipynb": {
+        "code": 12,
+        "unexecuted": 0,
+        "errors": 0
+      },
+      "03_calibration_ensemble_and_test.ipynb": {
+        "code": 6,
+        "unexecuted": 0,
+        "errors": 0
+      },
+      "06_clustering_embeddings_grid_search.ipynb": {
+        "code": 10,
+        "unexecuted": 0,
+        "errors": 0
+      }
+    },
+    "AE_group_early_stop": "separate files and inner-fit-only preprocessing verified by code",
+    "cluster_selection_labels": "No NSP/CLASS in fit or unsupervised selection found",
+    "notebook01_feature_choice": "Whole-dataset plots are descriptive and acknowledged. train_profile computed train-only before recipe fitting; Tendency chosen semantically, DS excluded from train 2-file support, Width exact identity. No fitted scaler leakage found.",
+    "guard_contract": "Exactly21 named inputs, numeric finite/nonnegative, Tendency{-1,0,1}, ASTV/ALTV<=100, Width=Max-Min; explicit rejection of unsupported missing features."
+  },
+  "versions": {
+    "numpy": "2.4.6",
+    "scipy": "1.17.1",
+    "pandas": "2.3.3",
+    "scikit-learn": "1.9.1",
+    "catboost": "1.2.10",
+    "joblib": "1.6.0",
+    "umap-learn": "0.5.12",
+    "numba": "0.68.0",
+    "pynndescent": "0.6.0",
+    "nbformat": "5.11.1"
+  },
+  "evidence_files": [
+    "tmp/ctg_data_cluster_independent_checks.json",
+    "tmp/ctg_data_cluster_audit.md"
+  ]
+}

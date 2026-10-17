@@ -1,0 +1,1487 @@
+[
+  {
+    "repetition": 0,
+    "outer_fold": 0,
+    "family": "logistic",
+    "params": {
+      "C": 0.1
+    },
+    "mean_loss": 0.2881197937305034,
+    "one_se_cutoff": 0.29638760267812975,
+    "temperature": 1.0107859037198852,
+    "fit_groups": 141,
+    "hold_groups": 36,
+    "selected_family": "D_hierarchy"
+  },
+  {
+    "repetition": 0,
+    "outer_fold": 0,
+    "family": "A_multiclass",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.1,
+      "iterations": 300
+    },
+    "mean_loss": 0.20960098423847073,
+    "one_se_cutoff": 0.21914061215988553,
+    "temperature": 0.9693319537706642,
+    "fit_groups": 141,
+    "hold_groups": 36,
+    "selected_family": "D_hierarchy"
+  },
+  {
+    "repetition": 0,
+    "outer_fold": 0,
+    "family": "B_sqrt",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.1,
+      "iterations": 300
+    },
+    "mean_loss": 0.21523953470944557,
+    "one_se_cutoff": 0.21581673237103569,
+    "temperature": 0.8511387425810388,
+    "fit_groups": 141,
+    "hold_groups": 36,
+    "selected_family": "D_hierarchy"
+  },
+  {
+    "repetition": 0,
+    "outer_fold": 0,
+    "family": "B_balanced",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.1,
+      "iterations": 300
+    },
+    "mean_loss": 0.2431338686433421,
+    "one_se_cutoff": 0.2448833257196139,
+    "temperature": 0.9107926322008567,
+    "fit_groups": 141,
+    "hold_groups": 36,
+    "selected_family": "D_hierarchy"
+  },
+  {
+    "repetition": 0,
+    "outer_fold": 0,
+    "family": "C_ovr",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.1,
+      "iterations": 300
+    },
+    "mean_loss": 0.18015451084886439,
+    "one_se_cutoff": 0.20296104524116565,
+    "temperature": 1.049733711137486,
+    "fit_groups": 141,
+    "hold_groups": 36,
+    "selected_family": "D_hierarchy"
+  },
+  {
+    "repetition": 0,
+    "outer_fold": 0,
+    "family": "D_hierarchy",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.03,
+      "iterations": 300
+    },
+    "mean_loss": 0.19572588048461811,
+    "one_se_cutoff": 0.19678761902118344,
+    "temperature": 0.9018029913712182,
+    "fit_groups": 141,
+    "hold_groups": 36,
+    "selected_family": "D_hierarchy"
+  },
+  {
+    "repetition": 0,
+    "outer_fold": 1,
+    "family": "logistic",
+    "params": {
+      "C": 0.1
+    },
+    "mean_loss": 0.29251051533680017,
+    "one_se_cutoff": 0.3177010940812427,
+    "temperature": 1.0565851241350006,
+    "fit_groups": 141,
+    "hold_groups": 36,
+    "selected_family": "A_multiclass"
+  },
+  {
+    "repetition": 0,
+    "outer_fold": 1,
+    "family": "A_multiclass",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.1,
+      "iterations": 300
+    },
+    "mean_loss": 0.19730752955019962,
+    "one_se_cutoff": 0.21977839938684968,
+    "temperature": 0.9985688357058112,
+    "fit_groups": 141,
+    "hold_groups": 36,
+    "selected_family": "A_multiclass"
+  },
+  {
+    "repetition": 0,
+    "outer_fold": 1,
+    "family": "B_sqrt",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.1,
+      "iterations": 300
+    },
+    "mean_loss": 0.203926401969889,
+    "one_se_cutoff": 0.23440013201729992,
+    "temperature": 0.9293608595275504,
+    "fit_groups": 141,
+    "hold_groups": 36,
+    "selected_family": "A_multiclass"
+  },
+  {
+    "repetition": 0,
+    "outer_fold": 1,
+    "family": "B_balanced",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.1,
+      "iterations": 300
+    },
+    "mean_loss": 0.23509501861686122,
+    "one_se_cutoff": 0.2508087297512225,
+    "temperature": 1.0131763081122116,
+    "fit_groups": 141,
+    "hold_groups": 36,
+    "selected_family": "A_multiclass"
+  },
+  {
+    "repetition": 0,
+    "outer_fold": 1,
+    "family": "C_ovr",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.03,
+      "iterations": 300
+    },
+    "mean_loss": 0.19659558214170625,
+    "one_se_cutoff": 0.20183642707463909,
+    "temperature": 0.9665247660234155,
+    "fit_groups": 141,
+    "hold_groups": 36,
+    "selected_family": "A_multiclass"
+  },
+  {
+    "repetition": 0,
+    "outer_fold": 1,
+    "family": "D_hierarchy",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.03,
+      "iterations": 300
+    },
+    "mean_loss": 0.18772380390875607,
+    "one_se_cutoff": 0.20596075519856297,
+    "temperature": 0.9501239345583964,
+    "fit_groups": 141,
+    "hold_groups": 36,
+    "selected_family": "A_multiclass"
+  },
+  {
+    "repetition": 0,
+    "outer_fold": 2,
+    "family": "logistic",
+    "params": {
+      "C": 0.1
+    },
+    "mean_loss": 0.3203037058958,
+    "one_se_cutoff": 0.3584305708464935,
+    "temperature": 1.0880183545165902,
+    "fit_groups": 142,
+    "hold_groups": 35,
+    "selected_family": "A_multiclass"
+  },
+  {
+    "repetition": 0,
+    "outer_fold": 2,
+    "family": "A_multiclass",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.1,
+      "iterations": 300
+    },
+    "mean_loss": 0.20332450051646125,
+    "one_se_cutoff": 0.20972639498808468,
+    "temperature": 0.9694696803433377,
+    "fit_groups": 142,
+    "hold_groups": 35,
+    "selected_family": "A_multiclass"
+  },
+  {
+    "repetition": 0,
+    "outer_fold": 2,
+    "family": "B_sqrt",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.1,
+      "iterations": 300
+    },
+    "mean_loss": 0.19794600205806165,
+    "one_se_cutoff": 0.21329102505815095,
+    "temperature": 0.8381989373723433,
+    "fit_groups": 142,
+    "hold_groups": 35,
+    "selected_family": "A_multiclass"
+  },
+  {
+    "repetition": 0,
+    "outer_fold": 2,
+    "family": "B_balanced",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.1,
+      "iterations": 300
+    },
+    "mean_loss": 0.23466742676598903,
+    "one_se_cutoff": 0.2421277635342837,
+    "temperature": 0.9368146765974237,
+    "fit_groups": 142,
+    "hold_groups": 35,
+    "selected_family": "A_multiclass"
+  },
+  {
+    "repetition": 0,
+    "outer_fold": 2,
+    "family": "C_ovr",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.03,
+      "iterations": 300
+    },
+    "mean_loss": 0.19487012118582145,
+    "one_se_cutoff": 0.1973452286574719,
+    "temperature": 0.904949092734704,
+    "fit_groups": 142,
+    "hold_groups": 35,
+    "selected_family": "A_multiclass"
+  },
+  {
+    "repetition": 0,
+    "outer_fold": 2,
+    "family": "D_hierarchy",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.03,
+      "iterations": 300
+    },
+    "mean_loss": 0.20512528575148983,
+    "one_se_cutoff": 0.20546602347648857,
+    "temperature": 0.9190155249520303,
+    "fit_groups": 142,
+    "hold_groups": 35,
+    "selected_family": "A_multiclass"
+  },
+  {
+    "repetition": 0,
+    "outer_fold": 3,
+    "family": "logistic",
+    "params": {
+      "C": 0.1
+    },
+    "mean_loss": 0.30928763991570246,
+    "one_se_cutoff": 0.35060497208682434,
+    "temperature": 1.0342194412894707,
+    "fit_groups": 143,
+    "hold_groups": 34,
+    "selected_family": "A_multiclass"
+  },
+  {
+    "repetition": 0,
+    "outer_fold": 3,
+    "family": "A_multiclass",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.1,
+      "iterations": 300
+    },
+    "mean_loss": 0.22789355041699588,
+    "one_se_cutoff": 0.24242505346892457,
+    "temperature": 0.9857929707954531,
+    "fit_groups": 143,
+    "hold_groups": 34,
+    "selected_family": "A_multiclass"
+  },
+  {
+    "repetition": 0,
+    "outer_fold": 3,
+    "family": "B_sqrt",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.1,
+      "iterations": 300
+    },
+    "mean_loss": 0.227775856165271,
+    "one_se_cutoff": 0.2551908007441154,
+    "temperature": 0.8696832300827486,
+    "fit_groups": 143,
+    "hold_groups": 34,
+    "selected_family": "A_multiclass"
+  },
+  {
+    "repetition": 0,
+    "outer_fold": 3,
+    "family": "B_balanced",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.1,
+      "iterations": 300
+    },
+    "mean_loss": 0.28851489878087716,
+    "one_se_cutoff": 0.29801375169418093,
+    "temperature": 0.9264069116593696,
+    "fit_groups": 143,
+    "hold_groups": 34,
+    "selected_family": "A_multiclass"
+  },
+  {
+    "repetition": 0,
+    "outer_fold": 3,
+    "family": "C_ovr",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.03,
+      "iterations": 300
+    },
+    "mean_loss": 0.21932026310500716,
+    "one_se_cutoff": 0.22594433243112352,
+    "temperature": 0.9617042273612018,
+    "fit_groups": 143,
+    "hold_groups": 34,
+    "selected_family": "A_multiclass"
+  },
+  {
+    "repetition": 0,
+    "outer_fold": 3,
+    "family": "D_hierarchy",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.03,
+      "iterations": 300
+    },
+    "mean_loss": 0.22369480842960998,
+    "one_se_cutoff": 0.235129516916276,
+    "temperature": 0.9648607021058796,
+    "fit_groups": 143,
+    "hold_groups": 34,
+    "selected_family": "A_multiclass"
+  },
+  {
+    "repetition": 0,
+    "outer_fold": 4,
+    "family": "logistic",
+    "params": {
+      "C": 0.1
+    },
+    "mean_loss": 0.27034280056782584,
+    "one_se_cutoff": 0.29052386886430215,
+    "temperature": 0.9169203778143573,
+    "fit_groups": 141,
+    "hold_groups": 36,
+    "selected_family": "A_multiclass"
+  },
+  {
+    "repetition": 0,
+    "outer_fold": 4,
+    "family": "A_multiclass",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.1,
+      "iterations": 300
+    },
+    "mean_loss": 0.21329466553684073,
+    "one_se_cutoff": 0.22135413098181897,
+    "temperature": 0.9717989764618372,
+    "fit_groups": 141,
+    "hold_groups": 36,
+    "selected_family": "A_multiclass"
+  },
+  {
+    "repetition": 0,
+    "outer_fold": 4,
+    "family": "B_sqrt",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.1,
+      "iterations": 300
+    },
+    "mean_loss": 0.21400199560872388,
+    "one_se_cutoff": 0.22403193915632164,
+    "temperature": 0.8611099001607052,
+    "fit_groups": 141,
+    "hold_groups": 36,
+    "selected_family": "A_multiclass"
+  },
+  {
+    "repetition": 0,
+    "outer_fold": 4,
+    "family": "B_balanced",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.1,
+      "iterations": 300
+    },
+    "mean_loss": 0.2476473290767239,
+    "one_se_cutoff": 0.26316650144428233,
+    "temperature": 0.9184107746101288,
+    "fit_groups": 141,
+    "hold_groups": 36,
+    "selected_family": "A_multiclass"
+  },
+  {
+    "repetition": 0,
+    "outer_fold": 4,
+    "family": "C_ovr",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.03,
+      "iterations": 300
+    },
+    "mean_loss": 0.21090124034621494,
+    "one_se_cutoff": 0.22048799184589837,
+    "temperature": 0.9404951714918413,
+    "fit_groups": 141,
+    "hold_groups": 36,
+    "selected_family": "A_multiclass"
+  },
+  {
+    "repetition": 0,
+    "outer_fold": 4,
+    "family": "D_hierarchy",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.03,
+      "iterations": 300
+    },
+    "mean_loss": 0.20957246941808538,
+    "one_se_cutoff": 0.22601420402662772,
+    "temperature": 0.9315459710164643,
+    "fit_groups": 141,
+    "hold_groups": 36,
+    "selected_family": "A_multiclass"
+  },
+  {
+    "repetition": 1,
+    "outer_fold": 0,
+    "family": "logistic",
+    "params": {
+      "C": 0.1
+    },
+    "mean_loss": 0.2638734625947629,
+    "one_se_cutoff": 0.2842771673822668,
+    "temperature": 0.9322573303291269,
+    "fit_groups": 141,
+    "hold_groups": 36,
+    "selected_family": "C_ovr"
+  },
+  {
+    "repetition": 1,
+    "outer_fold": 0,
+    "family": "A_multiclass",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.1,
+      "iterations": 300
+    },
+    "mean_loss": 0.18226496365429345,
+    "one_se_cutoff": 0.18518102680386625,
+    "temperature": 0.9808988234637237,
+    "fit_groups": 141,
+    "hold_groups": 36,
+    "selected_family": "C_ovr"
+  },
+  {
+    "repetition": 1,
+    "outer_fold": 0,
+    "family": "B_sqrt",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.1,
+      "iterations": 300
+    },
+    "mean_loss": 0.18878283034658913,
+    "one_se_cutoff": 0.19046558167107905,
+    "temperature": 0.888450388931353,
+    "fit_groups": 141,
+    "hold_groups": 36,
+    "selected_family": "C_ovr"
+  },
+  {
+    "repetition": 1,
+    "outer_fold": 0,
+    "family": "B_balanced",
+    "params": {
+      "depth": 5,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.1,
+      "iterations": 600
+    },
+    "mean_loss": 0.20085026804301565,
+    "one_se_cutoff": 0.21242776608318648,
+    "temperature": 1.1120084515703237,
+    "fit_groups": 141,
+    "hold_groups": 36,
+    "selected_family": "C_ovr"
+  },
+  {
+    "repetition": 1,
+    "outer_fold": 0,
+    "family": "C_ovr",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.1,
+      "iterations": 300
+    },
+    "mean_loss": 0.16626918057263143,
+    "one_se_cutoff": 0.17518863284952263,
+    "temperature": 1.0110268561159965,
+    "fit_groups": 141,
+    "hold_groups": 36,
+    "selected_family": "C_ovr"
+  },
+  {
+    "repetition": 1,
+    "outer_fold": 0,
+    "family": "D_hierarchy",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.03,
+      "iterations": 300
+    },
+    "mean_loss": 0.18635300062168536,
+    "one_se_cutoff": 0.19575626190512513,
+    "temperature": 0.8665904187488387,
+    "fit_groups": 141,
+    "hold_groups": 36,
+    "selected_family": "C_ovr"
+  },
+  {
+    "repetition": 1,
+    "outer_fold": 1,
+    "family": "logistic",
+    "params": {
+      "C": 0.1
+    },
+    "mean_loss": 0.2639263621358605,
+    "one_se_cutoff": 0.2895713397642482,
+    "temperature": 0.9850951036596594,
+    "fit_groups": 141,
+    "hold_groups": 36,
+    "selected_family": "D_hierarchy"
+  },
+  {
+    "repetition": 1,
+    "outer_fold": 1,
+    "family": "A_multiclass",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.1,
+      "iterations": 300
+    },
+    "mean_loss": 0.19315752169506042,
+    "one_se_cutoff": 0.20100871492760486,
+    "temperature": 0.9715933699611977,
+    "fit_groups": 141,
+    "hold_groups": 36,
+    "selected_family": "D_hierarchy"
+  },
+  {
+    "repetition": 1,
+    "outer_fold": 1,
+    "family": "B_sqrt",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.1,
+      "iterations": 300
+    },
+    "mean_loss": 0.1969951638215668,
+    "one_se_cutoff": 0.20449728758509045,
+    "temperature": 0.8794617455718011,
+    "fit_groups": 141,
+    "hold_groups": 36,
+    "selected_family": "D_hierarchy"
+  },
+  {
+    "repetition": 1,
+    "outer_fold": 1,
+    "family": "B_balanced",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.1,
+      "iterations": 300
+    },
+    "mean_loss": 0.22580805445294294,
+    "one_se_cutoff": 0.23391785199258852,
+    "temperature": 0.9734871595723845,
+    "fit_groups": 141,
+    "hold_groups": 36,
+    "selected_family": "D_hierarchy"
+  },
+  {
+    "repetition": 1,
+    "outer_fold": 1,
+    "family": "C_ovr",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.03,
+      "iterations": 300
+    },
+    "mean_loss": 0.18203281943982472,
+    "one_se_cutoff": 0.19124202130031895,
+    "temperature": 0.9131467960396854,
+    "fit_groups": 141,
+    "hold_groups": 36,
+    "selected_family": "D_hierarchy"
+  },
+  {
+    "repetition": 1,
+    "outer_fold": 1,
+    "family": "D_hierarchy",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.1,
+      "iterations": 300
+    },
+    "mean_loss": 0.17307694758310607,
+    "one_se_cutoff": 0.18086144379649946,
+    "temperature": 1.1289906129736313,
+    "fit_groups": 141,
+    "hold_groups": 36,
+    "selected_family": "D_hierarchy"
+  },
+  {
+    "repetition": 1,
+    "outer_fold": 2,
+    "family": "logistic",
+    "params": {
+      "C": 1.0
+    },
+    "mean_loss": 0.2681475615859757,
+    "one_se_cutoff": 0.285472744503733,
+    "temperature": 1.1706857242922504,
+    "fit_groups": 142,
+    "hold_groups": 35,
+    "selected_family": "A_multiclass"
+  },
+  {
+    "repetition": 1,
+    "outer_fold": 2,
+    "family": "A_multiclass",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.1,
+      "iterations": 300
+    },
+    "mean_loss": 0.19218021016181666,
+    "one_se_cutoff": 0.19309569361447199,
+    "temperature": 0.927784057630734,
+    "fit_groups": 142,
+    "hold_groups": 35,
+    "selected_family": "A_multiclass"
+  },
+  {
+    "repetition": 1,
+    "outer_fold": 2,
+    "family": "B_sqrt",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.1,
+      "iterations": 300
+    },
+    "mean_loss": 0.18939402487784954,
+    "one_se_cutoff": 0.19071212914811797,
+    "temperature": 0.869649289663015,
+    "fit_groups": 142,
+    "hold_groups": 35,
+    "selected_family": "A_multiclass"
+  },
+  {
+    "repetition": 1,
+    "outer_fold": 2,
+    "family": "B_balanced",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.1,
+      "iterations": 600
+    },
+    "mean_loss": 0.20277304183742298,
+    "one_se_cutoff": 0.21005342860809822,
+    "temperature": 1.0140498229984567,
+    "fit_groups": 142,
+    "hold_groups": 35,
+    "selected_family": "A_multiclass"
+  },
+  {
+    "repetition": 1,
+    "outer_fold": 2,
+    "family": "C_ovr",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.1,
+      "iterations": 300
+    },
+    "mean_loss": 0.18117088523999,
+    "one_se_cutoff": 0.193839276960981,
+    "temperature": 1.096157085873475,
+    "fit_groups": 142,
+    "hold_groups": 35,
+    "selected_family": "A_multiclass"
+  },
+  {
+    "repetition": 1,
+    "outer_fold": 2,
+    "family": "D_hierarchy",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.03,
+      "iterations": 300
+    },
+    "mean_loss": 0.18793837226376242,
+    "one_se_cutoff": 0.19032329867013748,
+    "temperature": 0.887417317349777,
+    "fit_groups": 142,
+    "hold_groups": 35,
+    "selected_family": "A_multiclass"
+  },
+  {
+    "repetition": 1,
+    "outer_fold": 3,
+    "family": "logistic",
+    "params": {
+      "C": 0.1
+    },
+    "mean_loss": 0.2989827236064692,
+    "one_se_cutoff": 0.31107681540757126,
+    "temperature": 1.0147568842488701,
+    "fit_groups": 141,
+    "hold_groups": 36,
+    "selected_family": "B_sqrt"
+  },
+  {
+    "repetition": 1,
+    "outer_fold": 3,
+    "family": "A_multiclass",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.1,
+      "iterations": 300
+    },
+    "mean_loss": 0.19204515690635562,
+    "one_se_cutoff": 0.20314645845655604,
+    "temperature": 0.9301288113420598,
+    "fit_groups": 141,
+    "hold_groups": 36,
+    "selected_family": "B_sqrt"
+  },
+  {
+    "repetition": 1,
+    "outer_fold": 3,
+    "family": "B_sqrt",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.1,
+      "iterations": 300
+    },
+    "mean_loss": 0.18334915172055322,
+    "one_se_cutoff": 0.18793819412161153,
+    "temperature": 0.8593629447021732,
+    "fit_groups": 141,
+    "hold_groups": 36,
+    "selected_family": "B_sqrt"
+  },
+  {
+    "repetition": 1,
+    "outer_fold": 3,
+    "family": "B_balanced",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.1,
+      "iterations": 600
+    },
+    "mean_loss": 0.21486030073087828,
+    "one_se_cutoff": 0.21713397379676935,
+    "temperature": 0.8838204957210473,
+    "fit_groups": 141,
+    "hold_groups": 36,
+    "selected_family": "B_sqrt"
+  },
+  {
+    "repetition": 1,
+    "outer_fold": 3,
+    "family": "C_ovr",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.03,
+      "iterations": 300
+    },
+    "mean_loss": 0.1956187992751689,
+    "one_se_cutoff": 0.19783455320108684,
+    "temperature": 0.9218422906107752,
+    "fit_groups": 141,
+    "hold_groups": 36,
+    "selected_family": "B_sqrt"
+  },
+  {
+    "repetition": 1,
+    "outer_fold": 3,
+    "family": "D_hierarchy",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.1,
+      "iterations": 300
+    },
+    "mean_loss": 0.17607622476895335,
+    "one_se_cutoff": 0.18185449815625135,
+    "temperature": 1.0819818908304641,
+    "fit_groups": 141,
+    "hold_groups": 36,
+    "selected_family": "B_sqrt"
+  },
+  {
+    "repetition": 1,
+    "outer_fold": 4,
+    "family": "logistic",
+    "params": {
+      "C": 0.1
+    },
+    "mean_loss": 0.30845513186079354,
+    "one_se_cutoff": 0.3418490706601373,
+    "temperature": 1.0637794411988142,
+    "fit_groups": 143,
+    "hold_groups": 34,
+    "selected_family": "A_multiclass"
+  },
+  {
+    "repetition": 1,
+    "outer_fold": 4,
+    "family": "A_multiclass",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.1,
+      "iterations": 300
+    },
+    "mean_loss": 0.22056258401841533,
+    "one_se_cutoff": 0.23849645846567302,
+    "temperature": 1.0087842468894472,
+    "fit_groups": 143,
+    "hold_groups": 34,
+    "selected_family": "A_multiclass"
+  },
+  {
+    "repetition": 1,
+    "outer_fold": 4,
+    "family": "B_sqrt",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.1,
+      "iterations": 300
+    },
+    "mean_loss": 0.21907308795534078,
+    "one_se_cutoff": 0.23653814469623943,
+    "temperature": 0.8789394860234707,
+    "fit_groups": 143,
+    "hold_groups": 34,
+    "selected_family": "A_multiclass"
+  },
+  {
+    "repetition": 1,
+    "outer_fold": 4,
+    "family": "B_balanced",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.1,
+      "iterations": 300
+    },
+    "mean_loss": 0.2611039578805803,
+    "one_se_cutoff": 0.2640460428683282,
+    "temperature": 0.8810976588736327,
+    "fit_groups": 143,
+    "hold_groups": 34,
+    "selected_family": "A_multiclass"
+  },
+  {
+    "repetition": 1,
+    "outer_fold": 4,
+    "family": "C_ovr",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.03,
+      "iterations": 300
+    },
+    "mean_loss": 0.21790009222323747,
+    "one_se_cutoff": 0.2180498548840954,
+    "temperature": 0.965302110919064,
+    "fit_groups": 143,
+    "hold_groups": 34,
+    "selected_family": "A_multiclass"
+  },
+  {
+    "repetition": 1,
+    "outer_fold": 4,
+    "family": "D_hierarchy",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.03,
+      "iterations": 300
+    },
+    "mean_loss": 0.2105628456554091,
+    "one_se_cutoff": 0.21904777647415338,
+    "temperature": 0.9268607881503538,
+    "fit_groups": 143,
+    "hold_groups": 34,
+    "selected_family": "A_multiclass"
+  },
+  {
+    "repetition": 2,
+    "outer_fold": 0,
+    "family": "logistic",
+    "params": {
+      "C": 0.1
+    },
+    "mean_loss": 0.29312042840083985,
+    "one_se_cutoff": 0.3361047738764036,
+    "temperature": 1.025931650455423,
+    "fit_groups": 142,
+    "hold_groups": 35,
+    "selected_family": "D_hierarchy"
+  },
+  {
+    "repetition": 2,
+    "outer_fold": 0,
+    "family": "A_multiclass",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.1,
+      "iterations": 300
+    },
+    "mean_loss": 0.1554970781628263,
+    "one_se_cutoff": 0.15643552067252817,
+    "temperature": 0.9038151056026537,
+    "fit_groups": 142,
+    "hold_groups": 35,
+    "selected_family": "D_hierarchy"
+  },
+  {
+    "repetition": 2,
+    "outer_fold": 0,
+    "family": "B_sqrt",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.1,
+      "iterations": 600
+    },
+    "mean_loss": 0.16020492506283643,
+    "one_se_cutoff": 0.163209430211958,
+    "temperature": 0.8415029425134759,
+    "fit_groups": 142,
+    "hold_groups": 35,
+    "selected_family": "D_hierarchy"
+  },
+  {
+    "repetition": 2,
+    "outer_fold": 0,
+    "family": "B_balanced",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.1,
+      "iterations": 600
+    },
+    "mean_loss": 0.1793620512652132,
+    "one_se_cutoff": 0.1921588243957551,
+    "temperature": 0.9406412455135296,
+    "fit_groups": 142,
+    "hold_groups": 35,
+    "selected_family": "D_hierarchy"
+  },
+  {
+    "repetition": 2,
+    "outer_fold": 0,
+    "family": "C_ovr",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.1,
+      "iterations": 300
+    },
+    "mean_loss": 0.1412851381854047,
+    "one_se_cutoff": 0.14686209928127006,
+    "temperature": 0.9495086066101694,
+    "fit_groups": 142,
+    "hold_groups": 35,
+    "selected_family": "D_hierarchy"
+  },
+  {
+    "repetition": 2,
+    "outer_fold": 0,
+    "family": "D_hierarchy",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.1,
+      "iterations": 300
+    },
+    "mean_loss": 0.13929367253201685,
+    "one_se_cutoff": 0.14455491715107427,
+    "temperature": 0.9087467829403452,
+    "fit_groups": 142,
+    "hold_groups": 35,
+    "selected_family": "D_hierarchy"
+  },
+  {
+    "repetition": 2,
+    "outer_fold": 1,
+    "family": "logistic",
+    "params": {
+      "C": 0.1
+    },
+    "mean_loss": 0.2989256634661611,
+    "one_se_cutoff": 0.34030471327029793,
+    "temperature": 1.0209827011168937,
+    "fit_groups": 141,
+    "hold_groups": 36,
+    "selected_family": "A_multiclass"
+  },
+  {
+    "repetition": 2,
+    "outer_fold": 1,
+    "family": "A_multiclass",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.1,
+      "iterations": 300
+    },
+    "mean_loss": 0.20071530436480237,
+    "one_se_cutoff": 0.21055854818237496,
+    "temperature": 0.9592273764384704,
+    "fit_groups": 141,
+    "hold_groups": 36,
+    "selected_family": "A_multiclass"
+  },
+  {
+    "repetition": 2,
+    "outer_fold": 1,
+    "family": "B_sqrt",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.1,
+      "iterations": 300
+    },
+    "mean_loss": 0.21677350347425253,
+    "one_se_cutoff": 0.21938945011624342,
+    "temperature": 0.8964869231194764,
+    "fit_groups": 141,
+    "hold_groups": 36,
+    "selected_family": "A_multiclass"
+  },
+  {
+    "repetition": 2,
+    "outer_fold": 1,
+    "family": "B_balanced",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.1,
+      "iterations": 600
+    },
+    "mean_loss": 0.23346661636130792,
+    "one_se_cutoff": 0.24391988889165406,
+    "temperature": 0.9798935419678465,
+    "fit_groups": 141,
+    "hold_groups": 36,
+    "selected_family": "A_multiclass"
+  },
+  {
+    "repetition": 2,
+    "outer_fold": 1,
+    "family": "C_ovr",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.03,
+      "iterations": 300
+    },
+    "mean_loss": 0.19863669871337322,
+    "one_se_cutoff": 0.2043142594993536,
+    "temperature": 0.9454480848834637,
+    "fit_groups": 141,
+    "hold_groups": 36,
+    "selected_family": "A_multiclass"
+  },
+  {
+    "repetition": 2,
+    "outer_fold": 1,
+    "family": "D_hierarchy",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.03,
+      "iterations": 300
+    },
+    "mean_loss": 0.20587508049783884,
+    "one_se_cutoff": 0.21274492866359013,
+    "temperature": 0.9369209888946175,
+    "fit_groups": 141,
+    "hold_groups": 36,
+    "selected_family": "A_multiclass"
+  },
+  {
+    "repetition": 2,
+    "outer_fold": 2,
+    "family": "logistic",
+    "params": {
+      "C": 0.1
+    },
+    "mean_loss": 0.31317976881211723,
+    "one_se_cutoff": 0.3565711556962932,
+    "temperature": 1.0751291376076177,
+    "fit_groups": 141,
+    "hold_groups": 36,
+    "selected_family": "A_multiclass"
+  },
+  {
+    "repetition": 2,
+    "outer_fold": 2,
+    "family": "A_multiclass",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.1,
+      "iterations": 300
+    },
+    "mean_loss": 0.19697327029121114,
+    "one_se_cutoff": 0.20380681150357335,
+    "temperature": 0.9579798809960736,
+    "fit_groups": 141,
+    "hold_groups": 36,
+    "selected_family": "A_multiclass"
+  },
+  {
+    "repetition": 2,
+    "outer_fold": 2,
+    "family": "B_sqrt",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.1,
+      "iterations": 300
+    },
+    "mean_loss": 0.1998940693375816,
+    "one_se_cutoff": 0.20082786107206127,
+    "temperature": 0.8698592384233773,
+    "fit_groups": 141,
+    "hold_groups": 36,
+    "selected_family": "A_multiclass"
+  },
+  {
+    "repetition": 2,
+    "outer_fold": 2,
+    "family": "B_balanced",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.1,
+      "iterations": 300
+    },
+    "mean_loss": 0.23239269915286406,
+    "one_se_cutoff": 0.23843717557425143,
+    "temperature": 0.9477697852946708,
+    "fit_groups": 141,
+    "hold_groups": 36,
+    "selected_family": "A_multiclass"
+  },
+  {
+    "repetition": 2,
+    "outer_fold": 2,
+    "family": "C_ovr",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.03,
+      "iterations": 300
+    },
+    "mean_loss": 0.19114472171504615,
+    "one_se_cutoff": 0.19519681510718231,
+    "temperature": 0.9131680042958366,
+    "fit_groups": 141,
+    "hold_groups": 36,
+    "selected_family": "A_multiclass"
+  },
+  {
+    "repetition": 2,
+    "outer_fold": 2,
+    "family": "D_hierarchy",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.03,
+      "iterations": 300
+    },
+    "mean_loss": 0.200965872151865,
+    "one_se_cutoff": 0.20996004467543386,
+    "temperature": 0.9437333274345546,
+    "fit_groups": 141,
+    "hold_groups": 36,
+    "selected_family": "A_multiclass"
+  },
+  {
+    "repetition": 2,
+    "outer_fold": 3,
+    "family": "logistic",
+    "params": {
+      "C": 0.1
+    },
+    "mean_loss": 0.28658667823481254,
+    "one_se_cutoff": 0.3154083893680638,
+    "temperature": 0.9782346003018494,
+    "fit_groups": 142,
+    "hold_groups": 35,
+    "selected_family": "A_multiclass"
+  },
+  {
+    "repetition": 2,
+    "outer_fold": 3,
+    "family": "A_multiclass",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.1,
+      "iterations": 300
+    },
+    "mean_loss": 0.1984785164845534,
+    "one_se_cutoff": 0.208366516614657,
+    "temperature": 0.9388055949940074,
+    "fit_groups": 142,
+    "hold_groups": 35,
+    "selected_family": "A_multiclass"
+  },
+  {
+    "repetition": 2,
+    "outer_fold": 3,
+    "family": "B_sqrt",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.1,
+      "iterations": 300
+    },
+    "mean_loss": 0.19949683701675572,
+    "one_se_cutoff": 0.21917260630139623,
+    "temperature": 0.839879467757323,
+    "fit_groups": 142,
+    "hold_groups": 35,
+    "selected_family": "A_multiclass"
+  },
+  {
+    "repetition": 2,
+    "outer_fold": 3,
+    "family": "B_balanced",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.1,
+      "iterations": 300
+    },
+    "mean_loss": 0.23766307855729907,
+    "one_se_cutoff": 0.24614590865970062,
+    "temperature": 0.9353195651372652,
+    "fit_groups": 142,
+    "hold_groups": 35,
+    "selected_family": "A_multiclass"
+  },
+  {
+    "repetition": 2,
+    "outer_fold": 3,
+    "family": "C_ovr",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.03,
+      "iterations": 300
+    },
+    "mean_loss": 0.19950830638094594,
+    "one_se_cutoff": 0.22093250770754969,
+    "temperature": 0.9165957322810057,
+    "fit_groups": 142,
+    "hold_groups": 35,
+    "selected_family": "A_multiclass"
+  },
+  {
+    "repetition": 2,
+    "outer_fold": 3,
+    "family": "D_hierarchy",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.03,
+      "iterations": 300
+    },
+    "mean_loss": 0.19405404081241884,
+    "one_se_cutoff": 0.210036624426523,
+    "temperature": 0.891949273077811,
+    "fit_groups": 142,
+    "hold_groups": 35,
+    "selected_family": "A_multiclass"
+  },
+  {
+    "repetition": 2,
+    "outer_fold": 4,
+    "family": "logistic",
+    "params": {
+      "C": 0.1
+    },
+    "mean_loss": 0.2871445161920578,
+    "one_se_cutoff": 0.3122736096829014,
+    "temperature": 1.0057236103106477,
+    "fit_groups": 142,
+    "hold_groups": 35,
+    "selected_family": "A_multiclass"
+  },
+  {
+    "repetition": 2,
+    "outer_fold": 4,
+    "family": "A_multiclass",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.1,
+      "iterations": 300
+    },
+    "mean_loss": 0.205371849185925,
+    "one_se_cutoff": 0.2107247484918443,
+    "temperature": 0.9671671249474211,
+    "fit_groups": 142,
+    "hold_groups": 35,
+    "selected_family": "A_multiclass"
+  },
+  {
+    "repetition": 2,
+    "outer_fold": 4,
+    "family": "B_sqrt",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.1,
+      "iterations": 300
+    },
+    "mean_loss": 0.21020379336950043,
+    "one_se_cutoff": 0.2216317050827226,
+    "temperature": 0.8723115281116938,
+    "fit_groups": 142,
+    "hold_groups": 35,
+    "selected_family": "A_multiclass"
+  },
+  {
+    "repetition": 2,
+    "outer_fold": 4,
+    "family": "B_balanced",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.1,
+      "iterations": 300
+    },
+    "mean_loss": 0.2492697105859111,
+    "one_se_cutoff": 0.25695034756551544,
+    "temperature": 0.9800012935169555,
+    "fit_groups": 142,
+    "hold_groups": 35,
+    "selected_family": "A_multiclass"
+  },
+  {
+    "repetition": 2,
+    "outer_fold": 4,
+    "family": "C_ovr",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.03,
+      "iterations": 300
+    },
+    "mean_loss": 0.2061066209609873,
+    "one_se_cutoff": 0.20895931663489709,
+    "temperature": 0.9401811018046645,
+    "fit_groups": 142,
+    "hold_groups": 35,
+    "selected_family": "A_multiclass"
+  },
+  {
+    "repetition": 2,
+    "outer_fold": 4,
+    "family": "D_hierarchy",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.03,
+      "iterations": 300
+    },
+    "mean_loss": 0.21107118384665982,
+    "one_se_cutoff": 0.22405148267561667,
+    "temperature": 0.966611276612953,
+    "fit_groups": 142,
+    "hold_groups": 35,
+    "selected_family": "A_multiclass"
+  }
+]

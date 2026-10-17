@@ -1,0 +1,135 @@
+{
+  "fingerprint": "cf54ec64944fe545782b10633e12ab0ee86f6cd169c130d9a4575ebbb2a1e1ab",
+  "primary": "C_ovr/single",
+  "shortlist": [
+    "C_ovr/single",
+    "D_hierarchy/single"
+  ],
+  "selection_source": "nested train CV then grouped validation policy and architecture",
+  "ensemble_rule": "soft-vote class probabilities; require >=.01 validation macro-F1 improvement",
+  "probability_selection": "group cross-fitted log loss, raw vs temperature vs sigmoid",
+  "threshold_rule": "group-cross-fitted gain >=.005 macro-F1; refit threshold on cross-fitted probabilities",
+  "parameters": [
+    {
+      "family": "A_multiclass",
+      "params": {
+        "depth": 5,
+        "iterations": 600,
+        "l2_leaf_reg": 10,
+        "learning_rate": 0.1
+      }
+    },
+    {
+      "family": "B_sqrt",
+      "params": {
+        "depth": 3,
+        "iterations": 600,
+        "l2_leaf_reg": 3,
+        "learning_rate": 0.03
+      }
+    },
+    {
+      "family": "B_balanced",
+      "params": {
+        "depth": 5,
+        "iterations": 600,
+        "l2_leaf_reg": 10,
+        "learning_rate": 0.03
+      }
+    },
+    {
+      "family": "C_ovr",
+      "params": {
+        "depth": 5,
+        "iterations": 600,
+        "l2_leaf_reg": 3,
+        "learning_rate": 0.03
+      }
+    },
+    {
+      "family": "D_hierarchy",
+      "params": {
+        "depth": 3,
+        "iterations": 600,
+        "l2_leaf_reg": 3,
+        "learning_rate": 0.1
+      }
+    },
+    {
+      "family": "logistic",
+      "params": {
+        "C": 10.0,
+        "class_weight": null
+      }
+    }
+  ],
+  "policies": {
+    "A_multiclass/single": {
+      "calibration": "raw",
+      "decision": "argmax",
+      "threshold": null,
+      "validation_macro_f1": 0.8139166631266682,
+      "validation_log_loss": 0.22876601992033482
+    },
+    "B_sqrt/single": {
+      "calibration": "sigmoid",
+      "decision": "argmax",
+      "threshold": null,
+      "validation_macro_f1": 0.8396995536072277,
+      "validation_log_loss": 0.23835496673598708
+    },
+    "B_balanced/single": {
+      "calibration": "sigmoid",
+      "decision": "argmax",
+      "threshold": null,
+      "validation_macro_f1": 0.8197743505344891,
+      "validation_log_loss": 0.23210844963556929
+    },
+    "C_ovr/single": {
+      "calibration": "temperature",
+      "decision": "argmax",
+      "threshold": null,
+      "validation_macro_f1": 0.8180185925322592,
+      "validation_log_loss": 0.2425338821348291
+    },
+    "C_ovr/fold_ensemble": {
+      "calibration": "temperature",
+      "decision": "argmax",
+      "threshold": null,
+      "validation_macro_f1": 0.8091350063598641,
+      "validation_log_loss": 0.23840181936938754
+    },
+    "D_hierarchy/single": {
+      "calibration": "temperature",
+      "decision": "argmax",
+      "threshold": null,
+      "validation_macro_f1": 0.8330506487017467,
+      "validation_log_loss": 0.23749125198847917
+    },
+    "D_hierarchy/fold_ensemble": {
+      "calibration": "temperature",
+      "decision": "argmax",
+      "threshold": null,
+      "validation_macro_f1": 0.8131937408533153,
+      "validation_log_loss": 0.23561024913262232
+    },
+    "logistic/single": {
+      "calibration": "raw",
+      "decision": "threshold",
+      "threshold": 0.65,
+      "validation_macro_f1": 0.7875388595404248,
+      "validation_log_loss": 0.27814085375391445
+    }
+  },
+  "test_used_for_selection": false,
+  "test_status": "previously inspected benchmark; exploratory retest",
+  "versions": {
+    "numpy": "2.4.6",
+    "pandas": "2.3.3",
+    "scipy": "1.17.1",
+    "scikit-learn": "1.9.1",
+    "catboost": "1.2.10",
+    "joblib": "1.6.0",
+    "umap-learn": "0.5.12"
+  }
+}

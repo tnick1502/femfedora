@@ -1,0 +1,13 @@
+{
+  "sha256": {
+    "research/experiments/ctg_uci/cluster_assignments.parquet": "ceb62874870d8079c0bc85b79b2ea2a13d9b79618508dd30fe44ce72bfa690bd",
+    "research/experiments/ctg_uci/cluster_association.csv": "9cf5c98b28c7d43dbdd596daa4fb5c8b0c4aa8777585c717a8a0ca5697be71f9",
+    "research/experiments/ctg_uci/cluster_grid.csv": "0085dc53c7960dc899ab5de9a28af7d37a189af29846212cefbb78d45a16f490",
+    "research/experiments/ctg_uci/cluster_locked_config.json": "1370ec93e56f172dde7010ecb1d890dca403c42da2a573a7192fc9a7505e5246",
+    "research/experiments/ctg_uci/cluster_projection.parquet": "35806d0819924490214d67d8e1ddda0c9429de792be4c7817af68015cf0c23e7",
+    "research/experiments/ctg_uci/cluster_test_summary.csv": "6467ac82e8008363d64a23aab55e46daf26bf99997a919c3303f75828e4fbece",
+    "research/experiments/ctg_uci/fcm_convergence.json": "d79fd5a81d1804180989553d1fc558271b2c02ccb2841ea43457b5460e78e8fd",
+    "research/notebooks/ctg_uci/04_clustering_without_outcomes.ipynb": "9916f353726b9d1c7b8dfafdd75b5997e90815c5edab583da41cbe751b9c0d01",
+    "models/exported/ctg_uci/clustering.joblib": "e54b6cedce3a13704df87210d07ba24003e700a54b3ecb391a3910354ad57abf"
+  }
+}

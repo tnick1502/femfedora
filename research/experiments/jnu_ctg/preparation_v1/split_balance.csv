@@ -1,0 +1,4 @@
+split,records,patients,components,normal_records,abnormal_records,abnormal_record_fraction,asphyxia_positive_records,asphyxia_positive_patients,asphyxia_known_patients,asphyxia_unknown_records,asphyxia_patient_prevalence
+train,12464,7564,7564,5756,6708,0.5381899871630296,93,55,7541,34,0.00729346240551651
+test,4140,2520,2519,1921,2219,0.5359903381642512,27,18,2513,14,0.00716275368085953
+validation,4165,2522,2522,1921,2244,0.5387755102040817,34,18,2514,10,0.007159904534606206

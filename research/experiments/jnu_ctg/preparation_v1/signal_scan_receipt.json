@@ -1,0 +1,22 @@
+{
+  "artifact_flags": "original samples retained; separate range mask; jumps not automatically removed",
+  "dtype": "float32",
+  "fhr_engineering_range": [
+    30.0,
+    240.0
+  ],
+  "fingerprint": "deb32f1af2461420b337f809c3a9b6d953d5e724776be9e02cde8151bb55eac7",
+  "mask_bitorder": "little",
+  "primary_descriptors": "FHR analysis envelope 30..240; finite UC including zeros",
+  "records": 20769,
+  "samples_per_channel": 7200,
+  "sampling_hz": 4,
+  "shape": [
+    20769,
+    7200,
+    2
+  ],
+  "short_internal_interpolation_max_s": 2.0,
+  "signal_file_sha256": "b60fcbfd14acdec19d3edd5935267525c132b0103e432d1c585525cb93edabe1",
+  "source_member_crc_checked": true
+}

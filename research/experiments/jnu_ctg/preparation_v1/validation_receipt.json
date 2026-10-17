@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "rows": 20769,
+  "patients": 12606,
+  "features": 27,
+  "transformed_columns": 54,
+  "metadata_source_preserved": true,
+  "nullable_outcome_preserved": true,
+  "apgar_domains_checked": true,
+  "patient_and_exact_duplicate_boundaries": true,
+  "source_hashes_checked": true,
+  "scaler_and_imputer_train_only_independently_recomputed": true,
+  "all_column_missing_masks_verified": true,
+  "signal_moments_train_only_recomputed": true,
+  "packed_signal_masks_checked": true,
+  "source_csv_to_array_link_sample_checked": true,
+  "roundtrip": true,
+  "models_trained": false,
+  "clinical_validation": false,
+  "test_used_for_model_selection": false
+}

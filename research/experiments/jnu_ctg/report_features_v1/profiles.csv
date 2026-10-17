@@ -1,0 +1,6 @@
+profile,report_inputs,with_missing_masks,fit_train_records,constant_train_fields
+minimal,3,6,10391,
+variability,5,10,10391,
+sonomed_fields,13,26,10391,duration_min
+mfmon_fields,10,20,10391,duration_min
+mak_fields,8,16,10391,duration_min

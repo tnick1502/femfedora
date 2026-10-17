@@ -1,0 +1,938 @@
+{
+  "version": "ctg_report_features_v1_20261017",
+  "fingerprint": "54e923bb77b4598944f5b5075ab2f03f00aaf43d38364d92b534a83e2001ef1c",
+  "environment": {
+    "numpy": "2.4.6",
+    "pandas": "2.3.3",
+    "scipy": "1.17.1",
+    "scikit-learn": "1.9.1",
+    "catboost": "1.2.10",
+    "joblib": "1.6.0"
+  },
+  "profiles": {
+    "core2": [
+      "baseline_bpm",
+      "accelerations_per_s"
+    ],
+    "common3": [
+      "baseline_bpm",
+      "accelerations_per_s",
+      "decelerations_per_s"
+    ],
+    "sisporto9": [
+      "baseline_bpm",
+      "accelerations_per_s",
+      "contractions_per_s",
+      "light_decelerations_per_s",
+      "prolonged_decelerations_per_s",
+      "abnormal_stv_pct",
+      "mean_stv_sisporto",
+      "abnormal_ltv_pct",
+      "mean_ltv_sisporto"
+    ]
+  },
+  "candidates": [
+    {
+      "family": "A_multiclass",
+      "engineered": false,
+      "params": {
+        "depth": 3,
+        "iterations": 300,
+        "l2_leaf_reg": 3,
+        "learning_rate": 0.06
+      }
+    },
+    {
+      "family": "A_multiclass",
+      "engineered": false,
+      "params": {
+        "depth": 3,
+        "iterations": 300,
+        "l2_leaf_reg": 10,
+        "learning_rate": 0.06
+      }
+    },
+    {
+      "family": "A_multiclass",
+      "engineered": false,
+      "params": {
+        "depth": 3,
+        "iterations": 600,
+        "l2_leaf_reg": 3,
+        "learning_rate": 0.06
+      }
+    },
+    {
+      "family": "A_multiclass",
+      "engineered": false,
+      "params": {
+        "depth": 3,
+        "iterations": 600,
+        "l2_leaf_reg": 10,
+        "learning_rate": 0.06
+      }
+    },
+    {
+      "family": "A_multiclass",
+      "engineered": false,
+      "params": {
+        "depth": 5,
+        "iterations": 300,
+        "l2_leaf_reg": 3,
+        "learning_rate": 0.06
+      }
+    },
+    {
+      "family": "A_multiclass",
+      "engineered": false,
+      "params": {
+        "depth": 5,
+        "iterations": 300,
+        "l2_leaf_reg": 10,
+        "learning_rate": 0.06
+      }
+    },
+    {
+      "family": "A_multiclass",
+      "engineered": false,
+      "params": {
+        "depth": 5,
+        "iterations": 600,
+        "l2_leaf_reg": 3,
+        "learning_rate": 0.06
+      }
+    },
+    {
+      "family": "A_multiclass",
+      "engineered": false,
+      "params": {
+        "depth": 5,
+        "iterations": 600,
+        "l2_leaf_reg": 10,
+        "learning_rate": 0.06
+      }
+    },
+    {
+      "family": "B_sqrt",
+      "engineered": false,
+      "params": {
+        "depth": 3,
+        "iterations": 300,
+        "l2_leaf_reg": 3,
+        "learning_rate": 0.06
+      }
+    },
+    {
+      "family": "B_sqrt",
+      "engineered": false,
+      "params": {
+        "depth": 3,
+        "iterations": 300,
+        "l2_leaf_reg": 10,
+        "learning_rate": 0.06
+      }
+    },
+    {
+      "family": "B_sqrt",
+      "engineered": false,
+      "params": {
+        "depth": 3,
+        "iterations": 600,
+        "l2_leaf_reg": 3,
+        "learning_rate": 0.06
+      }
+    },
+    {
+      "family": "B_sqrt",
+      "engineered": false,
+      "params": {
+        "depth": 3,
+        "iterations": 600,
+        "l2_leaf_reg": 10,
+        "learning_rate": 0.06
+      }
+    },
+    {
+      "family": "B_sqrt",
+      "engineered": false,
+      "params": {
+        "depth": 5,
+        "iterations": 300,
+        "l2_leaf_reg": 3,
+        "learning_rate": 0.06
+      }
+    },
+    {
+      "family": "B_sqrt",
+      "engineered": false,
+      "params": {
+        "depth": 5,
+        "iterations": 300,
+        "l2_leaf_reg": 10,
+        "learning_rate": 0.06
+      }
+    },
+    {
+      "family": "B_sqrt",
+      "engineered": false,
+      "params": {
+        "depth": 5,
+        "iterations": 600,
+        "l2_leaf_reg": 3,
+        "learning_rate": 0.06
+      }
+    },
+    {
+      "family": "B_sqrt",
+      "engineered": false,
+      "params": {
+        "depth": 5,
+        "iterations": 600,
+        "l2_leaf_reg": 10,
+        "learning_rate": 0.06
+      }
+    },
+    {
+      "family": "B_balanced",
+      "engineered": false,
+      "params": {
+        "depth": 3,
+        "iterations": 300,
+        "l2_leaf_reg": 3,
+        "learning_rate": 0.06
+      }
+    },
+    {
+      "family": "B_balanced",
+      "engineered": false,
+      "params": {
+        "depth": 3,
+        "iterations": 300,
+        "l2_leaf_reg": 10,
+        "learning_rate": 0.06
+      }
+    },
+    {
+      "family": "B_balanced",
+      "engineered": false,
+      "params": {
+        "depth": 3,
+        "iterations": 600,
+        "l2_leaf_reg": 3,
+        "learning_rate": 0.06
+      }
+    },
+    {
+      "family": "B_balanced",
+      "engineered": false,
+      "params": {
+        "depth": 3,
+        "iterations": 600,
+        "l2_leaf_reg": 10,
+        "learning_rate": 0.06
+      }
+    },
+    {
+      "family": "B_balanced",
+      "engineered": false,
+      "params": {
+        "depth": 5,
+        "iterations": 300,
+        "l2_leaf_reg": 3,
+        "learning_rate": 0.06
+      }
+    },
+    {
+      "family": "B_balanced",
+      "engineered": false,
+      "params": {
+        "depth": 5,
+        "iterations": 300,
+        "l2_leaf_reg": 10,
+        "learning_rate": 0.06
+      }
+    },
+    {
+      "family": "B_balanced",
+      "engineered": false,
+      "params": {
+        "depth": 5,
+        "iterations": 600,
+        "l2_leaf_reg": 3,
+        "learning_rate": 0.06
+      }
+    },
+    {
+      "family": "B_balanced",
+      "engineered": false,
+      "params": {
+        "depth": 5,
+        "iterations": 600,
+        "l2_leaf_reg": 10,
+        "learning_rate": 0.06
+      }
+    },
+    {
+      "family": "C_ovr",
+      "engineered": false,
+      "params": {
+        "depth": 3,
+        "iterations": 300,
+        "l2_leaf_reg": 3,
+        "learning_rate": 0.06
+      }
+    },
+    {
+      "family": "C_ovr",
+      "engineered": false,
+      "params": {
+        "depth": 3,
+        "iterations": 300,
+        "l2_leaf_reg": 10,
+        "learning_rate": 0.06
+      }
+    },
+    {
+      "family": "C_ovr",
+      "engineered": false,
+      "params": {
+        "depth": 3,
+        "iterations": 600,
+        "l2_leaf_reg": 3,
+        "learning_rate": 0.06
+      }
+    },
+    {
+      "family": "C_ovr",
+      "engineered": false,
+      "params": {
+        "depth": 3,
+        "iterations": 600,
+        "l2_leaf_reg": 10,
+        "learning_rate": 0.06
+      }
+    },
+    {
+      "family": "C_ovr",
+      "engineered": false,
+      "params": {
+        "depth": 5,
+        "iterations": 300,
+        "l2_leaf_reg": 3,
+        "learning_rate": 0.06
+      }
+    },
+    {
+      "family": "C_ovr",
+      "engineered": false,
+      "params": {
+        "depth": 5,
+        "iterations": 300,
+        "l2_leaf_reg": 10,
+        "learning_rate": 0.06
+      }
+    },
+    {
+      "family": "C_ovr",
+      "engineered": false,
+      "params": {
+        "depth": 5,
+        "iterations": 600,
+        "l2_leaf_reg": 3,
+        "learning_rate": 0.06
+      }
+    },
+    {
+      "family": "C_ovr",
+      "engineered": false,
+      "params": {
+        "depth": 5,
+        "iterations": 600,
+        "l2_leaf_reg": 10,
+        "learning_rate": 0.06
+      }
+    },
+    {
+      "family": "D_hierarchy",
+      "engineered": false,
+      "params": {
+        "depth": 3,
+        "iterations": 300,
+        "l2_leaf_reg": 3,
+        "learning_rate": 0.06
+      }
+    },
+    {
+      "family": "D_hierarchy",
+      "engineered": false,
+      "params": {
+        "depth": 3,
+        "iterations": 300,
+        "l2_leaf_reg": 10,
+        "learning_rate": 0.06
+      }
+    },
+    {
+      "family": "D_hierarchy",
+      "engineered": false,
+      "params": {
+        "depth": 3,
+        "iterations": 600,
+        "l2_leaf_reg": 3,
+        "learning_rate": 0.06
+      }
+    },
+    {
+      "family": "D_hierarchy",
+      "engineered": false,
+      "params": {
+        "depth": 3,
+        "iterations": 600,
+        "l2_leaf_reg": 10,
+        "learning_rate": 0.06
+      }
+    },
+    {
+      "family": "D_hierarchy",
+      "engineered": false,
+      "params": {
+        "depth": 5,
+        "iterations": 300,
+        "l2_leaf_reg": 3,
+        "learning_rate": 0.06
+      }
+    },
+    {
+      "family": "D_hierarchy",
+      "engineered": false,
+      "params": {
+        "depth": 5,
+        "iterations": 300,
+        "l2_leaf_reg": 10,
+        "learning_rate": 0.06
+      }
+    },
+    {
+      "family": "D_hierarchy",
+      "engineered": false,
+      "params": {
+        "depth": 5,
+        "iterations": 600,
+        "l2_leaf_reg": 3,
+        "learning_rate": 0.06
+      }
+    },
+    {
+      "family": "D_hierarchy",
+      "engineered": false,
+      "params": {
+        "depth": 5,
+        "iterations": 600,
+        "l2_leaf_reg": 10,
+        "learning_rate": 0.06
+      }
+    },
+    {
+      "family": "logistic",
+      "engineered": false,
+      "params": {
+        "C": 0.1,
+        "class_weight": null
+      }
+    },
+    {
+      "family": "logistic",
+      "engineered": false,
+      "params": {
+        "C": 0.1,
+        "class_weight": "balanced"
+      }
+    },
+    {
+      "family": "logistic",
+      "engineered": false,
+      "params": {
+        "C": 1.0,
+        "class_weight": null
+      }
+    },
+    {
+      "family": "logistic",
+      "engineered": false,
+      "params": {
+        "C": 1.0,
+        "class_weight": "balanced"
+      }
+    },
+    {
+      "family": "logistic",
+      "engineered": false,
+      "params": {
+        "C": 10.0,
+        "class_weight": null
+      }
+    },
+    {
+      "family": "logistic",
+      "engineered": false,
+      "params": {
+        "C": 10.0,
+        "class_weight": "balanced"
+      }
+    },
+    {
+      "family": "A_multiclass",
+      "engineered": true,
+      "params": {
+        "depth": 3,
+        "iterations": 300,
+        "l2_leaf_reg": 3,
+        "learning_rate": 0.06
+      }
+    },
+    {
+      "family": "A_multiclass",
+      "engineered": true,
+      "params": {
+        "depth": 3,
+        "iterations": 300,
+        "l2_leaf_reg": 10,
+        "learning_rate": 0.06
+      }
+    },
+    {
+      "family": "A_multiclass",
+      "engineered": true,
+      "params": {
+        "depth": 3,
+        "iterations": 600,
+        "l2_leaf_reg": 3,
+        "learning_rate": 0.06
+      }
+    },
+    {
+      "family": "A_multiclass",
+      "engineered": true,
+      "params": {
+        "depth": 3,
+        "iterations": 600,
+        "l2_leaf_reg": 10,
+        "learning_rate": 0.06
+      }
+    },
+    {
+      "family": "A_multiclass",
+      "engineered": true,
+      "params": {
+        "depth": 5,
+        "iterations": 300,
+        "l2_leaf_reg": 3,
+        "learning_rate": 0.06
+      }
+    },
+    {
+      "family": "A_multiclass",
+      "engineered": true,
+      "params": {
+        "depth": 5,
+        "iterations": 300,
+        "l2_leaf_reg": 10,
+        "learning_rate": 0.06
+      }
+    },
+    {
+      "family": "A_multiclass",
+      "engineered": true,
+      "params": {
+        "depth": 5,
+        "iterations": 600,
+        "l2_leaf_reg": 3,
+        "learning_rate": 0.06
+      }
+    },
+    {
+      "family": "A_multiclass",
+      "engineered": true,
+      "params": {
+        "depth": 5,
+        "iterations": 600,
+        "l2_leaf_reg": 10,
+        "learning_rate": 0.06
+      }
+    },
+    {
+      "family": "B_sqrt",
+      "engineered": true,
+      "params": {
+        "depth": 3,
+        "iterations": 300,
+        "l2_leaf_reg": 3,
+        "learning_rate": 0.06
+      }
+    },
+    {
+      "family": "B_sqrt",
+      "engineered": true,
+      "params": {
+        "depth": 3,
+        "iterations": 300,
+        "l2_leaf_reg": 10,
+        "learning_rate": 0.06
+      }
+    },
+    {
+      "family": "B_sqrt",
+      "engineered": true,
+      "params": {
+        "depth": 3,
+        "iterations": 600,
+        "l2_leaf_reg": 3,
+        "learning_rate": 0.06
+      }
+    },
+    {
+      "family": "B_sqrt",
+      "engineered": true,
+      "params": {
+        "depth": 3,
+        "iterations": 600,
+        "l2_leaf_reg": 10,
+        "learning_rate": 0.06
+      }
+    },
+    {
+      "family": "B_sqrt",
+      "engineered": true,
+      "params": {
+        "depth": 5,
+        "iterations": 300,
+        "l2_leaf_reg": 3,
+        "learning_rate": 0.06
+      }
+    },
+    {
+      "family": "B_sqrt",
+      "engineered": true,
+      "params": {
+        "depth": 5,
+        "iterations": 300,
+        "l2_leaf_reg": 10,
+        "learning_rate": 0.06
+      }
+    },
+    {
+      "family": "B_sqrt",
+      "engineered": true,
+      "params": {
+        "depth": 5,
+        "iterations": 600,
+        "l2_leaf_reg": 3,
+        "learning_rate": 0.06
+      }
+    },
+    {
+      "family": "B_sqrt",
+      "engineered": true,
+      "params": {
+        "depth": 5,
+        "iterations": 600,
+        "l2_leaf_reg": 10,
+        "learning_rate": 0.06
+      }
+    },
+    {
+      "family": "B_balanced",
+      "engineered": true,
+      "params": {
+        "depth": 3,
+        "iterations": 300,
+        "l2_leaf_reg": 3,
+        "learning_rate": 0.06
+      }
+    },
+    {
+      "family": "B_balanced",
+      "engineered": true,
+      "params": {
+        "depth": 3,
+        "iterations": 300,
+        "l2_leaf_reg": 10,
+        "learning_rate": 0.06
+      }
+    },
+    {
+      "family": "B_balanced",
+      "engineered": true,
+      "params": {
+        "depth": 3,
+        "iterations": 600,
+        "l2_leaf_reg": 3,
+        "learning_rate": 0.06
+      }
+    },
+    {
+      "family": "B_balanced",
+      "engineered": true,
+      "params": {
+        "depth": 3,
+        "iterations": 600,
+        "l2_leaf_reg": 10,
+        "learning_rate": 0.06
+      }
+    },
+    {
+      "family": "B_balanced",
+      "engineered": true,
+      "params": {
+        "depth": 5,
+        "iterations": 300,
+        "l2_leaf_reg": 3,
+        "learning_rate": 0.06
+      }
+    },
+    {
+      "family": "B_balanced",
+      "engineered": true,
+      "params": {
+        "depth": 5,
+        "iterations": 300,
+        "l2_leaf_reg": 10,
+        "learning_rate": 0.06
+      }
+    },
+    {
+      "family": "B_balanced",
+      "engineered": true,
+      "params": {
+        "depth": 5,
+        "iterations": 600,
+        "l2_leaf_reg": 3,
+        "learning_rate": 0.06
+      }
+    },
+    {
+      "family": "B_balanced",
+      "engineered": true,
+      "params": {
+        "depth": 5,
+        "iterations": 600,
+        "l2_leaf_reg": 10,
+        "learning_rate": 0.06
+      }
+    },
+    {
+      "family": "C_ovr",
+      "engineered": true,
+      "params": {
+        "depth": 3,
+        "iterations": 300,
+        "l2_leaf_reg": 3,
+        "learning_rate": 0.06
+      }
+    },
+    {
+      "family": "C_ovr",
+      "engineered": true,
+      "params": {
+        "depth": 3,
+        "iterations": 300,
+        "l2_leaf_reg": 10,
+        "learning_rate": 0.06
+      }
+    },
+    {
+      "family": "C_ovr",
+      "engineered": true,
+      "params": {
+        "depth": 3,
+        "iterations": 600,
+        "l2_leaf_reg": 3,
+        "learning_rate": 0.06
+      }
+    },
+    {
+      "family": "C_ovr",
+      "engineered": true,
+      "params": {
+        "depth": 3,
+        "iterations": 600,
+        "l2_leaf_reg": 10,
+        "learning_rate": 0.06
+      }
+    },
+    {
+      "family": "C_ovr",
+      "engineered": true,
+      "params": {
+        "depth": 5,
+        "iterations": 300,
+        "l2_leaf_reg": 3,
+        "learning_rate": 0.06
+      }
+    },
+    {
+      "family": "C_ovr",
+      "engineered": true,
+      "params": {
+        "depth": 5,
+        "iterations": 300,
+        "l2_leaf_reg": 10,
+        "learning_rate": 0.06
+      }
+    },
+    {
+      "family": "C_ovr",
+      "engineered": true,
+      "params": {
+        "depth": 5,
+        "iterations": 600,
+        "l2_leaf_reg": 3,
+        "learning_rate": 0.06
+      }
+    },
+    {
+      "family": "C_ovr",
+      "engineered": true,
+      "params": {
+        "depth": 5,
+        "iterations": 600,
+        "l2_leaf_reg": 10,
+        "learning_rate": 0.06
+      }
+    },
+    {
+      "family": "D_hierarchy",
+      "engineered": true,
+      "params": {
+        "depth": 3,
+        "iterations": 300,
+        "l2_leaf_reg": 3,
+        "learning_rate": 0.06
+      }
+    },
+    {
+      "family": "D_hierarchy",
+      "engineered": true,
+      "params": {
+        "depth": 3,
+        "iterations": 300,
+        "l2_leaf_reg": 10,
+        "learning_rate": 0.06
+      }
+    },
+    {
+      "family": "D_hierarchy",
+      "engineered": true,
+      "params": {
+        "depth": 3,
+        "iterations": 600,
+        "l2_leaf_reg": 3,
+        "learning_rate": 0.06
+      }
+    },
+    {
+      "family": "D_hierarchy",
+      "engineered": true,
+      "params": {
+        "depth": 3,
+        "iterations": 600,
+        "l2_leaf_reg": 10,
+        "learning_rate": 0.06
+      }
+    },
+    {
+      "family": "D_hierarchy",
+      "engineered": true,
+      "params": {
+        "depth": 5,
+        "iterations": 300,
+        "l2_leaf_reg": 3,
+        "learning_rate": 0.06
+      }
+    },
+    {
+      "family": "D_hierarchy",
+      "engineered": true,
+      "params": {
+        "depth": 5,
+        "iterations": 300,
+        "l2_leaf_reg": 10,
+        "learning_rate": 0.06
+      }
+    },
+    {
+      "family": "D_hierarchy",
+      "engineered": true,
+      "params": {
+        "depth": 5,
+        "iterations": 600,
+        "l2_leaf_reg": 3,
+        "learning_rate": 0.06
+      }
+    },
+    {
+      "family": "D_hierarchy",
+      "engineered": true,
+      "params": {
+        "depth": 5,
+        "iterations": 600,
+        "l2_leaf_reg": 10,
+        "learning_rate": 0.06
+      }
+    },
+    {
+      "family": "logistic",
+      "engineered": true,
+      "params": {
+        "C": 0.1,
+        "class_weight": null
+      }
+    },
+    {
+      "family": "logistic",
+      "engineered": true,
+      "params": {
+        "C": 0.1,
+        "class_weight": "balanced"
+      }
+    },
+    {
+      "family": "logistic",
+      "engineered": true,
+      "params": {
+        "C": 1.0,
+        "class_weight": null
+      }
+    },
+    {
+      "family": "logistic",
+      "engineered": true,
+      "params": {
+        "C": 1.0,
+        "class_weight": "balanced"
+      }
+    },
+    {
+      "family": "logistic",
+      "engineered": true,
+      "params": {
+        "C": 10.0,
+        "class_weight": null
+      }
+    },
+    {
+      "family": "logistic",
+      "engineered": true,
+      "params": {
+        "C": 10.0,
+        "class_weight": "balanced"
+      }
+    }
+  ],
+  "outer_folds": 5,
+  "inner_folds": 3,
+  "classification": "fixed_argmax; final temperature preserves argmax",
+  "selector": "mean inner segment macro-F1; tie log_loss; family and engineering selected jointly",
+  "test_status": "previously observed; descriptive research evaluation, not a new blind cohort",
+  "missingness": "structural absences select a profile; required missing inputs reject inference"
+}

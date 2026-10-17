@@ -1,0 +1,4 @@
+fold,n_fit,n_hold,source_files,normal_segments,normal_files,suspect_segments,suspect_files,path_segments,path_files
+0,230,111,19,90,14,15,7,6,2
+1,230,111,19,89,14,16,6,6,3
+2,222,119,19,87,15,15,6,17,2

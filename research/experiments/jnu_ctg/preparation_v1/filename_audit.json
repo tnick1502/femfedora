@@ -1,0 +1,8 @@
+{
+  "chronology_recoverable": false,
+  "decision": "Use explicit patient_id; prefix is record-unique, common suffix is not a reliable date",
+  "parse_failures": 0,
+  "unique_patient_ids": 12606,
+  "unique_prefixes": 20769,
+  "unique_suffixes": 1
+}

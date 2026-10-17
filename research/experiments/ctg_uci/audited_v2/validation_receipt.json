@@ -1,0 +1,99 @@
+{
+  "fingerprint": "cf54ec64944fe545782b10633e12ab0ee86f6cd169c130d9a4575ebbb2a1e1ab",
+  "nested_candidates": 630,
+  "final_candidates": 126,
+  "independent_test_rows": [
+    "A_multiclass/single",
+    "B_balanced/single",
+    "B_sqrt/single",
+    "C_ovr/fold_ensemble",
+    "C_ovr/single",
+    "D_hierarchy/fold_ensemble",
+    "D_hierarchy/single",
+    "logistic/single"
+  ],
+  "manual_arithmetic": [
+    "confusion-count F1/recall",
+    "negative log likelihood",
+    "Brier sum",
+    "tie-aware AP integral",
+    "file weights"
+  ],
+  "grouped_boundaries": true,
+  "legacy_clustering_unchanged": true,
+  "model_roundtrip": true,
+  "native_roundtrip": true,
+  "notebooks": [
+    {
+      "name": "02_nested_grid_search.ipynb",
+      "code_cells": 5,
+      "figures": 2,
+      "sha256": "fd048b228488ac8131af2327918b70a6baf11866f573570dc9238b5ddf396586"
+    },
+    {
+      "name": "03_calibration_ensemble_and_test.ipynb",
+      "code_cells": 6,
+      "figures": 0,
+      "sha256": "8ea19e8d4add3e41a2fa9fbb2994a2c833374ff4d696b4a31fdd5146b9e627e1"
+    },
+    {
+      "name": "05_results_and_error_analysis.ipynb",
+      "code_cells": 7,
+      "figures": 3,
+      "sha256": "68917837a171f963831761f2daf35f972bca94583ea7bc8102abbff2cbe531d3"
+    },
+    {
+      "name": "07_deep_audit_and_recommendations.ipynb",
+      "code_cells": 4,
+      "figures": 0,
+      "sha256": "d6700d206186ad1ad92d0336493dae152c53f6b7226c79b2e11ead0bd454fbe3"
+    }
+  ],
+  "artifact_sha256": {
+    "models/exported/ctg_uci/audited_v2/A_multiclass_single.joblib": "96fe2ac9f4b666d3b64df00fd83de576ab62728c1054881de9b8436cc683b707",
+    "models/exported/ctg_uci/audited_v2/B_balanced_single.joblib": "e7afcf1a9a6a18d4c3f913fb49a1c67033ef1017316c481501d0280bfd4c9b68",
+    "models/exported/ctg_uci/audited_v2/B_sqrt_single.joblib": "217e883ed9a9b02e723ff7afed10f62b066a8a922eb725934a5ee3ca75cbdea9",
+    "models/exported/ctg_uci/audited_v2/C_ovr_fold_ensemble.joblib": "ed14de6f1940968711f00c1d1e78880af7321a20b796636443f9b13d686eb53c",
+    "models/exported/ctg_uci/audited_v2/C_ovr_single.joblib": "e792ecd3f1de83b5a2778d95b23d8d9e0eebf758ebd474b33fd724ffd70a9ca4",
+    "models/exported/ctg_uci/audited_v2/C_ovr_single_fold0_head0.cbm": "b45923106f431aa7395738009024426bf6306ad58148a17ca1971f811fb7a276",
+    "models/exported/ctg_uci/audited_v2/C_ovr_single_fold0_head1.cbm": "1c0edc720deeb7f9c23ba843fbdc232ea6d558f511df7223d6b0e0697a17c24c",
+    "models/exported/ctg_uci/audited_v2/C_ovr_single_fold0_head2.cbm": "85bb752d3c079a0e4b0aac02dff5541af1b37d4925fb6efbb90ebdcddbcc798a",
+    "models/exported/ctg_uci/audited_v2/D_hierarchy_fold_ensemble.joblib": "071edc10d6408d0790b9071f1079a811abb172eff523b4ee8ace644c23fc73c8",
+    "models/exported/ctg_uci/audited_v2/D_hierarchy_single.joblib": "306bf090812d537259a95b7acdf0de07a64a04bac3797a0cbfb5d1e9ede42c98",
+    "models/exported/ctg_uci/audited_v2/D_hierarchy_single_fold0_head0.cbm": "97e949ca96114571fdeb37e0f989f5af8c145206a73371308d8f53fab1c79736",
+    "models/exported/ctg_uci/audited_v2/D_hierarchy_single_fold0_head1.cbm": "c21d9db3c0f491ec076be947cd8c0ddb030e841aab06bae986af35f34db8022f",
+    "models/exported/ctg_uci/audited_v2/best_models.json": "3875e49e926839b8ef1e28a8a7fa89a42109ee583d9ce81aad8e894ff6edaba7",
+    "models/exported/ctg_uci/audited_v2/champion.joblib": "e792ecd3f1de83b5a2778d95b23d8d9e0eebf758ebd474b33fd724ffd70a9ca4",
+    "models/exported/ctg_uci/audited_v2/logistic_single.joblib": "53dbe427800704dd5946441752a2bdcba7826a632e275205a1b931a8431f7774",
+    "models/exported/ctg_uci/audited_v2/model_card.json": "9661302426ba17b7ef72250527abc42c187b9d2ba6e89390dd51bd64165558d7",
+    "research/experiments/ctg_uci/audited_v2/ctg_data_cluster_audit.json": "7517752002a35f1254d3402fee209e200a2c02bf486f15f94bcb271039cef624",
+    "research/experiments/ctg_uci/audited_v2/ctg_data_cluster_independent_checks.json": "a778f807639fc6af7475b57f820d840ffd1605753b64bc7aa3fdfbb9106a481d",
+    "research/experiments/ctg_uci/audited_v2/ctg_supervised_audit.json": "12845d1f2a64de675290c84247b101a86612e6dde468ae0e0743f04f8c8b6e7a",
+    "research/experiments/ctg_uci/audited_v2/ctg_supervised_recompute.json": "ebe2ad43f32244bf7e4a8fd2551d7d1f19d6a4eb127333605a0bb97e635a13fe",
+    "research/experiments/ctg_uci/audited_v2/final_grid.json": "9d8f1d0c1539ba861f0c7ae5110d2da5dac239da2faa61449ab1311acf81d69e",
+    "research/experiments/ctg_uci/audited_v2/inner_folds.csv": "c4050820a9dfbda2a5f6c72855ba173faecec2d6f0aa77d7eabcbeb6891abe95",
+    "research/experiments/ctg_uci/audited_v2/locked_decision.json": "3da2d1fb78528d79f607ae2a1815291dde8b52168a20e66e5f1204ce46a8c403",
+    "research/experiments/ctg_uci/audited_v2/nested_fold_metrics.csv": "faff75574293ee6cc076e63afd4efc1b2f738c94c6342833f3ddc21483e5abff",
+    "research/experiments/ctg_uci/audited_v2/nested_grid.json": "5f40d70518346a50382b84de24463bc0424c95eca6c546a20f9ee54e155422e1",
+    "research/experiments/ctg_uci/audited_v2/nested_policies.json": "25e2cb8f7f28b5312be0e6681224973cb25a45eddcaf43e6f86ed27b90ee5db0",
+    "research/experiments/ctg_uci/audited_v2/nested_predictions.parquet": "6ef9ba6e584c1b5229e6f0e5d4cc92c5a5edec95ca7cedf5170caee94987f255",
+    "research/experiments/ctg_uci/audited_v2/nested_summary.csv": "ab773933f8d31a907465b5fb002fc8f383ec22ded2fe4f8a45093843a92d68bc",
+    "research/experiments/ctg_uci/audited_v2/new_pipeline_review.json": "b4e6a6b39784d064230372862b636c16537fd24ed83738df654d6ed51470c7cb",
+    "research/experiments/ctg_uci/audited_v2/outer_fold_support.csv": "b5003ecf8ac42099f994342d10adc75fa42d09a270a36b3701f4631f7beb429f",
+    "research/experiments/ctg_uci/audited_v2/outer_folds.csv": "c4c19f5620bf3c4ec34025da99ac7dccc3c1befc7151f0232b856be9b7f9f620",
+    "research/experiments/ctg_uci/audited_v2/pathologic_recording_errors.csv": "890b78e4dca923e19a1b3537af677cc0060e0d33d4df5c505a1f72feccddae3c",
+    "research/experiments/ctg_uci/audited_v2/progress.json": "f87c272bcd198e7366f7372883609458dda362faf70b56f4aed694bdd7c5554b",
+    "research/experiments/ctg_uci/audited_v2/selection.json": "acc3a9a6ad0a5a593888d172b8e533023fba7595354bc30b2ee8248e34c64e7e",
+    "research/experiments/ctg_uci/audited_v2/test_metrics.csv": "479e5ba597cd60634d146c5ff91c9c535a2cba568029f7b46b07efbafa2e01e9",
+    "research/experiments/ctg_uci/audited_v2/test_paired_intervals.csv": "39dcdda4ef21b641477a1cbd0287d7f3d9da576ffa9080a1c6ae0f69e9a31d04",
+    "research/experiments/ctg_uci/audited_v2/test_predictions.parquet": "82880c11beb2511008df2a212c51f0e2fd4ad38ef7149cc72f187bff3e30c1e9",
+    "research/experiments/ctg_uci/audited_v2/validation_fold_support.csv": "fd92d1d5c3530d90d95bcd81a062fcd00fedb6742800685a9691bcc01981ac48",
+    "research/experiments/ctg_uci/audited_v2/validation_policy_metrics.csv": "f87a3aee6531554324049b6778d2229d2e6594674679efeebaf376de0c55ae34",
+    "research/experiments/ctg_uci/audited_v2/visual_review.json": "7734b8b9e5c35c23617fcb70ee18522f0a22371965cb6d09c5a61ee5cef92e20"
+  },
+  "limitations": [
+    "Previously inspected test",
+    "No patient IDs",
+    "Fixed-model bootstrap does not include full retraining uncertainty"
+  ]
+}

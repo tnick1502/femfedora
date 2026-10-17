@@ -1,0 +1,2262 @@
+[
+  {
+    "label": "outer0",
+    "profile": "core3",
+    "family": "linear",
+    "params": {
+      "C": 0.1
+    },
+    "mode": "single",
+    "inner_loss": 0.5971803865463716,
+    "one_se_cutoff": 0.6013777658989925,
+    "mode_holdout_scores": [],
+    "proper_fit_records": 13278,
+    "calibration_records": 3319,
+    "mode_selection_records": 2655,
+    "calibration_slope": 1.0488186405061022,
+    "calibration_intercept": -0.029275966992609138,
+    "selected_family": "spline"
+  },
+  {
+    "label": "outer0",
+    "profile": "core3",
+    "family": "spline",
+    "params": {
+      "C": 3.0,
+      "n_knots": 3
+    },
+    "mode": "single",
+    "inner_loss": 0.5915050074231588,
+    "one_se_cutoff": 0.5944570052629895,
+    "mode_holdout_scores": [
+      {
+        "mode": "single",
+        "group_macro_f1": 0.6745603632549763,
+        "group_recall": 0.6446616904488635,
+        "group_specificity": 0.7107381833367317,
+        "group_precision": 0.7266988227449706,
+        "group_log_loss": 0.5871754329266823,
+        "group_ap": 0.7930009131644122,
+        "group_auc": 0.7376242822941359,
+        "group_brier": 0.20302339772025538,
+        "records": 2655,
+        "groups": 1613
+      },
+      {
+        "mode": "ensemble5",
+        "group_macro_f1": 0.6731105366571796,
+        "group_recall": 0.6431313813752702,
+        "group_specificity": 0.709378550825976,
+        "group_precision": 0.7252932194624893,
+        "group_log_loss": 0.5871443104406482,
+        "group_ap": 0.7929775567568407,
+        "group_auc": 0.7379398586517214,
+        "group_brier": 0.20298423384356723,
+        "records": 2655,
+        "groups": 1613
+      }
+    ],
+    "proper_fit_records": 13278,
+    "calibration_records": 3319,
+    "mode_selection_records": 2655,
+    "calibration_slope": 1.052169298138175,
+    "calibration_intercept": -0.031208332571118498,
+    "selected_family": "spline"
+  },
+  {
+    "label": "outer0",
+    "profile": "core3",
+    "family": "catboost",
+    "params": {
+      "auto_class_weights": null,
+      "depth": 3,
+      "iterations": 300,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.05
+    },
+    "mode": "single",
+    "inner_loss": 0.5925299668861869,
+    "one_se_cutoff": 0.5963283193057398,
+    "mode_holdout_scores": [
+      {
+        "mode": "single",
+        "group_macro_f1": 0.6739274884190872,
+        "group_recall": 0.6199596801545503,
+        "group_specificity": 0.7383160627632259,
+        "group_precision": 0.7386688391460083,
+        "group_log_loss": 0.5880813628366678,
+        "group_ap": 0.7913427438900962,
+        "group_auc": 0.7382997545918966,
+        "group_brier": 0.20316539564818303,
+        "records": 2655,
+        "groups": 1613
+      },
+      {
+        "mode": "ensemble5",
+        "group_macro_f1": 0.674589895533202,
+        "group_recall": 0.6249358979576886,
+        "group_specificity": 0.7338519360195781,
+        "group_precision": 0.7369431459315214,
+        "group_log_loss": 0.5883003419774442,
+        "group_ap": 0.7914421915220939,
+        "group_auc": 0.7376425655226628,
+        "group_brier": 0.2033126229795873,
+        "records": 2655,
+        "groups": 1613
+      }
+    ],
+    "proper_fit_records": 13278,
+    "calibration_records": 3319,
+    "mode_selection_records": 2655,
+    "calibration_slope": 1.016191152459591,
+    "calibration_intercept": -0.0333718569708527,
+    "selected_family": "spline"
+  },
+  {
+    "label": "outer0",
+    "profile": "report5",
+    "family": "linear",
+    "params": {
+      "C": 0.1
+    },
+    "mode": "single",
+    "inner_loss": 0.5501836995864707,
+    "one_se_cutoff": 0.5551391189290674,
+    "mode_holdout_scores": [],
+    "proper_fit_records": 13266,
+    "calibration_records": 3316,
+    "mode_selection_records": 2655,
+    "calibration_slope": 1.1133782572217317,
+    "calibration_intercept": 0.029471240653263994,
+    "selected_family": "spline"
+  },
+  {
+    "label": "outer0",
+    "profile": "report5",
+    "family": "spline",
+    "params": {
+      "C": 3.0,
+      "n_knots": 3
+    },
+    "mode": "single",
+    "inner_loss": 0.5396686286170805,
+    "one_se_cutoff": 0.5417006544228585,
+    "mode_holdout_scores": [
+      {
+        "mode": "single",
+        "group_macro_f1": 0.723082455963322,
+        "group_recall": 0.7102128944506352,
+        "group_specificity": 0.7398370878255135,
+        "group_precision": 0.764806768150557,
+        "group_log_loss": 0.5319807518389772,
+        "group_ap": 0.8431673846449041,
+        "group_auc": 0.80258153311799,
+        "group_brier": 0.1800480349343892,
+        "records": 2655,
+        "groups": 1639
+      },
+      {
+        "mode": "ensemble5",
+        "group_macro_f1": 0.722975044800682,
+        "group_recall": 0.7103064215721643,
+        "group_specificity": 0.7395028600349502,
+        "group_precision": 0.764599453473321,
+        "group_log_loss": 0.5319613926101484,
+        "group_ap": 0.8433107122296867,
+        "group_auc": 0.8023907872334517,
+        "group_brier": 0.18009090360349456,
+        "records": 2655,
+        "groups": 1639
+      }
+    ],
+    "proper_fit_records": 13266,
+    "calibration_records": 3316,
+    "mode_selection_records": 2655,
+    "calibration_slope": 1.0941170837813212,
+    "calibration_intercept": 0.03836568262676574,
+    "selected_family": "spline"
+  },
+  {
+    "label": "outer0",
+    "profile": "report5",
+    "family": "catboost",
+    "params": {
+      "auto_class_weights": null,
+      "depth": 3,
+      "iterations": 300,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.05
+    },
+    "mode": "single",
+    "inner_loss": 0.5398219324992329,
+    "one_se_cutoff": 0.5400352718966707,
+    "mode_holdout_scores": [
+      {
+        "mode": "single",
+        "group_macro_f1": 0.7303753809122829,
+        "group_recall": 0.7156000566507137,
+        "group_specificity": 0.7492845933721032,
+        "group_precision": 0.7727249118473676,
+        "group_log_loss": 0.5294712314433043,
+        "group_ap": 0.844774023402663,
+        "group_auc": 0.8061743895918824,
+        "group_brier": 0.1786218460039927,
+        "records": 2655,
+        "groups": 1639
+      },
+      {
+        "mode": "ensemble5",
+        "group_macro_f1": 0.7297654177414771,
+        "group_recall": 0.7151992261298744,
+        "group_specificity": 0.7484378829693429,
+        "group_precision": 0.7720336685185506,
+        "group_log_loss": 0.5282201437666426,
+        "group_ap": 0.8462714057734888,
+        "group_auc": 0.80742618770051,
+        "group_brier": 0.17810873244613076,
+        "records": 2655,
+        "groups": 1639
+      }
+    ],
+    "proper_fit_records": 13266,
+    "calibration_records": 3316,
+    "mode_selection_records": 2655,
+    "calibration_slope": 1.1016317228737698,
+    "calibration_intercept": 0.04408418168303287,
+    "selected_family": "spline"
+  },
+  {
+    "label": "outer0",
+    "profile": "report7",
+    "family": "linear",
+    "params": {
+      "C": 0.1
+    },
+    "mode": "single",
+    "inner_loss": 0.5266397592583961,
+    "one_se_cutoff": 0.5276746921249368,
+    "mode_holdout_scores": [],
+    "proper_fit_records": 13266,
+    "calibration_records": 3316,
+    "mode_selection_records": 2655,
+    "calibration_slope": 1.0994002808393069,
+    "calibration_intercept": 0.0083157984308262,
+    "selected_family": "spline"
+  },
+  {
+    "label": "outer0",
+    "profile": "report7",
+    "family": "spline",
+    "params": {
+      "C": 3.0,
+      "n_knots": 3
+    },
+    "mode": "single",
+    "inner_loss": 0.5178498564661358,
+    "one_se_cutoff": 0.5215873412439791,
+    "mode_holdout_scores": [
+      {
+        "mode": "single",
+        "group_macro_f1": 0.7310854118117521,
+        "group_recall": 0.7285736045085417,
+        "group_specificity": 0.7362051458347255,
+        "group_precision": 0.7668976884693496,
+        "group_log_loss": 0.5120500726059898,
+        "group_ap": 0.85713943196129,
+        "group_auc": 0.8192374872914807,
+        "group_brier": 0.1725913532545691,
+        "records": 2655,
+        "groups": 1639
+      },
+      {
+        "mode": "ensemble5",
+        "group_macro_f1": 0.730367706187679,
+        "group_recall": 0.7280124417793669,
+        "group_specificity": 0.7353138717265566,
+        "group_precision": 0.7661561564939595,
+        "group_log_loss": 0.512096536739953,
+        "group_ap": 0.8572010551029645,
+        "group_auc": 0.8191396544754954,
+        "group_brier": 0.17264640898394157,
+        "records": 2655,
+        "groups": 1639
+      }
+    ],
+    "proper_fit_records": 13266,
+    "calibration_records": 3316,
+    "mode_selection_records": 2655,
+    "calibration_slope": 1.0817179952958205,
+    "calibration_intercept": 0.01723892223045574,
+    "selected_family": "spline"
+  },
+  {
+    "label": "outer0",
+    "profile": "report7",
+    "family": "catboost",
+    "params": {
+      "auto_class_weights": null,
+      "depth": 3,
+      "iterations": 300,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.05
+    },
+    "mode": "single",
+    "inner_loss": 0.5211630574644102,
+    "one_se_cutoff": 0.5230668548487369,
+    "mode_holdout_scores": [
+      {
+        "mode": "single",
+        "group_macro_f1": 0.7377154370905068,
+        "group_recall": 0.7282930231439544,
+        "group_specificity": 0.7505769408289481,
+        "group_precision": 0.7766954876290247,
+        "group_log_loss": 0.5120128464594327,
+        "group_ap": 0.8581775906353835,
+        "group_auc": 0.8208656077040968,
+        "group_brier": 0.1718632349492916,
+        "records": 2655,
+        "groups": 1639
+      },
+      {
+        "mode": "ensemble5",
+        "group_macro_f1": 0.7341657313483805,
+        "group_recall": 0.728667131630071,
+        "group_specificity": 0.7426223194135412,
+        "group_precision": 0.7712938527638946,
+        "group_log_loss": 0.5124289318059122,
+        "group_ap": 0.8579151887323981,
+        "group_auc": 0.8209579085059227,
+        "group_brier": 0.17200517641167742,
+        "records": 2655,
+        "groups": 1639
+      }
+    ],
+    "proper_fit_records": 13266,
+    "calibration_records": 3316,
+    "mode_selection_records": 2655,
+    "calibration_slope": 1.1282279589683901,
+    "calibration_intercept": 0.03187281137868305,
+    "selected_family": "spline"
+  },
+  {
+    "label": "outer0",
+    "profile": "report4s5",
+    "family": "linear",
+    "params": {
+      "C": 0.1
+    },
+    "mode": "single",
+    "inner_loss": 0.5499503752986704,
+    "one_se_cutoff": 0.5545882675336109,
+    "mode_holdout_scores": [],
+    "proper_fit_records": 13266,
+    "calibration_records": 3316,
+    "mode_selection_records": 2655,
+    "calibration_slope": 1.111984632689402,
+    "calibration_intercept": 0.029967799795702927,
+    "selected_family": "spline"
+  },
+  {
+    "label": "outer0",
+    "profile": "report4s5",
+    "family": "spline",
+    "params": {
+      "C": 3.0,
+      "n_knots": 3
+    },
+    "mode": "single",
+    "inner_loss": 0.5387912810058569,
+    "one_se_cutoff": 0.5402472374232407,
+    "mode_holdout_scores": [
+      {
+        "mode": "single",
+        "group_macro_f1": 0.7243211520343191,
+        "group_recall": 0.709157374079092,
+        "group_specificity": 0.7436695664906395,
+        "group_precision": 0.767200233586096,
+        "group_log_loss": 0.5323155038639027,
+        "group_ap": 0.8425149245537494,
+        "group_auc": 0.802251592206723,
+        "group_brier": 0.18013369788726105,
+        "records": 2655,
+        "groups": 1639
+      },
+      {
+        "mode": "ensemble5",
+        "group_macro_f1": 0.7230956875522133,
+        "group_recall": 0.7081285757422714,
+        "group_specificity": 0.7422212460648652,
+        "group_precision": 0.7659322332729255,
+        "group_log_loss": 0.5322448533424324,
+        "group_ap": 0.8427104872729307,
+        "group_auc": 0.8021826713841447,
+        "group_brier": 0.1801640434667177,
+        "records": 2655,
+        "groups": 1639
+      }
+    ],
+    "proper_fit_records": 13266,
+    "calibration_records": 3316,
+    "mode_selection_records": 2655,
+    "calibration_slope": 1.0931922289164036,
+    "calibration_intercept": 0.040062040685365966,
+    "selected_family": "spline"
+  },
+  {
+    "label": "outer0",
+    "profile": "report4s5",
+    "family": "catboost",
+    "params": {
+      "auto_class_weights": null,
+      "depth": 3,
+      "iterations": 300,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.05
+    },
+    "mode": "single",
+    "inner_loss": 0.5381764270609352,
+    "one_se_cutoff": 0.5402941608665074,
+    "mode_holdout_scores": [
+      {
+        "mode": "single",
+        "group_macro_f1": 0.7275173680817062,
+        "group_recall": 0.7114581412687089,
+        "group_specificity": 0.7478808366517373,
+        "group_precision": 0.7707186878526209,
+        "group_log_loss": 0.5283717291769603,
+        "group_ap": 0.8456436839299573,
+        "group_auc": 0.80676478393401,
+        "group_brier": 0.17819834276541707,
+        "records": 2655,
+        "groups": 1639
+      },
+      {
+        "mode": "ensemble5",
+        "group_macro_f1": 0.7301547552603908,
+        "group_recall": 0.716228024466695,
+        "group_specificity": 0.7481036551787795,
+        "group_precision": 0.7720529778433248,
+        "group_log_loss": 0.5278347862389039,
+        "group_ap": 0.8459170861573891,
+        "group_auc": 0.8079711643909686,
+        "group_brier": 0.17784112293772758,
+        "records": 2655,
+        "groups": 1639
+      }
+    ],
+    "proper_fit_records": 13266,
+    "calibration_records": 3316,
+    "mode_selection_records": 2655,
+    "calibration_slope": 1.0902036170463318,
+    "calibration_intercept": 0.04371154527788705,
+    "selected_family": "spline"
+  },
+  {
+    "label": "outer1",
+    "profile": "core3",
+    "family": "linear",
+    "params": {
+      "C": 0.1
+    },
+    "mode": "single",
+    "inner_loss": 0.6043674641365177,
+    "one_se_cutoff": 0.6073776262845598,
+    "mode_holdout_scores": [],
+    "proper_fit_records": 13272,
+    "calibration_records": 3319,
+    "mode_selection_records": 2655,
+    "calibration_slope": 1.06281255533036,
+    "calibration_intercept": -0.040289190757282684,
+    "selected_family": "spline"
+  },
+  {
+    "label": "outer1",
+    "profile": "core3",
+    "family": "spline",
+    "params": {
+      "C": 3.0,
+      "n_knots": 3
+    },
+    "mode": "single",
+    "inner_loss": 0.5993592528699506,
+    "one_se_cutoff": 0.6017445103902451,
+    "mode_holdout_scores": [
+      {
+        "mode": "single",
+        "group_macro_f1": 0.7002692606886375,
+        "group_recall": 0.6812862229176312,
+        "group_specificity": 0.7235074416241739,
+        "group_precision": 0.7438410549848993,
+        "group_log_loss": 0.5729383516084176,
+        "group_ap": 0.8064127755184161,
+        "group_auc": 0.7672538391016192,
+        "group_brier": 0.19604279588217585,
+        "records": 2655,
+        "groups": 1654
+      },
+      {
+        "mode": "ensemble5",
+        "group_macro_f1": 0.7001212117091002,
+        "group_recall": 0.6810068174923761,
+        "group_specificity": 0.7235074416241739,
+        "group_precision": 0.7437628872720613,
+        "group_log_loss": 0.572906178832008,
+        "group_ap": 0.8066765752803535,
+        "group_auc": 0.7673441613098603,
+        "group_brier": 0.1960265613867455,
+        "records": 2655,
+        "groups": 1654
+      }
+    ],
+    "proper_fit_records": 13272,
+    "calibration_records": 3319,
+    "mode_selection_records": 2655,
+    "calibration_slope": 1.060014734938204,
+    "calibration_intercept": -0.03864426052346933,
+    "selected_family": "spline"
+  },
+  {
+    "label": "outer1",
+    "profile": "core3",
+    "family": "catboost",
+    "params": {
+      "auto_class_weights": null,
+      "depth": 3,
+      "iterations": 300,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.05
+    },
+    "mode": "single",
+    "inner_loss": 0.6000803417925266,
+    "one_se_cutoff": 0.6039040874858068,
+    "mode_holdout_scores": [
+      {
+        "mode": "single",
+        "group_macro_f1": 0.7014052220165454,
+        "group_recall": 0.666469752366963,
+        "group_specificity": 0.7428249321065468,
+        "group_precision": 0.7533330425772218,
+        "group_log_loss": 0.5741651705650666,
+        "group_ap": 0.8043126925960097,
+        "group_auc": 0.7608631572150301,
+        "group_brier": 0.19679289216635368,
+        "records": 2655,
+        "groups": 1654
+      },
+      {
+        "mode": "ensemble5",
+        "group_macro_f1": 0.7014079715099295,
+        "group_recall": 0.6604159681531034,
+        "group_specificity": 0.749827522406407,
+        "group_precision": 0.7567512352934896,
+        "group_log_loss": 0.5741595019289087,
+        "group_ap": 0.8041473396662168,
+        "group_auc": 0.7615523147389311,
+        "group_brier": 0.1968302760199431,
+        "records": 2655,
+        "groups": 1654
+      }
+    ],
+    "proper_fit_records": 13272,
+    "calibration_records": 3319,
+    "mode_selection_records": 2655,
+    "calibration_slope": 1.0235315103453335,
+    "calibration_intercept": -0.035091456850539965,
+    "selected_family": "spline"
+  },
+  {
+    "label": "outer1",
+    "profile": "report5",
+    "family": "linear",
+    "params": {
+      "C": 0.1
+    },
+    "mode": "single",
+    "inner_loss": 0.5582968230652432,
+    "one_se_cutoff": 0.5695563125876654,
+    "mode_holdout_scores": [],
+    "proper_fit_records": 13263,
+    "calibration_records": 3317,
+    "mode_selection_records": 2653,
+    "calibration_slope": 1.0869578893076561,
+    "calibration_intercept": -0.04809563850272383,
+    "selected_family": "spline"
+  },
+  {
+    "label": "outer1",
+    "profile": "report5",
+    "family": "spline",
+    "params": {
+      "C": 3.0,
+      "n_knots": 3
+    },
+    "mode": "single",
+    "inner_loss": 0.5477573027451136,
+    "one_se_cutoff": 0.5545917750113972,
+    "mode_holdout_scores": [
+      {
+        "mode": "single",
+        "group_macro_f1": 0.727074429991898,
+        "group_recall": 0.7013942877534634,
+        "group_specificity": 0.7579629323432587,
+        "group_precision": 0.7736432582887587,
+        "group_log_loss": 0.5341344214052761,
+        "group_ap": 0.8397133003788624,
+        "group_auc": 0.803740511759739,
+        "group_brier": 0.18026903575848605,
+        "records": 2653,
+        "groups": 1611
+      },
+      {
+        "mode": "ensemble5",
+        "group_macro_f1": 0.7258627901896089,
+        "group_recall": 0.6997119661496501,
+        "group_specificity": 0.7572865152494471,
+        "group_precision": 0.7727327107539216,
+        "group_log_loss": 0.5345234230891198,
+        "group_ap": 0.8394886057962447,
+        "group_auc": 0.8034670669979298,
+        "group_brier": 0.1804257759225339,
+        "records": 2653,
+        "groups": 1611
+      }
+    ],
+    "proper_fit_records": 13263,
+    "calibration_records": 3317,
+    "mode_selection_records": 2653,
+    "calibration_slope": 1.0741548642969008,
+    "calibration_intercept": -0.04558673354525112,
+    "selected_family": "spline"
+  },
+  {
+    "label": "outer1",
+    "profile": "report5",
+    "family": "catboost",
+    "params": {
+      "auto_class_weights": null,
+      "depth": 3,
+      "iterations": 300,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.05
+    },
+    "mode": "single",
+    "inner_loss": 0.5469588542513671,
+    "one_se_cutoff": 0.5557008814616456,
+    "mode_holdout_scores": [
+      {
+        "mode": "single",
+        "group_macro_f1": 0.7339992033395903,
+        "group_recall": 0.7049692211615666,
+        "group_specificity": 0.7687179641348622,
+        "group_precision": 0.7823707045919054,
+        "group_log_loss": 0.532506955415639,
+        "group_ap": 0.8409779940733908,
+        "group_auc": 0.8062304243209394,
+        "group_brier": 0.17932792547719023,
+        "records": 2653,
+        "groups": 1611
+      },
+      {
+        "mode": "ensemble5",
+        "group_macro_f1": 0.7330877371872754,
+        "group_recall": 0.7082573952053833,
+        "group_specificity": 0.7630135133103848,
+        "group_precision": 0.7789957666320895,
+        "group_log_loss": 0.5318745371725512,
+        "group_ap": 0.8416545439515762,
+        "group_auc": 0.8074717356378742,
+        "group_brier": 0.17903174290028584,
+        "records": 2653,
+        "groups": 1611
+      }
+    ],
+    "proper_fit_records": 13263,
+    "calibration_records": 3317,
+    "mode_selection_records": 2653,
+    "calibration_slope": 1.0629542264855205,
+    "calibration_intercept": -0.04635196882288681,
+    "selected_family": "spline"
+  },
+  {
+    "label": "outer1",
+    "profile": "report7",
+    "family": "linear",
+    "params": {
+      "C": 0.1
+    },
+    "mode": "single",
+    "inner_loss": 0.5325557210053566,
+    "one_se_cutoff": 0.5388897630259812,
+    "mode_holdout_scores": [],
+    "proper_fit_records": 13263,
+    "calibration_records": 3317,
+    "mode_selection_records": 2653,
+    "calibration_slope": 1.0479230934144583,
+    "calibration_intercept": -0.06488653545684844,
+    "selected_family": "linear"
+  },
+  {
+    "label": "outer1",
+    "profile": "report7",
+    "family": "spline",
+    "params": {
+      "C": 3.0,
+      "n_knots": 3
+    },
+    "mode": "single",
+    "inner_loss": 0.5237818392734904,
+    "one_se_cutoff": 0.5308407307666932,
+    "mode_holdout_scores": [
+      {
+        "mode": "single",
+        "group_macro_f1": 0.7359618023032335,
+        "group_recall": 0.7114595414399143,
+        "group_specificity": 0.7655162565574876,
+        "group_precision": 0.7815891995197609,
+        "group_log_loss": 0.5110673408121484,
+        "group_ap": 0.8563212603817125,
+        "group_auc": 0.8226173411944958,
+        "group_brier": 0.1718478189170942,
+        "records": 2653,
+        "groups": 1611
+      },
+      {
+        "mode": "ensemble5",
+        "group_macro_f1": 0.7340410240802503,
+        "group_recall": 0.7099301581637205,
+        "group_specificity": 0.7631487967291471,
+        "group_precision": 0.7794997918423179,
+        "group_log_loss": 0.5115384613237837,
+        "group_ap": 0.8559954003070058,
+        "group_auc": 0.822312849118257,
+        "group_brier": 0.17202651407615926,
+        "records": 2653,
+        "groups": 1611
+      }
+    ],
+    "proper_fit_records": 13263,
+    "calibration_records": 3317,
+    "mode_selection_records": 2653,
+    "calibration_slope": 1.0290268160672384,
+    "calibration_intercept": -0.06675370880744998,
+    "selected_family": "linear"
+  },
+  {
+    "label": "outer1",
+    "profile": "report7",
+    "family": "catboost",
+    "params": {
+      "auto_class_weights": null,
+      "depth": 3,
+      "iterations": 300,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.05
+    },
+    "mode": "single",
+    "inner_loss": 0.5268614770843213,
+    "one_se_cutoff": 0.5355337577731181,
+    "mode_holdout_scores": [
+      {
+        "mode": "single",
+        "group_macro_f1": 0.743555402454634,
+        "group_recall": 0.7226049220651771,
+        "group_specificity": 0.7690787199182284,
+        "group_precision": 0.7868103427340316,
+        "group_log_loss": 0.513016988181019,
+        "group_ap": 0.8558080219429675,
+        "group_auc": 0.8231910875013133,
+        "group_brier": 0.17191719250399495,
+        "records": 2653,
+        "groups": 1611
+      },
+      {
+        "mode": "ensemble5",
+        "group_macro_f1": 0.7402241148699791,
+        "group_recall": 0.7162006295961153,
+        "group_specificity": 0.7692365505734511,
+        "group_precision": 0.7854285105297548,
+        "group_log_loss": 0.5121989512289001,
+        "group_ap": 0.8569040922376123,
+        "group_auc": 0.824380594025913,
+        "group_brier": 0.1716133731315489,
+        "records": 2653,
+        "groups": 1611
+      }
+    ],
+    "proper_fit_records": 13263,
+    "calibration_records": 3317,
+    "mode_selection_records": 2653,
+    "calibration_slope": 1.0753934830971086,
+    "calibration_intercept": -0.061579155884641065,
+    "selected_family": "linear"
+  },
+  {
+    "label": "outer1",
+    "profile": "report4s5",
+    "family": "linear",
+    "params": {
+      "C": 0.1
+    },
+    "mode": "single",
+    "inner_loss": 0.5579712170726371,
+    "one_se_cutoff": 0.5695377431275089,
+    "mode_holdout_scores": [],
+    "proper_fit_records": 13263,
+    "calibration_records": 3317,
+    "mode_selection_records": 2653,
+    "calibration_slope": 1.0833437299400897,
+    "calibration_intercept": -0.046273886058644124,
+    "selected_family": "spline"
+  },
+  {
+    "label": "outer1",
+    "profile": "report4s5",
+    "family": "spline",
+    "params": {
+      "C": 3.0,
+      "n_knots": 3
+    },
+    "mode": "single",
+    "inner_loss": 0.5468891597702853,
+    "one_se_cutoff": 0.5537881809258859,
+    "mode_holdout_scores": [
+      {
+        "mode": "single",
+        "group_macro_f1": 0.7237492051819364,
+        "group_recall": 0.6986509565017907,
+        "group_specificity": 0.7539720714897707,
+        "group_precision": 0.7700733644022856,
+        "group_log_loss": 0.5337520322608487,
+        "group_ap": 0.8397856535371553,
+        "group_auc": 0.8040081382077977,
+        "group_brier": 0.18015213459220356,
+        "records": 2653,
+        "groups": 1611
+      },
+      {
+        "mode": "ensemble5",
+        "group_macro_f1": 0.7236853458394155,
+        "group_recall": 0.6992244752303634,
+        "group_specificity": 0.7531829182136572,
+        "group_precision": 0.7696513556831374,
+        "group_log_loss": 0.5341280325890155,
+        "group_ap": 0.8395762937168805,
+        "group_auc": 0.8037356111345758,
+        "group_brier": 0.180297348566967,
+        "records": 2653,
+        "groups": 1611
+      }
+    ],
+    "proper_fit_records": 13263,
+    "calibration_records": 3317,
+    "mode_selection_records": 2653,
+    "calibration_slope": 1.0724656823679835,
+    "calibration_intercept": -0.043673812727661326,
+    "selected_family": "spline"
+  },
+  {
+    "label": "outer1",
+    "profile": "report4s5",
+    "family": "catboost",
+    "params": {
+      "auto_class_weights": null,
+      "depth": 3,
+      "iterations": 300,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.05
+    },
+    "mode": "single",
+    "inner_loss": 0.544880979530883,
+    "one_se_cutoff": 0.5547863799466415,
+    "mode_holdout_scores": [
+      {
+        "mode": "single",
+        "group_macro_f1": 0.7292646186086166,
+        "group_recall": 0.7007634171520334,
+        "group_specificity": 0.7633742690937512,
+        "group_precision": 0.7774227299720047,
+        "group_log_loss": 0.5305552625495261,
+        "group_ap": 0.8427802573278582,
+        "group_auc": 0.8080902895710818,
+        "group_brier": 0.17865220534855747,
+        "records": 2653,
+        "groups": 1611
+      },
+      {
+        "mode": "ensemble5",
+        "group_macro_f1": 0.7313878842681655,
+        "group_recall": 0.7042045295234696,
+        "group_specificity": 0.7639943180964116,
+        "group_precision": 0.7787216500657108,
+        "group_log_loss": 0.5306144080277653,
+        "group_ap": 0.8428739403210621,
+        "group_auc": 0.8083736930213373,
+        "group_brier": 0.17865199065629545,
+        "records": 2653,
+        "groups": 1611
+      }
+    ],
+    "proper_fit_records": 13263,
+    "calibration_records": 3317,
+    "mode_selection_records": 2653,
+    "calibration_slope": 1.0607717627431232,
+    "calibration_intercept": -0.04241286855543141,
+    "selected_family": "spline"
+  },
+  {
+    "label": "outer2",
+    "profile": "core3",
+    "family": "linear",
+    "params": {
+      "C": 0.1
+    },
+    "mode": "single",
+    "inner_loss": 0.5997815909547835,
+    "one_se_cutoff": 0.6023454074717158,
+    "mode_holdout_scores": [],
+    "proper_fit_records": 13282,
+    "calibration_records": 3320,
+    "mode_selection_records": 2657,
+    "calibration_slope": 0.9718735403863265,
+    "calibration_intercept": -0.01176226503938638,
+    "selected_family": "spline"
+  },
+  {
+    "label": "outer2",
+    "profile": "core3",
+    "family": "spline",
+    "params": {
+      "C": 3.0,
+      "n_knots": 3
+    },
+    "mode": "single",
+    "inner_loss": 0.5956091281726256,
+    "one_se_cutoff": 0.5972549319769072,
+    "mode_holdout_scores": [
+      {
+        "mode": "single",
+        "group_macro_f1": 0.686167522274818,
+        "group_recall": 0.6890253692999355,
+        "group_specificity": 0.6854450194875721,
+        "group_precision": 0.7233723945529683,
+        "group_log_loss": 0.5848985046778449,
+        "group_ap": 0.7935178340166087,
+        "group_auc": 0.7561193532984868,
+        "group_brier": 0.20069156969502464,
+        "records": 2657,
+        "groups": 1635
+      },
+      {
+        "mode": "ensemble5",
+        "group_macro_f1": 0.6869288635242371,
+        "group_recall": 0.6873394348105328,
+        "group_specificity": 0.6889112516772086,
+        "group_precision": 0.7250961261581718,
+        "group_log_loss": 0.584700408739573,
+        "group_ap": 0.7938199867624077,
+        "group_auc": 0.7565781668825651,
+        "group_brier": 0.20058951350683368,
+        "records": 2657,
+        "groups": 1635
+      }
+    ],
+    "proper_fit_records": 13282,
+    "calibration_records": 3320,
+    "mode_selection_records": 2657,
+    "calibration_slope": 0.999174628450706,
+    "calibration_intercept": -0.008785192656638375,
+    "selected_family": "spline"
+  },
+  {
+    "label": "outer2",
+    "profile": "core3",
+    "family": "catboost",
+    "params": {
+      "auto_class_weights": null,
+      "depth": 3,
+      "iterations": 300,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.05
+    },
+    "mode": "single",
+    "inner_loss": 0.5972173247336401,
+    "one_se_cutoff": 0.5997052500762424,
+    "mode_holdout_scores": [
+      {
+        "mode": "single",
+        "group_macro_f1": 0.6929243143410068,
+        "group_recall": 0.6579961464354525,
+        "group_specificity": 0.734978595616893,
+        "group_precision": 0.7477260770533724,
+        "group_log_loss": 0.5826692885934895,
+        "group_ap": 0.7948579331420558,
+        "group_auc": 0.7541506544926831,
+        "group_brier": 0.199925348952112,
+        "records": 2657,
+        "groups": 1635
+      },
+      {
+        "mode": "ensemble5",
+        "group_macro_f1": 0.6935567680387429,
+        "group_recall": 0.6644963605223717,
+        "group_specificity": 0.7288288288288285,
+        "group_precision": 0.7452452197088152,
+        "group_log_loss": 0.5820497448528351,
+        "group_ap": 0.7955909054046175,
+        "group_auc": 0.7554759090079836,
+        "group_brier": 0.19969526514398614,
+        "records": 2657,
+        "groups": 1635
+      }
+    ],
+    "proper_fit_records": 13282,
+    "calibration_records": 3320,
+    "mode_selection_records": 2657,
+    "calibration_slope": 0.9621036579921025,
+    "calibration_intercept": -0.007315302805205849,
+    "selected_family": "spline"
+  },
+  {
+    "label": "outer2",
+    "profile": "report5",
+    "family": "linear",
+    "params": {
+      "C": 0.1
+    },
+    "mode": "single",
+    "inner_loss": 0.5521562373829983,
+    "one_se_cutoff": 0.5531257136867366,
+    "mode_holdout_scores": [],
+    "proper_fit_records": 13272,
+    "calibration_records": 3318,
+    "mode_selection_records": 2654,
+    "calibration_slope": 1.0248165368697397,
+    "calibration_intercept": 0.011427737500981139,
+    "selected_family": "catboost"
+  },
+  {
+    "label": "outer2",
+    "profile": "report5",
+    "family": "spline",
+    "params": {
+      "C": 3.0,
+      "n_knots": 3
+    },
+    "mode": "single",
+    "inner_loss": 0.5422509989847374,
+    "one_se_cutoff": 0.5424895698469555,
+    "mode_holdout_scores": [
+      {
+        "mode": "single",
+        "group_macro_f1": 0.7077274814178843,
+        "group_recall": 0.7139363777563994,
+        "group_specificity": 0.7030050157574675,
+        "group_precision": 0.7393266806547302,
+        "group_log_loss": 0.5427126279487752,
+        "group_ap": 0.8300555221573848,
+        "group_auc": 0.7960660775206416,
+        "group_brier": 0.18388133895934222,
+        "records": 2654,
+        "groups": 1637
+      },
+      {
+        "mode": "ensemble5",
+        "group_macro_f1": 0.7073754062828944,
+        "group_recall": 0.7134661170438603,
+        "group_specificity": 0.7027830795863104,
+        "group_precision": 0.7390556410734613,
+        "group_log_loss": 0.5428048251687866,
+        "group_ap": 0.8299681882304646,
+        "group_auc": 0.7961456911490075,
+        "group_brier": 0.18390589465034388,
+        "records": 2654,
+        "groups": 1637
+      }
+    ],
+    "proper_fit_records": 13272,
+    "calibration_records": 3318,
+    "mode_selection_records": 2654,
+    "calibration_slope": 1.0268733010179851,
+    "calibration_intercept": 0.020525422191980728,
+    "selected_family": "catboost"
+  },
+  {
+    "label": "outer2",
+    "profile": "report5",
+    "family": "catboost",
+    "params": {
+      "auto_class_weights": null,
+      "depth": 3,
+      "iterations": 700,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.05
+    },
+    "mode": "single",
+    "inner_loss": 0.5382559301440843,
+    "one_se_cutoff": 0.539677769231697,
+    "mode_holdout_scores": [
+      {
+        "mode": "single",
+        "group_macro_f1": 0.7185604130752667,
+        "group_recall": 0.7271601089929971,
+        "group_specificity": 0.7111944604731674,
+        "group_precision": 0.7481531247580814,
+        "group_log_loss": 0.5425405906469157,
+        "group_ap": 0.8294501815139941,
+        "group_auc": 0.7969845629283353,
+        "group_brier": 0.1832160957844414,
+        "records": 2654,
+        "groups": 1637
+      },
+      {
+        "mode": "ensemble5",
+        "group_macro_f1": 0.7148191797359859,
+        "group_recall": 0.7235592555369837,
+        "group_specificity": 0.7073105774779168,
+        "group_precision": 0.7446850878236169,
+        "group_log_loss": 0.5407374198879619,
+        "group_ap": 0.8305012277765953,
+        "group_auc": 0.7982243368757171,
+        "group_brier": 0.18265177227257867,
+        "records": 2654,
+        "groups": 1637
+      }
+    ],
+    "proper_fit_records": 13272,
+    "calibration_records": 3318,
+    "mode_selection_records": 2654,
+    "calibration_slope": 0.9878059788288887,
+    "calibration_intercept": 0.01392966956747428,
+    "selected_family": "catboost"
+  },
+  {
+    "label": "outer2",
+    "profile": "report7",
+    "family": "linear",
+    "params": {
+      "C": 1.0
+    },
+    "mode": "single",
+    "inner_loss": 0.5255315482039646,
+    "one_se_cutoff": 0.5283587889491894,
+    "mode_holdout_scores": [],
+    "proper_fit_records": 13272,
+    "calibration_records": 3318,
+    "mode_selection_records": 2654,
+    "calibration_slope": 0.9984630707719654,
+    "calibration_intercept": 0.005733919932160607,
+    "selected_family": "spline"
+  },
+  {
+    "label": "outer2",
+    "profile": "report7",
+    "family": "spline",
+    "params": {
+      "C": 3.0,
+      "n_knots": 3
+    },
+    "mode": "single",
+    "inner_loss": 0.5212963621317521,
+    "one_se_cutoff": 0.5233742685239133,
+    "mode_holdout_scores": [
+      {
+        "mode": "single",
+        "group_macro_f1": 0.7238698932616046,
+        "group_recall": 0.7355871809616965,
+        "group_specificity": 0.7130809179280033,
+        "group_precision": 0.7515436547484713,
+        "group_log_loss": 0.5182778858095775,
+        "group_ap": 0.8491498118490559,
+        "group_auc": 0.8153260239842646,
+        "group_brier": 0.1748726809786697,
+        "records": 2654,
+        "groups": 1637
+      },
+      {
+        "mode": "ensemble5",
+        "group_macro_f1": 0.7244838633125336,
+        "group_recall": 0.7361514938167433,
+        "group_specificity": 0.7137467264414749,
+        "group_precision": 0.7521202087674647,
+        "group_log_loss": 0.5184232735394723,
+        "group_ap": 0.8490462313547706,
+        "group_auc": 0.815307917531902,
+        "group_brier": 0.1749148977765924,
+        "records": 2654,
+        "groups": 1637
+      }
+    ],
+    "proper_fit_records": 13272,
+    "calibration_records": 3318,
+    "mode_selection_records": 2654,
+    "calibration_slope": 1.0244065019409818,
+    "calibration_intercept": 0.013496440346988528,
+    "selected_family": "spline"
+  },
+  {
+    "label": "outer2",
+    "profile": "report7",
+    "family": "catboost",
+    "params": {
+      "auto_class_weights": null,
+      "depth": 3,
+      "iterations": 300,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.05
+    },
+    "mode": "single",
+    "inner_loss": 0.5227630870003869,
+    "one_se_cutoff": 0.5229843289051898,
+    "mode_holdout_scores": [
+      {
+        "mode": "single",
+        "group_macro_f1": 0.7245740022400254,
+        "group_recall": 0.7334804129695217,
+        "group_specificity": 0.7168538328376753,
+        "group_precision": 0.7534747238853968,
+        "group_log_loss": 0.5216439766004874,
+        "group_ap": 0.8475309974701102,
+        "group_auc": 0.8146178627879233,
+        "group_brier": 0.1758111492583743,
+        "records": 2654,
+        "groups": 1637
+      },
+      {
+        "mode": "ensemble5",
+        "group_macro_f1": 0.7278520614877778,
+        "group_recall": 0.7320131995463998,
+        "group_specificity": 0.7253317945758795,
+        "group_precision": 0.758711449174045,
+        "group_log_loss": 0.5213980655586862,
+        "group_ap": 0.8476210685667942,
+        "group_auc": 0.8146796627136493,
+        "group_brier": 0.17563057589968203,
+        "records": 2654,
+        "groups": 1637
+      }
+    ],
+    "proper_fit_records": 13272,
+    "calibration_records": 3318,
+    "mode_selection_records": 2654,
+    "calibration_slope": 1.0831756912274642,
+    "calibration_intercept": 0.010675987120617488,
+    "selected_family": "spline"
+  },
+  {
+    "label": "outer2",
+    "profile": "report4s5",
+    "family": "linear",
+    "params": {
+      "C": 0.1
+    },
+    "mode": "single",
+    "inner_loss": 0.55218646581095,
+    "one_se_cutoff": 0.5537464140437808,
+    "mode_holdout_scores": [],
+    "proper_fit_records": 13272,
+    "calibration_records": 3318,
+    "mode_selection_records": 2654,
+    "calibration_slope": 1.0227977379626483,
+    "calibration_intercept": 0.011169612754286098,
+    "selected_family": "catboost"
+  },
+  {
+    "label": "outer2",
+    "profile": "report4s5",
+    "family": "spline",
+    "params": {
+      "C": 3.0,
+      "n_knots": 3
+    },
+    "mode": "single",
+    "inner_loss": 0.5418644486797337,
+    "one_se_cutoff": 0.5427704980250416,
+    "mode_holdout_scores": [
+      {
+        "mode": "single",
+        "group_macro_f1": 0.7022226063301309,
+        "group_recall": 0.7151026243234961,
+        "group_specificity": 0.69024368591593,
+        "group_precision": 0.7314581941821757,
+        "group_log_loss": 0.5428660683883335,
+        "group_ap": 0.829572711954027,
+        "group_auc": 0.7962774882227368,
+        "group_brier": 0.18386010474573197,
+        "records": 2654,
+        "groups": 1637
+      },
+      {
+        "mode": "ensemble5",
+        "group_macro_f1": 0.7040153283127248,
+        "group_recall": 0.716701510746129,
+        "group_specificity": 0.6922411114563446,
+        "group_precision": 0.7331641825508962,
+        "group_log_loss": 0.5428798644642447,
+        "group_ap": 0.8295318203851201,
+        "group_auc": 0.7963435908477606,
+        "group_brier": 0.18386145257104866,
+        "records": 2654,
+        "groups": 1637
+      }
+    ],
+    "proper_fit_records": 13272,
+    "calibration_records": 3318,
+    "mode_selection_records": 2654,
+    "calibration_slope": 1.0255775227933477,
+    "calibration_intercept": 0.021138583962383474,
+    "selected_family": "catboost"
+  },
+  {
+    "label": "outer2",
+    "profile": "report4s5",
+    "family": "catboost",
+    "params": {
+      "auto_class_weights": null,
+      "depth": 3,
+      "iterations": 700,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.05
+    },
+    "mode": "single",
+    "inner_loss": 0.5373341715793033,
+    "one_se_cutoff": 0.5379595509137658,
+    "mode_holdout_scores": [
+      {
+        "mode": "single",
+        "group_macro_f1": 0.7180813736725231,
+        "group_recall": 0.7329644697877645,
+        "group_specificity": 0.7038705668249806,
+        "group_precision": 0.7449189156712055,
+        "group_log_loss": 0.5397742252527866,
+        "group_ap": 0.8315575409950723,
+        "group_auc": 0.7991144761169324,
+        "group_brier": 0.18226688932461865,
+        "records": 2654,
+        "groups": 1637
+      },
+      {
+        "mode": "ensemble5",
+        "group_macro_f1": 0.7181113555115131,
+        "group_recall": 0.734966436821145,
+        "group_specificity": 0.7017621731989874,
+        "group_precision": 0.7440882330536601,
+        "group_log_loss": 0.538956481588639,
+        "group_ap": 0.8318514395833313,
+        "group_auc": 0.7998520037203325,
+        "group_brier": 0.18196459620825825,
+        "records": 2654,
+        "groups": 1637
+      }
+    ],
+    "proper_fit_records": 13272,
+    "calibration_records": 3318,
+    "mode_selection_records": 2654,
+    "calibration_slope": 0.9862200644519629,
+    "calibration_intercept": 0.015720037334783887,
+    "selected_family": "catboost"
+  },
+  {
+    "label": "outer3",
+    "profile": "core3",
+    "family": "linear",
+    "params": {
+      "C": 0.1
+    },
+    "mode": "single",
+    "inner_loss": 0.5953644258702089,
+    "one_se_cutoff": 0.6018446481286,
+    "mode_holdout_scores": [],
+    "proper_fit_records": 13272,
+    "calibration_records": 3318,
+    "mode_selection_records": 2655,
+    "calibration_slope": 0.9765624341476994,
+    "calibration_intercept": -0.023982951852953377,
+    "selected_family": "linear"
+  },
+  {
+    "label": "outer3",
+    "profile": "core3",
+    "family": "spline",
+    "params": {
+      "C": 0.3,
+      "n_knots": 3
+    },
+    "mode": "single",
+    "inner_loss": 0.5945202551861853,
+    "one_se_cutoff": 0.5946060750226796,
+    "mode_holdout_scores": [
+      {
+        "mode": "single",
+        "group_macro_f1": 0.6463031862369307,
+        "group_recall": 0.6791043694027613,
+        "group_specificity": 0.613332064488673,
+        "group_precision": 0.6744990908927249,
+        "group_log_loss": 0.6131797231097702,
+        "group_ap": 0.7616653162372072,
+        "group_auc": 0.7077717035792185,
+        "group_brier": 0.2138157373045372,
+        "records": 2655,
+        "groups": 1618
+      },
+      {
+        "mode": "ensemble5",
+        "group_macro_f1": 0.6454936323558711,
+        "group_recall": 0.6796753080803224,
+        "group_specificity": 0.6110866371410787,
+        "group_precision": 0.6734113907570188,
+        "group_log_loss": 0.6131230690967308,
+        "group_ap": 0.7616738974654367,
+        "group_auc": 0.7077735339922149,
+        "group_brier": 0.21381777077678582,
+        "records": 2655,
+        "groups": 1618
+      }
+    ],
+    "proper_fit_records": 13272,
+    "calibration_records": 3318,
+    "mode_selection_records": 2655,
+    "calibration_slope": 1.0549667032836794,
+    "calibration_intercept": -0.02795333935785416,
+    "selected_family": "linear"
+  },
+  {
+    "label": "outer3",
+    "profile": "core3",
+    "family": "catboost",
+    "params": {
+      "auto_class_weights": null,
+      "depth": 3,
+      "iterations": 300,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.05
+    },
+    "mode": "single",
+    "inner_loss": 0.5913540695872248,
+    "one_se_cutoff": 0.5982043237261455,
+    "mode_holdout_scores": [
+      {
+        "mode": "single",
+        "group_macro_f1": 0.645055704414735,
+        "group_recall": 0.5853562385472415,
+        "group_specificity": 0.7155941721537066,
+        "group_precision": 0.7083151020676716,
+        "group_log_loss": 0.6092565191568599,
+        "group_ap": 0.7690100305077177,
+        "group_auc": 0.7165591321594397,
+        "group_brier": 0.21234442975967344,
+        "records": 2655,
+        "groups": 1618
+      },
+      {
+        "mode": "ensemble5",
+        "group_macro_f1": 0.6484190135381873,
+        "group_recall": 0.5993822987259908,
+        "group_specificity": 0.7062756486611902,
+        "group_precision": 0.7065433020648717,
+        "group_log_loss": 0.6090898800434015,
+        "group_ap": 0.7687185646502315,
+        "group_auc": 0.7164433977402076,
+        "group_brier": 0.21219550186000008,
+        "records": 2655,
+        "groups": 1618
+      }
+    ],
+    "proper_fit_records": 13272,
+    "calibration_records": 3318,
+    "mode_selection_records": 2655,
+    "calibration_slope": 0.9717589383241464,
+    "calibration_intercept": -0.02450167955944617,
+    "selected_family": "linear"
+  },
+  {
+    "label": "outer3",
+    "profile": "report5",
+    "family": "linear",
+    "params": {
+      "C": 0.1
+    },
+    "mode": "single",
+    "inner_loss": 0.5579940941992015,
+    "one_se_cutoff": 0.5628451693173865,
+    "mode_holdout_scores": [],
+    "proper_fit_records": 13259,
+    "calibration_records": 3315,
+    "mode_selection_records": 2651,
+    "calibration_slope": 1.0382247395092825,
+    "calibration_intercept": -0.014148926491707568,
+    "selected_family": "spline"
+  },
+  {
+    "label": "outer3",
+    "profile": "report5",
+    "family": "spline",
+    "params": {
+      "C": 3.0,
+      "n_knots": 3
+    },
+    "mode": "single",
+    "inner_loss": 0.5456155567289166,
+    "one_se_cutoff": 0.5496295863001374,
+    "mode_holdout_scores": [
+      {
+        "mode": "single",
+        "group_macro_f1": 0.7068289349670973,
+        "group_recall": 0.6956118191469738,
+        "group_specificity": 0.7212988645111412,
+        "group_precision": 0.7459813797779388,
+        "group_log_loss": 0.5444138258694664,
+        "group_ap": 0.8316965345994978,
+        "group_auc": 0.788956952227875,
+        "group_brier": 0.18586471881036587,
+        "records": 2651,
+        "groups": 1600
+      },
+      {
+        "mode": "ensemble5",
+        "group_macro_f1": 0.7074259409832571,
+        "group_recall": 0.6953227728986565,
+        "group_specificity": 0.7228859792984086,
+        "group_precision": 0.7469835039066581,
+        "group_log_loss": 0.5446661993260443,
+        "group_ap": 0.8314738127308063,
+        "group_auc": 0.7888900889884152,
+        "group_brier": 0.18593930643856266,
+        "records": 2651,
+        "groups": 1600
+      }
+    ],
+    "proper_fit_records": 13259,
+    "calibration_records": 3315,
+    "mode_selection_records": 2651,
+    "calibration_slope": 1.0624819318400145,
+    "calibration_intercept": -0.013341700883056848,
+    "selected_family": "spline"
+  },
+  {
+    "label": "outer3",
+    "profile": "report5",
+    "family": "catboost",
+    "params": {
+      "auto_class_weights": null,
+      "depth": 3,
+      "iterations": 300,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.05
+    },
+    "mode": "single",
+    "inner_loss": 0.5432931190020638,
+    "one_se_cutoff": 0.5479521095713935,
+    "mode_holdout_scores": [
+      {
+        "mode": "single",
+        "group_macro_f1": 0.7145357494225054,
+        "group_recall": 0.6953613123984321,
+        "group_specificity": 0.7379408967090576,
+        "group_precision": 0.757404649582217,
+        "group_log_loss": 0.541646577760919,
+        "group_ap": 0.8345418507921192,
+        "group_auc": 0.7939451361269056,
+        "group_brier": 0.1843023298089078,
+        "records": 2651,
+        "groups": 1600
+      },
+      {
+        "mode": "ensemble5",
+        "group_macro_f1": 0.7145524215104513,
+        "group_recall": 0.7024911198569266,
+        "group_specificity": 0.7299675343254057,
+        "group_precision": 0.7537534152164814,
+        "group_log_loss": 0.5421453780884938,
+        "group_ap": 0.8345770003240409,
+        "group_auc": 0.7936721474660329,
+        "group_brier": 0.18442195215604115,
+        "records": 2651,
+        "groups": 1600
+      }
+    ],
+    "proper_fit_records": 13259,
+    "calibration_records": 3315,
+    "mode_selection_records": 2651,
+    "calibration_slope": 1.0882428244430058,
+    "calibration_intercept": -0.00724509629568744,
+    "selected_family": "spline"
+  },
+  {
+    "label": "outer3",
+    "profile": "report7",
+    "family": "linear",
+    "params": {
+      "C": 0.1
+    },
+    "mode": "single",
+    "inner_loss": 0.5372111818513919,
+    "one_se_cutoff": 0.5380074313052913,
+    "mode_holdout_scores": [],
+    "proper_fit_records": 13259,
+    "calibration_records": 3315,
+    "mode_selection_records": 2651,
+    "calibration_slope": 1.0596009622347156,
+    "calibration_intercept": -0.016182401349089902,
+    "selected_family": "spline"
+  },
+  {
+    "label": "outer3",
+    "profile": "report7",
+    "family": "spline",
+    "params": {
+      "C": 3.0,
+      "n_knots": 3
+    },
+    "mode": "single",
+    "inner_loss": 0.5273839688109909,
+    "one_se_cutoff": 0.531255683484351,
+    "mode_holdout_scores": [
+      {
+        "mode": "single",
+        "group_macro_f1": 0.7383246468293473,
+        "group_recall": 0.730027592446625,
+        "group_specificity": 0.7495268346561087,
+        "group_precision": 0.7742334327265934,
+        "group_log_loss": 0.513373876652358,
+        "group_ap": 0.8555976965128578,
+        "group_auc": 0.8191102419171459,
+        "group_brier": 0.1733826498869287,
+        "records": 2651,
+        "groups": 1600
+      },
+      {
+        "mode": "ensemble5",
+        "group_macro_f1": 0.7385383740765006,
+        "group_recall": 0.730798382442138,
+        "group_specificity": 0.749118719425097,
+        "group_precision": 0.7741332988590436,
+        "group_log_loss": 0.5137245180197973,
+        "group_ap": 0.855411446774917,
+        "group_auc": 0.8189255747307528,
+        "group_brier": 0.1734916047553842,
+        "records": 2651,
+        "groups": 1600
+      }
+    ],
+    "proper_fit_records": 13259,
+    "calibration_records": 3315,
+    "mode_selection_records": 2651,
+    "calibration_slope": 1.0533814179411747,
+    "calibration_intercept": -0.019076239094575242,
+    "selected_family": "spline"
+  },
+  {
+    "label": "outer3",
+    "profile": "report7",
+    "family": "catboost",
+    "params": {
+      "auto_class_weights": null,
+      "depth": 3,
+      "iterations": 300,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.05
+    },
+    "mode": "single",
+    "inner_loss": 0.5278776833758212,
+    "one_se_cutoff": 0.5325571069963624,
+    "mode_holdout_scores": [
+      {
+        "mode": "single",
+        "group_macro_f1": 0.7261400429138453,
+        "group_recall": 0.7048420293432409,
+        "group_specificity": 0.7519528529737887,
+        "group_precision": 0.7697670246945005,
+        "group_log_loss": 0.5191462340958359,
+        "group_ap": 0.8523754239410355,
+        "group_auc": 0.8161022751115391,
+        "group_brier": 0.1750747738674973,
+        "records": 2651,
+        "groups": 1600
+      },
+      {
+        "mode": "ensemble5",
+        "group_macro_f1": 0.7238170582621191,
+        "group_recall": 0.7085610910715907,
+        "group_specificity": 0.742815606412807,
+        "group_precision": 0.7642430150733875,
+        "group_log_loss": 0.5182781845129414,
+        "group_ap": 0.8534382092953794,
+        "group_auc": 0.8163222171755347,
+        "group_brier": 0.17485955954285218,
+        "records": 2651,
+        "groups": 1600
+      }
+    ],
+    "proper_fit_records": 13259,
+    "calibration_records": 3315,
+    "mode_selection_records": 2651,
+    "calibration_slope": 1.1237030826130077,
+    "calibration_intercept": -0.01507737107973624,
+    "selected_family": "spline"
+  },
+  {
+    "label": "outer3",
+    "profile": "report4s5",
+    "family": "linear",
+    "params": {
+      "C": 0.1
+    },
+    "mode": "single",
+    "inner_loss": 0.5581318220178807,
+    "one_se_cutoff": 0.5624909060941565,
+    "mode_holdout_scores": [],
+    "proper_fit_records": 13259,
+    "calibration_records": 3315,
+    "mode_selection_records": 2651,
+    "calibration_slope": 1.0391660585057818,
+    "calibration_intercept": -0.014089288517469097,
+    "selected_family": "spline"
+  },
+  {
+    "label": "outer3",
+    "profile": "report4s5",
+    "family": "spline",
+    "params": {
+      "C": 3.0,
+      "n_knots": 3
+    },
+    "mode": "single",
+    "inner_loss": 0.5455165246313457,
+    "one_se_cutoff": 0.5492914504772455,
+    "mode_holdout_scores": [
+      {
+        "mode": "single",
+        "group_macro_f1": 0.7060955701661022,
+        "group_recall": 0.6950337266503391,
+        "group_specificity": 0.72039194177556,
+        "group_precision": 0.7452074296278003,
+        "group_log_loss": 0.5426733121124591,
+        "group_ap": 0.8329082308249717,
+        "group_auc": 0.7909180928565118,
+        "group_brier": 0.18511982639085417,
+        "records": 2651,
+        "groups": 1600
+      },
+      {
+        "mode": "ensemble5",
+        "group_macro_f1": 0.7063314331431836,
+        "group_recall": 0.6942629366548263,
+        "group_specificity": 0.7217523258789319,
+        "group_precision": 0.7459221328243536,
+        "group_log_loss": 0.5430206930792998,
+        "group_ap": 0.8326709614988939,
+        "group_auc": 0.7907837030215462,
+        "group_brier": 0.18523191364648908,
+        "records": 2651,
+        "groups": 1600
+      }
+    ],
+    "proper_fit_records": 13259,
+    "calibration_records": 3315,
+    "mode_selection_records": 2651,
+    "calibration_slope": 1.064134579147871,
+    "calibration_intercept": -0.012730346251947402,
+    "selected_family": "spline"
+  },
+  {
+    "label": "outer3",
+    "profile": "report4s5",
+    "family": "catboost",
+    "params": {
+      "auto_class_weights": null,
+      "depth": 3,
+      "iterations": 300,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.05
+    },
+    "mode": "single",
+    "inner_loss": 0.5426956650320102,
+    "one_se_cutoff": 0.5478523768211501,
+    "mode_holdout_scores": [
+      {
+        "mode": "single",
+        "group_macro_f1": 0.7173185126274508,
+        "group_recall": 0.7069617018309015,
+        "group_specificity": 0.7308291109242079,
+        "group_precision": 0.75551974064206,
+        "group_log_loss": 0.540398745470625,
+        "group_ap": 0.8361036488323748,
+        "group_auc": 0.7951612974952017,
+        "group_brier": 0.1838067783954874,
+        "records": 2651,
+        "groups": 1600
+      },
+      {
+        "mode": "ensemble5",
+        "group_macro_f1": 0.7131472792574414,
+        "group_recall": 0.7022020736086092,
+        "group_specificity": 0.7273147853238304,
+        "group_precision": 0.7518576522105642,
+        "group_log_loss": 0.5398876494235603,
+        "group_ap": 0.836078743626648,
+        "group_auc": 0.7962043997716302,
+        "group_brier": 0.18347697775504782,
+        "records": 2651,
+        "groups": 1600
+      }
+    ],
+    "proper_fit_records": 13259,
+    "calibration_records": 3315,
+    "mode_selection_records": 2651,
+    "calibration_slope": 1.0894816741414155,
+    "calibration_intercept": -0.006226757834590294,
+    "selected_family": "spline"
+  },
+  {
+    "label": "outer4",
+    "profile": "core3",
+    "family": "linear",
+    "params": {
+      "C": 0.1
+    },
+    "mode": "single",
+    "inner_loss": 0.5951885854181208,
+    "one_se_cutoff": 0.6007331267981832,
+    "mode_holdout_scores": [],
+    "proper_fit_records": 13273,
+    "calibration_records": 3319,
+    "mode_selection_records": 2654,
+    "calibration_slope": 0.9784618691805445,
+    "calibration_intercept": -0.016893145527722045,
+    "selected_family": "spline"
+  },
+  {
+    "label": "outer4",
+    "profile": "core3",
+    "family": "spline",
+    "params": {
+      "C": 3.0,
+      "n_knots": 3
+    },
+    "mode": "single",
+    "inner_loss": 0.5898007845932783,
+    "one_se_cutoff": 0.5924519755227561,
+    "mode_holdout_scores": [
+      {
+        "mode": "single",
+        "group_macro_f1": 0.6716883992327202,
+        "group_recall": 0.6429278114083045,
+        "group_specificity": 0.7066881521426971,
+        "group_precision": 0.7239713223978077,
+        "group_log_loss": 0.5866018783769559,
+        "group_ap": 0.7935889888542209,
+        "group_auc": 0.7438936129737691,
+        "group_brier": 0.20262428749810105,
+        "records": 2654,
+        "groups": 1639
+      },
+      {
+        "mode": "ensemble5",
+        "group_macro_f1": 0.6691997935806616,
+        "group_recall": 0.6404077442065124,
+        "group_specificity": 0.7042311496856946,
+        "group_precision": 0.7215127502159461,
+        "group_log_loss": 0.5865439309493276,
+        "group_ap": 0.7936275699861213,
+        "group_auc": 0.7442357655867822,
+        "group_brier": 0.20258632069018837,
+        "records": 2654,
+        "groups": 1639
+      }
+    ],
+    "proper_fit_records": 13273,
+    "calibration_records": 3319,
+    "mode_selection_records": 2654,
+    "calibration_slope": 0.9896945035342783,
+    "calibration_intercept": -0.013783688759683343,
+    "selected_family": "spline"
+  },
+  {
+    "label": "outer4",
+    "profile": "core3",
+    "family": "catboost",
+    "params": {
+      "auto_class_weights": null,
+      "depth": 3,
+      "iterations": 300,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.05
+    },
+    "mode": "single",
+    "inner_loss": 0.5907765821861242,
+    "one_se_cutoff": 0.5961050868419546,
+    "mode_holdout_scores": [
+      {
+        "mode": "single",
+        "group_macro_f1": 0.6761562653911577,
+        "group_recall": 0.6178391423771303,
+        "group_specificity": 0.7459427550336638,
+        "group_precision": 0.7442391243244111,
+        "group_log_loss": 0.5853818248842421,
+        "group_ap": 0.7947890924002377,
+        "group_auc": 0.7437104689682805,
+        "group_brier": 0.20211871256159972,
+        "records": 2654,
+        "groups": 1639
+      },
+      {
+        "mode": "ensemble5",
+        "group_macro_f1": 0.6752343233270064,
+        "group_recall": 0.6147590602416066,
+        "group_specificity": 0.74761798398162,
+        "group_precision": 0.7445469886716888,
+        "group_log_loss": 0.5851803013057775,
+        "group_ap": 0.79533769435327,
+        "group_auc": 0.7448298205807422,
+        "group_brier": 0.2019984974230737,
+        "records": 2654,
+        "groups": 1639
+      }
+    ],
+    "proper_fit_records": 13273,
+    "calibration_records": 3319,
+    "mode_selection_records": 2654,
+    "calibration_slope": 0.957742516979828,
+    "calibration_intercept": -0.011707927933699293,
+    "selected_family": "spline"
+  },
+  {
+    "label": "outer4",
+    "profile": "report5",
+    "family": "linear",
+    "params": {
+      "C": 0.1
+    },
+    "mode": "single",
+    "inner_loss": 0.5450065064853096,
+    "one_se_cutoff": 0.548201562686789,
+    "mode_holdout_scores": [],
+    "proper_fit_records": 13262,
+    "calibration_records": 3316,
+    "mode_selection_records": 2652,
+    "calibration_slope": 0.9498175736536709,
+    "calibration_intercept": 0.01084703596921403,
+    "selected_family": "spline"
+  },
+  {
+    "label": "outer4",
+    "profile": "report5",
+    "family": "spline",
+    "params": {
+      "C": 3.0,
+      "n_knots": 3
+    },
+    "mode": "single",
+    "inner_loss": 0.5336081116668453,
+    "one_se_cutoff": 0.5341223185097732,
+    "mode_holdout_scores": [
+      {
+        "mode": "single",
+        "group_macro_f1": 0.7302024668355882,
+        "group_recall": 0.7218764461990349,
+        "group_specificity": 0.741794851627546,
+        "group_precision": 0.7688431090501242,
+        "group_log_loss": 0.5429663837083869,
+        "group_ap": 0.8307378694616916,
+        "group_auc": 0.7982201507275946,
+        "group_brier": 0.18219833407495403,
+        "records": 2652,
+        "groups": 1624
+      },
+      {
+        "mode": "ensemble5",
+        "group_macro_f1": 0.7318962359976489,
+        "group_recall": 0.7235764679215347,
+        "group_specificity": 0.7434802638231887,
+        "group_precision": 0.7704212463421256,
+        "group_log_loss": 0.5428929437466252,
+        "group_ap": 0.8306984784452914,
+        "group_auc": 0.798171274660022,
+        "group_brier": 0.18220176161334747,
+        "records": 2652,
+        "groups": 1624
+      }
+    ],
+    "proper_fit_records": 13262,
+    "calibration_records": 3316,
+    "mode_selection_records": 2652,
+    "calibration_slope": 0.960057449825151,
+    "calibration_intercept": 0.005576387010330808,
+    "selected_family": "spline"
+  },
+  {
+    "label": "outer4",
+    "profile": "report5",
+    "family": "catboost",
+    "params": {
+      "auto_class_weights": null,
+      "depth": 3,
+      "iterations": 300,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.05
+    },
+    "mode": "single",
+    "inner_loss": 0.5338459139680807,
+    "one_se_cutoff": 0.5361773173863191,
+    "mode_holdout_scores": [
+      {
+        "mode": "single",
+        "group_macro_f1": 0.7328798715410214,
+        "group_recall": 0.7257959407259095,
+        "group_specificity": 0.7430757648962345,
+        "group_precision": 0.7706841566881282,
+        "group_log_loss": 0.5346556160620682,
+        "group_ap": 0.8374530562643276,
+        "group_auc": 0.8035079828572361,
+        "group_brier": 0.17948987823372048,
+        "records": 2652,
+        "groups": 1624
+      },
+      {
+        "mode": "ensemble5",
+        "group_macro_f1": 0.7299683414220454,
+        "group_recall": 0.7232364635770347,
+        "group_specificity": 0.7397723569927748,
+        "group_precision": 0.7677892858217111,
+        "group_log_loss": 0.5344296008469668,
+        "group_ap": 0.8373274642051034,
+        "group_auc": 0.8037174866771885,
+        "group_brier": 0.17936851032753257,
+        "records": 2652,
+        "groups": 1624
+      }
+    ],
+    "proper_fit_records": 13262,
+    "calibration_records": 3316,
+    "mode_selection_records": 2652,
+    "calibration_slope": 0.9895103742420421,
+    "calibration_intercept": 0.009654721931271494,
+    "selected_family": "spline"
+  },
+  {
+    "label": "outer4",
+    "profile": "report7",
+    "family": "linear",
+    "params": {
+      "C": 1.0
+    },
+    "mode": "single",
+    "inner_loss": 0.519541824030194,
+    "one_se_cutoff": 0.5225029024550061,
+    "mode_holdout_scores": [],
+    "proper_fit_records": 13262,
+    "calibration_records": 3316,
+    "mode_selection_records": 2652,
+    "calibration_slope": 0.9569754481760907,
+    "calibration_intercept": 0.018510073051198356,
+    "selected_family": "spline"
+  },
+  {
+    "label": "outer4",
+    "profile": "report7",
+    "family": "spline",
+    "params": {
+      "C": 3.0,
+      "n_knots": 3
+    },
+    "mode": "single",
+    "inner_loss": 0.5133281820844027,
+    "one_se_cutoff": 0.5140270306655518,
+    "mode_holdout_scores": [
+      {
+        "mode": "single",
+        "group_macro_f1": 0.7477209850935128,
+        "group_recall": 0.7398494536319078,
+        "group_specificity": 0.758783806559624,
+        "group_precision": 0.784898400865697,
+        "group_log_loss": 0.5165611582900871,
+        "group_ap": 0.8506042576319414,
+        "group_auc": 0.820221242105201,
+        "group_brier": 0.1724783789163504,
+        "records": 2652,
+        "groups": 1624
+      },
+      {
+        "mode": "ensemble5",
+        "group_macro_f1": 0.7465755389691341,
+        "group_recall": 0.7400855677600329,
+        "group_specificity": 0.7560871470465957,
+        "group_precision": 0.7830696819194758,
+        "group_log_loss": 0.5166290782921427,
+        "group_ap": 0.8505242121312746,
+        "group_auc": 0.8202470755095735,
+        "group_brier": 0.17250457068435365,
+        "records": 2652,
+        "groups": 1624
+      }
+    ],
+    "proper_fit_records": 13262,
+    "calibration_records": 3316,
+    "mode_selection_records": 2652,
+    "calibration_slope": 0.970992500589811,
+    "calibration_intercept": 0.01431531851417265,
+    "selected_family": "spline"
+  },
+  {
+    "label": "outer4",
+    "profile": "report7",
+    "family": "catboost",
+    "params": {
+      "auto_class_weights": null,
+      "depth": 3,
+      "iterations": 300,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.05
+    },
+    "mode": "single",
+    "inner_loss": 0.5169183388140013,
+    "one_se_cutoff": 0.518781542893775,
+    "mode_holdout_scores": [
+      {
+        "mode": "single",
+        "group_macro_f1": 0.7491233165671054,
+        "group_recall": 0.7396416731991577,
+        "group_specificity": 0.7619973258126493,
+        "group_precision": 0.7871070193776636,
+        "group_log_loss": 0.5139663642550766,
+        "group_ap": 0.8536675553978816,
+        "group_auc": 0.8209747809556792,
+        "group_brier": 0.1716617265831001,
+        "records": 2652,
+        "groups": 1624
+      },
+      {
+        "mode": "ensemble5",
+        "group_macro_f1": 0.7493905191135051,
+        "group_recall": 0.7411433590540326,
+        "group_specificity": 0.7608737176822209,
+        "group_precision": 0.7866573104105059,
+        "group_log_loss": 0.5136750593617435,
+        "group_ap": 0.8535579103492243,
+        "group_auc": 0.8221385194942272,
+        "group_brier": 0.1713365612924662,
+        "records": 2652,
+        "groups": 1624
+      }
+    ],
+    "proper_fit_records": 13262,
+    "calibration_records": 3316,
+    "mode_selection_records": 2652,
+    "calibration_slope": 1.0214924139928898,
+    "calibration_intercept": 0.014542440206970346,
+    "selected_family": "spline"
+  },
+  {
+    "label": "outer4",
+    "profile": "report4s5",
+    "family": "linear",
+    "params": {
+      "C": 0.1
+    },
+    "mode": "single",
+    "inner_loss": 0.5449099615155094,
+    "one_se_cutoff": 0.5481472080796421,
+    "mode_holdout_scores": [],
+    "proper_fit_records": 13262,
+    "calibration_records": 3316,
+    "mode_selection_records": 2652,
+    "calibration_slope": 0.9490355805615723,
+    "calibration_intercept": 0.007480555469668352,
+    "selected_family": "spline"
+  },
+  {
+    "label": "outer4",
+    "profile": "report4s5",
+    "family": "spline",
+    "params": {
+      "C": 3.0,
+      "n_knots": 3
+    },
+    "mode": "single",
+    "inner_loss": 0.533067955269754,
+    "one_se_cutoff": 0.5342627103275746,
+    "mode_holdout_scores": [
+      {
+        "mode": "single",
+        "group_macro_f1": 0.7320784433086888,
+        "group_recall": 0.7228209027115348,
+        "group_specificity": 0.7447162327666599,
+        "group_precision": 0.7710900426183591,
+        "group_log_loss": 0.5419212372418645,
+        "group_ap": 0.8314539496596,
+        "group_auc": 0.7992881943714106,
+        "group_brier": 0.1817140791774804,
+        "records": 2652,
+        "groups": 1624
+      },
+      {
+        "mode": "ensemble5",
+        "group_macro_f1": 0.7324549154020263,
+        "group_recall": 0.7243320331315347,
+        "group_specificity": 0.7438173462623172,
+        "group_precision": 0.770838149417547,
+        "group_log_loss": 0.541934329912603,
+        "group_ap": 0.8312717198063312,
+        "group_auc": 0.7991930368678606,
+        "group_brier": 0.1817615280053933,
+        "records": 2652,
+        "groups": 1624
+      }
+    ],
+    "proper_fit_records": 13262,
+    "calibration_records": 3316,
+    "mode_selection_records": 2652,
+    "calibration_slope": 0.962147658171791,
+    "calibration_intercept": 0.0014272333703493705,
+    "selected_family": "spline"
+  },
+  {
+    "label": "outer4",
+    "profile": "report4s5",
+    "family": "catboost",
+    "params": {
+      "auto_class_weights": null,
+      "depth": 3,
+      "iterations": 300,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.05
+    },
+    "mode": "single",
+    "inner_loss": 0.5325016648028101,
+    "one_se_cutoff": 0.5356010814070307,
+    "mode_holdout_scores": [
+      {
+        "mode": "single",
+        "group_macro_f1": 0.7330919038137341,
+        "group_recall": 0.7287048667844092,
+        "group_specificity": 0.7402667445701633,
+        "group_precision": 0.7694670496250201,
+        "group_log_loss": 0.5336494194098194,
+        "group_ap": 0.8380549014549328,
+        "group_auc": 0.8044702600848164,
+        "group_brier": 0.1790273332098038,
+        "records": 2652,
+        "groups": 1624
+      },
+      {
+        "mode": "ensemble5",
+        "group_macro_f1": 0.7336712808492372,
+        "group_recall": 0.7281948602676592,
+        "group_specificity": 0.742064517578849,
+        "group_precision": 0.7705730676207801,
+        "group_log_loss": 0.5337643421600985,
+        "group_ap": 0.837786234907834,
+        "group_auc": 0.8043934197252466,
+        "group_brier": 0.1790470813372802,
+        "records": 2652,
+        "groups": 1624
+      }
+    ],
+    "proper_fit_records": 13262,
+    "calibration_records": 3316,
+    "mode_selection_records": 2652,
+    "calibration_slope": 0.9963637638218479,
+    "calibration_intercept": 0.004893516123370979,
+    "selected_family": "spline"
+  }
+]

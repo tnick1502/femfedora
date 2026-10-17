@@ -1,0 +1,5 @@
+pattern,original_train_records_in_box,patients,FIGO_abnormal_fraction_if_n_ge20,box
+quiet,18,18,,"baseline ±10 BPM, STV ±1 ms, range ±3 BPM; AC/DC rates exact; descriptive not clinical validation"
+reactive,34,34,0.3235294117647059,"baseline ±10 BPM, STV ±1 ms, range ±3 BPM; AC/DC rates exact; descriptive not clinical validation"
+high_variation,0,0,,"baseline ±10 BPM, STV ±1 ms, range ±3 BPM; AC/DC rates exact; descriptive not clinical validation"
+decelerative,0,0,,"baseline ±10 BPM, STV ±1 ms, range ±3 BPM; AC/DC rates exact; descriptive not clinical validation"

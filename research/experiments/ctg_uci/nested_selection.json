@@ -1,0 +1,154 @@
+{
+  "fingerprint": "f9c52010a79720e3324ce3e301e530240df3dfc32f44d6823e6a9e4974353060",
+  "family": "D_hierarchy",
+  "diagnostic_mode": "calibrated",
+  "pooled_macro_f1": 0.8846349781697542,
+  "search_version": "ctg_nested_v1_20261017",
+  "cat_grid": [
+    {
+      "depth": 3,
+      "iterations": 300,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.03
+    },
+    {
+      "depth": 3,
+      "iterations": 300,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.1
+    },
+    {
+      "depth": 3,
+      "iterations": 300,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.03
+    },
+    {
+      "depth": 3,
+      "iterations": 300,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.1
+    },
+    {
+      "depth": 3,
+      "iterations": 600,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.03
+    },
+    {
+      "depth": 3,
+      "iterations": 600,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.1
+    },
+    {
+      "depth": 3,
+      "iterations": 600,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.03
+    },
+    {
+      "depth": 3,
+      "iterations": 600,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.1
+    },
+    {
+      "depth": 5,
+      "iterations": 300,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.03
+    },
+    {
+      "depth": 5,
+      "iterations": 300,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.1
+    },
+    {
+      "depth": 5,
+      "iterations": 300,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.03
+    },
+    {
+      "depth": 5,
+      "iterations": 300,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.1
+    },
+    {
+      "depth": 5,
+      "iterations": 600,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.03
+    },
+    {
+      "depth": 5,
+      "iterations": 600,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.1
+    },
+    {
+      "depth": 5,
+      "iterations": 600,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.03
+    },
+    {
+      "depth": 5,
+      "iterations": 600,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.1
+    },
+    {
+      "depth": 7,
+      "iterations": 300,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.03
+    },
+    {
+      "depth": 7,
+      "iterations": 300,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.1
+    },
+    {
+      "depth": 7,
+      "iterations": 300,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.03
+    },
+    {
+      "depth": 7,
+      "iterations": 300,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.1
+    },
+    {
+      "depth": 7,
+      "iterations": 600,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.03
+    },
+    {
+      "depth": 7,
+      "iterations": 600,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.1
+    },
+    {
+      "depth": 7,
+      "iterations": 600,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.03
+    },
+    {
+      "depth": 7,
+      "iterations": 600,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.1
+    }
+  ],
+  "selection": "outer_train_CV_only"
+}

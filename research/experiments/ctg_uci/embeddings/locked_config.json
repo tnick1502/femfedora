@@ -1,0 +1,735 @@
+{
+  "fingerprint": "465f50e860879f750dcbc46b9d8713990628ce26a8e0eba4c36eca148a409da7",
+  "version": "ctg_embeddings_v1",
+  "versions": {
+    "numpy": "2.4.6",
+    "scipy": "1.17.1",
+    "pandas": "2.3.3",
+    "scikit-learn": "1.9.1",
+    "umap-learn": "0.5.12",
+    "numba": "0.68.0",
+    "pynndescent": "0.6.0",
+    "joblib": "1.6.0"
+  },
+  "selection": "Highest source-file-mean validation silhouette in common 21-column space; ties: dimensions, k, IDs",
+  "minimum_cluster_fraction": 0.03,
+  "minimum_validation_trustworthiness": 0.8,
+  "early_stop_split": "GroupShuffleSplit .2 inside train, seed+800; preprocessing fit on inner fit only",
+  "chosen": [
+    {
+      "key": "AE_43_00",
+      "embedding_id": "AE_43",
+      "method": "AE",
+      "dimensions": 2,
+      "algorithm": "FCM",
+      "k": 2,
+      "variant": 1.5,
+      "validation_group_silhouette_common": 0.2802605161680469,
+      "validation_silhouette_common": 0.2675255923355125,
+      "validation_silhouette_embedding": 0.6616686151999307,
+      "minimum_train_fraction": 0.17647058823529413,
+      "minimum_validation_fraction": 0.22287390029325513,
+      "converged": true,
+      "eligible": true,
+      "trustworthiness": 0.9099891437040241,
+      "neighbor_overlap": 0.4281524926686217,
+      "bic": NaN,
+      "fpc": 0.9401389496451356,
+      "initialization_ari": 0.999107937808269
+    },
+    {
+      "key": "AE_51_04",
+      "embedding_id": "AE_51",
+      "method": "AE",
+      "dimensions": 5,
+      "algorithm": "GMM",
+      "k": 2,
+      "variant": "diag",
+      "validation_group_silhouette_common": 0.29735763464666504,
+      "validation_silhouette_common": 0.2764506639636338,
+      "validation_silhouette_embedding": 0.4020127981084966,
+      "minimum_train_fraction": 0.09705882352941177,
+      "minimum_validation_fraction": 0.09970674486803519,
+      "converged": true,
+      "eligible": true,
+      "trustworthiness": 0.959343396804375,
+      "neighbor_overlap": 0.536950146627566,
+      "bic": 27985.632252626438,
+      "fpc": NaN,
+      "initialization_ari": NaN
+    },
+    {
+      "key": "AE_43_03",
+      "embedding_id": "AE_43",
+      "method": "AE",
+      "dimensions": 2,
+      "algorithm": "KMeans",
+      "k": 2,
+      "variant": null,
+      "validation_group_silhouette_common": 0.2802605161680469,
+      "validation_silhouette_common": 0.2675255923355125,
+      "validation_silhouette_embedding": 0.6616686151999307,
+      "minimum_train_fraction": 0.17647058823529413,
+      "minimum_validation_fraction": 0.22287390029325513,
+      "converged": true,
+      "eligible": true,
+      "trustworthiness": 0.9099891437040241,
+      "neighbor_overlap": 0.4281524926686217,
+      "bic": NaN,
+      "fpc": NaN,
+      "initialization_ari": NaN
+    },
+    {
+      "key": "PCA_01_00",
+      "embedding_id": "PCA_01",
+      "method": "PCA",
+      "dimensions": 2,
+      "algorithm": "FCM",
+      "k": 2,
+      "variant": 1.5,
+      "validation_group_silhouette_common": 0.2578580547181064,
+      "validation_silhouette_common": 0.24483963572086617,
+      "validation_silhouette_embedding": 0.41123273619566314,
+      "minimum_train_fraction": 0.47794117647058826,
+      "minimum_validation_fraction": 0.4281524926686217,
+      "converged": true,
+      "eligible": true,
+      "trustworthiness": 0.9121658085237689,
+      "neighbor_overlap": 0.4178885630498533,
+      "bic": NaN,
+      "fpc": 0.8369748973498725,
+      "initialization_ari": 0.997058818738649
+    },
+    {
+      "key": "PCA_01_04",
+      "embedding_id": "PCA_01",
+      "method": "PCA",
+      "dimensions": 2,
+      "algorithm": "GMM",
+      "k": 2,
+      "variant": "diag",
+      "validation_group_silhouette_common": 0.2560394877641726,
+      "validation_silhouette_common": 0.2456914370861917,
+      "validation_silhouette_embedding": 0.4123886972075407,
+      "minimum_train_fraction": 0.4772058823529412,
+      "minimum_validation_fraction": 0.4252199413489736,
+      "converged": true,
+      "eligible": true,
+      "trustworthiness": 0.9121658085237689,
+      "neighbor_overlap": 0.4178885630498533,
+      "bic": 11665.501846266732,
+      "fpc": NaN,
+      "initialization_ari": NaN
+    },
+    {
+      "key": "PCA_01_03",
+      "embedding_id": "PCA_01",
+      "method": "PCA",
+      "dimensions": 2,
+      "algorithm": "KMeans",
+      "k": 2,
+      "variant": null,
+      "validation_group_silhouette_common": 0.25924285088330146,
+      "validation_silhouette_common": 0.247616102933514,
+      "validation_silhouette_embedding": 0.4155426252273255,
+      "minimum_train_fraction": 0.4713235294117647,
+      "minimum_validation_fraction": 0.41642228739002934,
+      "converged": true,
+      "eligible": true,
+      "trustworthiness": 0.9121658085237689,
+      "neighbor_overlap": 0.4178885630498533,
+      "bic": NaN,
+      "fpc": NaN,
+      "initialization_ari": NaN
+    },
+    {
+      "key": "RAW_00_00",
+      "embedding_id": "RAW_00",
+      "method": "RAW",
+      "dimensions": 21,
+      "algorithm": "FCM",
+      "k": 2,
+      "variant": 1.5,
+      "validation_group_silhouette_common": 0.2552830757459602,
+      "validation_silhouette_common": 0.24073060016534872,
+      "validation_silhouette_embedding": 0.24073060016494008,
+      "minimum_train_fraction": 0.4919117647058823,
+      "minimum_validation_fraction": 0.44574780058651026,
+      "converged": true,
+      "eligible": true,
+      "trustworthiness": 0.9999936934380222,
+      "neighbor_overlap": 1.0,
+      "bic": NaN,
+      "fpc": 0.6637093683964521,
+      "initialization_ari": 0.993392090607594
+    },
+    {
+      "key": "RAW_00_04",
+      "embedding_id": "RAW_00",
+      "method": "RAW",
+      "dimensions": 21,
+      "algorithm": "GMM",
+      "k": 2,
+      "variant": "diag",
+      "validation_group_silhouette_common": 0.2893062675254427,
+      "validation_silhouette_common": 0.2722182901967305,
+      "validation_silhouette_embedding": 0.2722182901965256,
+      "minimum_train_fraction": 0.1948529411764706,
+      "minimum_validation_fraction": 0.2287390029325513,
+      "converged": true,
+      "eligible": true,
+      "trustworthiness": 0.9999936934380222,
+      "neighbor_overlap": 1.0,
+      "bic": 55258.41153923933,
+      "fpc": NaN,
+      "initialization_ari": NaN
+    },
+    {
+      "key": "RAW_00_03",
+      "embedding_id": "RAW_00",
+      "method": "RAW",
+      "dimensions": 21,
+      "algorithm": "KMeans",
+      "k": 2,
+      "variant": null,
+      "validation_group_silhouette_common": 0.2540902944873753,
+      "validation_silhouette_common": 0.23820165879146232,
+      "validation_silhouette_embedding": 0.23820165879105823,
+      "minimum_train_fraction": 0.5,
+      "minimum_validation_fraction": 0.4633431085043988,
+      "converged": true,
+      "eligible": true,
+      "trustworthiness": 0.9999936934380222,
+      "neighbor_overlap": 1.0,
+      "bic": NaN,
+      "fpc": NaN,
+      "initialization_ari": NaN
+    },
+    {
+      "key": "UMAP_17_00",
+      "embedding_id": "UMAP_17",
+      "method": "UMAP",
+      "dimensions": 5,
+      "algorithm": "FCM",
+      "k": 2,
+      "variant": 1.5,
+      "validation_group_silhouette_common": 0.2540678642946833,
+      "validation_silhouette_common": 0.2433906056328719,
+      "validation_silhouette_embedding": 0.4696284830570221,
+      "minimum_train_fraction": 0.36911764705882355,
+      "minimum_validation_fraction": 0.3255131964809384,
+      "converged": true,
+      "eligible": true,
+      "trustworthiness": 0.9489276592294282,
+      "neighbor_overlap": 0.5146627565982405,
+      "bic": NaN,
+      "fpc": 0.8891952457021158,
+      "initialization_ari": 1.0
+    },
+    {
+      "key": "UMAP_08_05",
+      "embedding_id": "UMAP_08",
+      "method": "UMAP",
+      "dimensions": 5,
+      "algorithm": "GMM",
+      "k": 2,
+      "variant": "full",
+      "validation_group_silhouette_common": 0.25438282783050514,
+      "validation_silhouette_common": 0.242421536417447,
+      "validation_silhouette_embedding": 0.5028575658798218,
+      "minimum_train_fraction": 0.31985294117647056,
+      "minimum_validation_fraction": 0.2756598240469208,
+      "converged": true,
+      "eligible": true,
+      "trustworthiness": 0.9441490871251538,
+      "neighbor_overlap": 0.49354838709677423,
+      "bic": 10098.372408402836,
+      "fpc": NaN,
+      "initialization_ari": NaN
+    },
+    {
+      "key": "UMAP_17_03",
+      "embedding_id": "UMAP_17",
+      "method": "UMAP",
+      "dimensions": 5,
+      "algorithm": "KMeans",
+      "k": 2,
+      "variant": null,
+      "validation_group_silhouette_common": 0.25358395614718987,
+      "validation_silhouette_common": 0.24347787343756552,
+      "validation_silhouette_embedding": 0.47115927934646606,
+      "minimum_train_fraction": 0.3573529411764706,
+      "minimum_validation_fraction": 0.31378299120234604,
+      "converged": true,
+      "eligible": true,
+      "trustworthiness": 0.9489276592294282,
+      "neighbor_overlap": 0.5146627565982405,
+      "bic": NaN,
+      "fpc": NaN,
+      "initialization_ari": NaN
+    }
+  ],
+  "embeddings": [
+    {
+      "method": "RAW",
+      "params": {}
+    },
+    {
+      "method": "PCA",
+      "params": {
+        "n_components": 2
+      }
+    },
+    {
+      "method": "PCA",
+      "params": {
+        "n_components": 5
+      }
+    },
+    {
+      "method": "PCA",
+      "params": {
+        "n_components": 10
+      }
+    },
+    {
+      "method": "UMAP",
+      "params": {
+        "min_dist": 0.0,
+        "n_components": 2,
+        "n_neighbors": 10
+      }
+    },
+    {
+      "method": "UMAP",
+      "params": {
+        "min_dist": 0.0,
+        "n_components": 2,
+        "n_neighbors": 30
+      }
+    },
+    {
+      "method": "UMAP",
+      "params": {
+        "min_dist": 0.0,
+        "n_components": 2,
+        "n_neighbors": 60
+      }
+    },
+    {
+      "method": "UMAP",
+      "params": {
+        "min_dist": 0.0,
+        "n_components": 5,
+        "n_neighbors": 10
+      }
+    },
+    {
+      "method": "UMAP",
+      "params": {
+        "min_dist": 0.0,
+        "n_components": 5,
+        "n_neighbors": 30
+      }
+    },
+    {
+      "method": "UMAP",
+      "params": {
+        "min_dist": 0.0,
+        "n_components": 5,
+        "n_neighbors": 60
+      }
+    },
+    {
+      "method": "UMAP",
+      "params": {
+        "min_dist": 0.0,
+        "n_components": 10,
+        "n_neighbors": 10
+      }
+    },
+    {
+      "method": "UMAP",
+      "params": {
+        "min_dist": 0.0,
+        "n_components": 10,
+        "n_neighbors": 30
+      }
+    },
+    {
+      "method": "UMAP",
+      "params": {
+        "min_dist": 0.0,
+        "n_components": 10,
+        "n_neighbors": 60
+      }
+    },
+    {
+      "method": "UMAP",
+      "params": {
+        "min_dist": 0.1,
+        "n_components": 2,
+        "n_neighbors": 10
+      }
+    },
+    {
+      "method": "UMAP",
+      "params": {
+        "min_dist": 0.1,
+        "n_components": 2,
+        "n_neighbors": 30
+      }
+    },
+    {
+      "method": "UMAP",
+      "params": {
+        "min_dist": 0.1,
+        "n_components": 2,
+        "n_neighbors": 60
+      }
+    },
+    {
+      "method": "UMAP",
+      "params": {
+        "min_dist": 0.1,
+        "n_components": 5,
+        "n_neighbors": 10
+      }
+    },
+    {
+      "method": "UMAP",
+      "params": {
+        "min_dist": 0.1,
+        "n_components": 5,
+        "n_neighbors": 30
+      }
+    },
+    {
+      "method": "UMAP",
+      "params": {
+        "min_dist": 0.1,
+        "n_components": 5,
+        "n_neighbors": 60
+      }
+    },
+    {
+      "method": "UMAP",
+      "params": {
+        "min_dist": 0.1,
+        "n_components": 10,
+        "n_neighbors": 10
+      }
+    },
+    {
+      "method": "UMAP",
+      "params": {
+        "min_dist": 0.1,
+        "n_components": 10,
+        "n_neighbors": 30
+      }
+    },
+    {
+      "method": "UMAP",
+      "params": {
+        "min_dist": 0.1,
+        "n_components": 10,
+        "n_neighbors": 60
+      }
+    },
+    {
+      "method": "UMAP",
+      "params": {
+        "min_dist": 0.5,
+        "n_components": 2,
+        "n_neighbors": 10
+      }
+    },
+    {
+      "method": "UMAP",
+      "params": {
+        "min_dist": 0.5,
+        "n_components": 2,
+        "n_neighbors": 30
+      }
+    },
+    {
+      "method": "UMAP",
+      "params": {
+        "min_dist": 0.5,
+        "n_components": 2,
+        "n_neighbors": 60
+      }
+    },
+    {
+      "method": "UMAP",
+      "params": {
+        "min_dist": 0.5,
+        "n_components": 5,
+        "n_neighbors": 10
+      }
+    },
+    {
+      "method": "UMAP",
+      "params": {
+        "min_dist": 0.5,
+        "n_components": 5,
+        "n_neighbors": 30
+      }
+    },
+    {
+      "method": "UMAP",
+      "params": {
+        "min_dist": 0.5,
+        "n_components": 5,
+        "n_neighbors": 60
+      }
+    },
+    {
+      "method": "UMAP",
+      "params": {
+        "min_dist": 0.5,
+        "n_components": 10,
+        "n_neighbors": 10
+      }
+    },
+    {
+      "method": "UMAP",
+      "params": {
+        "min_dist": 0.5,
+        "n_components": 10,
+        "n_neighbors": 30
+      }
+    },
+    {
+      "method": "UMAP",
+      "params": {
+        "min_dist": 0.5,
+        "n_components": 10,
+        "n_neighbors": 60
+      }
+    },
+    {
+      "method": "AE",
+      "params": {
+        "activation": "tanh",
+        "alpha": 0.001,
+        "n_components": 2,
+        "width": 16
+      }
+    },
+    {
+      "method": "AE",
+      "params": {
+        "activation": "tanh",
+        "alpha": 0.001,
+        "n_components": 2,
+        "width": 32
+      }
+    },
+    {
+      "method": "AE",
+      "params": {
+        "activation": "tanh",
+        "alpha": 0.001,
+        "n_components": 5,
+        "width": 16
+      }
+    },
+    {
+      "method": "AE",
+      "params": {
+        "activation": "tanh",
+        "alpha": 0.001,
+        "n_components": 5,
+        "width": 32
+      }
+    },
+    {
+      "method": "AE",
+      "params": {
+        "activation": "tanh",
+        "alpha": 0.001,
+        "n_components": 10,
+        "width": 16
+      }
+    },
+    {
+      "method": "AE",
+      "params": {
+        "activation": "tanh",
+        "alpha": 0.001,
+        "n_components": 10,
+        "width": 32
+      }
+    },
+    {
+      "method": "AE",
+      "params": {
+        "activation": "tanh",
+        "alpha": 0.1,
+        "n_components": 2,
+        "width": 16
+      }
+    },
+    {
+      "method": "AE",
+      "params": {
+        "activation": "tanh",
+        "alpha": 0.1,
+        "n_components": 2,
+        "width": 32
+      }
+    },
+    {
+      "method": "AE",
+      "params": {
+        "activation": "tanh",
+        "alpha": 0.1,
+        "n_components": 5,
+        "width": 16
+      }
+    },
+    {
+      "method": "AE",
+      "params": {
+        "activation": "tanh",
+        "alpha": 0.1,
+        "n_components": 5,
+        "width": 32
+      }
+    },
+    {
+      "method": "AE",
+      "params": {
+        "activation": "tanh",
+        "alpha": 0.1,
+        "n_components": 10,
+        "width": 16
+      }
+    },
+    {
+      "method": "AE",
+      "params": {
+        "activation": "tanh",
+        "alpha": 0.1,
+        "n_components": 10,
+        "width": 32
+      }
+    },
+    {
+      "method": "AE",
+      "params": {
+        "activation": "relu",
+        "alpha": 0.001,
+        "n_components": 2,
+        "width": 16
+      }
+    },
+    {
+      "method": "AE",
+      "params": {
+        "activation": "relu",
+        "alpha": 0.001,
+        "n_components": 2,
+        "width": 32
+      }
+    },
+    {
+      "method": "AE",
+      "params": {
+        "activation": "relu",
+        "alpha": 0.001,
+        "n_components": 5,
+        "width": 16
+      }
+    },
+    {
+      "method": "AE",
+      "params": {
+        "activation": "relu",
+        "alpha": 0.001,
+        "n_components": 5,
+        "width": 32
+      }
+    },
+    {
+      "method": "AE",
+      "params": {
+        "activation": "relu",
+        "alpha": 0.001,
+        "n_components": 10,
+        "width": 16
+      }
+    },
+    {
+      "method": "AE",
+      "params": {
+        "activation": "relu",
+        "alpha": 0.001,
+        "n_components": 10,
+        "width": 32
+      }
+    },
+    {
+      "method": "AE",
+      "params": {
+        "activation": "relu",
+        "alpha": 0.1,
+        "n_components": 2,
+        "width": 16
+      }
+    },
+    {
+      "method": "AE",
+      "params": {
+        "activation": "relu",
+        "alpha": 0.1,
+        "n_components": 2,
+        "width": 32
+      }
+    },
+    {
+      "method": "AE",
+      "params": {
+        "activation": "relu",
+        "alpha": 0.1,
+        "n_components": 5,
+        "width": 16
+      }
+    },
+    {
+      "method": "AE",
+      "params": {
+        "activation": "relu",
+        "alpha": 0.1,
+        "n_components": 5,
+        "width": 32
+      }
+    },
+    {
+      "method": "AE",
+      "params": {
+        "activation": "relu",
+        "alpha": 0.1,
+        "n_components": 10,
+        "width": 16
+      }
+    },
+    {
+      "method": "AE",
+      "params": {
+        "activation": "relu",
+        "alpha": 0.1,
+        "n_components": 10,
+        "width": 32
+      }
+    }
+  ],
+  "noise": 0.05,
+  "ae_max_epochs": 1200,
+  "ae_patience": 60,
+  "budget_note": "AE budget raised from 300 to 1200 after reconstruction-only pilot: 300-epoch cap was binding; no NSP criterion",
+  "outcomes_in_selection": false,
+  "test_in_selection": false,
+  "limitation": "Exploratory extension on a previously inspected benchmark; not a fresh blind cohort"
+}

@@ -1,0 +1,19 @@
+{
+  "records": 2126,
+  "source_files": 352,
+  "prefix_proxies": 177,
+  "merged_review_groups": 177,
+  "proxy_groups_crossing_old_splits": 38,
+  "old_test_records": 425,
+  "old_test_path_segments": 35,
+  "old_test_path_files": 10,
+  "old_test_path_proxy_groups": 8,
+  "old_test_path_files_shared_prefix_train": 7,
+  "old_test_path_files_shared_path_prefix_train": 6,
+  "largest_test_path_file": {
+    "S8001038.dsp": 16
+  },
+  "patient_identity_verified": false,
+  "adjacent_pairs": 1774,
+  "overlapping_adjacent_pairs": 1706
+}

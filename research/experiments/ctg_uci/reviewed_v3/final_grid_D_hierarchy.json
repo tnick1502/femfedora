@@ -1,0 +1,410 @@
+[
+  {
+    "family": "D_hierarchy",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.03,
+      "iterations": 300
+    },
+    "mean_loss": 0.18434098051859937,
+    "sd_loss": 0.04968579934660976,
+    "folds": 3,
+    "fold_losses": [
+      0.15686518884144063,
+      0.15446134191864588,
+      0.24169641079571155
+    ]
+  },
+  {
+    "family": "D_hierarchy",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.1,
+      "iterations": 300
+    },
+    "mean_loss": 0.16195028841147122,
+    "sd_loss": 0.05161171947229508,
+    "folds": 3,
+    "fold_losses": [
+      0.13281755010271168,
+      0.13149186155452092,
+      0.22154145357718105
+    ]
+  },
+  {
+    "family": "D_hierarchy",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.03,
+      "iterations": 300
+    },
+    "mean_loss": 0.17408061093423252,
+    "sd_loss": 0.050306052472433464,
+    "folds": 3,
+    "fold_losses": [
+      0.14571124444365088,
+      0.14436673840542608,
+      0.23216384995362058
+    ]
+  },
+  {
+    "family": "D_hierarchy",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.1,
+      "iterations": 300
+    },
+    "mean_loss": 0.1672966954094944,
+    "sd_loss": 0.0634931390465535,
+    "folds": 3,
+    "fold_losses": [
+      0.1332321181847927,
+      0.12810548235339944,
+      0.24055248569029106
+    ]
+  },
+  {
+    "family": "D_hierarchy",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.03,
+      "iterations": 600
+    },
+    "mean_loss": 0.16765702763497292,
+    "sd_loss": 0.05210655416245408,
+    "folds": 3,
+    "fold_losses": [
+      0.13779314471623158,
+      0.13735397866164267,
+      0.22782395952704448
+    ]
+  },
+  {
+    "family": "D_hierarchy",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.1,
+      "iterations": 600
+    },
+    "mean_loss": 0.16388872141719749,
+    "sd_loss": 0.06357391238349347,
+    "folds": 3,
+    "fold_losses": [
+      0.12953015289907643,
+      0.12488741371797324,
+      0.23724859763454276
+    ]
+  },
+  {
+    "family": "D_hierarchy",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.03,
+      "iterations": 600
+    },
+    "mean_loss": 0.1615510159649953,
+    "sd_loss": 0.05239948224673215,
+    "folds": 3,
+    "fold_losses": [
+      0.13010778634802506,
+      0.13250435826753645,
+      0.22204090327942444
+    ]
+  },
+  {
+    "family": "D_hierarchy",
+    "params": {
+      "depth": 3,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.1,
+      "iterations": 600
+    },
+    "mean_loss": 0.17223929306974825,
+    "sd_loss": 0.07674265346187271,
+    "folds": 3,
+    "fold_losses": [
+      0.1303539630814699,
+      0.1255531978416354,
+      0.26081071828613944
+    ]
+  },
+  {
+    "family": "D_hierarchy",
+    "params": {
+      "depth": 5,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.03,
+      "iterations": 300
+    },
+    "mean_loss": 0.17491419010185358,
+    "sd_loss": 0.05184161389657751,
+    "folds": 3,
+    "fold_losses": [
+      0.1491260707741172,
+      0.1410238227888351,
+      0.23459267674260842
+    ]
+  },
+  {
+    "family": "D_hierarchy",
+    "params": {
+      "depth": 5,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.1,
+      "iterations": 300
+    },
+    "mean_loss": 0.17004751545853783,
+    "sd_loss": 0.06515119779733007,
+    "folds": 3,
+    "fold_losses": [
+      0.13461487941267428,
+      0.13029145053489385,
+      0.2452362164280454
+    ]
+  },
+  {
+    "family": "D_hierarchy",
+    "params": {
+      "depth": 5,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.03,
+      "iterations": 300
+    },
+    "mean_loss": 0.17041075245685885,
+    "sd_loss": 0.05248147540358972,
+    "folds": 3,
+    "fold_losses": [
+      0.14363762841198954,
+      0.1367154163421525,
+      0.23087921261643454
+    ]
+  },
+  {
+    "family": "D_hierarchy",
+    "params": {
+      "depth": 5,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.1,
+      "iterations": 300
+    },
+    "mean_loss": 0.17998904763420645,
+    "sd_loss": 0.07429241003360823,
+    "folds": 3,
+    "fold_losses": [
+      0.13752747949776684,
+      0.13666656987819584,
+      0.2657730935266567
+    ]
+  },
+  {
+    "family": "D_hierarchy",
+    "params": {
+      "depth": 5,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.03,
+      "iterations": 600
+    },
+    "mean_loss": 0.1650438246274635,
+    "sd_loss": 0.05421920712093421,
+    "folds": 3,
+    "fold_losses": [
+      0.13813464514631552,
+      0.12954287877132195,
+      0.2274539499647531
+    ]
+  },
+  {
+    "family": "D_hierarchy",
+    "params": {
+      "depth": 5,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.1,
+      "iterations": 600
+    },
+    "mean_loss": 0.17281208070101028,
+    "sd_loss": 0.06924629626032262,
+    "folds": 3,
+    "fold_losses": [
+      0.13685301313120435,
+      0.12894293915325172,
+      0.2526402898185747
+    ]
+  },
+  {
+    "family": "D_hierarchy",
+    "params": {
+      "depth": 5,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.03,
+      "iterations": 600
+    },
+    "mean_loss": 0.1656225751244951,
+    "sd_loss": 0.05887915196469565,
+    "folds": 3,
+    "fold_losses": [
+      0.13442217229684314,
+      0.12890972191879124,
+      0.23353583115785087
+    ]
+  },
+  {
+    "family": "D_hierarchy",
+    "params": {
+      "depth": 5,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.1,
+      "iterations": 600
+    },
+    "mean_loss": 0.19328731675537467,
+    "sd_loss": 0.08897300812679072,
+    "folds": 3,
+    "fold_losses": [
+      0.1445657696544623,
+      0.1393163961380155,
+      0.29597978447364615
+    ]
+  },
+  {
+    "family": "D_hierarchy",
+    "params": {
+      "depth": 7,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.03,
+      "iterations": 300
+    },
+    "mean_loss": 0.17749249233469566,
+    "sd_loss": 0.056424144265853605,
+    "folds": 3,
+    "fold_losses": [
+      0.15326679747494984,
+      0.13722671017619803,
+      0.2419839693529391
+    ]
+  },
+  {
+    "family": "D_hierarchy",
+    "params": {
+      "depth": 7,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.1,
+      "iterations": 300
+    },
+    "mean_loss": 0.1779306264082492,
+    "sd_loss": 0.07000411467663285,
+    "folds": 3,
+    "fold_losses": [
+      0.15110388305395034,
+      0.12530748960402066,
+      0.2573805065667765
+    ]
+  },
+  {
+    "family": "D_hierarchy",
+    "params": {
+      "depth": 7,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.03,
+      "iterations": 300
+    },
+    "mean_loss": 0.17046700659966432,
+    "sd_loss": 0.050970203588346134,
+    "folds": 3,
+    "fold_losses": [
+      0.1478440578139465,
+      0.1347241156794458,
+      0.22883284630560066
+    ]
+  },
+  {
+    "family": "D_hierarchy",
+    "params": {
+      "depth": 7,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.1,
+      "iterations": 300
+    },
+    "mean_loss": 0.18414616247004859,
+    "sd_loss": 0.06459198398570469,
+    "folds": 3,
+    "fold_losses": [
+      0.14814295983988254,
+      0.14557965045714502,
+      0.2587158771131182
+    ]
+  },
+  {
+    "family": "D_hierarchy",
+    "params": {
+      "depth": 7,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.03,
+      "iterations": 600
+    },
+    "mean_loss": 0.17138275268330427,
+    "sd_loss": 0.06016829991330407,
+    "folds": 3,
+    "fold_losses": [
+      0.1442148843638408,
+      0.12958930416120887,
+      0.24034406952486312
+    ]
+  },
+  {
+    "family": "D_hierarchy",
+    "params": {
+      "depth": 7,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.1,
+      "iterations": 600
+    },
+    "mean_loss": 0.18533459386925202,
+    "sd_loss": 0.07875900607465455,
+    "folds": 3,
+    "fold_losses": [
+      0.1525988367998554,
+      0.12822282423734876,
+      0.27518212057055197
+    ]
+  },
+  {
+    "family": "D_hierarchy",
+    "params": {
+      "depth": 7,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.03,
+      "iterations": 600
+    },
+    "mean_loss": 0.1690907836552634,
+    "sd_loss": 0.05742766620839484,
+    "folds": 3,
+    "fold_losses": [
+      0.1418450870391579,
+      0.13035724879879482,
+      0.2350700151278374
+    ]
+  },
+  {
+    "family": "D_hierarchy",
+    "params": {
+      "depth": 7,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.1,
+      "iterations": 600
+    },
+    "mean_loss": 0.19830668831379603,
+    "sd_loss": 0.07333314975761084,
+    "folds": 3,
+    "fold_losses": [
+      0.1564979536861422,
+      0.15543979928906554,
+      0.2829823119661803
+    ]
+  }
+]

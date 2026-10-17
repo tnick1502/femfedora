@@ -1,0 +1,19 @@
+{
+  "fingerprint": "cf54ec64944fe545782b10633e12ab0ee86f6cd169c130d9a4575ebbb2a1e1ab",
+  "primary": "C_ovr",
+  "shortlist": [
+    "C_ovr",
+    "D_hierarchy"
+  ],
+  "selection": "mean outer-fold segment macro-F1; entire policy chosen within fit folds",
+  "shortlist_rule": "top two within .01 of best mean macro-F1; no test",
+  "versions": {
+    "numpy": "2.4.6",
+    "pandas": "2.3.3",
+    "scipy": "1.17.1",
+    "scikit-learn": "1.9.1",
+    "catboost": "1.2.10",
+    "joblib": "1.6.0",
+    "umap-learn": "0.5.12"
+  }
+}

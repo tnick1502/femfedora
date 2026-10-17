@@ -1,0 +1,13 @@
+split,feature,records,patients,abnormal
+test,baseline_bpm,13,12,8
+test,stv_ms,15,14,9
+test,stv_4s_ms,15,14,9
+test,amplitude_bpm,14,13,9
+train,baseline_bpm,8,8,8
+train,stv_ms,22,22,22
+train,stv_4s_ms,22,22,22
+train,amplitude_bpm,18,18,18
+validation,baseline_bpm,5,5,5
+validation,stv_ms,6,6,5
+validation,stv_4s_ms,6,6,5
+validation,amplitude_bpm,5,5,5

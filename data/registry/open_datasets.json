@@ -1,6 +1,7 @@
 {
   "registry_version": 1,
   "acquired_on": "2026-09-23",
+  "updated_on": "2026-10-17",
   "datasets": [
     {
       "id": "cdc_natality_2023_nber_csv",
@@ -12,7 +13,11 @@
       "official_page": "https://www.cdc.gov/nchs/data_access/vitalstatsonline.htm",
       "local_path": "data/external/cdc_natality/2023/natality2023us.csv.zip",
       "license": "NCHS public-use data; NCHS Data Users Agreement applies",
-      "roles": ["ptb_static_baseline", "gdm_static_baseline", "hdp_proxy_static_baseline"],
+      "roles": [
+        "ptb_static_baseline",
+        "gdm_static_baseline",
+        "hdp_proxy_static_baseline"
+      ],
       "clinical_limit": "Birth record, not a longitudinal pregnancy cohort; outcome timing is unavailable."
     },
     {
@@ -25,7 +30,11 @@
       "official_page": "https://www.cdc.gov/nchs/data_access/vitalstatsonline.htm",
       "local_path": "data/external/cdc_natality/2024/natality2024us.csv.zip",
       "license": "NCHS public-use data; NCHS Data Users Agreement applies",
-      "roles": ["temporal_test_ptb", "temporal_test_gdm", "temporal_test_hdp_proxy"],
+      "roles": [
+        "temporal_test_ptb",
+        "temporal_test_gdm",
+        "temporal_test_hdp_proxy"
+      ],
       "clinical_limit": "Birth record, not a longitudinal pregnancy cohort; outcome timing is unavailable."
     },
     {
@@ -39,7 +48,10 @@
       "local_path": "data/external/ctu_uhb_ctg/1.0.0/files",
       "license": "Open Data Commons Attribution License v1.0",
       "doi": "10.13026/C22013",
-      "roles": ["ctg_signal_quality", "ctg_outcome_linked_benchmark"],
+      "roles": [
+        "ctg_signal_quality",
+        "ctg_outcome_linked_benchmark"
+      ],
       "clinical_limit": "552 selected intrapartum recordings; not an antenatal screening cohort."
     },
     {
@@ -52,8 +64,10 @@
       "local_path": "data/external/uci_cardiotocography/1.0.0/cardiotocography.zip",
       "license": "CC BY 4.0",
       "doi": "10.24432/C51S4N",
-      "roles": ["ctg_feature_classification_tutorial"],
-      "clinical_limit": "Derived CTG features with expert classes; not raw signal and not a direct pregnancy outcome."
+      "roles": [
+        "ctg_feature_classification_tutorial"
+      ],
+      "clinical_limit": "Expert-class benchmark only; 352 files share 177 normalized prefix proxies, not verified patient IDs. Revised repeated nested prefix-grouped CV; arbitrary hospital report transfer unsupported."
     },
     {
       "id": "tpehgdb_1_0_1",
@@ -66,8 +80,28 @@
       "local_path": "data/external/tpehg/1.0.1/files",
       "license": "Open Data Commons Attribution License v1.0",
       "doi": "10.13026/C2FW2V",
-      "roles": ["ehg_term_preterm_r_and_d"],
+      "roles": [
+        "ehg_term_preterm_r_and_d"
+      ],
       "clinical_limit": "300 records and 38 preterm outcomes; small exploratory signal dataset."
+    },
+    {
+      "id": "jnu_ctg_1_0_0",
+      "source_owner": "Jinan University / Jieyun Bai",
+      "storage": "zip",
+      "version": "1.0.0",
+      "acquired_on": "2026-10-17",
+      "url": "https://zenodo.org/records/21800730/files/JNU-CTG.zip?download=1",
+      "official_page": "https://zenodo.org/records/21800730",
+      "local_path": "data/external/jnu_ctg/1.0.0/JNU-CTG.zip",
+      "license": "CC BY 4.0 text included inside the downloaded archive",
+      "doi": "10.5281/zenodo.21800730",
+      "md5": "ac1cfcba2f1b3336596544211d776771",
+      "roles": [
+        "antenatal_ctg_candidate_cohort",
+        "raw_signal_measurement_research"
+      ],
+      "clinical_limit": "Single centre antepartum; binary expert morphology is not neonatal prognosis. Revised strict report models have exploratory patient-grouped CV only; no validated external device bridge or clinical application."
     }
   ]
 }

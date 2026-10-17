@@ -1,0 +1,442 @@
+[
+  {
+    "family": "A_multiclass",
+    "outer_fold": 0,
+    "params": {
+      "depth": 3,
+      "iterations": 600,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.1
+    },
+    "calibration": "temperature",
+    "decision": "argmax",
+    "threshold": null,
+    "validation_macro_f1": 0.8775376858568708,
+    "validation_log_loss": 0.2478063980134459
+  },
+  {
+    "family": "B_sqrt",
+    "outer_fold": 0,
+    "params": {
+      "depth": 3,
+      "iterations": 600,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.1
+    },
+    "calibration": "sigmoid",
+    "decision": "argmax",
+    "threshold": null,
+    "validation_macro_f1": 0.8717735646352298,
+    "validation_log_loss": 0.24835766701173934
+  },
+  {
+    "family": "B_balanced",
+    "outer_fold": 0,
+    "params": {
+      "depth": 5,
+      "iterations": 600,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.1
+    },
+    "calibration": "sigmoid",
+    "decision": "argmax",
+    "threshold": null,
+    "validation_macro_f1": 0.8521587164361133,
+    "validation_log_loss": 0.24692666646133604
+  },
+  {
+    "family": "C_ovr",
+    "outer_fold": 0,
+    "params": {
+      "depth": 3,
+      "iterations": 600,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.1
+    },
+    "calibration": "temperature",
+    "decision": "argmax",
+    "threshold": null,
+    "validation_macro_f1": 0.889403750304118,
+    "validation_log_loss": 0.2514568889923563
+  },
+  {
+    "family": "D_hierarchy",
+    "outer_fold": 0,
+    "params": {
+      "depth": 5,
+      "iterations": 300,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.03
+    },
+    "calibration": "raw",
+    "decision": "argmax",
+    "threshold": null,
+    "validation_macro_f1": 0.8817767174701266,
+    "validation_log_loss": 0.23172721940479882
+  },
+  {
+    "family": "logistic",
+    "outer_fold": 0,
+    "params": {
+      "C": 10.0,
+      "class_weight": null
+    },
+    "calibration": "sigmoid",
+    "decision": "argmax",
+    "threshold": null,
+    "validation_macro_f1": 0.7678863955187115,
+    "validation_log_loss": 0.3116179020152537
+  },
+  {
+    "family": "A_multiclass",
+    "outer_fold": 1,
+    "params": {
+      "depth": 5,
+      "iterations": 300,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.1
+    },
+    "calibration": "temperature",
+    "decision": "argmax",
+    "threshold": null,
+    "validation_macro_f1": 0.8201026153723593,
+    "validation_log_loss": 0.2587053308030849
+  },
+  {
+    "family": "B_sqrt",
+    "outer_fold": 1,
+    "params": {
+      "depth": 3,
+      "iterations": 600,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.03
+    },
+    "calibration": "temperature",
+    "decision": "argmax",
+    "threshold": null,
+    "validation_macro_f1": 0.8241428517406636,
+    "validation_log_loss": 0.27851161382058615
+  },
+  {
+    "family": "B_balanced",
+    "outer_fold": 1,
+    "params": {
+      "depth": 3,
+      "iterations": 600,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.03
+    },
+    "calibration": "sigmoid",
+    "decision": "argmax",
+    "threshold": null,
+    "validation_macro_f1": 0.8008387656378946,
+    "validation_log_loss": 0.2784516808654438
+  },
+  {
+    "family": "C_ovr",
+    "outer_fold": 1,
+    "params": {
+      "depth": 3,
+      "iterations": 600,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.1
+    },
+    "calibration": "temperature",
+    "decision": "argmax",
+    "threshold": null,
+    "validation_macro_f1": 0.848562048228899,
+    "validation_log_loss": 0.2418520023627931
+  },
+  {
+    "family": "D_hierarchy",
+    "outer_fold": 1,
+    "params": {
+      "depth": 3,
+      "iterations": 300,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.1
+    },
+    "calibration": "temperature",
+    "decision": "argmax",
+    "threshold": null,
+    "validation_macro_f1": 0.8381966932098824,
+    "validation_log_loss": 0.2348997179973372
+  },
+  {
+    "family": "logistic",
+    "outer_fold": 1,
+    "params": {
+      "C": 1.0,
+      "class_weight": null
+    },
+    "calibration": "temperature",
+    "decision": "argmax",
+    "threshold": null,
+    "validation_macro_f1": 0.7437808449187308,
+    "validation_log_loss": 0.3495148954604777
+  },
+  {
+    "family": "A_multiclass",
+    "outer_fold": 2,
+    "params": {
+      "depth": 3,
+      "iterations": 600,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.1
+    },
+    "calibration": "raw",
+    "decision": "argmax",
+    "threshold": null,
+    "validation_macro_f1": 0.8628139739102663,
+    "validation_log_loss": 0.20021230454378697
+  },
+  {
+    "family": "B_sqrt",
+    "outer_fold": 2,
+    "params": {
+      "depth": 3,
+      "iterations": 300,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.1
+    },
+    "calibration": "temperature",
+    "decision": "argmax",
+    "threshold": null,
+    "validation_macro_f1": 0.8661280555118626,
+    "validation_log_loss": 0.2145088783900075
+  },
+  {
+    "family": "B_balanced",
+    "outer_fold": 2,
+    "params": {
+      "depth": 5,
+      "iterations": 600,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.1
+    },
+    "calibration": "temperature",
+    "decision": "argmax",
+    "threshold": null,
+    "validation_macro_f1": 0.852184554478205,
+    "validation_log_loss": 0.22090528228263032
+  },
+  {
+    "family": "C_ovr",
+    "outer_fold": 2,
+    "params": {
+      "depth": 3,
+      "iterations": 600,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.03
+    },
+    "calibration": "sigmoid",
+    "decision": "threshold",
+    "threshold": 0.6,
+    "validation_macro_f1": 0.8788821625289643,
+    "validation_log_loss": 0.2295444385931958
+  },
+  {
+    "family": "D_hierarchy",
+    "outer_fold": 2,
+    "params": {
+      "depth": 3,
+      "iterations": 600,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.03
+    },
+    "calibration": "temperature",
+    "decision": "argmax",
+    "threshold": null,
+    "validation_macro_f1": 0.875690611358913,
+    "validation_log_loss": 0.20588603137046868
+  },
+  {
+    "family": "logistic",
+    "outer_fold": 2,
+    "params": {
+      "C": 10.0,
+      "class_weight": null
+    },
+    "calibration": "sigmoid",
+    "decision": "argmax",
+    "threshold": null,
+    "validation_macro_f1": 0.777507815160583,
+    "validation_log_loss": 0.33897098425694777
+  },
+  {
+    "family": "A_multiclass",
+    "outer_fold": 3,
+    "params": {
+      "depth": 7,
+      "iterations": 600,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.1
+    },
+    "calibration": "raw",
+    "decision": "threshold",
+    "threshold": 0.25,
+    "validation_macro_f1": 0.8463924096055632,
+    "validation_log_loss": 0.2626107736018425
+  },
+  {
+    "family": "B_sqrt",
+    "outer_fold": 3,
+    "params": {
+      "depth": 3,
+      "iterations": 300,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.1
+    },
+    "calibration": "sigmoid",
+    "decision": "argmax",
+    "threshold": null,
+    "validation_macro_f1": 0.8370925412960223,
+    "validation_log_loss": 0.25292254290860455
+  },
+  {
+    "family": "B_balanced",
+    "outer_fold": 3,
+    "params": {
+      "depth": 3,
+      "iterations": 300,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.1
+    },
+    "calibration": "sigmoid",
+    "decision": "argmax",
+    "threshold": null,
+    "validation_macro_f1": 0.8158771459103531,
+    "validation_log_loss": 0.265223274566946
+  },
+  {
+    "family": "C_ovr",
+    "outer_fold": 3,
+    "params": {
+      "depth": 7,
+      "iterations": 600,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.03
+    },
+    "calibration": "raw",
+    "decision": "argmax",
+    "threshold": null,
+    "validation_macro_f1": 0.865808395965647,
+    "validation_log_loss": 0.24308291318442687
+  },
+  {
+    "family": "D_hierarchy",
+    "outer_fold": 3,
+    "params": {
+      "depth": 5,
+      "iterations": 300,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.03
+    },
+    "calibration": "raw",
+    "decision": "argmax",
+    "threshold": null,
+    "validation_macro_f1": 0.871321210351676,
+    "validation_log_loss": 0.23015959692854196
+  },
+  {
+    "family": "logistic",
+    "outer_fold": 3,
+    "params": {
+      "C": 0.1,
+      "class_weight": null
+    },
+    "calibration": "temperature",
+    "decision": "argmax",
+    "threshold": null,
+    "validation_macro_f1": 0.7587596939420411,
+    "validation_log_loss": 0.2983003699669633
+  },
+  {
+    "family": "A_multiclass",
+    "outer_fold": 4,
+    "params": {
+      "depth": 7,
+      "iterations": 600,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.1
+    },
+    "calibration": "raw",
+    "decision": "argmax",
+    "threshold": null,
+    "validation_macro_f1": 0.8276399023983269,
+    "validation_log_loss": 0.28635433657068426
+  },
+  {
+    "family": "B_sqrt",
+    "outer_fold": 4,
+    "params": {
+      "depth": 3,
+      "iterations": 300,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.1
+    },
+    "calibration": "sigmoid",
+    "decision": "argmax",
+    "threshold": null,
+    "validation_macro_f1": 0.8036103458923801,
+    "validation_log_loss": 0.29504162465883804
+  },
+  {
+    "family": "B_balanced",
+    "outer_fold": 4,
+    "params": {
+      "depth": 3,
+      "iterations": 300,
+      "l2_leaf_reg": 3,
+      "learning_rate": 0.1
+    },
+    "calibration": "sigmoid",
+    "decision": "argmax",
+    "threshold": null,
+    "validation_macro_f1": 0.7935194110818736,
+    "validation_log_loss": 0.29495010350750733
+  },
+  {
+    "family": "C_ovr",
+    "outer_fold": 4,
+    "params": {
+      "depth": 7,
+      "iterations": 600,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.1
+    },
+    "calibration": "sigmoid",
+    "decision": "argmax",
+    "threshold": null,
+    "validation_macro_f1": 0.8456544624965678,
+    "validation_log_loss": 0.2815079270187841
+  },
+  {
+    "family": "D_hierarchy",
+    "outer_fold": 4,
+    "params": {
+      "depth": 3,
+      "iterations": 300,
+      "l2_leaf_reg": 10,
+      "learning_rate": 0.1
+    },
+    "calibration": "sigmoid",
+    "decision": "argmax",
+    "threshold": null,
+    "validation_macro_f1": 0.8080034955226987,
+    "validation_log_loss": 0.29426963639100223
+  },
+  {
+    "family": "logistic",
+    "outer_fold": 4,
+    "params": {
+      "C": 0.1,
+      "class_weight": null
+    },
+    "calibration": "temperature",
+    "decision": "argmax",
+    "threshold": null,
+    "validation_macro_f1": 0.754376585989661,
+    "validation_log_loss": 0.32894702762566586
+  }
+]
