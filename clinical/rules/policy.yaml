@@ -1,0 +1,43 @@
+# Rule Engine: системные ограничения. Это не клиника, а правила поведения ядра и LLM.
+# Guard проверяет по ним каждый вывод reasoning-цикла до того, как он попадёт в Clinical State.
+
+policy:
+  id: core_policy
+  version: "0.1"
+  status: draft
+
+rules:
+  - id: no_prescribing
+    text: "Ядро не назначает, не отменяет и не меняет лечение. Действия — только пункты Rule Engine с источником."
+    check: actions_subset_of_allowed          # каждое действие в выводе = id пункта из rules.allowed_actions()
+
+  - id: doses_clinician_only
+    text: "Дозы и схемы препаратов — только аудитории clinician."
+    check: no_dose_for_patient                # числа + единицы доз (мг, МЕ, мкг, ЕД) в тексте для пациентки запрещены
+
+  - id: numbers_from_engines
+    text: "Любое число, срок и категория в выводе должны совпадать с результатом движка или фактом."
+    check: numbers_have_evidence
+
+  - id: evidence_required
+    text: "Каждое утверждение ссылается на результат tool или факт; клиническое — ещё и на источник Knowledge Engine."
+    check: claims_have_evidence
+
+  - id: flags_first
+    text: "Если в состоянии есть красный флаг — ответ начинается с утверждённого шаблона флага."
+    check: flag_template_first
+
+  - id: constraints_respected
+    text: "Совет не противоречит ограничениям Rule Engine (kind: never — запрещено; not_routine — только «по решению врача»)."
+    check: no_constraint_violation
+
+  - id: llm_links_are_hypotheses
+    text: "Связь, найденная LLM, но не выводимая из правил, хранится как гипотеза и видна только врачу."
+    check: soft_links_marked
+
+  - id: candidates_not_facts
+    text: "Факты, извлечённые LLM из текста, — кандидаты: флаги на них реагируют, карточки — только после подтверждения до min_level."
+    check: no_direct_fact_write
+
+patient_view:                                 # что видит пациентка из Risk Engine (решение за продуктом)
+  default: discuss_only                       # hidden | discuss_only | category

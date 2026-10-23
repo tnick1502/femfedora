@@ -1,0 +1,197 @@
+# Knowledge Engine: словарь фактов — единый язык всех движков и контракт входа: приложение собирает снимок
+# состояния в этих кодах (JSON Schema генерируется отсюда). Им пользуются: get_labs,
+# Rule / Risk / Temporal Engine, извлечение из текста (LLM получает JSON-схему отсюда).
+# Один вопрос задаётся один раз и питает все модули, которым нужен этот код.
+#
+# kind — КАК факт читается на момент t (это и есть «состояние в контексте модуля»):
+#   static      анамнез: последнее значение с достаточным уровнем доверия, не устаревает
+#   pregnancy   атрибут текущей беременности (привязан к pregnancy_id)
+#   measurement ряд значений во времени; агрегат выбирает потребитель (latest / max_in / count_in)
+#   episode     интервал [start, end); активен, если t внутри; end=null → активен до закрытия
+#   event       точка во времени; «было ли до t», сколько раз, когда последнее
+#   derived     вычисляется калькулятором из других фактов, в журнал не пишется
+# scope: person | pregnancy | fetus (fetus → обязательный fetus_id)
+# level: llm_extracted < patient_reported < document < clinician (уровень доверия записи)
+# min_level: ниже — значение видно как «сообщено, не подтверждено», но во вход модуля не идёт
+# ask: кто закрывает пробел — patient (вопрос в приложении) | clinician | lab | us | derived
+# implied: значение следует из другого факта (первая беременность → прошлых родов, ПЭ, абортов нет) — не спрашиваем
+#
+# ЧЕРНОВИК: перечень покрывает Rule Engine (КР-288, флаги), Risk Engine (ВТЭО/ПЭ/EPDS, preterm_woman) и Temporal Engine.
+version: 0.1-draft
+
+facts:
+  # ── личность, антропометрия, образ жизни ─────────────────────────────────────────
+  person.birth_date:            {type: date, kind: static, scope: person, ask: patient}
+  anthro.height_cm:             {type: number, unit: cm, kind: static, scope: person, ask: patient}
+  anthro.weight_kg:             {type: number, unit: kg, kind: measurement, scope: pregnancy, ask: patient}
+  anthro.weight_prepregnancy_kg: {type: number, unit: kg, kind: pregnancy, scope: pregnancy, ask: patient}
+  lifestyle.smoking:            {type: enum, values: [never, quit_before_pregnancy, current], kind: pregnancy, scope: pregnancy, ask: patient}
+  lifestyle.cigarettes_per_day: {type: integer, kind: pregnancy, scope: pregnancy, ask: patient}
+  lifestyle.cigarettes_per_day_prepregnancy: {type: integer, kind: pregnancy, scope: pregnancy, ask: patient}
+  social.low_ses:               {type: bool, kind: static, scope: person, ask: clinician, sensitive: true}
+
+  # ── датировка и атрибуты беременности ─────────────────────────────────────────────
+  pregnancy.lmp_date:           {type: date, kind: pregnancy, scope: pregnancy, ask: patient}
+  dating.method:                {type: enum, values: [lmp, us_crl, ivf_transfer], kind: pregnancy, scope: pregnancy, min_level: document}
+  dating.anchor_date:           {type: date, kind: pregnancy, scope: pregnancy, min_level: document}
+  dating.ga_at_anchor_days:     {type: integer, kind: pregnancy, scope: pregnancy, min_level: document}
+  pregnancy.plurality:          {type: integer, kind: pregnancy, scope: pregnancy, ask: us, min_level: document}
+  pregnancy.chorionicity:       {type: enum, values: [dcda, mcda, mcma], kind: pregnancy, scope: pregnancy, ask: us}
+  pregnancy.art:                {type: bool, kind: pregnancy, scope: pregnancy, ask: patient}   # ВРТ/ЭКО
+  pregnancy.ivf_transfer_date:  {type: date, kind: pregnancy, scope: pregnancy, ask: patient}
+
+  # ── акушерский анамнез ───────────────────────────────────────────────────────────
+  ob.gravidity:                 {type: integer, kind: static, scope: person, ask: patient}       # включая текущую
+  ob.parity:                    {type: integer, kind: static, scope: person, ask: patient}       # число родов
+  ob.live_births:               {type: integer, kind: static, scope: person, ask: patient, implied: {when: {fact: ob.parity, is: 0}, value: 0}}       # живорождения (ML preterm_woman)
+  ob.prev_pregnancy_ge24w:      {type: integer, kind: static, scope: person, ask: patient, implied: {when: {fact: ob.gravidity, is: 1}, value: 0}}       # для «первой беременности» в ПЭ
+  ob.last_birth_date:           {type: date, kind: static, scope: person, ask: patient}
+  ob.prev_preeclampsia:         {type: bool, kind: static, scope: person, ask: patient, min_level: patient_reported, implied: {when: {fact: ob.gravidity, is: 1}, value: false}}
+  ob.prev_preterm_birth:        {type: bool, kind: static, scope: person, ask: patient, implied: {when: {fact: ob.parity, is: 0}, value: false}}
+  ob.prev_preterm_birth_spontaneous: {type: bool, kind: static, scope: person, ask: clinician}   # неизвестная причина ≠ spontaneous
+  ob.prev_late_miscarriage:     {type: bool, kind: static, scope: person, ask: patient, implied: {when: {fact: ob.gravidity, is: 1}, value: false}}
+  ob.prev_low_birth_weight:     {type: bool, kind: static, scope: person, ask: patient, implied: {when: {fact: ob.parity, is: 0}, value: false}}
+  ob.prev_stillbirth:           {type: bool, kind: static, scope: person, ask: patient, implied: {when: {fact: ob.parity, is: 0}, value: false}}
+  ob.prev_cesarean:             {type: bool, kind: static, scope: person, ask: patient, implied: {when: {fact: ob.parity, is: 0}, value: false}}
+  ob.prev_cervical_surgery:     {type: bool, kind: static, scope: person, ask: patient}          # конизация и т.п. (ИЦН)
+  ob.prev_cerclage:             {type: bool, kind: static, scope: person, ask: patient}
+  ob.terminations:              {type: integer, kind: static, scope: person, ask: patient, implied: {when: {fact: ob.gravidity, is: 1}, value: 0}}
+
+  # ── соматический и семейный анамнез ──────────────────────────────────────────────
+  hx.vte:                       {type: enum, values: [none, single_major_surgery_provoked, other], kind: static, scope: person, ask: clinician, min_level: document}
+  hx.vte_on_long_term_anticoagulation: {type: bool, kind: static, scope: person, ask: clinician, min_level: document}
+  hx.thrombophilia:             {type: enum, values: [none, low_risk, high_risk], kind: static, scope: person, ask: clinician, min_level: document}
+  hx.antithrombin_deficiency:   {type: bool, kind: static, scope: person, ask: clinician, min_level: document}
+  hx.vte_comorbidities:         {type: list, values: [cancer, pnh, prosthetic_valve, heart_failure, sickle_cell, ivdu_current, active_sle, inflammatory_arthropathy_or_ibd, nephrotic_syndrome, dm1_nephropathy], kind: static, scope: person, ask: clinician, min_level: document}
+  fhx.vte_first_degree:         {type: bool, kind: static, scope: person, ask: patient, note: "неспровоцированный или эстроген-ассоциированный ВТЭО у родственника 1-й степени"}
+  fhx.preeclampsia_mother_or_sister: {type: bool, kind: static, scope: person, ask: patient}
+  exam.varicose_veins_gross:    {type: bool, kind: static, scope: person, ask: patient}
+  dx.chronic_hypertension:      {type: bool, kind: static, scope: person, ask: patient, min_level: patient_reported}
+  dx.diabetes_pregestational:   {type: enum, values: [none, t1, t2], kind: static, scope: person, ask: patient, min_level: patient_reported}
+  dx.ckd:                       {type: bool, kind: static, scope: person, ask: patient, min_level: patient_reported}
+  dx.sle:                       {type: bool, kind: static, scope: person, ask: clinician}
+  dx.aps:                       {type: bool, kind: static, scope: person, ask: clinician, min_level: document}
+  dx.preeclampsia_current:      {type: bool, kind: pregnancy, scope: pregnancy, ask: clinician, min_level: clinician}
+  dx.gdm:                       {type: bool, kind: pregnancy, scope: pregnancy, ask: clinician, min_level: document}
+  dx.carb_metabolism_disorder:  {type: bool, kind: pregnancy, scope: pregnancy, ask: clinician, min_level: document}
+  risk.hypovitaminosis_d_high:  {type: bool, kind: pregnancy, scope: pregnancy, ask: clinician}
+  risk.genetic_factors:         {type: bool, kind: static, scope: person, ask: clinician}
+
+  # ── резус ─────────────────────────────────────────────────────────────────────────
+  lab.abo:                      {type: enum, values: [O, A, B, AB], kind: static, scope: person, ask: lab, min_level: document}
+  lab.rh_d:                     {type: enum, values: [positive, negative], kind: static, scope: person, ask: lab, min_level: document}
+  partner.rh_d:                 {type: enum, values: [positive, negative], kind: pregnancy, scope: pregnancy, ask: lab}
+  lab.anti_rh_antibodies:       {type: enum, values: [detected, not_detected], kind: measurement, scope: pregnancy, ask: lab}
+
+  # ── лаборатория (значения приходят через get_labs; адаптер маппит внутренние коды на коды сервиса анализов) ──
+  lab.hcg:                      {type: number, unit: "МЕ/л", kind: measurement, scope: pregnancy}
+  lab.hiv_ag_ab:                {type: enum, values: [negative, positive, indeterminate], kind: measurement, scope: pregnancy}
+  lab.hbsag:                    {type: enum, values: [negative, positive], kind: measurement, scope: pregnancy}
+  lab.anti_hcv:                 {type: enum, values: [negative, positive], kind: measurement, scope: pregnancy}
+  lab.treponema_ab:             {type: enum, values: [negative, positive], kind: measurement, scope: pregnancy}
+  lab.rubella_igg_igm:          {type: object, kind: measurement, scope: pregnancy}
+  lab.vaginal_smear_microscopy: {type: object, kind: measurement, scope: pregnancy}
+  lab.cbc:                      {type: panel, kind: measurement, scope: pregnancy}
+  lab.hemoglobin:               {type: number, unit: "г/л", kind: measurement, scope: pregnancy}
+  lab.platelets:                {type: number, unit: "10^9/л", kind: measurement, scope: pregnancy}
+  lab.biochemistry:             {type: panel, kind: measurement, scope: pregnancy}
+  lab.glucose_fasting_venous:   {type: number, unit: "ммоль/л", kind: measurement, scope: pregnancy}
+  lab.ogtt_75g:                 {type: panel, parts: [t0, t60, t120], unit: "ммоль/л", kind: measurement, scope: pregnancy}
+  lab.tsh:                      {type: number, unit: "мМЕ/л", kind: measurement, scope: pregnancy}
+  lab.anti_tpo:                 {type: number, unit: "МЕ/мл", kind: measurement, scope: pregnancy}
+  lab.urinalysis:               {type: panel, kind: measurement, scope: pregnancy}
+  lab.urine_protein:            {type: enum, values: [negative, trace, "1+", "2+", "3+"], kind: measurement, scope: pregnancy, note: "или г/л — нормализует адаптер"}
+  lab.cervical_cytology:        {type: object, kind: measurement, scope: person}
+  lab.urine_culture:            {type: object, kind: measurement, scope: pregnancy}
+  lab.gbs:                      {type: enum, values: [negative, positive], kind: measurement, scope: pregnancy}
+  lab.papp_a_mom:               {type: number, unit: MoM, kind: measurement, scope: pregnancy}
+  lab.free_bhcg_mom:            {type: number, unit: MoM, kind: measurement, scope: pregnancy}
+  lab.plgf:                     {type: number, unit: "пг/мл", kind: measurement, scope: pregnancy}
+
+  # ── витальные и дневник ──────────────────────────────────────────────────────────
+  vital.bp_systolic:            {type: number, unit: "мм рт. ст.", kind: measurement, scope: pregnancy, attrs: [setting, arm, device]}
+  vital.bp_diastolic:           {type: number, unit: "мм рт. ст.", kind: measurement, scope: pregnancy, attrs: [setting, arm, device]}
+  vital.pulse:                  {type: number, unit: "уд/мин", kind: measurement, scope: pregnancy}
+  vital.temperature:            {type: number, unit: "°C", kind: measurement, scope: pregnancy}
+  diary.wellbeing:              {type: integer, range: [1, 5], kind: measurement, scope: pregnancy}
+  diary.pain:                   {type: object, kind: measurement, scope: pregnancy, note: "{score, scale: vas|nrs|faces} — шкалы не смешивать"}
+
+  # ── симптомы (patient_reported достаточно для safety, подтверждение не ждём) ─────────
+  symptom.vaginal_bleeding:     {type: bool, kind: measurement, scope: pregnancy, ask: patient}
+  symptom.fluid_leak:           {type: bool, kind: measurement, scope: pregnancy, ask: patient}
+  symptom.regular_contractions: {type: bool, kind: measurement, scope: pregnancy, ask: patient}
+  symptom.severe_headache:      {type: bool, kind: measurement, scope: pregnancy, ask: patient}
+  symptom.visual_disturbance:   {type: bool, kind: measurement, scope: pregnancy, ask: patient}
+  symptom.epigastric_pain:      {type: bool, kind: measurement, scope: pregnancy, ask: patient}
+  symptom.vomiting_per_day:     {type: integer, kind: measurement, scope: pregnancy, ask: patient}
+  symptom.seizure:              {type: bool, kind: measurement, scope: pregnancy, ask: patient}
+  symptom.reduced_fetal_movements: {type: bool, kind: measurement, scope: pregnancy, ask: patient}
+  symptom.severe_abdominal_pain: {type: bool, kind: measurement, scope: pregnancy, ask: patient}
+  symptom.dyspnea_or_chest_pain: {type: bool, kind: measurement, scope: pregnancy, ask: patient}
+  symptom.unilateral_leg_swelling: {type: bool, kind: measurement, scope: pregnancy, ask: patient}
+
+  # ── УЗИ, КТГ (scope fetus там, где измерение относится к плоду) ───────────────────
+  us.crl_mm:                    {type: number, unit: mm, kind: measurement, scope: fetus}
+  us.cervical_length_mm:        {type: number, unit: mm, kind: measurement, scope: pregnancy, attrs: [method]}   # method: tvus|tabd — сравнивать только одинаковые
+  us.efw_g:                     {type: number, unit: g, kind: measurement, scope: fetus, attrs: [formula]}
+  us.ac_mm:                     {type: number, unit: mm, kind: measurement, scope: fetus}
+  us.hc_mm:                     {type: number, unit: mm, kind: measurement, scope: fetus}
+  us.bpd_mm:                    {type: number, unit: mm, kind: measurement, scope: fetus}
+  us.fl_mm:                     {type: number, unit: mm, kind: measurement, scope: fetus}
+  us.ua_pi:                     {type: number, kind: measurement, scope: fetus}
+  us.ua_edf:                    {type: enum, values: [present, absent, reversed], kind: measurement, scope: fetus}
+  us.mca_pi:                    {type: number, kind: measurement, scope: fetus}
+  us.uta_pi_mean:               {type: number, kind: measurement, scope: pregnancy}
+  us.presentation:              {type: enum, values: [cephalic, breech, transverse], kind: measurement, scope: fetus}
+  ctg.conclusion:               {type: object, kind: measurement, scope: fetus}
+
+  # ── процедуры и визиты (event): «сделано ли и когда» → доказательство выполнения пунктов плана ──
+  proc.visit:                   {type: object, kind: event, scope: pregnancy, note: "каждый визит; первый = first_visit"}
+  proc.us_early:                {type: object, kind: event, scope: pregnancy}
+  proc.us_screening_t1:         {type: object, kind: event, scope: pregnancy}
+  proc.us_screening_t2:         {type: object, kind: event, scope: pregnancy}
+  proc.us_t3:                   {type: object, kind: event, scope: pregnancy}
+  proc.doppler:                 {type: object, kind: event, scope: pregnancy}
+  proc.ctg:                     {type: object, kind: event, scope: pregnancy}
+  proc.ecg:                     {type: object, kind: event, scope: pregnancy}
+  proc.pelvimetry:              {type: object, kind: event, scope: pregnancy}
+  proc.consult:                 {type: object, kind: event, scope: pregnancy, attrs: [specialty]}   # therapist|dentist|ophthalmologist|geneticist|cardiologist|psychologist
+  proc.flu_vaccination:         {type: object, kind: event, scope: pregnancy}
+  proc.anti_d_given:            {type: object, kind: event, scope: pregnancy}
+  proc.assessment:              {type: object, kind: event, scope: pregnancy, attrs: [module]}       # врач провёл анкету (vte, pe_history…)
+  plan.decision:                {type: object, kind: event, scope: pregnancy, attrs: [item_id, action, reason, until],
+                                 note: "action: done|declined|deferred|scheduled — переживает пересчёт плана"}
+  med.current:                  {type: list, kind: episode, scope: pregnancy, note: "назначенные препараты с датами; ядро их не назначает"}
+
+  # ── эпизоды (временные факторы) ──────────────────────────────────────────────────
+  episode.hospitalization:      {type: object, kind: episode, scope: pregnancy, attrs: [reason]}
+  episode.systemic_infection:   {type: object, kind: episode, scope: pregnancy}
+  episode.immobility_or_dehydration: {type: object, kind: episode, scope: pregnancy}
+  episode.hyperemesis:          {type: object, kind: episode, scope: pregnancy}
+  episode.ohss:                 {type: object, kind: episode, scope: pregnancy}
+  episode.surgery:              {type: object, kind: episode, scope: pregnancy, note: "кроме ушивания промежности"}
+  episode.intercurrent_illness: {type: object, kind: episode, scope: pregnancy}
+
+  # ── роды и послеродовый период (event) — переключают фазу timeline ─────────────────
+  delivery.date:                {type: datetime, kind: event, scope: pregnancy, min_level: document}
+  delivery.mode:                {type: enum, values: [vaginal_spontaneous, vaginal_operative, cs_elective, cs_in_labour], kind: event, scope: pregnancy, min_level: document}
+  delivery.labour_hours:        {type: number, kind: event, scope: pregnancy}
+  delivery.pph_ml:              {type: number, kind: event, scope: pregnancy}
+  delivery.transfusion:         {type: bool, kind: event, scope: pregnancy}
+  delivery.stillbirth:          {type: bool, kind: event, scope: pregnancy}
+
+  # ── анкеты, которые заполняет пациентка ─────────────────────────────────────────
+  epds.answers:                 {type: list, length: 10, kind: measurement, scope: pregnancy, ask: patient, note: "каждый пункт хранится отдельно; сумма — derived"}
+
+  # ── derived: считаются калькуляторами при чтении (calc.*), в журнал не пишутся ────────
+  derived.age_years:            {type: integer, kind: derived, from: calc.age}             # на дату оценки
+  derived.age_at_edd:           {type: integer, kind: derived, from: calc.age}             # для ML preterm_woman
+  derived.bmi_booking:          {type: number, kind: derived, from: calc.bmi, note: "рост + вес первого визита (или добеременный, если первого нет)"}
+  derived.bmi_prepregnancy:     {type: number, kind: derived, from: calc.bmi}
+  derived.nulliparous_pe:       {type: bool, kind: derived, from: calc.pe_nulliparity, note: "текущая беременность первая или нет беременностей ≥24 нед"}
+  derived.interpregnancy_gt_10y: {type: bool, kind: derived, from: calc.interval}
+  derived.multiple_pregnancy:   {type: bool, kind: derived, from: "pregnancy.plurality > 1"}
+  delivery.ga_days:             {type: integer, kind: derived, from: calc.ga_at, note: "срок на дату родов по действующей датировке"}
+  derived.epds_total:           {type: integer, kind: derived, from: module.epds}
+  derived.epds_item10:          {type: integer, kind: derived, from: module.epds}
+  risk.high_obstetric_perinatal: {type: bool, kind: derived, from: "card pe|ptb|fgr = high", note: "условие допплерометрии в КР-288"}

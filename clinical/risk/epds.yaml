@@ -1,0 +1,30 @@
+# Эдинбургская шкала послеродовой депрессии (EPDS). Тип: questionnaire, sum с обратными пунктами.
+# Тексты вопросов в репозиторий не кладём до выбора утверждённого перевода и проверки условий использования.
+# Пункт 10 (мысли о самоповреждении) — отдельный safety-маршрут (clinical/rules/red_flags.yaml: x.epds_item10),
+# низкая сумма его не скрывает.
+
+module:
+  id: epds
+  version: "fomin-r1"
+  title: "EPDS"
+  type: questionnaire
+  source: fomin_epds
+  status: draft
+  audience: clinician
+  input: epds.answers                 # список из 10 ответов-индексов 0..3 в порядке анкеты
+
+scoring:
+  items: 10
+  reverse: [3, 5, 6, 7, 8, 9, 10]     # 3,2,1,0
+  sum: true
+
+outputs:
+  category:
+    rules:
+      - {when: {sum: true, gt: 12}, value: likely_depression, text: "Вероятна депрессия — нужна клиническая оценка"}
+      - {else: true, value: below_threshold}
+  item10:
+    value_of: 10                      # → derived.epds_item10, читает safety
+
+notes:
+  - "Скрининг, не диагноз. Порог и маршрут реагирования — по согласованному протоколу."

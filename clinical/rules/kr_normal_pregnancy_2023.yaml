@@ -1,0 +1,256 @@
+# Протокольный пакет временного модуля: КР «Нормальная беременность» 2023, Приложение Б
+# («Алгоритм ведения пациенток с нормальной беременностью») + пункты основного текста с окнами.
+#
+# ФОРМАТ ПУНКТА
+#   id        устойчивый id (не меняется между версиями пакета; по нему хранятся решения/отметки)
+#   concept   ключ «что это» — по нему сливаются одинаковые пункты разных источников (КР, 1130н, страница больницы)
+#   kind      exam | measurement | lab | us | ctg | consult | assessment | medication | education | vaccination
+#   what      формулировка для врача;  patient — для пациентки (нет → пункт виден только врачу)
+#   when      (триместры и фазы — clinical/temporal/temporal.yaml)
+#             {at: first_visit} | {window: [от, до]} | {trimester: N} | {each_visit: {from}} |
+#             {every: 14d, from, to?} | {ongoing: {from?, to}} | {asap: true} | {on_event: [событие, …]}
+#             сроки — «Н+Д» (11+0 = 11 нед 0 дн), внутри ядра хранятся в днях; to: delivery — до родов
+#   who       условие применимости (трёхзначная логика, см. docs/Pregnancy_Reasoning_Engine_RU.md, «Язык условий»); нет → всем
+#             {manual: "…"} — клиническое суждение: врачу «по показаниям», пациентке не показывается
+#   where     где выполняется (женская консультация / экспертный уровень пренатальной диагностики / …)
+#   evidence  коды фактов, наличие которых в окне закрывает пункт (анализы приходят через tool get_labs);
+#             «proc.consult/therapist» = событие proc.consult с атрибутом specialty=therapist
+#   source    {ref: id из sources.yaml, loc: место в документе}
+#
+# Статус: draft. Окна восстановлены из копии legalacts (верхние индексы потеряны) — сверить с рубрикатором.
+
+pack:
+  id: kr_normal_pregnancy_2023
+  title: "КР «Нормальная беременность» 2023 — алгоритм ведения (Прил. Б)"
+  source: kr_288_2023
+  priority: 100          # федеральные КР — базовый слой; локальный регламент может быть выше
+  status: draft
+
+defaults:
+  who: all
+  where: женская консультация
+  due_within: 14d         # для {at: first_visit}: сколько дней после 1-го визита пункт ещё «к выполнению», потом overdue
+
+items:
+  # ─────────────────────────── ФИЗИКАЛЬНОЕ ОБСЛЕДОВАНИЕ ───────────────────────────
+  - {id: kr288.history, concept: exam.history, kind: exam, what: "Сбор анамнеза", when: {at: first_visit},
+     evidence: [proc.visit], source: {ref: kr_288_2023, loc: "Прил. Б; 2.1"}}
+  - {id: kr288.vte_assess, concept: assess.vte, kind: assessment, module: vte,
+     what: "Оценка риска ТЭО (анкета ВТЭО)", patient: "Врач оценит риск тромбозов по анкете",
+     when: {at: first_visit}, then: by_indication, evidence: [proc.assessment],
+     source: {ref: kr_288_2023, loc: "Прил. Б: «при 1-м визите, далее — по показаниям»"}}
+  - {id: kr288.complaints, concept: exam.complaints, kind: exam, what: "Оценка жалоб", when: {each_visit: {from: "0+0"}},
+     source: {ref: kr_288_2023, loc: "Прил. Б; 2.1"}}
+  - {id: kr288.general_exam, concept: exam.general, kind: exam, what: "Общий осмотр", when: {at: first_visit},
+     source: {ref: kr_288_2023, loc: "Прил. Б; 2.2"}}
+  - {id: kr288.weight_height, concept: measure.weight_bmi, kind: measurement, what: "Рост, масса тела, ИМТ",
+     patient: "Взвешивание на каждом приёме", when: {each_visit: {from: "0+0"}}, evidence: [anthro.weight_kg],
+     source: {ref: kr_288_2023, loc: "Прил. Б; 2.2"}}
+  - {id: kr288.bp_pulse, concept: measure.bp, kind: measurement, what: "АД и пульс",
+     patient: "Измерение давления на каждом приёме", when: {each_visit: {from: "0+0"}},
+     evidence: [vital.bp_systolic, vital.bp_diastolic], source: {ref: kr_288_2023, loc: "Прил. Б; 2.2"}}
+  - {id: kr288.breast_exam, concept: exam.breast, kind: exam, what: "Пальпация молочных желёз", when: {at: first_visit},
+     source: {ref: kr_288_2023, loc: "Прил. Б; 2.2"}}
+  - {id: kr288.gyn_exam, concept: exam.gynecological, kind: exam, what: "Гинекологический осмотр",
+     when: {at: first_visit}, then: by_indication, source: {ref: kr_288_2023, loc: "Прил. Б; 2.2"}}
+  - {id: kr288.dating, concept: exam.dating, kind: exam, what: "Определение срока беременности и родов (ПМ + УЗИ)",
+     when: {at: first_visit}, evidence: [dating.method], source: {ref: kr_288_2023, loc: "Прил. Б; 2.2"}}
+  - {id: kr288.fundal_height, concept: measure.fundal_height, kind: measurement, what: "ОЖ, ВДМ, гравидограмма",
+     when: {each_visit: {from: "20+0"}}, source: {ref: kr_288_2023, loc: "Прил. Б; 2.2: «после 20 недель»"}}
+  - {id: kr288.fetal_movements, concept: exam.fetal_movements, kind: exam, what: "Опрос о характере шевелений плода",
+     patient: "Врач спросит, как шевелится малыш", when: {each_visit: {from: "16+0"}},
+     note: "КР: «после 16–20 недель (после начала ощущения шевелений)»", source: {ref: kr_288_2023, loc: "Прил. Б; 2.2"}}
+  - {id: kr288.presentation, concept: exam.presentation, kind: exam, what: "Положение и предлежащая часть плода",
+     when: {each_visit: {from: "34+0"}}, note: "КР: «после 34–36 недель»", source: {ref: kr_288_2023, loc: "Прил. Б; 2.2"}}
+
+  # ─────────────────────────── ЛАБОРАТОРИЯ ───────────────────────────
+  - {id: kr288.hcg_t1, concept: lab.hcg_diagnosis, kind: lab, what: "ХГ в крови (или моче) для диагностики беременности",
+     when: {at: first_visit}, who: {manual: "1-я явка в I триместре и нет возможности УЗИ"}, evidence: [lab.hcg],
+     source: {ref: kr_288_2023, loc: "Прил. Б; 2.3"}}
+
+  - {id: kr288.hiv.1, concept: lab.hiv, kind: lab, what: "Антитела к ВИЧ-1/2 + антиген p24 (+ обследование партнёра)",
+     patient: "Анализ крови на ВИЧ", when: {at: first_visit}, evidence: [lab.hiv_ag_ab], source: {ref: kr_288_2023, loc: "Прил. Б; 2.3"}}
+  - {id: kr288.hiv.3, concept: lab.hiv, kind: lab, what: "Антитела к ВИЧ-1/2 + антиген p24", patient: "Повторный анализ на ВИЧ",
+     when: {trimester: 3}, evidence: [lab.hiv_ag_ab], source: {ref: kr_288_2023, loc: "Прил. Б; 2.3"}}
+  - {id: kr288.hbsag.1, concept: lab.hbsag, kind: lab, what: "HBsAg (+ обследование партнёра)", patient: "Анализ на гепатит B",
+     when: {at: first_visit}, evidence: [lab.hbsag], source: {ref: kr_288_2023, loc: "Прил. Б; 2.3"}}
+  - {id: kr288.hbsag.3, concept: lab.hbsag, kind: lab, what: "HBsAg", patient: "Повторный анализ на гепатит B",
+     when: {trimester: 3}, evidence: [lab.hbsag], source: {ref: kr_288_2023, loc: "Прил. Б; 2.3"}}
+  - {id: kr288.hcv.1, concept: lab.hcv, kind: lab, what: "anti-HCV IgM+IgG (+ обследование партнёра)", patient: "Анализ на гепатит C",
+     when: {at: first_visit}, evidence: [lab.anti_hcv], source: {ref: kr_288_2023, loc: "Прил. Б; 2.3"}}
+  - {id: kr288.hcv.3, concept: lab.hcv, kind: lab, what: "anti-HCV IgM+IgG", patient: "Повторный анализ на гепатит C",
+     when: {trimester: 3}, evidence: [lab.anti_hcv], source: {ref: kr_288_2023, loc: "Прил. Б; 2.3"}}
+  - {id: kr288.syphilis.1, concept: lab.syphilis, kind: lab, what: "Антитела к T. pallidum (+ обследование партнёра)", patient: "Анализ на сифилис",
+     when: {at: first_visit}, evidence: [lab.treponema_ab], source: {ref: kr_288_2023, loc: "Прил. Б; 2.3"}}
+  - {id: kr288.syphilis.3, concept: lab.syphilis, kind: lab, what: "Антитела к T. pallidum", patient: "Повторный анализ на сифилис",
+     when: {trimester: 3}, evidence: [lab.treponema_ab], source: {ref: kr_288_2023, loc: "Прил. Б; 2.3"}}
+  - {id: kr288.rubella, concept: lab.rubella, kind: lab, what: "IgG/IgM к вирусу краснухи", patient: "Анализ на антитела к краснухе",
+     when: {at: first_visit}, evidence: [lab.rubella_igg_igm], source: {ref: kr_288_2023, loc: "Прил. Б; 2.3"}}
+  - {id: kr288.smear.1, concept: lab.vaginal_smear, kind: lab, what: "Микроскопия влагалищного мазка (гонококк, трихомонады, грибы)",
+     patient: "Мазок", when: {at: first_visit}, evidence: [lab.vaginal_smear_microscopy], source: {ref: kr_288_2023, loc: "Прил. Б; 2.3"}}
+  - {id: kr288.smear.3, concept: lab.vaginal_smear, kind: lab, what: "Микроскопия влагалищного мазка", patient: "Повторный мазок",
+     when: {trimester: 3}, evidence: [lab.vaginal_smear_microscopy], source: {ref: kr_288_2023, loc: "Прил. Б; 2.3"}}
+  - {id: kr288.abo_rh, concept: lab.abo_rh, kind: lab, what: "Группа крови AB0 и резус (+ резус партнёра при Rh−)",
+     patient: "Группа крови и резус-фактор", when: {at: first_visit}, evidence: [lab.rh_d],
+     source: {ref: kr_288_2023, loc: "Прил. Б; 2.3"}}
+
+  # Резус-отрицательные: антитела при 1-м визите → 18–20 нед → 28 нед; не проводится, если партнёр Rh−
+  - {id: kr288.anti_rh.1, concept: lab.anti_rh, kind: lab, what: "Антирезусные антитела", patient: "Анализ на антирезусные антитела",
+     when: {at: first_visit}, who: &rh_neg_partner_not_neg {all: [{fact: lab.rh_d, is: negative}, {not: {fact: partner.rh_d, is: negative}, if_unknown: true}]},
+     evidence: [lab.anti_rh_antibodies], source: {ref: kr_288_2023, loc: "Прил. Б; 2.3"}}
+  - {id: kr288.anti_rh.2, concept: lab.anti_rh, kind: lab, what: "Антирезусные антитела", patient: "Анализ на антирезусные антитела",
+     when: {window: ["18+0", "20+0"]}, who: {all: [*rh_neg_partner_not_neg, {latest: lab.anti_rh_antibodies, is: not_detected}]},
+     evidence: [lab.anti_rh_antibodies], source: {ref: kr_288_2023, loc: "Прил. Б; 2.3 («в 18⁰–20⁰»)"}}
+  - {id: kr288.anti_rh.3, concept: lab.anti_rh, kind: lab, what: "Антирезусные антитела", patient: "Анализ на антирезусные антитела",
+     when: {window: ["28+0", "28+6"]}, who: {all: [*rh_neg_partner_not_neg, {latest: lab.anti_rh_antibodies, is: not_detected}]},
+     evidence: [lab.anti_rh_antibodies], source: {ref: kr_288_2023, loc: "Прил. Б; 2.3 («в 28⁰»)"}}
+
+  - {id: kr288.cbc.1, concept: lab.cbc, kind: lab, what: "Общий анализ крови", patient: "Общий анализ крови",
+     when: {at: first_visit}, evidence: [lab.cbc], source: {ref: kr_288_2023, loc: "Прил. Б; 2.3"}}
+  - {id: kr288.cbc.2, concept: lab.cbc, kind: lab, what: "Общий анализ крови", patient: "Общий анализ крови",
+     when: {trimester: 2}, evidence: [lab.cbc], source: {ref: kr_288_2023, loc: "Прил. Б; 2.3"}}
+  - {id: kr288.cbc.3, concept: lab.cbc, kind: lab, what: "Общий анализ крови", patient: "Общий анализ крови",
+     when: {trimester: 3}, evidence: [lab.cbc], source: {ref: kr_288_2023, loc: "Прил. Б; 2.3"}}
+  - {id: kr288.biochem, concept: lab.biochemistry, kind: lab, what: "Биохимический общетерапевтический анализ крови",
+     patient: "Биохимический анализ крови", when: {at: first_visit}, evidence: [lab.biochemistry, lab.glucose_fasting_venous],
+     source: {ref: kr_288_2023, loc: "Прил. Б; 2.3"}}
+  - {id: kr288.glucose_repeat, concept: lab.glucose_confirm, kind: lab,
+     what: "Повторное исследование глюкозы (исключить манифестный СД)", when: {asap: true},
+     who: {latest: lab.glucose_fasting_venous, gte: 7.0}, evidence: [lab.glucose_fasting_venous],
+     note: "в копии КР знак ≥ потерян: «натощак 7,0 ммоль/л»", source: {ref: kr_288_2023, loc: "Прил. Б; 2.3"}}
+  - {id: kr288.ogtt, concept: lab.ogtt, kind: lab, what: "ПГТТ с 75 г глюкозы", patient: "Глюкозотолерантный тест",
+     when: {window: ["24+0", "28+0"]},
+     who: {not: {fact: dx.carb_metabolism_disorder, is: true}, if_unknown: true},
+     evidence: [lab.ogtt_75g], source: {ref: kr_288_2023, loc: "Прил. Б; 2.3 («в 24⁰–28⁰»)"}}
+  - {id: kr288.tsh_tpo, concept: lab.thyroid, kind: lab, what: "ТТГ и АТ-ТПО", patient: "Анализ на гормоны щитовидной железы",
+     when: {at: first_visit}, evidence: [lab.tsh], source: {ref: kr_288_2023, loc: "Прил. Б; 2.3"}}
+  - {id: kr288.ua.1, concept: lab.urinalysis, kind: lab, what: "Общий анализ мочи", patient: "Общий анализ мочи",
+     when: {at: first_visit}, evidence: [lab.urinalysis], source: {ref: kr_288_2023, loc: "Прил. Б; 2.3"}}
+  - {id: kr288.ua.2, concept: lab.urinalysis, kind: lab, what: "Общий анализ мочи", patient: "Общий анализ мочи",
+     when: {trimester: 2}, evidence: [lab.urinalysis], source: {ref: kr_288_2023, loc: "Прил. Б; 2.3"}}
+  - {id: kr288.ua.3, concept: lab.urinalysis, kind: lab, what: "Общий анализ мочи", patient: "Общий анализ мочи",
+     when: {trimester: 3}, evidence: [lab.urinalysis], source: {ref: kr_288_2023, loc: "Прил. Б; 2.3"}}
+  - {id: kr288.urine_protein, concept: measure.urine_protein, kind: measurement, what: "Белок в моче (тест-полоски или лаборатория)",
+     patient: "Проверка белка в моче на каждом приёме", when: {each_visit: {from: "22+0"}}, evidence: [lab.urine_protein],
+     source: {ref: kr_288_2023, loc: "Прил. Б; 2.3 («после 22 недель»)"}}
+  - {id: kr288.cytology, concept: lab.cervical_cytology, kind: lab, what: "Цитология шейки матки",
+     patient: "Мазок на цитологию", when: {at: first_visit}, evidence: [lab.cervical_cytology],
+     note: "зависит от даты/результатов прошлого исследования, ВПЧ, возраста (КР «ЦИН» 2020)",
+     source: {ref: kr_288_2023, loc: "Прил. Б; 2.3"}}
+  - {id: kr288.urine_culture, concept: lab.urine_culture, kind: lab, what: "Посев мочи (бессимптомная бактериурия)",
+     patient: "Посев мочи", when: {at: first_visit}, evidence: [lab.urine_culture], source: {ref: kr_288_2023, loc: "Прил. Б; 2.3"}}
+  - {id: kr288.gbs, concept: lab.gbs, kind: lab, what: "СГБ: посев или ПЦР (влагалище + прямая кишка)",
+     patient: "Мазок на стрептококк группы B", when: {window: ["35+0", "37+0"]}, evidence: [lab.gbs],
+     source: {ref: kr_288_2023, loc: "Прил. Б; 2.3 («в 35⁰–37⁰»)"}}
+  - {id: kr288.screen_t1_bio, concept: screen.t1_combined, kind: lab, what: "Скрининг I триместра: св. β-ХГ + PAPP-A",
+     patient: "Скрининг первого триместра (анализ крови)", when: {window: ["11+0", "13+6"]},
+     evidence: [lab.papp_a_mom, lab.free_bhcg_mom], source: {ref: kr_288_2023, loc: "Прил. Б; 2.3 («в 11⁰–13⁶»)"}}
+
+  # ─────────────────────────── ИНСТРУМЕНТАЛЬНЫЕ ───────────────────────────
+  - {id: kr288.us_early, concept: us.early, kind: us, what: "УЗИ матки и придатков (до 9+6) / УЗИ плода (с 10+0) — диагностика беременности",
+     patient: "Первое УЗИ", when: {at: first_visit}, who: {manual: "1-й визит в I триместре при задержке менструации ≥7 дней"},
+     evidence: [proc.us_early], source: {ref: kr_288_2023, loc: "Прил. Б; 2.4"}}
+  - {id: kr288.us_t1, concept: us.screening_t1, kind: us, what: "УЗИ плода в составе скрининга I триместра + PI маточных артерий",
+     patient: "Скрининговое УЗИ первого триместра", when: {window: ["11+0", "13+6"]},
+     where: "медорганизация экспертного уровня пренатальной диагностики", evidence: [proc.us_screening_t1],
+     source: {ref: kr_288_2023, loc: "Прил. Б; 2.4"}}
+  - {id: kr288.us_t2, concept: us.screening_t2, kind: us, what: "УЗ-скрининг II триместра + цервикометрия",
+     patient: "Скрининговое УЗИ второго триместра (и длина шейки матки)", when: {window: ["18+0", "20+6"]},
+     evidence: [proc.us_screening_t2, us.cervical_length_mm], source: {ref: kr_288_2023, loc: "Прил. Б; 2.4 («в 18⁰–20⁶»)"}}
+  - {id: kr288.us_t3, concept: us.t3, kind: us, what: "УЗИ плода (поздние пороки, крупный/маловесный плод)",
+     patient: "УЗИ третьего триместра", when: {window: ["34+0", "35+6"]}, evidence: [proc.us_t3],
+     source: {ref: kr_288_2023, loc: "Прил. Б; 2.4 («в 34⁰–35⁶»)"}}
+  - {id: kr288.us_repeat, concept: us.repeat, kind: us, what: "Повторное УЗИ плода", when: {asap: true},
+     who: {manual: "высокий риск ХА/пороков по скринингу; в III тр. — подозрение на неправильное положение, нарушение ЧСС, несоответствие размеров матки сроку"},
+     source: {ref: kr_288_2023, loc: "Прил. Б; 2.4"}}
+  - {id: kr288.doppler.2, concept: us.doppler, kind: us, what: "Допплерография маточно-плацентарного и фетоплацентарного кровотока",
+     patient: "Допплер (кровоток)", when: {window: ["18+0", "20+6"]}, who: {fact: risk.high_obstetric_perinatal, is: true},
+     evidence: [proc.doppler], source: {ref: kr_288_2023, loc: "Прил. Б; 2.4 — группа высокого риска (ПЭ, ПР, ЗРП)"}}
+  - {id: kr288.doppler.3, concept: us.doppler, kind: us, what: "Допплерография маточно-плацентарного и фетоплацентарного кровотока",
+     patient: "Допплер (кровоток)", when: {window: ["30+0", "33+6"]}, who: {fact: risk.high_obstetric_perinatal, is: true},
+     evidence: [proc.doppler], source: {ref: kr_288_2023, loc: "Прил. Б; 2.4 («в 30⁰–33⁶»)"}}
+  - {id: kr288.ecg.1, concept: proc.ecg, kind: exam, what: "ЭКГ", patient: "ЭКГ", when: {at: first_visit},
+     evidence: [proc.ecg], source: {ref: kr_288_2023, loc: "Прил. Б; 2.4"}}
+  - {id: kr288.ecg.3, concept: proc.ecg, kind: exam, what: "ЭКГ", patient: "ЭКГ", when: {trimester: 3},
+     evidence: [proc.ecg], source: {ref: kr_288_2023, loc: "Прил. Б; 2.4"}}
+  - {id: kr288.auscultation, concept: exam.fetal_heart, kind: exam, what: "Аускультация плода (фетальный допплер/стетоскоп)",
+     when: {each_visit: {from: "22+0"}}, source: {ref: kr_288_2023, loc: "Прил. Б; 2.4 («с 22⁰»)"}}
+  - {id: kr288.ctg, concept: ctg.routine, kind: ctg, what: "КТГ плода", patient: "КТГ (запись сердцебиения малыша)",
+     when: {every: 14d, from: "32+0", to: delivery}, evidence: [proc.ctg], source: {ref: kr_288_2023, loc: "Прил. Б; 2.4 («с 32⁰ 1 раз в 2 недели»)"}}
+  - {id: kr288.pelvimetry, concept: exam.pelvimetry, kind: exam, what: "Пельвиометрия", when: {trimester: 3},
+     evidence: [proc.pelvimetry], source: {ref: kr_288_2023, loc: "Прил. Б; 2.4"}}
+
+  # ─────────────────────────── КОНСУЛЬТАЦИИ ───────────────────────────
+  - {id: kr288.therapist.1, concept: consult.therapist, kind: consult, what: "Терапевт", patient: "Приём терапевта",
+     when: {at: first_visit}, evidence: [proc.consult/therapist], source: {ref: kr_288_2023, loc: "Прил. Б; 2.5"}}
+  - {id: kr288.therapist.3, concept: consult.therapist, kind: consult, what: "Терапевт", patient: "Приём терапевта",
+     when: {trimester: 3}, evidence: [proc.consult/therapist], source: {ref: kr_288_2023, loc: "Прил. Б; 2.5"}}
+  - {id: kr288.dentist.1, concept: consult.dentist, kind: consult, what: "Стоматолог", patient: "Приём стоматолога",
+     when: {at: first_visit}, evidence: [proc.consult/dentist], source: {ref: kr_288_2023, loc: "Прил. Б; 2.5"}}
+  - {id: kr288.dentist.3, concept: consult.dentist, kind: consult, what: "Стоматолог", patient: "Приём стоматолога",
+     when: {trimester: 3}, evidence: [proc.consult/dentist], source: {ref: kr_288_2023, loc: "Прил. Б; 2.5"}}
+  - {id: kr288.ophthalmologist, concept: consult.ophthalmologist, kind: consult, what: "Офтальмолог", patient: "Приём офтальмолога",
+     when: {at: first_visit}, evidence: [proc.consult/ophthalmologist], source: {ref: kr_288_2023, loc: "Прил. Б; 2.5"}}
+  - {id: kr288.geneticist, concept: consult.geneticist, kind: consult, what: "Генетик", when: {asap: true},
+     who: {fact: risk.genetic_factors, is: true}, evidence: [proc.consult/geneticist], source: {ref: kr_288_2023, loc: "Прил. Б; 2.5"}}
+  - {id: kr288.cardiologist, concept: consult.cardiologist, kind: consult, what: "Кардиолог", when: {asap: true},
+     who: {manual: "патологические изменения ЭКГ"}, evidence: [proc.consult/cardiologist], source: {ref: kr_288_2023, loc: "Прил. Б; 2.5"}}
+  - {id: kr288.psychologist.1, concept: consult.psychologist, kind: consult, what: "Медицинский психолог", patient: "Консультация психолога",
+     when: {at: first_visit}, evidence: [proc.consult/psychologist], source: {ref: kr_288_2023, loc: "Прил. Б; 2.5"}}
+  - {id: kr288.psychologist.3, concept: consult.psychologist, kind: consult, what: "Медицинский психолог", patient: "Консультация психолога",
+     when: {trimester: 3}, evidence: [proc.consult/psychologist], source: {ref: kr_288_2023, loc: "Прил. Б; 2.5"}}
+
+  # ─────────────────────────── ПРЕПАРАТЫ (действие врача; ядро не назначает) ───────────────────────────
+  - {id: kr288.folic, concept: med.folic_acid, kind: medication, what: "Фолиевая кислота 400–800 мкг/сут внутрь",
+     patient: "Фолиевая кислота — уточните у врача, если ещё не принимаете", when: {ongoing: {to: "12+0"}},
+     source: {ref: kr_288_2023, loc: "Прил. Б; 3.3"}}
+  - {id: kr288.iodine, concept: med.iodine, kind: medication, what: "Калия йодид 200 мкг/сут внутрь",
+     patient: "Йод — обсудите с врачом", when: {ongoing: {to: delivery}}, source: {ref: kr_288_2023, loc: "Прил. Б; 3.3"}}
+  - {id: kr288.vitd, concept: med.vitamin_d, kind: medication, what: "Колекальциферол 500–1000 МЕ/сут (группа высокого риска гиповитаминоза D)",
+     when: {ongoing: {to: delivery}}, who: {fact: risk.hypovitaminosis_d_high, is: true}, source: {ref: kr_288_2023, loc: "Прил. Б; 3.3"}}
+  - {id: kr288.anti_d, concept: med.anti_d, kind: medication, what: "Иммуноглобулин антирезус Rho(D) в/м по инструкции",
+     patient: "Профилактика резус-конфликта (укол) — врач назначит, если нужно", when: {window: ["28+0", "30+0"]},
+     who: {all: [*rh_neg_partner_not_neg, {latest: lab.anti_rh_antibodies, is: not_detected}]},
+     evidence: [proc.anti_d_given], note: "если не проведена в 28 нед — показана позже при отсутствии антител",
+     source: {ref: kr_288_2023, loc: "Прил. Б; 5.2"}}
+
+  # ─────────────────────────── ВАКЦИНАЦИЯ, ИНФОРМИРОВАНИЕ (основной текст) ───────────────────────────
+  - {id: kr288.flu, concept: vacc.influenza, kind: vaccination, what: "Вакцинация против гриппа в сезон (II–III триместр; в группе риска — с I)",
+     patient: "Прививка от гриппа в сезон — обсудите с врачом", when: {window: ["14+0", delivery]}, season: influenza,
+     evidence: [proc.flu_vaccination], source: {ref: kr_288_2023, loc: "5.3"}}
+  - {id: kr288.edu.weight, concept: edu.weight_gain, kind: education, what: "Информировать о нормальной прибавке массы тела по исходному ИМТ",
+     patient: "Сколько нормально прибавлять в весе", when: {at: first_visit}, source: {ref: kr_288_2023, loc: "5.1"}}
+  - {id: kr288.edu.activity, concept: edu.physical_activity, kind: education, what: "Польза умеренной нагрузки 20–30 мин/день; избегать травмоопасного спорта",
+     patient: "Какая физическая активность полезна", when: {at: first_visit}, source: {ref: kr_288_2023, loc: "5.1"}}
+  - {id: kr288.edu.work, concept: edu.work, kind: education, what: "Отказ от работы стоя/ночью/с перегрузкой и с рентгеновским излучением",
+     patient: "Работа во время беременности", when: {at: first_visit}, source: {ref: kr_288_2023, loc: "5.1"}}
+  - {id: kr288.edu.habits, concept: edu.smoking_alcohol, kind: education, what: "Отказ от курения и алкоголя",
+     patient: "Курение и алкоголь", when: {at: first_visit}, source: {ref: kr_288_2023, loc: "5.1"}}
+  - {id: kr288.edu.food, concept: edu.nutrition, kind: education, what: "Питание: кофеин, рыба с метилртутью, витамин A (печень), листериоз/сальмонеллёз",
+     patient: "Питание и опасные продукты", when: {at: first_visit}, source: {ref: kr_288_2023, loc: "5.1"}}
+  - {id: kr288.edu.travel, concept: edu.travel, kind: education, what: "Профилактика ТЭО при длительном перелёте; ремень безопасности",
+     patient: "Перелёты и поездки на машине", when: {at: first_visit}, source: {ref: kr_288_2023, loc: "5.1"}}
+
+  # ─────────────────────────── ОБЩЕЕ ───────────────────────────
+  - {id: kr288.visits, concept: org.visit_count, kind: exam, what: "Кратность визитов 5–7; первый визит — до 10 недель",
+     patient: "Обычно 5–7 визитов к врачу; первый — желательно до 10 недель", when: {at: first_visit},
+     source: {ref: kr_288_2023, loc: "6"}}
+
+# ─────────────────────────── ОГРАНИЧЕНИЯ («Не рекомендовано» в КР-288) ───────────────────────────
+# Rule Engine отдаёт их как ограничения: Guard не пропустит совет, который им противоречит, а LLM видит их в контексте.
+# kind: not_routine — не делать рутинно (по показаниям врач может); never — не делать.
+constraints:
+  - {id: kr288.no.bio_screen_t2, kind: not_routine, concept: screen.t2_biochemical, what: "Биохимический скрининг II триместра (тройной/четверной тест)", source: {ref: kr_288_2023, loc: "2.3"}}
+  - {id: kr288.no.anti_ab,       kind: not_routine, concept: lab.anti_a_b,          what: "Антитела к антигенам групп крови (анти-A, анти-B)",          source: {ref: kr_288_2023, loc: "2.3"}}
+  - {id: kr288.no.toxo,          kind: not_routine, concept: lab.toxoplasma,        what: "IgG/IgM к токсоплазме",                                      source: {ref: kr_288_2023, loc: "2.3"}}
+  - {id: kr288.no.cmv,           kind: not_routine, concept: lab.cmv,               what: "IgM/IgG к цитомегаловирусу",                                 source: {ref: kr_288_2023, loc: "2.3"}}
+  - {id: kr288.no.hsv,           kind: not_routine, concept: lab.hsv,               what: "Антитела к вирусу простого герпеса (вне зависимости от анамнеза)", source: {ref: kr_288_2023, loc: "2.3"}}
+  - {id: kr288.no.multivit,      kind: not_routine, concept: med.multivitamins,     what: "Поливитамины (с минералами) при низком риске гиповитаминоза", source: {ref: kr_288_2023, loc: "3.3"}}
+  - {id: kr288.no.omega3,        kind: not_routine, concept: med.omega3,            what: "Омега-3 ПНЖК",                                              source: {ref: kr_288_2023, loc: "3.3"}}
+  - {id: kr288.no.iron,          kind: not_routine, concept: med.iron,              what: "Препараты железа при нормальном гемоглобине",
+     unless: {manual: "анемия — по КР «Железодефицитная анемия»"}, source: {ref: kr_288_2023, loc: "3.3"}}
+  - {id: kr288.no.vit_a,         kind: not_routine, concept: med.vitamin_a,         what: "Ретинол (витамин A)",                                        source: {ref: kr_288_2023, loc: "3.3"}}
+  - {id: kr288.no.vit_e,         kind: not_routine, concept: med.vitamin_e,         what: "Витамин E",                                                  source: {ref: kr_288_2023, loc: "3.3"}}
+  - {id: kr288.no.vit_c,         kind: not_routine, concept: med.vitamin_c,         what: "Аскорбиновая кислота (витамин C)",                           source: {ref: kr_288_2023, loc: "3.3"}}
+  - {id: kr288.no.abort_live_vaccine, kind: never,  concept: decision.termination_after_vaccine,
+     what: "Прерывание беременности из-за непреднамеренного введения живой вакцины", source: {ref: kr_288_2023, loc: "5.3"}}

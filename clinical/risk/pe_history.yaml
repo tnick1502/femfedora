@@ -1,0 +1,54 @@
+# Анамнестическая группа риска ПЭ. Тип: questionnaire, агрегат count по уровням (tier).
+# Правило (Fomin, проверено 23.10.2026): ≥1 фактор высокого риска ИЛИ ≥2 умеренных → высокий риск.
+# Это категория «по личным данным», НЕ вероятность FMF и НЕ диагноз. Комбинированный скрининг
+# (MAP + PI маточных артерий + PlGF) — отдельный модуль pe_screening (импорт результата с названием алгоритма).
+#
+# Трёхзначная логика: «высокий» определяется, как только известен 1 высокий или 2 умеренных;
+# «низкий» — только когда все высокие известны как «нет» и умеренных «да + неизвестно» < 2.
+# Иначе status = incomplete, а пробелы, способные изменить категорию, идут первыми в списке вопросов.
+
+module:
+  id: pe_history
+  version: "fomin-r1"
+  title: "Группа риска преэклампсии по анамнезу"
+  type: questionnaire
+  source: fomin_pe
+  basis: [kr_pe]
+  status: draft
+  audience: clinician
+  applies: {timeline: phase, is: antenatal}
+
+items:
+  # ── высокий риск ──
+  - {id: prev_pe,         tier: high, when: {fact: ob.prev_preeclampsia, is: true},
+     label: "ПЭ в предыдущей беременности (особенно ранняя/с неблагоприятным исходом)"}
+  - {id: multiple,        tier: high, when: {fact: derived.multiple_pregnancy, is: true}, label: "Многоплодная беременность"}
+  - {id: chronic_htn,     tier: high, when: {fact: dx.chronic_hypertension, is: true}, label: "Хроническая артериальная гипертензия"}
+  - {id: diabetes,        tier: high, when: {fact: dx.diabetes_pregestational, in: [t1, t2]}, label: "СД 1 или 2 типа"}
+  - {id: ckd,             tier: high, when: {fact: dx.ckd, is: true}, label: "Хроническая болезнь почек"}
+  - {id: autoimmune,      tier: high, when: {any: [{fact: dx.aps, is: true}, {fact: dx.sle, is: true}]}, label: "АФС, СКВ"}
+  # ── умеренный риск ──
+  - {id: nulliparity,     tier: moderate, when: {fact: derived.nulliparous_pe, is: true},
+     label: "Первая беременность (или нет беременностей ≥24 нед)"}
+  - {id: bmi_30,          tier: moderate, when: {fact: derived.bmi_booking, gte: 30}, label: "ИМТ ≥30"}
+  - {id: family_pe,       tier: moderate, when: {fact: fhx.preeclampsia_mother_or_sister, is: true}, label: "ПЭ у матери или сестры"}
+  - {id: age_35,          tier: moderate, when: {fact: derived.age_years, gte: 35}, label: "Возраст ≥35"}
+  - {id: low_ses,         tier: moderate, when: {fact: social.low_ses, is: true}, label: "Низкий социально-экономический уровень"}
+  - {id: personal,        tier: moderate,
+     when: {any: [{fact: ob.prev_low_birth_weight, is: true}, {fact: ob.prev_stillbirth, is: true}, {fact: derived.interpregnancy_gt_10y, is: true}]},
+     label: "Личные факторы: маловесный ребёнок, неблагоприятный исход, интервал >10 лет"}
+  - {id: ivf,             tier: moderate, when: {fact: pregnancy.art, is: true}, label: "ЭКО"}
+
+outputs:
+  category:
+    rules:
+      - {when: {count: {tier: high}, gte: 1},     value: high, text: "Высокий риск ПЭ по анамнезу"}
+      - {when: {count: {tier: moderate}, gte: 2}, value: high, text: "Высокий риск ПЭ по анамнезу"}
+      - {else: true, value: low, text: "Низкий риск ПЭ по анамнезу"}
+  # тактика по категории — в пакете femfedora_risk_assessments (fr.pe_aspirin), не здесь
+
+golden:
+  - {name: "первородящая + ИМТ 31", facts: {derived.nulliparous_pe: true, derived.bmi_booking: 31}, expect: {category: high}}
+  - {name: "только первородящая, остальное неизвестно", facts: {derived.nulliparous_pe: true}, expect: {status: incomplete}}
+  - {name: "все «нет», один умеренный", all_known_false: true, facts: {derived.age_years: 36}, expect: {category: low}}
+  - {name: "хроническая АГ", facts: {dx.chronic_hypertension: true}, expect: {category: high}}

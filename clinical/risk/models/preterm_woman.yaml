@@ -1,0 +1,40 @@
+# Risk Engine, ML: одна модель = один такой файл + функция инференса, которая уже есть в src/inference.
+# Файл говорит ядру: что звать, из каких фактов собрать вход, когда модель неприменима, к какой карточке
+# приложить сигнал и в каком режиме его показывать. Правило модель не меняет никогда.
+
+model:
+  id: preterm_woman
+  version: cdc-ptb-woman-week-2023-v1
+  entrypoint: "src.inference.preterm_woman:predict_woman"
+  card: models/registry/preterm-woman-week-2023-v1.md
+  status: MODEL_EVALUATED_NOT_CLINICALLY_VALIDATED
+  mode: research            # research — только в логах/исследованиях · shadow — считается, не показывается · assist — врачу как доп. сигнал
+  attach_to: ptb            # сигнал кладётся рядом с карточкой ПР, отдельным блоком
+  cost: fast                # модель в памяти процесса (lru_cache); slow → фоновый расчёт и кэш
+
+applies:                    # вне области — модель не зовётся, в контексте «неприменима» с причиной
+  all:
+    - {timeline: phase, is: antenatal}
+    - {timeline: ga_days, gte: 140}          # 20+0
+    - {timeline: ga_days, lte: 258}          # 36+6
+
+inputs:                     # поле PregnancySnapshot ← выражение над фактами (неизвестно → None, модель вернёт INSUFFICIENT_DATA)
+  gestational_week:                 timeline.week
+  gestational_day:                  timeline.day
+  age_at_due_date_years:            derived.age_at_edd
+  singleton_confirmed:              {fact: pregnancy.plurality, is: 1, min_level: document}
+  pregnancy_ongoing:                {timeline: phase, is: antenatal}
+  dating_confirmed:                 {fact: dating.method, in: [us_crl, ivf_transfer], min_level: document}
+  prepregnancy_bmi:                 derived.bmi_prepregnancy
+  previous_live_births:             ob.live_births
+  previous_terminations:            ob.terminations
+  previous_preterm_birth:           ob.prev_preterm_birth
+  chronic_hypertension:             dx.chronic_hypertension
+  preexisting_diabetes:             {fact: dx.diabetes_pregestational, in: [t1, t2]}
+  previous_cesarean:                ob.prev_cesarean
+  prepregnancy_cigarettes_per_day:  lifestyle.cigarettes_per_day_prepregnancy
+
+outputs:                    # что из ответа модели идёт в контекст
+  keep: [status, reasons, model_version, probabilities.before_32_weeks, probabilities.before_37_weeks,
+         probabilities.preterm_within_next_4_weeks, missing_model_inputs]
+  horizon_note: "распределение срока живорождения в популяции CDC; не диагностика начавшихся родов"

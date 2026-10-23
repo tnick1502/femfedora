@@ -1,0 +1,416 @@
+{
+ "pregnancy_id": "preg_demo_01",
+ "as_of": "2026-10-23T12:00:00+03:00",
+ "timeline": {
+  "ga": "21+3",
+  "ga_days": 150,
+  "trimester": 2,
+  "phase": "antenatal",
+  "edd": "2027-03-02",
+  "dating": "us_crl @ 12+1",
+  "active_episodes": [
+   "episode.hospitalization с 2026-10-22",
+   "episode.systemic_infection с 2026-10-22"
+  ]
+ },
+ "flags": [],
+ "plan": {
+  "overdue": [
+   {
+    "id": "fr.ptb_history",
+    "what": "Анамнестическая оценка риска ПР",
+    "audience": "both",
+    "source": "project_canon: 1-й визит"
+   },
+   {
+    "id": "fr.icn_history",
+    "what": "Анамнестические факторы ИЦН",
+    "audience": "both",
+    "source": "project_canon: 1-й визит"
+   },
+   {
+    "id": "fr.fgr_history",
+    "what": "Факторы риска ЗРП",
+    "audience": "both",
+    "source": "project_canon: 1-й визит"
+   },
+   {
+    "id": "kr288.anti_rh.2",
+    "what": "Антирезусные антитела",
+    "audience": "both",
+    "patient": "Анализ на антирезусные антитела",
+    "window": [
+     "18+0",
+     "20+0"
+    ],
+    "source": "kr_288_2023: Прил. Б; 2.3 («в 18⁰–20⁰»)"
+   },
+   {
+    "id": "kr288.doppler.2",
+    "what": "Допплерография маточно-плацентарного и фетоплацентарного кровотока",
+    "audience": "both",
+    "patient": "Допплер (кровоток)",
+    "window": [
+     "18+0",
+     "20+6"
+    ],
+    "source": "kr_288_2023: Прил. Б; 2.4 — группа высокого риска (ПЭ, ПР, ЗРП)"
+   },
+   {
+    "id": "kr288.psychologist.1",
+    "what": "Медицинский психолог",
+    "audience": "both",
+    "patient": "Консультация психолога",
+    "source": "kr_288_2023: Прил. Б; 2.5"
+   }
+  ],
+  "due": [
+   {
+    "id": "fr.vte_reassess",
+    "what": "Повторная оценка риска ВТЭО",
+    "audience": "both",
+    "patient": "Врач заново оценит риск тромбозов",
+    "source": "project_canon: «при поступлении в стационар… или интеркуррентном заболевании»"
+   },
+   {
+    "id": "fr.vte_hospital",
+    "what": "Госпитализация в дородовом периоде — рассмотреть тромбопрофилактику",
+    "audience": "clinician",
+    "source": "fomin_vte: примечание"
+   },
+   {
+    "id": "kr288.cbc.2",
+    "what": "Общий анализ крови",
+    "audience": "both",
+    "patient": "Общий анализ крови",
+    "source": "kr_288_2023: Прил. Б; 2.3"
+   },
+   {
+    "id": "kr288.ua.2",
+    "what": "Общий анализ мочи",
+    "audience": "both",
+    "patient": "Общий анализ мочи",
+    "source": "kr_288_2023: Прил. Б; 2.3"
+   },
+   {
+    "id": "kr288.flu",
+    "what": "Вакцинация против гриппа в сезон (II–III триместр; в группе риска — с I)",
+    "audience": "both",
+    "patient": "Прививка от гриппа в сезон — обсудите с врачом",
+    "window": [
+     "14+0",
+     "delivery"
+    ],
+    "source": "kr_288_2023: 5.3"
+   }
+  ],
+  "upcoming_28d": [
+   {
+    "id": "kr288.ogtt",
+    "what": "ПГТТ с 75 г глюкозы",
+    "audience": "both",
+    "patient": "Глюкозотолерантный тест",
+    "opens_in_days": 17,
+    "window": [
+     "24+0",
+     "28+0"
+    ],
+    "source": "kr_288_2023: Прил. Б; 2.3 («в 24⁰–28⁰»)"
+   }
+  ],
+  "upcoming_later": [
+   [
+    "kr288.hiv.3",
+    45
+   ],
+   [
+    "kr288.hbsag.3",
+    45
+   ],
+   [
+    "kr288.hcv.3",
+    45
+   ],
+   [
+    "kr288.syphilis.3",
+    45
+   ],
+   [
+    "kr288.smear.3",
+    45
+   ],
+   [
+    "kr288.anti_rh.3",
+    45
+   ],
+   [
+    "kr288.cbc.3",
+    45
+   ],
+   [
+    "kr288.ua.3",
+    45
+   ],
+   [
+    "kr288.gbs",
+    94
+   ],
+   [
+    "kr288.us_t3",
+    87
+   ],
+   [
+    "kr288.doppler.3",
+    59
+   ],
+   [
+    "kr288.ecg.3",
+    45
+   ],
+   [
+    "kr288.ctg",
+    73
+   ],
+   [
+    "kr288.pelvimetry",
+    45
+   ],
+   [
+    "kr288.therapist.3",
+    45
+   ],
+   [
+    "kr288.dentist.3",
+    45
+   ],
+   [
+    "kr288.psychologist.3",
+    45
+   ],
+   [
+    "kr288.anti_d",
+    45
+   ]
+  ],
+  "needs_data": [
+   {
+    "id": "fr.vte_ante_t1",
+    "what": "Рассмотреть тромбопрофилактику с I триместра",
+    "audience": "clinician",
+    "patient": "Обсудите с врачом профилактику тромбозов",
+    "needs": [
+     "card:vte"
+    ],
+    "source": "fomin_vte: ≥4 баллов"
+   },
+   {
+    "id": "fr.cervicometry_risk",
+    "what": "Серийная цервикометрия в группе риска ПР/ИЦН",
+    "audience": "both",
+    "patient": "УЗИ шейки матки",
+    "needs": [
+     "card:icn",
+     "card:ptb"
+    ],
+    "source": "kr_icn: todo"
+   },
+   {
+    "id": "kr288.geneticist",
+    "what": "Генетик",
+    "audience": "both",
+    "needs": [
+     "risk.genetic_factors"
+    ],
+    "source": "kr_288_2023: Прил. Б; 2.5"
+   },
+   {
+    "id": "kr288.vitd",
+    "what": "Колекальциферол 500–1000 МЕ/сут (группа высокого риска гиповитаминоза D)",
+    "audience": "both",
+    "needs": [
+     "risk.hypovitaminosis_d_high"
+    ],
+    "source": "kr_288_2023: Прил. Б; 3.3"
+   }
+  ],
+  "active": [
+   "Высокий риск ПЭ: АСК 150 мг/сут вечером с 12 до 36 недель",
+   "Калия йодид 200 мкг/сут внутрь"
+  ],
+  "manual_clinician": [
+   "ХГ в крови (или моче) для диагностики беременности",
+   "УЗИ матки и придатков (до 9+6) / УЗИ плода (с 10+0) — диагностика беременности",
+   "Повторное УЗИ плода",
+   "Кардиолог"
+  ],
+  "done": 25,
+  "visit_checklist": [
+   "Рассмотреть тромбопрофилактику с 28 недель",
+   "Оценка жалоб",
+   "Общий осмотр",
+   "Рост, масса тела, ИМТ",
+   "АД и пульс",
+   "Пальпация молочных желёз",
+   "Гинекологический осмотр",
+   "ОЖ, ВДМ, гравидограмма",
+   "Опрос о характере шевелений плода",
+   "Информировать о нормальной прибавке массы тела по исходному ИМТ",
+   "Польза умеренной нагрузки 20–30 мин/день; избегать травмоопасного спорта",
+   "Отказ от работы стоя/ночью/с перегрузкой и с рентгеновским излучением",
+   "Отказ от курения и алкоголя",
+   "Питание: кофеин, рыба с метилртутью, витамин A (печень), листериоз/сальмонеллёз",
+   "Профилактика ТЭО при длительном перелёте; ремень безопасности",
+   "Кратность визитов 5–7; первый визит — до 10 недель"
+  ]
+ },
+ "risks": {
+  "vte": {
+   "status": "incomplete",
+   "antenatal": {
+    "min": "from_28w",
+    "max": "from_t1"
+   },
+   "history_tier": "none",
+   "postpartum_preliminary": "w6",
+   "score": {
+    "antenatal": [
+     3,
+     10
+    ],
+    "postpartum": [
+     3,
+     16
+    ]
+   },
+   "why": [
+    "Возраст ≥35",
+    "ИМТ ≥30",
+    "Текущая системная инфекция"
+   ],
+   "changes_category_if_known": [
+    "dx.preeclampsia_current",
+    "exam.varicose_veins_gross",
+    "fhx.vte_first_degree",
+    "hx.thrombophilia",
+    "lifestyle.smoking"
+   ],
+   "version": "rcog2015-fomin-r1"
+  },
+  "pe_history": {
+   "status": "ok",
+   "category": "high",
+   "why": [
+    "Первая беременность (или нет беременностей ≥24 нед)",
+    "ИМТ ≥30",
+    "Возраст ≥35"
+   ],
+   "changes_category_if_known": [],
+   "unknown_not_changing": [
+    "dx.aps",
+    "dx.sle",
+    "fhx.preeclampsia_mother_or_sister",
+    "social.low_ses"
+   ],
+   "version": "fomin-r1"
+  }
+ },
+ "models": {
+  "preterm_woman": {
+   "status": "insufficient_data",
+   "missing_inputs": [
+    "prepregnancy_cigarettes_per_day"
+   ],
+   "mode": "research",
+   "attach_to": "ptb",
+   "version": "cdc-ptb-woman-week-2023-v1"
+  }
+ },
+ "questions": [
+  {
+   "code": "exam.varicose_veins_gross",
+   "why": [
+    "может изменить категорию vte",
+    "нужно для пункта fr.vte_ante_t1",
+    "пациентка ответила «не знаю» → осмотр/уточнение врачом"
+   ],
+   "rank": 2,
+   "ask": "clinician",
+   "state": "unknown_asked"
+  },
+  {
+   "code": "dx.preeclampsia_current",
+   "why": [
+    "может изменить категорию vte",
+    "нужно для пункта fr.vte_ante_t1"
+   ],
+   "rank": 2,
+   "ask": "clinician",
+   "state": "missing"
+  },
+  {
+   "code": "fhx.vte_first_degree",
+   "why": [
+    "может изменить категорию vte",
+    "нужно для пункта fr.vte_ante_t1"
+   ],
+   "rank": 2,
+   "ask": "patient",
+   "state": "missing"
+  },
+  {
+   "code": "hx.thrombophilia",
+   "why": [
+    "может изменить категорию vte",
+    "нужно для пункта fr.vte_ante_t1"
+   ],
+   "rank": 2,
+   "ask": "clinician",
+   "state": "missing"
+  },
+  {
+   "code": "lifestyle.smoking",
+   "why": [
+    "может изменить категорию vte",
+    "нужно для пункта fr.vte_ante_t1"
+   ],
+   "rank": 2,
+   "ask": "patient",
+   "state": "missing"
+  },
+  {
+   "code": "risk.genetic_factors",
+   "why": [
+    "нужно для пункта kr288.geneticist"
+   ],
+   "rank": 3,
+   "ask": "clinician",
+   "state": "missing"
+  },
+  {
+   "code": "risk.hypovitaminosis_d_high",
+   "why": [
+    "нужно для пункта kr288.vitd"
+   ],
+   "rank": 3,
+   "ask": "clinician",
+   "state": "missing"
+  },
+  {
+   "code": "model:preterm_woman.prepregnancy_cigarettes_per_day",
+   "why": [
+    "вход ML (research)"
+   ],
+   "rank": 4,
+   "ask": "clinician",
+   "state": "missing"
+  }
+ ],
+ "not_computed": [
+  "карточка icn ещё не подключена",
+  "карточка ptb ещё не подключена"
+ ],
+ "timing_ms": {
+  "load_yaml": 170.8,
+  "assess": 2.5
+ }
+}

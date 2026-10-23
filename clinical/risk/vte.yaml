@@ -1,0 +1,113 @@
+# Карточка ВТЭО. Тип: questionnaire (общий интерпретатор анкет, Risk Engine).
+#
+# Каждый пункт анкеты = условие над фактами из facts.yaml, а не отдельный «вопрос анкеты».
+# Из 27 пунктов только ~10 реально спрашиваются; остальное выводится (возраст, ИМТ, паритет,
+# многоплодие, роды, эпизоды) — один раз сообщённый факт питает и ВТЭО, и ПЭ, и ML.
+#
+# Отличия от калькулятора Fomin (он — дифференциальный тест, не эталон):
+#   1) group: взаимоисключающие пункты — берётся максимум в группе (ИМТ≥30 vs ≥40 и т.д.)
+#   2) phase: дородовая категория считается только по antenatal|both, послеродовая — по postpartum|both
+#   3) СГЯ — только I триместр; ВРТ — только дородово (как в RCOG 2015)
+#
+# Статус: draft. Баллы проверены против Fomin 23.10.2026 (совпадают с RCOG 37a 2015).
+# Российский первичный источник (kr_vte) не сверен.
+
+module:
+  id: vte
+  version: "rcog2015-fomin-r1"
+  title: "Риск ВТЭО во время беременности и после родов"
+  type: questionnaire
+  source: fomin_vte
+  basis: [rcog_37a, kr_vte]
+  status: draft
+  audience: clinician            # категории и тактика — врачу; пациентке — только «обсудить с врачом»
+  reassess_on: [episode.hospitalization.start, episode.intercurrent_illness.start, episode.surgery.start, delivery.date]
+
+items:
+  # ── существовавшие ранее факторы ──
+  - {id: prev_vte_other,      points: 4, group: prev_vte,      phase: both, when: {fact: hx.vte, is: other},
+     label: "Предшествующее ВТЭО (кроме однократного, связанного с большой операцией)"}
+  - {id: prev_vte_surgical,   points: 3, group: prev_vte,      phase: both, when: {fact: hx.vte, is: single_major_surgery_provoked},
+     label: "Предшествующее ВТЭО, спровоцированное большой операцией"}
+  - {id: thrombophilia_high,  points: 3, group: thrombophilia, phase: both, when: {fact: hx.thrombophilia, is: high_risk},
+     label: "Подтверждённая тромбофилия высокого риска"}
+  - {id: thrombophilia_low,   points: 1, group: thrombophilia, phase: both, when: {fact: hx.thrombophilia, is: low_risk},
+     label: "Известная тромбофилия низкого риска (без ВТЭО)"}
+  - {id: comorbidity,         points: 3, phase: both, when: {fact: hx.vte_comorbidities, nonempty: true},
+     label: "Сопутствующие заболевания (онко, ПНГ, протезы клапанов, СН, серповидноклеточная анемия, в/в наркотики, активная СКВ, артропатия/ВЗК, нефротический синдром, СД1 с нефропатией)"}
+  - {id: family_history,      points: 1, phase: both, when: {fact: fhx.vte_first_degree, is: true},
+     label: "Неспровоцированный/эстроген-ассоциированный ВТЭО у родственника 1-й степени"}
+  - {id: age_35,              points: 1, phase: both, when: {fact: derived.age_years, gte: 35},
+     label: "Возраст ≥35", note: "Fomin: ≥35; RCOG 2015: >35 — сверить с kr_vte"}
+  - {id: bmi_30,              points: 1, group: bmi, phase: both, when: {fact: derived.bmi_booking, gte: 30}, label: "ИМТ ≥30"}
+  - {id: bmi_40,              points: 2, group: bmi, phase: both, when: {fact: derived.bmi_booking, gte: 40}, label: "ИМТ ≥40"}
+  - {id: parity_3,            points: 1, phase: both, when: {fact: ob.parity, gte: 3}, label: "≥3 родов в анамнезе"}
+  - {id: smoking,             points: 1, phase: both, when: {fact: lifestyle.smoking, is: current}, label: "Курение"}
+  - {id: varicose,            points: 1, phase: both, when: {fact: exam.varicose_veins_gross, is: true}, label: "Выраженное варикозное расширение вен"}
+
+  # ── акушерские факторы ──
+  - {id: pe_current,          points: 1, phase: both,       when: {fact: dx.preeclampsia_current, is: true}, label: "ПЭ в текущей беременности"}
+  - {id: art,                 points: 1, phase: antenatal,  when: {fact: pregnancy.art, is: true}, label: "ВРТ/ЭКО"}
+  - {id: multiple,            points: 1, phase: both,       when: {fact: derived.multiple_pregnancy, is: true}, label: "Многоплодная беременность"}
+  - {id: cs_in_labour,        points: 2, group: delivery_mode, phase: postpartum, when: {fact: delivery.mode, is: cs_in_labour}, label: "КС в родах"}
+  - {id: cs_elective,         points: 1, group: delivery_mode, phase: postpartum, when: {fact: delivery.mode, is: cs_elective}, label: "Плановое КС"}
+  - {id: operative_vaginal,   points: 1, group: delivery_mode, phase: postpartum, when: {fact: delivery.mode, is: vaginal_operative}, label: "Оперативные вагинальные роды"}
+  - {id: prolonged_labour,    points: 1, phase: postpartum, when: {fact: delivery.labour_hours, gt: 24}, label: "Затяжные роды >24 ч"}
+  - {id: pph,                 points: 1, phase: postpartum, when: {any: [{fact: delivery.pph_ml, gt: 1000}, {fact: delivery.transfusion, is: true}]},
+     label: "ПРК >1 л или гемотрансфузия"}
+  - {id: preterm_current,     points: 1, phase: postpartum, when: {fact: delivery.ga_days, lt: 259}, label: "Роды <37+0 в текущей беременности"}
+  - {id: stillbirth_current,  points: 1, phase: postpartum, when: {fact: delivery.stillbirth, is: true}, label: "Мертворождение в текущей беременности"}
+
+  # ── преходящие факторы (эпизоды: активны на дату оценки) ──
+  - {id: surgery,             points: 3, phase: both,       when: {active: episode.surgery}, label: "Операция во время беременности/в послеродовом периоде (кроме промежности)"}
+  - {id: hyperemesis,         points: 3, phase: antenatal,  when: {active: episode.hyperemesis}, label: "Неукротимая рвота"}
+  - {id: ohss,                points: 4, phase: antenatal,  when: {all: [{active: episode.ohss}, {timeline: trimester, is: 1}]}, label: "СГЯ (только I триместр)"}
+  - {id: systemic_infection,  points: 1, phase: both,       when: {active: episode.systemic_infection}, label: "Текущая системная инфекция"}
+  - {id: immobility,          points: 1, phase: both,       when: {active: episode.immobility_or_dehydration}, label: "Иммобилизация, обезвоживание"}
+
+outputs:
+  antenatal:
+    order: [none, from_28w, from_t1]          # для условий gte/lte и диапазона при неизвестных
+    score: {sum: points, phase: [antenatal, both]}
+    categories:
+      - {gte: 4, value: from_t1,  text: "Рассмотреть тромбопрофилактику с I триместра"}
+      - {gte: 3, value: from_28w, text: "Рассмотреть тромбопрофилактику с 28 недель"}
+      - {else: true, value: none, text: "Профилактика не требуется; питьевой режим и двигательная активность"}
+  postpartum:
+    order: [none, d10, w6]
+    score: {sum: points, phase: [postpartum, both]}
+    categories:
+      - {gte: 3, value: w6,  text: "Рассмотреть тромбопрофилактику 6 недель; компрессионный трикотаж или ППК"}
+      - {gte: 2, value: d10, text: "Рассмотреть тромбопрофилактику 10 дней; компрессионный трикотаж"}
+      - {else: true, value: none, text: "Профилактика не требуется; питьевой режим и двигательная активность"}
+    overrides:
+      - {when: {all: [{fact: hx.thrombophilia, is: low_risk}, {fact: fhx.vte_first_degree, is: true}]}, at_least: w6,
+         text: "Тромбофилия низкого риска + семейный анамнез ВТЭО → 6 недель"}
+  history_tier:                   # order: none < low < moderate < high < very_high; отдельная ветвь «ВТЭО/тромбофилия в анамнезе» (source: fomin_vte_history); первое совпадение
+    source: fomin_vte_history
+    rules:
+      - {value: very_high, when: {any: [{fact: hx.vte_on_long_term_anticoagulation, is: true}, {fact: hx.antithrombin_deficiency, is: true},
+                                        {all: [{fact: dx.aps, is: true}, {not: {fact: hx.vte, is: none}}]}]},
+         text: "Очень высокий: НМГ в лечебных дозах; обязательна консультация специалиста по гемостазу"}
+      - {value: high, when: {fact: hx.vte, is: other},
+         text: "Высокий: НМГ в профилактических дозах во время беременности и 6 недель после родов"}
+      - {value: moderate, when: {any: [{all: [{fact: hx.thrombophilia, is: high_risk}, {fact: hx.vte, is: none}]},
+                                       {fact: hx.vte, is: single_major_surgery_provoked}]},
+         text: "Умеренный: НМГ в профилактических дозах во время беременности и 6 недель после родов",
+         note: "однократное ВТЭО после операции — без тромбофилии/семейного анамнеза/других факторов; уточнить формализацию"}
+      - {value: low, when: {all: [{fact: hx.thrombophilia, is: low_risk}, {fact: hx.vte, is: none}]},
+         text: "Низкий: учитывать как фактор риска; рутинно НМГ во время беременности не назначать"}
+      - {else: true, value: none}
+
+notes:   # всегда показываются врачу вместе с карточкой
+  - "При госпитализации в дородовом периоде рассмотреть тромбопрофилактику"
+  - "При госпитализации >3 дней или повторной госпитализации после родов рассмотреть тромбопрофилактику"
+  - "При установленном риске кровотечений — обсудить баланс риска с гематологом"
+  - "Дозы НМГ — справочник fomin_lmwh_doses (только врач; ядро дозу не выбирает)"
+
+golden:   # минимум; полный набор готовит врач. Ожидаемые значения — по правилам этого файла.
+  - {name: "ИМТ≥40 (Fomin суммирует с ≥30 → 3)", facts: {derived.bmi_booking: 41}, expect: {antenatal_score: 2, antenatal: none, postpartum: d10}}
+  - {name: "КС в родах + возраст 36 (Fomin → «с 28 нед» до родов)", phase: postpartum, facts: {delivery.mode: cs_in_labour, derived.age_years: 36},
+     expect: {antenatal_score: 1, antenatal: none, postpartum_score: 3, postpartum: w6}}
+  - {name: "ВТЭО в анамнезе", facts: {hx.vte: other}, expect: {antenatal: from_t1, history_tier: high}}
+  - {name: "СГЯ во II триместре не считается", ga: "16+0", facts: {episode.ohss: active}, expect: {antenatal_score: 0}}

@@ -1,0 +1,583 @@
+{
+ "schema": "pregnancy-state/0.1",
+ "pregnancy_id": "preg_demo_01",
+ "person_id": "p_demo_01",
+ "as_of": "2026-10-23T12:00:00+03:00",
+ "fetuses": [
+  {
+   "fetus_id": "f1",
+   "label": "A"
+  }
+ ],
+ "facts": [
+  {
+   "code": "person.birth_date",
+   "observed_at": "2026-08-12",
+   "value": "1990-06-15",
+   "level": "patient_reported",
+   "source": {
+    "kind": "app"
+   }
+  },
+  {
+   "code": "anthro.height_cm",
+   "observed_at": "2026-08-12",
+   "value": 165,
+   "level": "patient_reported",
+   "source": {
+    "kind": "app"
+   }
+  },
+  {
+   "code": "anthro.weight_prepregnancy_kg",
+   "observed_at": "2026-08-12",
+   "value": 80,
+   "level": "patient_reported",
+   "source": {
+    "kind": "app"
+   }
+  },
+  {
+   "code": "anthro.weight_kg",
+   "observed_at": "2026-08-12",
+   "value": 84,
+   "level": "clinician",
+   "source": {
+    "kind": "clinician"
+   }
+  },
+  {
+   "code": "anthro.weight_kg",
+   "observed_at": "2026-10-03",
+   "value": 86.5,
+   "level": "clinician",
+   "source": {
+    "kind": "clinician"
+   }
+  },
+  {
+   "code": "dating.method",
+   "observed_at": "2026-08-19",
+   "value": "us_crl",
+   "level": "document",
+   "source": {
+    "kind": "doc"
+   }
+  },
+  {
+   "code": "dating.anchor_date",
+   "observed_at": "2026-08-19",
+   "value": "2026-08-19",
+   "level": "document",
+   "source": {
+    "kind": "doc"
+   }
+  },
+  {
+   "code": "dating.ga_at_anchor_days",
+   "observed_at": "2026-08-19",
+   "value": 85,
+   "level": "document",
+   "source": {
+    "kind": "doc"
+   }
+  },
+  {
+   "code": "pregnancy.plurality",
+   "observed_at": "2026-08-19",
+   "value": 1,
+   "level": "document",
+   "source": {
+    "kind": "doc"
+   }
+  },
+  {
+   "code": "pregnancy.art",
+   "observed_at": "2026-08-12",
+   "value": false,
+   "level": "patient_reported",
+   "source": {
+    "kind": "app"
+   }
+  },
+  {
+   "code": "ob.gravidity",
+   "observed_at": "2026-08-12",
+   "value": 1,
+   "level": "patient_reported",
+   "source": {
+    "kind": "app"
+   }
+  },
+  {
+   "code": "ob.parity",
+   "observed_at": "2026-08-12",
+   "value": 0,
+   "level": "patient_reported",
+   "source": {
+    "kind": "app"
+   }
+  },
+  {
+   "code": "ob.prev_pregnancy_ge24w",
+   "observed_at": "2026-08-12",
+   "value": 0,
+   "level": "patient_reported",
+   "source": {
+    "kind": "app"
+   }
+  },
+  {
+   "code": "hx.vte",
+   "observed_at": "2026-08-12",
+   "value": "none",
+   "level": "clinician",
+   "source": {
+    "kind": "clinician"
+   }
+  },
+  {
+   "code": "hx.vte_comorbidities",
+   "observed_at": "2026-08-12",
+   "value": [],
+   "level": "clinician",
+   "source": {
+    "kind": "clinician"
+   }
+  },
+  {
+   "code": "dx.chronic_hypertension",
+   "observed_at": "2026-08-12",
+   "value": false,
+   "level": "patient_reported",
+   "source": {
+    "kind": "app"
+   }
+  },
+  {
+   "code": "dx.diabetes_pregestational",
+   "observed_at": "2026-08-12",
+   "value": "none",
+   "level": "patient_reported",
+   "source": {
+    "kind": "app"
+   }
+  },
+  {
+   "code": "dx.ckd",
+   "observed_at": "2026-08-12",
+   "value": false,
+   "level": "patient_reported",
+   "source": {
+    "kind": "app"
+   }
+  },
+  {
+   "code": "dx.aps",
+   "observed_at": "2026-08-12",
+   "value": false,
+   "level": "patient_reported",
+   "source": {
+    "kind": "app"
+   }
+  },
+  {
+   "code": "exam.varicose_veins_gross",
+   "observed_at": "2026-08-12",
+   "unknown": true,
+   "level": "patient_reported",
+   "source": {
+    "kind": "app"
+   }
+  },
+  {
+   "code": "lab.rh_d",
+   "observed_at": "2026-08-14",
+   "value": "negative",
+   "level": "document",
+   "source": {
+    "kind": "lab"
+   }
+  },
+  {
+   "code": "partner.rh_d",
+   "observed_at": "2026-08-20",
+   "value": "positive",
+   "level": "document",
+   "source": {
+    "kind": "lab"
+   }
+  },
+  {
+   "code": "lab.anti_rh_antibodies",
+   "observed_at": "2026-08-14",
+   "value": "not_detected",
+   "level": "document",
+   "source": {
+    "kind": "lab"
+   }
+  },
+  {
+   "code": "lab.hiv_ag_ab",
+   "observed_at": "2026-08-14",
+   "value": "negative",
+   "level": "document",
+   "source": {
+    "kind": "lab"
+   }
+  },
+  {
+   "code": "lab.hbsag",
+   "observed_at": "2026-08-14",
+   "value": "negative",
+   "level": "document",
+   "source": {
+    "kind": "lab"
+   }
+  },
+  {
+   "code": "lab.anti_hcv",
+   "observed_at": "2026-08-14",
+   "value": "negative",
+   "level": "document",
+   "source": {
+    "kind": "lab"
+   }
+  },
+  {
+   "code": "lab.treponema_ab",
+   "observed_at": "2026-08-14",
+   "value": "negative",
+   "level": "document",
+   "source": {
+    "kind": "lab"
+   }
+  },
+  {
+   "code": "lab.rubella_igg_igm",
+   "observed_at": "2026-08-14",
+   "value": {
+    "igg": "positive",
+    "igm": "negative"
+   },
+   "level": "document",
+   "source": {
+    "kind": "lab"
+   }
+  },
+  {
+   "code": "lab.vaginal_smear_microscopy",
+   "observed_at": "2026-08-14",
+   "value": {
+    "conclusion": "норма"
+   },
+   "level": "document",
+   "source": {
+    "kind": "lab"
+   }
+  },
+  {
+   "code": "lab.cbc",
+   "observed_at": "2026-08-14",
+   "value": {
+    "hb": 124
+   },
+   "level": "document",
+   "source": {
+    "kind": "lab"
+   }
+  },
+  {
+   "code": "lab.hemoglobin",
+   "observed_at": "2026-08-14",
+   "value": 124,
+   "level": "document",
+   "source": {
+    "kind": "lab"
+   }
+  },
+  {
+   "code": "lab.biochemistry",
+   "observed_at": "2026-08-14",
+   "value": {
+    "ok": true
+   },
+   "level": "document",
+   "source": {
+    "kind": "lab"
+   }
+  },
+  {
+   "code": "lab.glucose_fasting_venous",
+   "observed_at": "2026-08-14",
+   "value": 4.6,
+   "level": "document",
+   "source": {
+    "kind": "lab"
+   }
+  },
+  {
+   "code": "lab.tsh",
+   "observed_at": "2026-08-14",
+   "value": 1.8,
+   "level": "document",
+   "source": {
+    "kind": "lab"
+   }
+  },
+  {
+   "code": "lab.urinalysis",
+   "observed_at": "2026-08-14",
+   "value": {
+    "ok": true
+   },
+   "level": "document",
+   "source": {
+    "kind": "lab"
+   }
+  },
+  {
+   "code": "lab.urine_culture",
+   "observed_at": "2026-08-14",
+   "value": {
+    "growth": "нет"
+   },
+   "level": "document",
+   "source": {
+    "kind": "lab"
+   }
+  },
+  {
+   "code": "lab.cervical_cytology",
+   "observed_at": "2026-08-14",
+   "value": {
+    "nilm": true
+   },
+   "level": "document",
+   "source": {
+    "kind": "lab"
+   }
+  },
+  {
+   "code": "lab.papp_a_mom",
+   "observed_at": "2026-08-19",
+   "value": 1.1,
+   "level": "document",
+   "source": {
+    "kind": "lab"
+   }
+  },
+  {
+   "code": "lab.free_bhcg_mom",
+   "observed_at": "2026-08-19",
+   "value": 0.9,
+   "level": "document",
+   "source": {
+    "kind": "lab"
+   }
+  },
+  {
+   "code": "proc.visit",
+   "observed_at": "2026-08-12",
+   "value": {
+    "n": 1
+   },
+   "level": "clinician",
+   "source": {
+    "kind": "clinician"
+   }
+  },
+  {
+   "code": "proc.visit",
+   "observed_at": "2026-10-03",
+   "value": {
+    "n": 2
+   },
+   "level": "clinician",
+   "source": {
+    "kind": "clinician"
+   }
+  },
+  {
+   "code": "proc.assessment",
+   "observed_at": "2026-08-12",
+   "value": {},
+   "level": "clinician",
+   "source": {
+    "kind": "clinician"
+   },
+   "attrs": {
+    "module": "vte"
+   }
+  },
+  {
+   "code": "proc.assessment",
+   "observed_at": "2026-08-12",
+   "value": {},
+   "level": "clinician",
+   "source": {
+    "kind": "clinician"
+   },
+   "attrs": {
+    "module": "pe_history"
+   }
+  },
+  {
+   "code": "proc.us_early",
+   "observed_at": "2026-08-12",
+   "value": {},
+   "level": "document",
+   "source": {
+    "kind": "doc"
+   }
+  },
+  {
+   "code": "proc.us_screening_t1",
+   "observed_at": "2026-08-19",
+   "value": {},
+   "level": "document",
+   "source": {
+    "kind": "doc"
+   }
+  },
+  {
+   "code": "proc.us_screening_t2",
+   "observed_at": "2026-10-12",
+   "value": {},
+   "level": "document",
+   "source": {
+    "kind": "doc"
+   }
+  },
+  {
+   "code": "us.cervical_length_mm",
+   "observed_at": "2026-10-12",
+   "value": 31,
+   "level": "document",
+   "source": {
+    "kind": "doc"
+   },
+   "attrs": {
+    "method": "tvus"
+   }
+  },
+  {
+   "code": "proc.ecg",
+   "observed_at": "2026-08-20",
+   "value": {},
+   "level": "document",
+   "source": {
+    "kind": "doc"
+   }
+  },
+  {
+   "code": "proc.consult",
+   "observed_at": "2026-08-25",
+   "value": {},
+   "level": "document",
+   "source": {
+    "kind": "doc"
+   },
+   "attrs": {
+    "specialty": "therapist"
+   }
+  },
+  {
+   "code": "proc.consult",
+   "observed_at": "2026-08-27",
+   "value": {},
+   "level": "document",
+   "source": {
+    "kind": "doc"
+   },
+   "attrs": {
+    "specialty": "dentist"
+   }
+  },
+  {
+   "code": "proc.consult",
+   "observed_at": "2026-08-28",
+   "value": {},
+   "level": "document",
+   "source": {
+    "kind": "doc"
+   },
+   "attrs": {
+    "specialty": "ophthalmologist"
+   }
+  },
+  {
+   "code": "vital.bp_systolic",
+   "observed_at": "2026-10-03",
+   "value": 118,
+   "level": "clinician",
+   "source": {
+    "kind": "clinician"
+   }
+  },
+  {
+   "code": "vital.bp_diastolic",
+   "observed_at": "2026-10-03",
+   "value": 76,
+   "level": "clinician",
+   "source": {
+    "kind": "clinician"
+   }
+  },
+  {
+   "code": "vital.bp_systolic",
+   "observed_at": "2026-10-22T10:00",
+   "value": 128,
+   "level": "clinician",
+   "source": {
+    "kind": "clinician"
+   },
+   "attrs": {
+    "setting": "inpatient"
+   }
+  },
+  {
+   "code": "vital.bp_diastolic",
+   "observed_at": "2026-10-22T10:00",
+   "value": 82,
+   "level": "clinician",
+   "source": {
+    "kind": "clinician"
+   },
+   "attrs": {
+    "setting": "inpatient"
+   }
+  },
+  {
+   "code": "lab.urine_protein",
+   "observed_at": "2026-10-03",
+   "value": "negative",
+   "level": "clinician",
+   "source": {
+    "kind": "clinician"
+   }
+  },
+  {
+   "code": "episode.hospitalization",
+   "observed_at": "2026-10-22",
+   "value": {
+    "reason": "пиелонефрит"
+   },
+   "level": "document",
+   "source": {
+    "kind": "doc"
+   }
+  },
+  {
+   "code": "episode.systemic_infection",
+   "observed_at": "2026-10-22",
+   "value": {
+    "dx": "острый пиелонефрит"
+   },
+   "level": "clinician",
+   "source": {
+    "kind": "clinician"
+   }
+  }
+ ]
+}

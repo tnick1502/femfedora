@@ -1,0 +1,79 @@
+# Пакет проекта: когда запускать оценки рисков и что делать по их результатам.
+# Это второй слой поверх КР-288 и пример того, как подключается любой новый источник:
+# свои пункты + ссылки на модули (module:) + условия на результаты карточек (card:).
+#
+# Разделение ответственности:
+#   Risk Engine (clinical/risk/)  — КАК оценить риск (баллы, пороги, категории);
+#   Rule Engine (этот файл)       — КОГДА оценивать и ЧТО делать при категории (окна, действия, аудитория).
+#
+# Статус: draft. Пункты с source.ref = kr_* (status: todo) ждут сверки с профильными КР.
+
+pack:
+  id: femfedora_risk_assessments
+  title: "Оценки акушерских рисков и тактика по категориям"
+  source: project_canon
+  priority: 90
+  status: draft
+
+items:
+  # ─────────── 1-й визит: анкетные оценки (постановка проекта) ───────────
+  - {id: fr.pe_history, concept: assess.pe_history, kind: assessment, module: pe_history,
+     what: "Анамнестическая оценка риска ПЭ", when: {at: first_visit}, evidence: [proc.assessment/pe_history],
+     source: {ref: project_canon, loc: "1-й визит: ВТЭО + ПЭ, ПР, ИЦН, ЗРП"}}
+  - {id: fr.ptb_history, concept: assess.ptb_history, kind: assessment, module: ptb,
+     what: "Анамнестическая оценка риска ПР", when: {at: first_visit}, evidence: [proc.assessment/ptb],
+     source: {ref: project_canon, loc: "1-й визит"}}
+  - {id: fr.icn_history, concept: assess.icn_history, kind: assessment, module: icn,
+     what: "Анамнестические факторы ИЦН", when: {at: first_visit}, evidence: [proc.assessment/icn],
+     source: {ref: project_canon, loc: "1-й визит"}}
+  - {id: fr.fgr_history, concept: assess.fgr_history, kind: assessment, module: fgr,
+     what: "Факторы риска ЗРП", when: {at: first_visit}, evidence: [proc.assessment/fgr],
+     source: {ref: project_canon, loc: "1-й визит"}}
+
+  # ─────────── ВТЭО: переоценка по событиям ───────────
+  - {id: fr.vte_reassess, concept: assess.vte, kind: assessment, module: vte,
+     what: "Повторная оценка риска ВТЭО", patient: "Врач заново оценит риск тромбозов",
+     when: {on_event: [episode.hospitalization.start, episode.intercurrent_illness.start, episode.surgery.start, delivery.date]},
+     evidence: [proc.assessment/vte],
+     source: {ref: project_canon, loc: "«при поступлении в стационар… или интеркуррентном заболевании»"}}
+
+  # ─────────── ВТЭО: тактика по категории карточки (только врач) ───────────
+  - {id: fr.vte_ante_t1, concept: action.vte_prophylaxis_antenatal, kind: medication, audience: clinician,
+     what: "Рассмотреть тромбопрофилактику с I триместра", patient: "Обсудите с врачом профилактику тромбозов",
+     when: {asap: true}, who: {card: vte, field: antenatal, is: from_t1},
+     source: {ref: fomin_vte, loc: "≥4 баллов"}}
+  - {id: fr.vte_ante_28, concept: action.vte_prophylaxis_antenatal, kind: medication, audience: clinician,
+     what: "Рассмотреть тромбопрофилактику с 28 недель", patient: "Обсудите с врачом профилактику тромбозов",
+     when: {window: ["28+0", delivery]}, who: {card: vte, field: antenatal, gte: from_28w},
+     source: {ref: fomin_vte, loc: "3 балла"}}
+  - {id: fr.vte_history_pathway, concept: action.vte_history_pathway, kind: medication, audience: clinician,
+     what: "Тактика по ВТЭО/тромбофилии в анамнезе (уровень риска — в карточке)", patient: "Обсудите с врачом профилактику тромбозов",
+     when: {asap: true}, who: {card: vte, field: history_tier, in: [very_high, high, moderate]},
+     source: {ref: fomin_vte_history, loc: "таблица уровней"}}
+  - {id: fr.vte_hospital, concept: action.vte_inpatient, kind: medication, audience: clinician,
+     what: "Госпитализация в дородовом периоде — рассмотреть тромбопрофилактику",
+     when: {on_event: [episode.hospitalization.start]}, source: {ref: fomin_vte, loc: "примечание"}}
+  - {id: fr.vte_post, concept: action.vte_prophylaxis_postpartum, kind: medication, audience: clinician,
+     what: "Послеродовая тромбопрофилактика: 10 дней / 6 недель по карточке",
+     when: {on_event: [delivery.date]}, who: {card: vte, field: postpartum, in: [d10, w6]},
+     source: {ref: fomin_vte, loc: "послеродовые пороги"}}
+
+  # ─────────── ПЭ: тактика по анамнестической категории ───────────
+  - {id: fr.pe_aspirin, concept: action.pe_aspirin, kind: medication, audience: clinician,
+     what: "Высокий риск ПЭ: АСК 150 мг/сут вечером с 12 до 36 недель",
+     patient: "Обсудите с врачом профилактику преэклампсии",
+     when: {ongoing: {from: "12+0", to: "36+0"}}, who: {card: pe_history, field: category, is: high},
+     source: {ref: fomin_pe, loc: "результат «высокий риск»"}}
+
+  # ─────────── ИЦН / ПР: цервикометрия в группе риска ───────────
+  - {id: fr.cervicometry_risk, concept: us.cervicometry_series, kind: us,
+     what: "Серийная цервикометрия в группе риска ПР/ИЦН", patient: "УЗИ шейки матки",
+     when: {window: ["15+0", "24+0"]}, who: {any: [{card: icn, field: risk_group, is: true}, {card: ptb, field: category, is: high}]},
+     evidence: [us.cervical_length_mm], note: "окно и кратность — по КР ИЦН/ПР (сверить)",
+     source: {ref: kr_icn, loc: "todo"}}
+
+  # ─────────── послеродовый период ───────────
+  - {id: fr.epds_postpartum, concept: assess.epds, kind: assessment, module: epds,
+     what: "EPDS после родов", patient: "Короткий опрос о настроении после родов",
+     when: {on_event: [delivery.date]}, evidence: [epds.answers],
+     note: "срок и повтор — по согласованному протоколу", source: {ref: fomin_epds, loc: "описание шкалы"}}

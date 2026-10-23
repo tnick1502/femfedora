@@ -1,0 +1,61 @@
+# Rule Engine: красные флаги. Проверяются первыми при каждой сборке контекста, без LLM и без ожидания ML.
+# Срабатывание по сообщённому пациенткой симптому НЕ требует подтверждения (min_level: patient_reported):
+# лишний флаг дешевле пропущенного.
+#
+# level:    emergency — немедленно в стационар/скорая; urgent — связаться с врачом сегодня; soon — на ближайшем визите
+# template: id утверждённого текста для пациентки (тексты пишет и утверждает врач; LLM их не сочиняет)
+# recent:   окно свежести для measurement-фактов (старый симптом не поднимает флаг)
+#
+# Основа — КР-288, раздел 6 «Показания для госпитализации». В копии КР потеряны знаки «≥».
+
+ruleset:
+  id: safety_core
+  source: kr_288_2023
+  status: draft
+
+rules:
+  - {id: s6.labor, level: emergency, template: go_to_hospital, when: {fact: symptom.regular_contractions, is: true, recent: 24h},
+     label: "Признаки начала родов / угрожающих ПР", source: {ref: kr_288_2023, loc: "6, п.1, п.4"}}
+  - {id: s6.fluid_leak, level: emergency, template: go_to_hospital, when: {fact: symptom.fluid_leak, is: true, recent: 24h},
+     label: "Излитие или подтекание околоплодных вод", source: {ref: kr_288_2023, loc: "6, п.2"}}
+  - {id: s6.bleeding, level: emergency, template: go_to_hospital, when: {fact: symptom.vaginal_bleeding, is: true, recent: 24h},
+     label: "Кровяные выделения из половых путей", source: {ref: kr_288_2023, loc: "6, п.3, п.5"}}
+  - {id: s6.hyperemesis, level: urgent, template: call_doctor_today,
+     when: {fact: symptom.vomiting_per_day, gt: 10, recent: 24h},
+     label: "Рвота >10 раз в сутки", note: "КР: + потеря >3 кг за 1–1,5 нед при неэффективности терапии — врач решает о госпитализации",
+     source: {ref: kr_288_2023, loc: "6, п.7"}}
+  - {id: s6.dbp_110, level: emergency, template: go_to_hospital, when: {series: vital.bp_diastolic, gte: 110, count_gte: 1, within: 24h},
+     label: "Диастолическое АД ≥110", source: {ref: kr_288_2023, loc: "6, п.8"}}
+  - {id: s6.dbp_90x2, level: emergency, template: go_to_hospital,
+     when: {series: vital.bp_diastolic, gte: 90, count_gte: 2, min_gap: 4h, within: 48h},
+     label: "Диастолическое АД ≥90 дважды с интервалом ≥4 ч", source: {ref: kr_288_2023, loc: "6, п.8"}}
+  - {id: s6.sbp_160, level: emergency, template: go_to_hospital, when: {series: vital.bp_systolic, gte: 160, count_gte: 1, within: 24h},
+     label: "Систолическое АД ≥160", source: {ref: kr_288_2023, loc: "6, п.9"}}
+  - {id: s6.proteinuria, level: urgent, template: call_doctor_today, when: {latest: lab.urine_protein, in: ["1+", "2+", "3+"], recent: 72h},
+     label: "Протеинурия ≥1+", note: "КР относит к показаниям для госпитализации; уровень флага согласовать с врачом",
+     source: {ref: kr_288_2023, loc: "6, п.10"}}
+  - {id: s6.multiorgan, level: emergency, template: go_to_hospital,
+     when: {any: [{fact: symptom.severe_headache, is: true, recent: 24h}, {fact: symptom.visual_disturbance, is: true, recent: 24h},
+                  {fact: symptom.epigastric_pain, is: true, recent: 24h}, {fact: symptom.seizure, is: true, recent: 72h}]},
+     label: "Симптомы полиорганной недостаточности (головная боль, зрение, эпигастрий, судороги…)",
+     source: {ref: kr_288_2023, loc: "6, п.11"}}
+  - {id: s6.chorioamnionitis, level: emergency, template: go_to_hospital,
+     when: {all: [{fact: vital.temperature, gte: 38.0, recent: 24h}, {any: [{fact: symptom.fluid_leak, is: true}, {fact: symptom.severe_abdominal_pain, is: true}]}]},
+     label: "Возможные признаки хориоамнионита", note: "формализация признаков — черновик, согласовать",
+     source: {ref: kr_288_2023, loc: "6, п.12"}}
+  - {id: s6.fgr_severe, level: urgent, template: clinician_review, when: {card: fgr, field: severity, in: [grade2, grade3]},
+     label: "ЗРП 2–3 степени", audience: clinician, source: {ref: kr_288_2023, loc: "6, п.13"}}
+  - {id: s6.fetal_compromise, level: urgent, template: clinician_review, when: {manual: "нарушение состояния плода по допплеру/КТГ"},
+     label: "Нарушение функционального состояния плода", audience: clinician, source: {ref: kr_288_2023, loc: "6, п.14"}}
+  - {id: s6.acute_abdomen, level: emergency, template: go_to_hospital, when: {fact: symptom.severe_abdominal_pain, is: true, recent: 24h},
+     label: "Сильная боль в животе", source: {ref: kr_288_2023, loc: "6, п.5, п.16"}}
+
+  # Вне раздела 6 КР-288 — источник указать до активации
+  - {id: x.reduced_movements, level: urgent, template: call_doctor_today, when: {fact: symptom.reduced_fetal_movements, is: true, recent: 24h},
+     label: "Снижение шевелений плода", status: draft, source: {ref: todo, loc: "источник не закреплён"}}
+  - {id: x.vte_suspected, level: emergency, template: go_to_hospital,
+     when: {any: [{fact: symptom.dyspnea_or_chest_pain, is: true, recent: 24h}, {fact: symptom.unilateral_leg_swelling, is: true, recent: 72h}]},
+     label: "Подозрение на ТГВ/ТЭЛА — независимо от балла ВТЭО", status: draft, source: {ref: kr_vte, loc: "todo"}}
+  - {id: x.epds_item10, level: urgent, template: mental_health_support, when: {fact: derived.epds_item10, gte: 1},
+     label: "EPDS пункт 10 (мысли о самоповреждении) — отдельный маршрут, не скрывается низкой суммой",
+     source: {ref: fomin_epds, loc: "описание шкалы"}}

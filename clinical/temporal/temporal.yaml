@@ -1,0 +1,47 @@
+# Temporal Engine — настройки времени. Журнал фактов ведёт приложение и присылает снимок; здесь — КАК читать его во времени.
+# Срок внутри ядра — всегда дни. Запись «Н+Д» (11+0 = 11 нед 0 дн) — только для людей и YAML.
+
+dating:                                  # датировка — набор фактов dating.*, каждая новая — новая версия
+  priority: [ivf_transfer, us_crl, lmp]  # чем датировать, если есть несколько
+  us_crl_valid_until: "13+6"             # КТР используется для датировки до этого срока
+  redate_threshold_days: null            # todo: расхождение ПМ и КТР, после которого передатировать — из КР/регламента
+  on_redating: new_version               # прошлые результаты остаются со своей версией, новые считаются по новой
+
+trimesters:                              # используется в {trimester: N} пакетов Rule Engine
+  1: ["0+0", "13+6"]
+  2: ["14+0", "27+6"]
+  3: ["28+0", delivery]
+
+phases:
+  antenatal:   {until: delivery.date}
+  postpartum:  {from: delivery.date, days: 42}       # послеродовый период 6 недель; дальше беременность закрывается
+  open_window_cap: "42+0"                            # окно «до родов», пока родов нет, считается до этого срока
+
+ticks:
+  daily: true                            # раз в сутки событие time.day; движки сами решают, пересекли ли свою границу
+
+freshness:                               # сколько measurement считается «текущим» по умолчанию (агрегат latest)
+  default: 30d
+  symptom.*: 24h                         # старый симптом не поднимает флаг (правила могут задать своё recent)
+  vital.bp_systolic: 7d
+  vital.bp_diastolic: 7d
+  anthro.weight_kg: 28d
+  lab.urine_protein: 7d
+  lab.hemoglobin: 84d
+  us.cervical_length_mm: 14d
+
+series:                                  # история измерений: как строить ряды и тренды
+  vital.bp_systolic:     {trend_window: 21d, min_points: 3, note: "домашние и клинические — разные setting, в тренде помечаются"}
+  vital.bp_diastolic:    {trend_window: 21d, min_points: 3}
+  anthro.weight_kg:      {trend_window: 56d, min_points: 2, rate_per: week, baseline: anthro.weight_prepregnancy_kg}
+  us.cervical_length_mm: {compare_only_same: [method], min_points: 2}
+  us.efw_g:              {per: fetus, compare_only_same: [formula], min_points: 2}
+  us.ac_mm:              {per: fetus, min_points: 2}
+  lab.hemoglobin:        {min_points: 2}
+
+episodes:                                # эпизоды без даты окончания
+  episode.hospitalization:      {ask_if_open_after: 14d}   # «вы ещё в стационаре?» — пробел, а не догадка
+  episode.systemic_infection:   {ask_if_open_after: 14d}
+  episode.immobility_or_dehydration: {ask_if_open_after: 7d}
+  episode.hyperemesis:          {ask_if_open_after: 14d}
+  default:                      {ask_if_open_after: 30d}

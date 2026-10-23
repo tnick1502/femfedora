@@ -1,0 +1,94 @@
+# Реестр источников. Каждый пункт пакета/модуля ссылается сюда: {ref: <id>, loc: "<место в документе>"}.
+# status: draft — текст взят из доступной копии и не сверен с рубрикатором;
+#         verified — сверено с официальной редакцией (дата, кто сверял);
+#         active — одобрено клиническим владельцем к использованию.
+
+kr_288_2023:
+  title: "КР «Нормальная беременность» (ID 288)"
+  issuer: РОАГ / Минздрав России
+  year: 2023
+  review_due: 2025
+  official: https://cr.minzdrav.gov.ru/   # рубрикатор — сверить актуальную редакцию
+  copy_used: https://legalacts.ru/doc/klinicheskie-rekomendatsii-normalnaja-beremennost-odobreny-minzdravom-rossii/
+  copy_note: "В копии legalacts потеряны верхние индексы: «110 - 136» = 11+0–13+6, «240 - 280» = 24+0–28+0, «220» = 22+0; потеряны знаки ≥."
+  status: draft
+
+naro_fominsk_page:
+  title: "ГБУЗ МО Наро-Фоминская больница — «Ведение физиологической (нормальной) беременности. Стандарты»"
+  url: https://lpu.zdrav.mosreg.ru/gbuz_mo_narofominskaya_bolnitsa/news/vedenie_fiziologicheskoi_normalnoi_beremennosti_standarti_20
+  status: unavailable   # 23.10.2026: таймаут и из облака, и из браузера на компьютере; в web.archive нет
+  todo: "Сохранить страницу в docs/sources/ (PDF/HTML) → собрать пакет clinical/rules/naro_fominsk.yaml в том же формате"
+
+fomin_vte:
+  title: "Fomin Clinic — Оценка риска ВТЭО во время беременности и после родов"
+  url: https://calculator.fomin-clinic.ru/tools/risk-vteo
+  basis: "RCOG Green-top 37a (2015) — баллы совпадают"
+  status: draft
+  known_defects:
+    - "ИМТ ≥30 и ИМТ ≥40 суммируются (2 отметки → 3 балла; по RCOG — максимум 2)"
+    - "Факторы родов учитываются в дородовой категории (КС в родах + возраст = «профилактика с 28 недель»)"
+    - "ВРТ/ЭКО и СГЯ не ограничены дородовым периодом / I триместром"
+  use: "дифференциальный тест, не эталон"
+
+fomin_vte_history:
+  title: "Fomin Clinic — Профилактика ВТЭО при тромбофилии и/или ВТЭО в анамнезе"
+  url: https://calculator.fomin-clinic.ru/tools/profilactic-vteo
+  status: draft
+
+fomin_lmwh_doses:
+  title: "Fomin Clinic — Дозы НМГ для профилактики ВТЭО"
+  url: https://calculator.fomin-clinic.ru/tools/nmg-for-vteo
+  audience: clinician   # справочник врача; в контекст пациентки не попадает
+  status: draft
+
+fomin_pe:
+  title: "Fomin Clinic — Определение группы риска развития преэклампсии"
+  url: https://calculator.fomin-clinic.ru/tools/test-preeclampsia
+  rule_observed: "≥1 фактор высокого риска ИЛИ ≥2 умеренных → высокий риск"
+  status: draft
+
+fomin_epds:
+  title: "Fomin Clinic — Эдинбургская шкала послеродовой депрессии"
+  url: https://calculator.fomin-clinic.ru/tools/postnatal-depression-scale
+  rule_observed: "пункты 3, 5–10 в обратном порядке; >12 — вероятна депрессия; пункт 10 ≥1 — отдельный срочный маршрут"
+  status: draft
+
+rcog_37a:
+  title: "RCOG Green-top Guideline 37a"
+  url: https://www.rcog.org.uk/guidance/browse-all-guidance/green-top-guidelines/reducing-the-risk-of-thrombosis-and-embolism-during-pregnancy-and-the-puerperium-green-top-guideline-no-37a/
+  note: "Сравнительный источник. Промежуточное обновление сентября 2026 — российский профиль автоматически не меняет."
+  status: reference
+
+kr_vte:
+  title: "КР «Венозные осложнения во время беременности и послеродовом периоде. Акушерская тромбоэмболия»"
+  url: https://roag-portal.ru/recommendations_obstetrics
+  status: todo   # первичный источник для ВТЭО в российском профиле — сверить баллы и пороги
+
+kr_pe:
+  title: "КР «Преэклампсия. Эклампсия. Отёки, протеинурия и гипертензивные расстройства…»"
+  url: https://roag-portal.ru/recommendations_obstetrics
+  status: todo
+
+kr_ptb:
+  title: "КР «Преждевременные роды»"
+  url: https://roag-portal.ru/recommendations_obstetrics
+  status: todo
+
+kr_icn:
+  title: "КР «Истмико-цервикальная недостаточность»"
+  url: https://roag-portal.ru/recommendations_obstetrics
+  status: todo
+
+kr_fgr:
+  title: "КР «Недостаточный рост плода, требующий предоставления медицинской помощи матери (задержка роста плода)»"
+  url: https://roag-portal.ru/recommendations_obstetrics
+  status: todo
+
+kr_gdm:
+  title: "КР «Гестационный сахарный диабет»"
+  url: https://roag-portal.ru/recommendations_obstetrics
+  status: todo
+
+project_canon:
+  title: "Клинический канон проекта (постановка Никиты: оценки при 1-м визите и переоценка ВТЭО)"
+  status: draft
