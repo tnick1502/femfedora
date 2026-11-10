@@ -1,0 +1,697 @@
+{
+  "checked_at": "2026-11-10T15:09:34.804206+00:00",
+  "comparison": "Python AST with module, class and function docstrings removed; signatures and executable statements retained",
+  "files_checked": 98,
+  "functions": 491,
+  "functions_documented": 491,
+  "functions_documented_before": 37,
+  "executable_ast_changes": [],
+  "files": [
+    {
+      "path": "alembic/env.py",
+      "functions": 2,
+      "documented": 2,
+      "executable_ast_before_sha256": "711e146dc09d67c540130c50fb95d0b62787a1a1038a63395bd0921f138bcd40",
+      "executable_ast_after_sha256": "711e146dc09d67c540130c50fb95d0b62787a1a1038a63395bd0921f138bcd40"
+    },
+    {
+      "path": "alembic/versions/0981f60051e0_initial_schema.py",
+      "functions": 2,
+      "documented": 2,
+      "executable_ast_before_sha256": "480cc78cc0bce9e260bfd9cc64dbf414cc8d1539100e959f886a0d21f1a1b8b3",
+      "executable_ast_after_sha256": "480cc78cc0bce9e260bfd9cc64dbf414cc8d1539100e959f886a0d21f1a1b8b3"
+    },
+    {
+      "path": "alembic/versions/a7c2e94d1f36_privacy_and_context_settings.py",
+      "functions": 2,
+      "documented": 2,
+      "executable_ast_before_sha256": "85af5a0c073e6afdd65fb863ace53cf93de064656ee6b81f3fa8ad399427fde3",
+      "executable_ast_after_sha256": "85af5a0c073e6afdd65fb863ace53cf93de064656ee6b81f3fa8ad399427fde3"
+    },
+    {
+      "path": "alembic/versions/b2f19d103e88_model_registry.py",
+      "functions": 2,
+      "documented": 2,
+      "executable_ast_before_sha256": "f17f2c8d28e053c378b7495a0b26bbbdc5318fbdef4f0990375fbf8a9e9f8772",
+      "executable_ast_after_sha256": "f17f2c8d28e053c378b7495a0b26bbbdc5318fbdef4f0990375fbf8a9e9f8772"
+    },
+    {
+      "path": "alembic/versions/d51c87126a40_questionnaire_workflow.py",
+      "functions": 2,
+      "documented": 2,
+      "executable_ast_before_sha256": "04410bfee11b59864f5b88c6bafdf5815fca7286193696f7eb95d40c853f06a0",
+      "executable_ast_after_sha256": "04410bfee11b59864f5b88c6bafdf5815fca7286193696f7eb95d40c853f06a0"
+    },
+    {
+      "path": "alembic/versions/e7e5ae1ff425_memory_forget_boundary.py",
+      "functions": 2,
+      "documented": 2,
+      "executable_ast_before_sha256": "78b20c41260ace9575d679a1334bd7b399c50b18c14456006c33ae1fcebaa6fd",
+      "executable_ast_after_sha256": "78b20c41260ace9575d679a1334bd7b399c50b18c14456006c33ae1fcebaa6fd"
+    },
+    {
+      "path": "alembic/versions/f3a91c5d2b74_perinatal_context_and_pause_reason.py",
+      "functions": 2,
+      "documented": 2,
+      "executable_ast_before_sha256": "5f4fa813c198f12855fe7fec8506eda8c2fac772ba533fa324424449fb8bc25f",
+      "executable_ast_after_sha256": "5f4fa813c198f12855fe7fec8506eda8c2fac772ba533fa324424449fb8bc25f"
+    },
+    {
+      "path": "emo_core/__init__.py",
+      "functions": 0,
+      "documented": 0,
+      "executable_ast_before_sha256": "ad2e13b69c4fc1fda46413f740f426fc1793cfc6d6da8d226ba619f1aef48be7",
+      "executable_ast_after_sha256": "ad2e13b69c4fc1fda46413f740f426fc1793cfc6d6da8d226ba619f1aef48be7"
+    },
+    {
+      "path": "emo_core/api/__init__.py",
+      "functions": 0,
+      "documented": 0,
+      "executable_ast_before_sha256": "ad2e13b69c4fc1fda46413f740f426fc1793cfc6d6da8d226ba619f1aef48be7",
+      "executable_ast_after_sha256": "ad2e13b69c4fc1fda46413f740f426fc1793cfc6d6da8d226ba619f1aef48be7"
+    },
+    {
+      "path": "emo_core/api/checkins.py",
+      "functions": 2,
+      "documented": 2,
+      "executable_ast_before_sha256": "8e30742139ae257a1318d400444941fdbdd0d51b0878b569b280cf4308f760c4",
+      "executable_ast_after_sha256": "8e30742139ae257a1318d400444941fdbdd0d51b0878b569b280cf4308f760c4"
+    },
+    {
+      "path": "emo_core/api/complaints.py",
+      "functions": 2,
+      "documented": 2,
+      "executable_ast_before_sha256": "a326c5e82116a94292d2095c784f703ed892f4508c92d0e00d48c17d69bbf939",
+      "executable_ast_after_sha256": "a326c5e82116a94292d2095c784f703ed892f4508c92d0e00d48c17d69bbf939"
+    },
+    {
+      "path": "emo_core/api/conversations.py",
+      "functions": 6,
+      "documented": 6,
+      "executable_ast_before_sha256": "05f74803bd95f0bfdeb3c9d64a313efe41be6bc6bb37103d68c2217e4c1eb5e1",
+      "executable_ast_after_sha256": "05f74803bd95f0bfdeb3c9d64a313efe41be6bc6bb37103d68c2217e4c1eb5e1"
+    },
+    {
+      "path": "emo_core/api/models.py",
+      "functions": 6,
+      "documented": 6,
+      "executable_ast_before_sha256": "a1658b3bdb0daf03a5ee5eb542e878dcfbc1b865c67071d555f8b63880ea6ea9",
+      "executable_ast_after_sha256": "a1658b3bdb0daf03a5ee5eb542e878dcfbc1b865c67071d555f8b63880ea6ea9"
+    },
+    {
+      "path": "emo_core/api/proactive.py",
+      "functions": 1,
+      "documented": 1,
+      "executable_ast_before_sha256": "806ab2c51e3965f20eabaa59dad418e336eaed2c73689ecd657e20ebbf700a3b",
+      "executable_ast_after_sha256": "806ab2c51e3965f20eabaa59dad418e336eaed2c73689ecd657e20ebbf700a3b"
+    },
+    {
+      "path": "emo_core/api/questionnaires.py",
+      "functions": 9,
+      "documented": 9,
+      "executable_ast_before_sha256": "490f26291ea95d8959753370fddc396bead8e35ee14ec99b209ebb942202db59",
+      "executable_ast_after_sha256": "490f26291ea95d8959753370fddc396bead8e35ee14ec99b209ebb942202db59"
+    },
+    {
+      "path": "emo_core/api/settings.py",
+      "functions": 11,
+      "documented": 11,
+      "executable_ast_before_sha256": "5c96970cca1f58f2631791e6d2e5c949b00818e6c4677207c28acb481dd6d18a",
+      "executable_ast_after_sha256": "5c96970cca1f58f2631791e6d2e5c949b00818e6c4677207c28acb481dd6d18a"
+    },
+    {
+      "path": "emo_core/api/trends.py",
+      "functions": 2,
+      "documented": 2,
+      "executable_ast_before_sha256": "6468444b7b6c65613cdedf6dd7212688fe28c7f8f794b7ef6d3c37750dade295",
+      "executable_ast_after_sha256": "6468444b7b6c65613cdedf6dd7212688fe28c7f8f794b7ef6d3c37750dade295"
+    },
+    {
+      "path": "emo_core/cli.py",
+      "functions": 2,
+      "documented": 2,
+      "executable_ast_before_sha256": "934c01cc8d1b5e2e0ae8cc2bc94d100a8dc6b7249e555d36694e23650254c8fc",
+      "executable_ast_after_sha256": "934c01cc8d1b5e2e0ae8cc2bc94d100a8dc6b7249e555d36694e23650254c8fc"
+    },
+    {
+      "path": "emo_core/core/__init__.py",
+      "functions": 0,
+      "documented": 0,
+      "executable_ast_before_sha256": "ad2e13b69c4fc1fda46413f740f426fc1793cfc6d6da8d226ba619f1aef48be7",
+      "executable_ast_after_sha256": "ad2e13b69c4fc1fda46413f740f426fc1793cfc6d6da8d226ba619f1aef48be7"
+    },
+    {
+      "path": "emo_core/core/admin.py",
+      "functions": 2,
+      "documented": 2,
+      "executable_ast_before_sha256": "edad4a7a00ef10d82c0bc572029c446c61a7cb09e392299e8fe60966db188cf1",
+      "executable_ast_after_sha256": "edad4a7a00ef10d82c0bc572029c446c61a7cb09e392299e8fe60966db188cf1"
+    },
+    {
+      "path": "emo_core/core/auth.py",
+      "functions": 5,
+      "documented": 5,
+      "executable_ast_before_sha256": "b21eaacbddbcbedc3318b589ebba949a93b0afd7cd4137f62c7c841d3b160a18",
+      "executable_ast_after_sha256": "b21eaacbddbcbedc3318b589ebba949a93b0afd7cd4137f62c7c841d3b160a18"
+    },
+    {
+      "path": "emo_core/core/config.py",
+      "functions": 3,
+      "documented": 3,
+      "executable_ast_before_sha256": "d922d958d8258eece2cebf874f9c60331eb52e79d7f4d2b62a96e0eb2cc1e0b6",
+      "executable_ast_after_sha256": "d922d958d8258eece2cebf874f9c60331eb52e79d7f4d2b62a96e0eb2cc1e0b6"
+    },
+    {
+      "path": "emo_core/core/env_setup.py",
+      "functions": 1,
+      "documented": 1,
+      "executable_ast_before_sha256": "e4baca925e2d9991f7d804b3a626660cd8c2b157588b7b3960f3ee8c876b58b0",
+      "executable_ast_after_sha256": "e4baca925e2d9991f7d804b3a626660cd8c2b157588b7b3960f3ee8c876b58b0"
+    },
+    {
+      "path": "emo_core/core/exceptions.py",
+      "functions": 0,
+      "documented": 0,
+      "executable_ast_before_sha256": "367ccbaefd4f5f85fc1914809f2b5dbe552c893226032951497cdbd5b46a456c",
+      "executable_ast_after_sha256": "367ccbaefd4f5f85fc1914809f2b5dbe552c893226032951497cdbd5b46a456c"
+    },
+    {
+      "path": "emo_core/core/logging.py",
+      "functions": 1,
+      "documented": 1,
+      "executable_ast_before_sha256": "0ca1e75ecea533d2fb69455bde55df7ca839597d8c80491c169baa01878e6ba5",
+      "executable_ast_after_sha256": "0ca1e75ecea533d2fb69455bde55df7ca839597d8c80491c169baa01878e6ba5"
+    },
+    {
+      "path": "emo_core/core/secrets.py",
+      "functions": 3,
+      "documented": 3,
+      "executable_ast_before_sha256": "516989c46c17f1e032698a450ecc06a70fc8d188503ec2b38ea8a3bc1c6ad84c",
+      "executable_ast_after_sha256": "516989c46c17f1e032698a450ecc06a70fc8d188503ec2b38ea8a3bc1c6ad84c"
+    },
+    {
+      "path": "emo_core/db/__init__.py",
+      "functions": 0,
+      "documented": 0,
+      "executable_ast_before_sha256": "ad2e13b69c4fc1fda46413f740f426fc1793cfc6d6da8d226ba619f1aef48be7",
+      "executable_ast_after_sha256": "ad2e13b69c4fc1fda46413f740f426fc1793cfc6d6da8d226ba619f1aef48be7"
+    },
+    {
+      "path": "emo_core/db/base.py",
+      "functions": 3,
+      "documented": 3,
+      "executable_ast_before_sha256": "e427715d3da9b712de1cbc1f03bb7bdc24b429a7d3023eec0782b2ed200e501a",
+      "executable_ast_after_sha256": "e427715d3da9b712de1cbc1f03bb7bdc24b429a7d3023eec0782b2ed200e501a"
+    },
+    {
+      "path": "emo_core/db/models.py",
+      "functions": 0,
+      "documented": 0,
+      "executable_ast_before_sha256": "8295c42b97b08f0ac6429b723bbac64eb4ae639db78848fdb128dbff39689d17",
+      "executable_ast_after_sha256": "8295c42b97b08f0ac6429b723bbac64eb4ae639db78848fdb128dbff39689d17"
+    },
+    {
+      "path": "emo_core/db/repositories.py",
+      "functions": 5,
+      "documented": 5,
+      "executable_ast_before_sha256": "6a73fcdc6e03a964ce07e1a9a0e378f90bf16b99d0170ff2eb006cae5d8e98b2",
+      "executable_ast_after_sha256": "6a73fcdc6e03a964ce07e1a9a0e378f90bf16b99d0170ff2eb006cae5d8e98b2"
+    },
+    {
+      "path": "emo_core/db/session.py",
+      "functions": 1,
+      "documented": 1,
+      "executable_ast_before_sha256": "7d50c9239128d347957bac7d26d3a29eb8c48ba18f937b483d1470977eb3bfaf",
+      "executable_ast_after_sha256": "7d50c9239128d347957bac7d26d3a29eb8c48ba18f937b483d1470977eb3bfaf"
+    },
+    {
+      "path": "emo_core/main.py",
+      "functions": 14,
+      "documented": 14,
+      "executable_ast_before_sha256": "21b28424651563a26f50b0e9d265a493873928f1d1781f623545c485b7961eaa",
+      "executable_ast_after_sha256": "21b28424651563a26f50b0e9d265a493873928f1d1781f623545c485b7961eaa"
+    },
+    {
+      "path": "emo_core/providers/__init__.py",
+      "functions": 0,
+      "documented": 0,
+      "executable_ast_before_sha256": "ad2e13b69c4fc1fda46413f740f426fc1793cfc6d6da8d226ba619f1aef48be7",
+      "executable_ast_after_sha256": "ad2e13b69c4fc1fda46413f740f426fc1793cfc6d6da8d226ba619f1aef48be7"
+    },
+    {
+      "path": "emo_core/providers/factory.py",
+      "functions": 1,
+      "documented": 1,
+      "executable_ast_before_sha256": "8d06059182405a94386a8b720800781c77570e976ae8e4e71b933e0dc291c5d3",
+      "executable_ast_after_sha256": "8d06059182405a94386a8b720800781c77570e976ae8e4e71b933e0dc291c5d3"
+    },
+    {
+      "path": "emo_core/providers/jev_provider.py",
+      "functions": 7,
+      "documented": 7,
+      "executable_ast_before_sha256": "89a05b314d49284ea7d5ac2451a65d322f80a657ae72dccf81a67a258af395f8",
+      "executable_ast_after_sha256": "89a05b314d49284ea7d5ac2451a65d322f80a657ae72dccf81a67a258af395f8"
+    },
+    {
+      "path": "emo_core/providers/llm_provider.py",
+      "functions": 3,
+      "documented": 3,
+      "executable_ast_before_sha256": "2b92f153393a57e1b727100b4a4dd9cbab2344018440b4e08696b020cb4d4085",
+      "executable_ast_after_sha256": "2b92f153393a57e1b727100b4a4dd9cbab2344018440b4e08696b020cb4d4085"
+    },
+    {
+      "path": "emo_core/providers/mock_providers.py",
+      "functions": 7,
+      "documented": 7,
+      "executable_ast_before_sha256": "9891777dc99424aa2a629febe26a110c87199825f537fb947ac2601d0309f51a",
+      "executable_ast_after_sha256": "9891777dc99424aa2a629febe26a110c87199825f537fb947ac2601d0309f51a"
+    },
+    {
+      "path": "emo_core/providers/notification_provider.py",
+      "functions": 2,
+      "documented": 2,
+      "executable_ast_before_sha256": "267d1533f515e30bd3d180b3bc26d7422e54e29b638ccd8c4fbd183c0f7bbe87",
+      "executable_ast_after_sha256": "267d1533f515e30bd3d180b3bc26d7422e54e29b638ccd8c4fbd183c0f7bbe87"
+    },
+    {
+      "path": "emo_core/schemas/__init__.py",
+      "functions": 0,
+      "documented": 0,
+      "executable_ast_before_sha256": "ad2e13b69c4fc1fda46413f740f426fc1793cfc6d6da8d226ba619f1aef48be7",
+      "executable_ast_after_sha256": "ad2e13b69c4fc1fda46413f740f426fc1793cfc6d6da8d226ba619f1aef48be7"
+    },
+    {
+      "path": "emo_core/schemas/chat.py",
+      "functions": 0,
+      "documented": 0,
+      "executable_ast_before_sha256": "efcb8b97a5e148c146473af54a0392956df0af1b66bdbf99fb6517f5e05bda9f",
+      "executable_ast_after_sha256": "efcb8b97a5e148c146473af54a0392956df0af1b66bdbf99fb6517f5e05bda9f"
+    },
+    {
+      "path": "emo_core/schemas/decision.py",
+      "functions": 0,
+      "documented": 0,
+      "executable_ast_before_sha256": "350dbacb05627f7ee6d42ccd2a440da6f1c5c30f0d01666748185b97201f2ebf",
+      "executable_ast_after_sha256": "350dbacb05627f7ee6d42ccd2a440da6f1c5c30f0d01666748185b97201f2ebf"
+    },
+    {
+      "path": "emo_core/schemas/emotion.py",
+      "functions": 0,
+      "documented": 0,
+      "executable_ast_before_sha256": "d9fce70d6638b5aa056a44f36ae500d5bbe86a0320e062e112e8e1075bc6883f",
+      "executable_ast_after_sha256": "d9fce70d6638b5aa056a44f36ae500d5bbe86a0320e062e112e8e1075bc6883f"
+    },
+    {
+      "path": "emo_core/schemas/models.py",
+      "functions": 4,
+      "documented": 4,
+      "executable_ast_before_sha256": "3a8737fc7c0896ac6477a6eff62f8e6e943473d5221a76f6285fcbd3cd8f4fac",
+      "executable_ast_after_sha256": "3a8737fc7c0896ac6477a6eff62f8e6e943473d5221a76f6285fcbd3cd8f4fac"
+    },
+    {
+      "path": "emo_core/schemas/proactive.py",
+      "functions": 1,
+      "documented": 1,
+      "executable_ast_before_sha256": "b79636ebb3bddbc3a7046eead61eab3cc8a86722a86c88836f1bb4882f1b0cda",
+      "executable_ast_after_sha256": "b79636ebb3bddbc3a7046eead61eab3cc8a86722a86c88836f1bb4882f1b0cda"
+    },
+    {
+      "path": "emo_core/schemas/screening.py",
+      "functions": 0,
+      "documented": 0,
+      "executable_ast_before_sha256": "1cadea53f372c5a3e5166ceab89a3e84fe4084b336e4be1483c721723374b0a4",
+      "executable_ast_after_sha256": "1cadea53f372c5a3e5166ceab89a3e84fe4084b336e4be1483c721723374b0a4"
+    },
+    {
+      "path": "emo_core/schemas/user.py",
+      "functions": 5,
+      "documented": 5,
+      "executable_ast_before_sha256": "29bf53e4082c3ee1c0ba12bbad571935544d46238094271e754e9868ac40b8eb",
+      "executable_ast_after_sha256": "29bf53e4082c3ee1c0ba12bbad571935544d46238094271e754e9868ac40b8eb"
+    },
+    {
+      "path": "emo_core/services/__init__.py",
+      "functions": 0,
+      "documented": 0,
+      "executable_ast_before_sha256": "ad2e13b69c4fc1fda46413f740f426fc1793cfc6d6da8d226ba619f1aef48be7",
+      "executable_ast_after_sha256": "ad2e13b69c4fc1fda46413f740f426fc1793cfc6d6da8d226ba619f1aef48be7"
+    },
+    {
+      "path": "emo_core/services/anonymizer.py",
+      "functions": 17,
+      "documented": 17,
+      "executable_ast_before_sha256": "fbcc55081b5e2a7be23d9f7129737074e6f8a22564358b7ad6a131cb83e72757",
+      "executable_ast_after_sha256": "fbcc55081b5e2a7be23d9f7129737074e6f8a22564358b7ad6a131cb83e72757"
+    },
+    {
+      "path": "emo_core/services/chat_engine.py",
+      "functions": 16,
+      "documented": 16,
+      "executable_ast_before_sha256": "e18790c5b97047bf955bc8a1242406a05677dea76a952d1178bff8a4021b3398",
+      "executable_ast_after_sha256": "e18790c5b97047bf955bc8a1242406a05677dea76a952d1178bff8a4021b3398"
+    },
+    {
+      "path": "emo_core/services/complaint_manager.py",
+      "functions": 2,
+      "documented": 2,
+      "executable_ast_before_sha256": "b91a0af78edbbc91cd7e3644c07b21e5100cdd3b0a8d9ffebe47ea2e644516b2",
+      "executable_ast_after_sha256": "b91a0af78edbbc91cd7e3644c07b21e5100cdd3b0a8d9ffebe47ea2e644516b2"
+    },
+    {
+      "path": "emo_core/services/context_manager.py",
+      "functions": 21,
+      "documented": 21,
+      "executable_ast_before_sha256": "db0d92a3b92f09b1063b8d075ac1352bde1495f184c92d3f372f5f2770c0cfa8",
+      "executable_ast_after_sha256": "db0d92a3b92f09b1063b8d075ac1352bde1495f184c92d3f372f5f2770c0cfa8"
+    },
+    {
+      "path": "emo_core/services/decision_report.py",
+      "functions": 5,
+      "documented": 5,
+      "executable_ast_before_sha256": "d746d56a19175838abfd8b8a1496367119d02f3e08895e07a3add6e262fe50db",
+      "executable_ast_after_sha256": "d746d56a19175838abfd8b8a1496367119d02f3e08895e07a3add6e262fe50db"
+    },
+    {
+      "path": "emo_core/services/emotion_analyzer.py",
+      "functions": 2,
+      "documented": 2,
+      "executable_ast_before_sha256": "d57615f8ad4f094683e4d0466bd4e871a45105f74d173a42dc251799d1bd190c",
+      "executable_ast_after_sha256": "d57615f8ad4f094683e4d0466bd4e871a45105f74d173a42dc251799d1bd190c"
+    },
+    {
+      "path": "emo_core/services/memory_manager.py",
+      "functions": 4,
+      "documented": 4,
+      "executable_ast_before_sha256": "ae583a26b68729db4f5f4607f272a14c38710226be6138a327ee9750d6047013",
+      "executable_ast_after_sha256": "ae583a26b68729db4f5f4607f272a14c38710226be6138a327ee9750d6047013"
+    },
+    {
+      "path": "emo_core/services/model_registry.py",
+      "functions": 9,
+      "documented": 9,
+      "executable_ast_before_sha256": "f02f4da4f451fc0ac8700cd34eb38495ea6c896cd030980e8f186c9fb8ccab85",
+      "executable_ast_after_sha256": "f02f4da4f451fc0ac8700cd34eb38495ea6c896cd030980e8f186c9fb8ccab85"
+    },
+    {
+      "path": "emo_core/services/perinatal.py",
+      "functions": 4,
+      "documented": 4,
+      "executable_ast_before_sha256": "4fcf84fc9f47001519ed0d26dea5a097962cfce3f57f11d080645acccbca46c2",
+      "executable_ast_after_sha256": "4fcf84fc9f47001519ed0d26dea5a097962cfce3f57f11d080645acccbca46c2"
+    },
+    {
+      "path": "emo_core/services/policies.py",
+      "functions": 1,
+      "documented": 1,
+      "executable_ast_before_sha256": "32e94fe12194f2c0554076511036cdec417db4c647bc88f604ee8a7e8a096a08",
+      "executable_ast_after_sha256": "32e94fe12194f2c0554076511036cdec417db4c647bc88f604ee8a7e8a096a08"
+    },
+    {
+      "path": "emo_core/services/proactive_engine.py",
+      "functions": 7,
+      "documented": 7,
+      "executable_ast_before_sha256": "080b669bf5544644235e71b4d1ad150ec892f71bf38d70db3d1cfb9f44f276e6",
+      "executable_ast_after_sha256": "080b669bf5544644235e71b4d1ad150ec892f71bf38d70db3d1cfb9f44f276e6"
+    },
+    {
+      "path": "emo_core/services/questionnaire_materials.py",
+      "functions": 4,
+      "documented": 4,
+      "executable_ast_before_sha256": "855f09e03e91e0d8ee0d28ed6607a041e4f6b93792190e97b75573b1a8a96117",
+      "executable_ast_after_sha256": "855f09e03e91e0d8ee0d28ed6607a041e4f6b93792190e97b75573b1a8a96117"
+    },
+    {
+      "path": "emo_core/services/retention.py",
+      "functions": 1,
+      "documented": 1,
+      "executable_ast_before_sha256": "2772cc4b42878046ac504a0ba7d63bf311c51c46e4df36efc5105ea876d3dce0",
+      "executable_ast_after_sha256": "2772cc4b42878046ac504a0ba7d63bf311c51c46e4df36efc5105ea876d3dce0"
+    },
+    {
+      "path": "emo_core/services/safety_guard.py",
+      "functions": 21,
+      "documented": 21,
+      "executable_ast_before_sha256": "3dfbb2edfb18173bf3c8025808c5bf25ff8fdf918b6f230c1e05b43e444ef01f",
+      "executable_ast_after_sha256": "3dfbb2edfb18173bf3c8025808c5bf25ff8fdf918b6f230c1e05b43e444ef01f"
+    },
+    {
+      "path": "emo_core/services/safety_lexicon.py",
+      "functions": 2,
+      "documented": 2,
+      "executable_ast_before_sha256": "11c3aa8a7cd81dd27f5e0caf87f38fa18cb4501cebfd94dce81df900e78ebae6",
+      "executable_ast_after_sha256": "11c3aa8a7cd81dd27f5e0caf87f38fa18cb4501cebfd94dce81df900e78ebae6"
+    },
+    {
+      "path": "emo_core/services/screening_engine.py",
+      "functions": 12,
+      "documented": 12,
+      "executable_ast_before_sha256": "b4484a3bac6d4dc36ab2b8769f9a62f8782cff4513770a3e457651314a087099",
+      "executable_ast_after_sha256": "b4484a3bac6d4dc36ab2b8769f9a62f8782cff4513770a3e457651314a087099"
+    },
+    {
+      "path": "emo_core/services/screening_scheduler.py",
+      "functions": 5,
+      "documented": 5,
+      "executable_ast_before_sha256": "abf5f333b42da2624ee11467dfd8e9fdac95fcec477efe93f83d417af5944058",
+      "executable_ast_after_sha256": "abf5f333b42da2624ee11467dfd8e9fdac95fcec477efe93f83d417af5944058"
+    },
+    {
+      "path": "emo_core/services/state_evaluator.py",
+      "functions": 3,
+      "documented": 3,
+      "executable_ast_before_sha256": "8c97e7e86a849984e5fbb7b52a700197098fe6ee4ed80c3d3a9503103d971563",
+      "executable_ast_after_sha256": "8c97e7e86a849984e5fbb7b52a700197098fe6ee4ed80c3d3a9503103d971563"
+    },
+    {
+      "path": "emo_core/services/support_protocol_selector.py",
+      "functions": 5,
+      "documented": 5,
+      "executable_ast_before_sha256": "8c9b57c7b44635c05facc2816af014401690de2439affdf180e565402e950957",
+      "executable_ast_after_sha256": "8c9b57c7b44635c05facc2816af014401690de2439affdf180e565402e950957"
+    },
+    {
+      "path": "emo_core/services/trend_analyzer.py",
+      "functions": 1,
+      "documented": 1,
+      "executable_ast_before_sha256": "432f099d497e19c3b848f7e26fa2519605b1b9b7eeda92b794990c05c767653f",
+      "executable_ast_after_sha256": "432f099d497e19c3b848f7e26fa2519605b1b9b7eeda92b794990c05c767653f"
+    },
+    {
+      "path": "emo_core/services/wellbeing_monitor.py",
+      "functions": 1,
+      "documented": 1,
+      "executable_ast_before_sha256": "d7e3c7990539b89e777ae9cc1b6dd062e3f364869beddf5eef29c541de3cda92",
+      "executable_ast_after_sha256": "d7e3c7990539b89e777ae9cc1b6dd062e3f364869beddf5eef29c541de3cda92"
+    },
+    {
+      "path": "emo_core/workers/__init__.py",
+      "functions": 0,
+      "documented": 0,
+      "executable_ast_before_sha256": "ad2e13b69c4fc1fda46413f740f426fc1793cfc6d6da8d226ba619f1aef48be7",
+      "executable_ast_after_sha256": "ad2e13b69c4fc1fda46413f740f426fc1793cfc6d6da8d226ba619f1aef48be7"
+    },
+    {
+      "path": "emo_core/workers/proactive_worker.py",
+      "functions": 2,
+      "documented": 2,
+      "executable_ast_before_sha256": "b0e1712e691442b5c353d2d992d2255e12f43a0bb83f42b7dfd007925eb0b6f4",
+      "executable_ast_after_sha256": "b0e1712e691442b5c353d2d992d2255e12f43a0bb83f42b7dfd007925eb0b6f4"
+    },
+    {
+      "path": "examples/questionnaire_client.py",
+      "functions": 2,
+      "documented": 2,
+      "executable_ast_before_sha256": "2f547f026e4764c3cfe40b9a132ce42b99429e136227bad5a99f31235d62f5c6",
+      "executable_ast_after_sha256": "2f547f026e4764c3cfe40b9a132ce42b99429e136227bad5a99f31235d62f5c6"
+    },
+    {
+      "path": "tests/__init__.py",
+      "functions": 0,
+      "documented": 0,
+      "executable_ast_before_sha256": "ad2e13b69c4fc1fda46413f740f426fc1793cfc6d6da8d226ba619f1aef48be7",
+      "executable_ast_after_sha256": "ad2e13b69c4fc1fda46413f740f426fc1793cfc6d6da8d226ba619f1aef48be7"
+    },
+    {
+      "path": "tests/conftest.py",
+      "functions": 9,
+      "documented": 9,
+      "executable_ast_before_sha256": "faab7b99c14956f5a82f8967a5aaa4a1c6fa926793550d941ed81af4a5b7da88",
+      "executable_ast_after_sha256": "faab7b99c14956f5a82f8967a5aaa4a1c6fa926793550d941ed81af4a5b7da88"
+    },
+    {
+      "path": "tests/test_auth.py",
+      "functions": 4,
+      "documented": 4,
+      "executable_ast_before_sha256": "0f22865d121db49e120a57930e236cd1d31dd247f8726fa5775b75a63ead8987",
+      "executable_ast_after_sha256": "0f22865d121db49e120a57930e236cd1d31dd247f8726fa5775b75a63ead8987"
+    },
+    {
+      "path": "tests/test_chat.py",
+      "functions": 11,
+      "documented": 11,
+      "executable_ast_before_sha256": "5327ebbdfd7f05556dea2a9f637d5538737af4f33a50d833fb36df71460ec66a",
+      "executable_ast_after_sha256": "5327ebbdfd7f05556dea2a9f637d5538737af4f33a50d833fb36df71460ec66a"
+    },
+    {
+      "path": "tests/test_clinical_routing.py",
+      "functions": 31,
+      "documented": 31,
+      "executable_ast_before_sha256": "5edb7d67b285133c1d8d089c9f6a8efe7d93ad0bf6da50f820eebc3b29c82851",
+      "executable_ast_after_sha256": "5edb7d67b285133c1d8d089c9f6a8efe7d93ad0bf6da50f820eebc3b29c82851"
+    },
+    {
+      "path": "tests/test_complaints.py",
+      "functions": 2,
+      "documented": 2,
+      "executable_ast_before_sha256": "831bc36adffbd7f195285fce05953d23094018611b3c3409bda9716f592528cb",
+      "executable_ast_after_sha256": "831bc36adffbd7f195285fce05953d23094018611b3c3409bda9716f592528cb"
+    },
+    {
+      "path": "tests/test_concurrency.py",
+      "functions": 8,
+      "documented": 8,
+      "executable_ast_before_sha256": "b14c2485e2c6d170848887ea140f646834f0bf50050ae2234be9af154a5c393e",
+      "executable_ast_after_sha256": "b14c2485e2c6d170848887ea140f646834f0bf50050ae2234be9af154a5c393e"
+    },
+    {
+      "path": "tests/test_config.py",
+      "functions": 2,
+      "documented": 2,
+      "executable_ast_before_sha256": "cf01509e42d4fdbee7c56f658c7830cd0e3f3ea3e8fb84611f80f6292f42ba79",
+      "executable_ast_after_sha256": "cf01509e42d4fdbee7c56f658c7830cd0e3f3ea3e8fb84611f80f6292f42ba79"
+    },
+    {
+      "path": "tests/test_console_login.py",
+      "functions": 7,
+      "documented": 7,
+      "executable_ast_before_sha256": "106f6c85852f2238e2c5783add780421c1dc476d6c1ee8bdc748ed5e70af00f5",
+      "executable_ast_after_sha256": "106f6c85852f2238e2c5783add780421c1dc476d6c1ee8bdc748ed5e70af00f5"
+    },
+    {
+      "path": "tests/test_context_manager.py",
+      "functions": 14,
+      "documented": 14,
+      "executable_ast_before_sha256": "9e1e3912f33411994b7d6b6211ff42b1bec4bde1c226224f328bd61391623f43",
+      "executable_ast_after_sha256": "9e1e3912f33411994b7d6b6211ff42b1bec4bde1c226224f328bd61391623f43"
+    },
+    {
+      "path": "tests/test_decision_reports.py",
+      "functions": 8,
+      "documented": 8,
+      "executable_ast_before_sha256": "dd3fe30280453be3944da10e20ec55f60ac248b73aa8a91b6627003ca9cc0379",
+      "executable_ast_after_sha256": "dd3fe30280453be3944da10e20ec55f60ac248b73aa8a91b6627003ca9cc0379"
+    },
+    {
+      "path": "tests/test_jev.py",
+      "functions": 6,
+      "documented": 6,
+      "executable_ast_before_sha256": "345d18d126a95b3be22f4404060d88456279bf1d43aac8b22b8518b0fc8a8eb1",
+      "executable_ast_after_sha256": "345d18d126a95b3be22f4404060d88456279bf1d43aac8b22b8518b0fc8a8eb1"
+    },
+    {
+      "path": "tests/test_journal.py",
+      "functions": 2,
+      "documented": 2,
+      "executable_ast_before_sha256": "26c62f9dd652770c845239fa7576bf28a58ea02c27a55f6a5bc40fecce25dacf",
+      "executable_ast_after_sha256": "26c62f9dd652770c845239fa7576bf28a58ea02c27a55f6a5bc40fecce25dacf"
+    },
+    {
+      "path": "tests/test_memory.py",
+      "functions": 2,
+      "documented": 2,
+      "executable_ast_before_sha256": "dca0b52c4f160a1997430f018d62939cd23df9b46947cf5857d922a8146888d8",
+      "executable_ast_after_sha256": "dca0b52c4f160a1997430f018d62939cd23df9b46947cf5857d922a8146888d8"
+    },
+    {
+      "path": "tests/test_model_registry.py",
+      "functions": 18,
+      "documented": 18,
+      "executable_ast_before_sha256": "08fb533d42f5270851b13ee9967b42b2086a5b25e035831a9fc94329cbf4d205",
+      "executable_ast_after_sha256": "08fb533d42f5270851b13ee9967b42b2086a5b25e035831a9fc94329cbf4d205"
+    },
+    {
+      "path": "tests/test_multitenancy.py",
+      "functions": 4,
+      "documented": 4,
+      "executable_ast_before_sha256": "bdb433efc25a1348226dabb3217712f3bd130c8e11688fb5f59d74a54d5eff88",
+      "executable_ast_after_sha256": "bdb433efc25a1348226dabb3217712f3bd130c8e11688fb5f59d74a54d5eff88"
+    },
+    {
+      "path": "tests/test_privacy.py",
+      "functions": 16,
+      "documented": 16,
+      "executable_ast_before_sha256": "c4520e76caab91ac739e736174a5ccf3cefd412705e73e1c1f5596370c5d2baa",
+      "executable_ast_after_sha256": "c4520e76caab91ac739e736174a5ccf3cefd412705e73e1c1f5596370c5d2baa"
+    },
+    {
+      "path": "tests/test_proactive.py",
+      "functions": 12,
+      "documented": 12,
+      "executable_ast_before_sha256": "50cc0c249823c4ad69f42e0a32fda9d19735a593579fbf176cca82731822c35c",
+      "executable_ast_after_sha256": "50cc0c249823c4ad69f42e0a32fda9d19735a593579fbf176cca82731822c35c"
+    },
+    {
+      "path": "tests/test_protocols.py",
+      "functions": 3,
+      "documented": 3,
+      "executable_ast_before_sha256": "5b1952d900d27ae36f92aa71692d9294cc207261ef9a732aa29d7c5e1d1c7799",
+      "executable_ast_after_sha256": "5b1952d900d27ae36f92aa71692d9294cc207261ef9a732aa29d7c5e1d1c7799"
+    },
+    {
+      "path": "tests/test_providers.py",
+      "functions": 3,
+      "documented": 3,
+      "executable_ast_before_sha256": "dcf8f299b18395d0c1dc9e1e188864ef4302d9154732a2f863c67290a5032c33",
+      "executable_ast_after_sha256": "dcf8f299b18395d0c1dc9e1e188864ef4302d9154732a2f863c67290a5032c33"
+    },
+    {
+      "path": "tests/test_questionnaire_workflow.py",
+      "functions": 19,
+      "documented": 19,
+      "executable_ast_before_sha256": "c009ada0b34cb268558d5b9166ad1cdc2b4db98f092f6d2e6f3ae4bf44bca31f",
+      "executable_ast_after_sha256": "c009ada0b34cb268558d5b9166ad1cdc2b4db98f092f6d2e6f3ae4bf44bca31f"
+    },
+    {
+      "path": "tests/test_retention.py",
+      "functions": 1,
+      "documented": 1,
+      "executable_ast_before_sha256": "ac6bc59ac1a0de44a3913c0fb7322cd38e106101b92c019054ff981a12a3d03c",
+      "executable_ast_after_sha256": "ac6bc59ac1a0de44a3913c0fb7322cd38e106101b92c019054ff981a12a3d03c"
+    },
+    {
+      "path": "tests/test_safety.py",
+      "functions": 15,
+      "documented": 15,
+      "executable_ast_before_sha256": "c388fe4728b9eb591608890aefdbb97937b1195ab2401ae7cf703723e90f5143",
+      "executable_ast_after_sha256": "c388fe4728b9eb591608890aefdbb97937b1195ab2401ae7cf703723e90f5143"
+    },
+    {
+      "path": "tests/test_safety_lexicon.py",
+      "functions": 12,
+      "documented": 12,
+      "executable_ast_before_sha256": "6155774cc2e18f93c9b30f00bc5ebbb000208805a13284af9b0920b71b87fc00",
+      "executable_ast_after_sha256": "6155774cc2e18f93c9b30f00bc5ebbb000208805a13284af9b0920b71b87fc00"
+    },
+    {
+      "path": "tests/test_screening.py",
+      "functions": 7,
+      "documented": 7,
+      "executable_ast_before_sha256": "e36076bb9e68b4526421a448d9889ade620d8d793e63c3c0d9469849465c4a27",
+      "executable_ast_after_sha256": "e36076bb9e68b4526421a448d9889ade620d8d793e63c3c0d9469849465c4a27"
+    },
+    {
+      "path": "tests/test_trends.py",
+      "functions": 2,
+      "documented": 2,
+      "executable_ast_before_sha256": "70b486c41c34b2dba0ee9955baad50195610ecccb829bda2ce0e294a079cb631",
+      "executable_ast_after_sha256": "70b486c41c34b2dba0ee9955baad50195610ecccb829bda2ce0e294a079cb631"
+    },
+    {
+      "path": "tools/live_check.py",
+      "functions": 3,
+      "documented": 3,
+      "executable_ast_before_sha256": "45ff26a079b06ae1a26c9a53828bca9f91737b7dc02b6627340e4399a1d79fae",
+      "executable_ast_after_sha256": "45ff26a079b06ae1a26c9a53828bca9f91737b7dc02b6627340e4399a1d79fae"
+    }
+  ]
+}

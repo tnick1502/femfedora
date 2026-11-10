@@ -1,0 +1,20 @@
+version: '1.1'
+clinical_review_status: pending
+reviewed_by: null
+approval_reference: null
+# Ограничения инициативных предложений; пройти шкалу по желанию можно в любой момент.
+minimum_reoffer_days: 14
+decline_cooldown_days: 21
+initial: true
+# Продуктовые окна повторной оценки (недели беременности / недели после родов).
+late_pregnancy: [28, 32]
+postpartum_weeks: [4, 8]
+gad2_next_step_score: 3
+allow_phq9_with_epds: false
+stale_checkin_days: 14
+checkin_interval_days: 7
+# Повторное предложение EPDS/PHQ-9 после результата на уровне порога направления.
+# Не заменяет обращение к специалисту: рекомендация обратиться даётся сразу.
+recheck_after_elevated_days: 14
+# При сохраняющихся жалобах шкала предлагается повторно не чаще, чем раз в столько дней.
+complaint_reoffer_days: 30

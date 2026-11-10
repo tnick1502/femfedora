@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-163774118-1"></script>
+	<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+
+	gtag('config', 'UA-163774118-1', {cookie_flags: 'max-age=7200;secure;samesite=none'});
+	</script>
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-101505331-1', 'auto', {cookie_flags: 'max-age=7200;secure;samesite=none'});
+	  ga('send', 'pageview');
+
+	</script>
+	
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-C6MMLC9V2Q"></script>
+	<script>
+  	window.dataLayer = window.dataLayer || [];
+  	function gtag(){dataLayer.push(arguments);}
+  	gtag('js', new Date());
+
+  	gtag('config', 'G-C6MMLC9V2Q');
+	</script>
+
+    <meta charset="utf-8"/>    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        PhenX Toolkit:
+        Protocols    </title>
+    <link href="/favicon.ico" type="image/x-icon" rel="icon"/><link href="/favicon.ico" type="image/x-icon" rel="shortcut icon"/>	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="keywords" content="PhenX,PhenX Toolkit,GWA,GWA Study,GWA Study Measures,genomics,genome-wide association studies,RTI International,NHGRI,RTI - Research Computing Division"/>	<meta name="description" content="The PhenX Toolkit is a catalog of high-priority measures for consideration and inclusion in genome-wide association studies (GWAS) and other large-scale genomic research efforts."/>	<meta name="protocolname" content="Prenatal and Postpartum Depression"/>	
+
+	<link rel="stylesheet" href="/css/bootstrap.min.css?v="/>	<link rel="stylesheet" href="/css/bootstrap-grid.min.css?v="/>	<link rel="stylesheet" href="/css/bootstrap-reboot.min.css?v="/>	<link rel="stylesheet" href="/css/bootstrap-utilities.min.css?v="/>
+	<link rel="stylesheet" href="/css/chosen.min.css?v="/>	<link rel="stylesheet" href="/css/site.css?v="/>	<link rel="stylesheet" href="/css/ie10-viewport-bug-workaround.css?v="/>	<link rel="stylesheet" href="/css/PhenX-v27.css?v="/>
+	<script src="/js/jquery-3.5.1.js?v="></script>	<script src="/js/brands.min.js?v="></script>	<script src="/js/solid.min.js?v="></script>	<script src="/js/fontawesome-all.min.js?v="></script>	<script src="/js/tinymce/tinymce.min.js"></script>	<script src="/js/chosen.jquery.min.js"></script>	<script src="/js/chosen.proto.min.js"></script>	<script src="https://cdn.tiny.cloud/1/j65njoba83qo31mjteyfbvv52xsatn7n8b6yyeewkrmpcpw8/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
+	<link href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/jstree-bootstrap-theme@1.0.1/dist/themes/proton/style.min.css" rel="stylesheet">
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/jstree/3.3.8/themes/default/style.min.css' rel="stylesheet" ?>
+	
+	    		<script src="https://www.google.com/recaptcha/api.js"></script>
+	</head>
+<body onload="hideSpinner()">
+	<div id="spinner">
+		<p class="text-center">Loading&hellip;<br><br><i class="fas fa-spinner fa-spin fa-4x"></i></p>
+	</div> 
+		<div id="div-cookie">
+		<button type="button" class="close btn-cookie-agree" data-bs-dismiss="alert" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		</button>
+		<p>The PhenX Toolkit uses cookies to offer you the best experience online. By continuing to use our website, you agree to the use of cookies. If you would like to know more about cookies and how to manage them please view our <a href="/about/privacy">Privacy Policy</a>.</p>
+	</div>
+			<nav id="top-mb-nav" class="navbar navbar-expand-lg">
+		<div class="container">
+			<a class="navbar-brand phone-only" href="/"><img src="/img/october/phenxlogo_white2.png" alt="PhenX Toolkit"/></a>
+			<button class="navbar-toggler phone-only" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="fa fa-bars"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarCollapse">
+				<div id="searchbar" class="navbar navbar-inverse phone-only">
+                    <div class="container">
+						<form method="get" accept-charset="utf-8" id="search-form" class="margin-bt-20" action="/search/results">							<div class="form-row align-items-center">
+								<div class="col">
+									<div class="form-group">
+										<div class="input-group">
+											<div class="input-group-prepend">
+												<div class="input-group-text"><b><label for="top-search-bar-mb">Search: </label></b></div>
+											</div>
+											<input id="top-search-bar-mb" type="text" class="form-control top-search" name="searchTerm" placeholder="Search all protocols in the Toolkit using keywords (e.g. diabetes) or PhenX ID (e.g. 011502)" value="">
+											<div class="input-group-append">
+												<button name="searchtype" class="btn btn-search" value="smartsearch" type="submit"><span class="display-none">Search</span><i class="fa fa-search"></i></button>											</div>
+											<div id="input-group--advanced">
+												<a href="/search" class="link-advanced">Advanced Search</a>											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</form>                    </div>
+                </div>
+				<ul class="navbar-nav ms-auto">
+					<li class="nav-item phone-only">
+						<a class="nav-link ms-2" href="/index.php">Home</a>
+					</li>
+					<li class="nav-item phone-only dropdown">
+						<a href="#" class="nav-link dropdown-toggle ms-2" id="dropdown05" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Protocols <span class="caret"></span></a>
+						<div class="dropdown-menu" aria-labelledby="dropdown05">
+							<a href="/protocols" class="dropdown-header">Browse Protocols</a>							<a href="/cross-domain-browser" class="dropdown-header">Browse Tree</a>													</div>
+					</li>
+					<li class="nav-item phone-only dropdown">
+						<a href="#" class="nav-link dropdown-toggle ms-2" id="dropdown06" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">COVID-19 <span class="caret"></span></a>
+						<div class="dropdown-menu" aria-labelledby="dropdown06">
+							<a href="/collections/view/8" class="dropdown-header">COVID-19 Research Collection</a>							<a href="/covid19" class="dropdown-header">COVID-19 Protocol Library</a>							<a href="/variable-compare" class="dropdown-header">COVID-19 Variable Compare Tool</a>						</div>
+					</li>
+					<li class="nav-item phone-only dropdown">
+						<a href="#" class="nav-link dropdown-toggle ms-2" id="dropdown00" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Search <span class="caret"></span></a>
+						<div class="dropdown-menu" aria-labelledby="dropdown00">
+							<a href="/search" class="dropdown-header">Advanced Search</a>							<a href="/vsearch" class="dropdown-header">dbGaP Variable Search</a>						</div>
+					</li>
+					<li class="nav-item phone-only dropdown">
+						<a href="#" class="nav-link dropdown-toggle ms-2" id="dropdown01" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Resources<span class="caret"></span></a>
+						<div class="dropdown-menu" aria-labelledby="dropdown01">
+							<a href="/research-using-phenx" class="dropdown-header">Who&#039;s Using PhenX</a>							<a href="/resources/publications" class="dropdown-header">Publications &amp; Presentations</a>							<a href="/resources/archives" class="dropdown-header">Archived PhenX Protocols</a>							<a href="/resources/download" class="dropdown-header">PhenX Downloads</a>																				</div>
+					</li>
+					<li class="nav-item phone-only">
+						<a href="#" class="nav-link dropdown-toggle ms-2" id="dropdown02" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">News <span class="caret"></span></a>
+						<div class="dropdown-menu" aria-labelledby="dropdown02">
+                            <a href="/news/newsletters" class="dropdown-header">PhenX Newsletter</a>                            <a href="/news/statistics" class="dropdown-header">Toolkit Use Statistics</a>							<a href="/news/funding" class="dropdown-header">Notices of Funding Opportunities</a>                            <a href="/news" class="dropdown-header">PhenX in the News</a>							<a href="/news/cstatistics" class="dropdown-header">COVID-19 Protocol Library Statistics</a>							<a href="/news/workshops" class="dropdown-header">Workshops</a>						</div>
+					</li>
+					<li class="nav-item phone-only">
+						<a href="#" class="nav-link dropdown-toggle ms-2" id="dropdown03" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Help <span class="caret"></span></a>
+						<div class="dropdown-menu" aria-labelledby="dropdown03">
+							<a href="https://www.youtube.com/channel/UCbDroMNmfIMwCA1fa3masyw" class="dropdown-item" target="_blank">PhenX YouTube Tutorials</a>							<a href="/help/faq" class="dropdown-header">FAQ</a>							<a href="/help/glossary" class="dropdown-header">Glossary and Acronyms</a>							<a href="/help/guidance" class="dropdown-header">Investigator Guidance</a>						</div>
+					</li>
+					<li class="nav-item phone-only dropdown">
+						<a href="#" class="nav-link dropdown-toggle ms-2" id="dropdown02" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">About <span class="caret"></span></a>
+						<div class="dropdown-menu" aria-labelledby="dropdown02">
+							<h6><a href="/about/overview" class="dropdown-header">PhenX Overview</a></h6>
+							<a href="/protocols/view/241401?origin=domain" class="dropdown-header">PhenX Overview</a>							<a href="/about/conceptual-diagram" class="dropdown-item dropdown-indent">PhenX Conceptual Diagram</a>							<a href="/about/criteria" class="dropdown-item dropdown-indent">PhenX Criteria for Selecting Protocols</a>							<a href="/about/utility" class="dropdown-item dropdown-indent">PhenX Toolkit Utility</a>							<a href="/about/architecture" class="dropdown-item dropdown-indent">PhenX Toolkit Architecture</a>							<a href="/news/statistics" class="dropdown-header">Toolkit Use Statistics</a>                            <a href="/news/funding" class="dropdown-header">Notices of Funding Opportunities</a>							<a href="/about/project" class="dropdown-header">Project Organization</a>							<a href="/about/consensus" class="dropdown-item dropdown-indent">PhenX Consensus Process</a>							<a href="/about/teams" class="dropdown-header">Project Participants</a>						</div>
+					</li>
+					<li class="nav-item phone-only "><a href="/help/citation" class="nav-link ms-2">Cite PhenX</a></li>
+					<li class="nav-item phone-only"><a href="/about/contact-form" class="nav-link ms-2">Contact</a></li>
+					<li class="nav-item phone-only"><a href="/cross-domain-browser" class="nav-link ms-2 top-nav-highlight"><i class="fa fa-tree"></i> Tree</a></li>
+					<li class="nav-item phone-only"><a href="https://twitter.com/phenxtoolkit" class="nav-link ms-2" target="_blank"><i class="fa-brands fa-x-twitter"></i></a></li>
+					<li class="nav-item phone-only"><a href="https://www.youtube.com/channel/UCbDroMNmfIMwCA1fa3masyw" class="nav-link ms-2" target="_blank"><i class="fab fa-youtube"></i></a></li>
+					<li class="nav-item phone-only"><a href="https://bsky.app/profile/phenxtoolkit.bsky.social" class="nav-link ms-2" target="_blank"><i class="fa-brands fa-bluesky"></i></a></li>
+					<li style="padding-bottom: 10px;">
+													<a href="/feedback?from=%2Fprotocols%2Fview%2F241401%3Forigin%3Ddomain" class="btn btn-phenx-bl btn-outline-light me-2" id="btn-feedback-mb"><i class="fa fa-comment"></i> Feedback</a>																			<a href="/users/register" class="btn btn-phenx-bl btn-outline-light me-2"><i class="fa fa-edit"></i> Register</a> <a href="/users/login" class="btn btn-phenx-bl btn-outline-light me-2"><i class="fa fa-sign-in-alt"></i> Log in</a>												<a href="/toolkit" class="btn btn-phenx-gr btn-outline-light" id="btn-tookit"><i class="fa fa-cog"></i> My Toolkit</a>					</li>
+				</ul>
+			</div>
+        </div>
+    </nav>
+	<nav id="toolbar" class="navbar navbar-expand-md desktop-only fixed-top">
+		<div class="container">
+			<div>
+				<a class="navbar-brand desktop-only" href="/"><img src="/img/october/phenxlogo_white2.png" alt="PhenX Toolkit"/></a>
+				</div>
+			<div id="desktop-user-btns">
+				<ul class="navbar-nav ms-auto">
+					<li>
+													<a href="/feedback?from=%2Fprotocols%2Fview%2F241401%3Forigin%3Ddomain" class="btn btn-phenx-bl btn-outline-light me-2" id="btn-feedback"><i class="fa fa-comment"></i> Feedback</a>																			<a href="/users/register" class="btn btn-phenx-bl btn-outline-light me-2"><i class="fa fa-edit"></i> Register</a> <a href="/users/login" class="btn btn-phenx-bl btn-outline-light me-2"><i class="fa fa-sign-in-alt"></i> Log in</a>												<a href="/toolkit" class="btn btn-phenx-gr btn-outline-light" id="btn-tookit"><i class="fa fa-cog"></i> My Toolkit</a>					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="container">
+			<button class="navbar-toggler desktop-only" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="fa fa-bars"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarCollapse2">
+				<ul class="navbar-nav me-auto">
+					<li class="nav-item"><a href="/index.php" class="nav-link">Home</a></li>
+                    <li class="nav-item dropdown">
+						<a href="#" class="nav-link dropdown-toggle" id="dropdown-protocols" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Protocols</a>						<div class="dropdown-menu" aria-labelledby="dropdown-protocols">
+							<a href="/protocols" class="dropdown-header">Browse Protocols</a>							<a href="/cross-domain-browser" class="dropdown-header">Browse Tree</a>													</div>
+					</li>
+					<li class="nav-item dropdown">
+											<a href="#" class="nav-link dropdown-toggle" id="dropdown-covid" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">COVID-19</a>						<div class="dropdown-menu" aria-labelledby="dropdown-covid">
+							<a href="/collections/view/8" class="dropdown-header">COVID-19 Research Collection</a>							<a href="/covid19" class="dropdown-header">COVID-19 Protocol Library</a>							<a href="/variable-compare" class="dropdown-header">COVID-19 Variable Compare Tool</a>						</div> 
+										</li>
+					<li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" id="dropdown-search" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Search</a>						<div class="dropdown-menu" aria-labelledby="dropdown-search">
+							<a href="/search" class="dropdown-header">Advanced Search</a>							<a href="/vsearch" class="dropdown-header">dbGaP Variable Search</a>						</div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" id="dropdown-resources" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Resources</a>						<div class="dropdown-menu" aria-labelledby="dropdown-resources">
+							<a href="/research-using-phenx" class="dropdown-header">Who&#039;s Using PhenX</a>							<a href="/resources/publications" class="dropdown-header">Publications &amp; Presentations</a>							<a href="/resources/archives" class="dropdown-header">Archived PhenX Protocols</a>							<a href="/resources/download" class="dropdown-header">PhenX Downloads</a>																				</div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" id="dropdown-news" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">News</a>						<div class="dropdown-menu" aria-labelledby="dropdown-news">
+                            <a href="/news/newsletters" class="dropdown-header">PhenX Newsletter</a>                            <a href="/news/statistics" class="dropdown-header">Toolkit Use Statistics</a>							<a href="/news/funding" class="dropdown-header">Notices of Funding Opportunities</a>                            <a href="/news" class="dropdown-header">PhenX in the News</a>							<a href="/news/cstatistics" class="dropdown-header">COVID-19 Protocol Library Statistics</a>							<a href="/news/workshops" class="dropdown-header">Workshops</a>						</div>
+                    </li>
+					<li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" id="dropdown-help" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Help</a>						<div class="dropdown-menu" aria-labelledby="dropdown-help">
+							<a href="https://www.youtube.com/channel/UCbDroMNmfIMwCA1fa3masyw" class="dropdown-header" target="_blank">PhenX YouTube Tutorials</a>							<a href="/help/faq" class="dropdown-header">FAQ</a>							<a href="/help/glossary" class="dropdown-header">Glossary and Acronyms</a>							<a href="/help/guidance" class="dropdown-header">Investigator Guidance</a>						</div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" id="dropdown02a" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">About <span class="caret"></span></a>
+						<div class="dropdown-menu" aria-labelledby="dropdown02a">
+							<a href="/about/overview" class="dropdown-header">PhenX Overview</a>							<a href="/about/conceptual-diagram" class="dropdown-item dropdown-indent">PhenX Conceptual Diagram</a>							<a href="/about/criteria" class="dropdown-item dropdown-indent">PhenX Criteria for Selecting Protocols</a>						
+							<a href="/about/utility" class="dropdown-item dropdown-indent">PhenX Toolkit Utility</a>							<a href="/about/architecture" class="dropdown-item dropdown-indent">PhenX Toolkit Architecture</a>                            <a href="/about/interoperability" class="dropdown-item dropdown-indent">PhenX Interoperability</a>							<a href="/news/statistics" class="dropdown-header">Toolkit Use Statistics</a>                            <a href="/news/funding" class="dropdown-header">Notices of Funding Opportunities</a>							<a href="/about/project" class="dropdown-header">Project Organization</a>							<a href="/about/consensus" class="dropdown-item dropdown-indent">PhenX Consensus Process</a>							<a href="/about/teams" class="dropdown-header">Project Participants</a>						</div>
+                    </li>
+                    <li class="nav-item"><a href="/help/citation" class="nav-link">Cite PhenX</a></li>
+					<li class="nav-item"><a href="/about/contact-form" class="nav-link">Contact</a></li>
+					<li class="nav-item"><a href="/cross-domain-browser" class="nav-link top-nav-highlight"><i class="fa fa-tree"></i> Tree</a></li>
+					<li class="nav-item"><a href="https://twitter.com/phenxtoolkit" class="nav-link" target="_blank"><i class="fa-brands fa-x-twitter"></i></a></li>
+					<li class="nav-item"><a href="https://www.youtube.com/channel/UCbDroMNmfIMwCA1fa3masyw" class="nav-link" target="_blank"><i class="fab fa-youtube"></i></a></li>
+					<li class="nav-item"><a href="https://bsky.app/profile/phenxtoolkit.bsky.social" class="nav-link" target="_blank"><i class="fa-brands fa-bluesky"></i></a></li>
+				</ul>
+				<div id="text-size-change">
+                    <div class="btn-group">
+                        <button type="button" id="font-minus" class="btn btn-phenx-bl btn-outline-light">Aa-</button>
+                        <button type="button" id="font-normal" class="btn btn-phenx-bl btn-outline-light">Aa</button>
+                        <button type="button" id="font-plus" class="btn btn-phenx-bl btn-outline-light">Aa+</button>
+                    </div>
+                </div>
+			</div>
+		</div>
+		<div id="searchbar" class="navbar desktop-only">
+            <div class="container">
+				<form method="get" accept-charset="utf-8" id="search-form" class="margin-bt-20" action="/search/results">					<div class="form-row align-items-center">
+						<div class="col">
+							<div class="form-group">
+								<div class="input-group">
+
+									<div class="input-group-prepend">
+										<div class="input-group-text"><b><label for="top-search-bar">Search: </label></b></div>
+									</div>
+
+									<input id="top-search-bar" type="text" class="form-control top-search" name="searchTerm" placeholder="Search all protocols in the Toolkit using keywords (e.g. diabetes) or PhenX ID (e.g. 011502)" value="">
+									<div class="input-group-append">
+										<button name="searchtype" class="btn btn-search" value="smartsearch" type="submit"><span class="display-none">Search</span><i class="fa fa-search"></i></button>									</div>
+									<div id="input-group--advanced">
+										<a href="/search" class="link-advanced">Advanced Search</a>									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>			</div>
+        </div>
+					<div id="page-header" class="navbar navbar-inverse desktop-only">
+			<div class="container flex justify-content-start">
+				<p>
+          								<p><a  href="/">Home</a> &raquo; <a  href="/protocols">Protocols</a> &raquo; Prenatal and Postpartum Depression</p>				</p>
+			</div>
+			</div>
+			</nav>	<div id="content-section" class="pb-3">
+
+		<div class="container" id="main-content">
+			<div class="min-height">
+						<!-- File: src/Template/Protocols/view.ctp -->
+
+
+
+
+<div class="row mb-2">
+    <div class="col">
+        <h1>Protocol - Prenatal and Postpartum Depression</h1>
+    </div>
+</div>
+
+<div class="row mb-3">
+	    <div class="col-md-3 col-sm-12" id="sidebar">
+		<div>
+				<div id="citation-text-sidebar">
+                    PhenX Toolkit. (2017). <em>Prenatal and Postpartum Depression</em>.  Retrieved November 10, 2026, from  <a style="word-break: break-all;" href="https://doi.org/10.82568/phenx_toolkit/241401">https://doi.org/10.82568/phenx_toolkit/241401</a>
+        	</div>
+    <br />
+    <div class="d-flex gap-2 citation-actions">
+    <button class="btn btn-outline-dark d-flex align-items-center justify-content-center citation-btn" title="Copy citation above into clipboard" onClick="copyToClip(document.getElementById('citation-text-sidebar').innerHTML, 'citation-text-sidebar-copy')"><i id="citation-text-sidebar-copy" class="fa-solid fa-copy"></i><span>Copy</span></button>
+    <button class="btn btn-outline-dark d-flex align-items-center justify-content-center citation-btn" title="Download .RIS file for Zotero" onClick='downloadRIS("241401", {"type":"ELEC","authors":"PhenX Toolkit","title":"Prenatal and Postpartum Depression","year":"2017","access_date":"November 10","url":"https:\/\/doi.org\/10.82568\/phenx_toolkit\/241401","doi":"10.82568\/phenx_toolkit\/241401"}, "citation-text-sidebar-ris")'><i id="citation-text-sidebar-ris" class="fa-solid fa-download"></i><span>Zotero</span></button>
+    <button class="btn btn-outline-dark d-flex align-items-center justify-content-center citation-btn citation-btn-endnote" title="Download .ENW file for Endnote" onClick='downloadENW("241401", {"type":"ELEC","authors":"PhenX Toolkit","title":"Prenatal and Postpartum Depression","year":"2017","access_date":"November 10","url":"https:\/\/doi.org\/10.82568\/phenx_toolkit\/241401","doi":"10.82568\/phenx_toolkit\/241401"}, "citation-text-sidebar-enw")'><i id="citation-text-sidebar-enw" class="fa-solid fa-download"></i><span>Endnote</span></button>
+</div>
+<br />
+		</div>
+		        <h6><label for="select-related-protocols"><b>Related Protocols:</b></label></h6>
+		<ul class="desktop-only list-group">
+					<li class="list-group-item"><a href="/protocols/view/640701">Aggression and Hostility</a></li>
+					<li class="list-group-item"><a href="/protocols/view/640101">Classification of Suicidal Ideation and Suicidal Behavior - Adolescent - Current</a></li>
+					<li class="list-group-item"><a href="/protocols/view/640104">Classification of Suicidal Ideation and Suicidal Behavior - Adolescent - Epidemiology</a></li>
+					<li class="list-group-item"><a href="/protocols/view/640102">Classification of Suicidal Ideation and Suicidal Behavior - Adolescent - Lifetime</a></li>
+					<li class="list-group-item"><a href="/protocols/view/640103">Classification of Suicidal Ideation and Suicidal Behavior - Adolescent - Since Last Visit</a></li>
+					<li class="list-group-item"><a href="/protocols/view/640105">Classification of Suicidal Ideation and Suicidal Behavior - Adult - Current</a></li>
+					<li class="list-group-item"><a href="/protocols/view/640108">Classification of Suicidal Ideation and Suicidal Behavior - Adult - Epidemiology</a></li>
+					<li class="list-group-item"><a href="/protocols/view/640106">Classification of Suicidal Ideation and Suicidal Behavior - Adult - Lifetime</a></li>
+					<li class="list-group-item"><a href="/protocols/view/640107">Classification of Suicidal Ideation and Suicidal Behavior - Adult - Since Last Visit</a></li>
+					<li class="list-group-item"><a href="/protocols/view/120503">Depression Screener - Adults</a></li>
+					<li class="list-group-item"><a href="/protocols/view/640601">Hopelessness - Adolescent</a></li>
+					<li class="list-group-item"><a href="/protocols/view/640602">Hopelessness - Adult</a></li>
+					<li class="list-group-item"><a href="/protocols/view/610101">Impairment - Adolescent</a></li>
+					<li class="list-group-item"><a href="/protocols/view/610102">Impairment - Adult</a></li>
+					<li class="list-group-item"><a href="/protocols/view/640801">Insomnia</a></li>
+					<li class="list-group-item"><a href="/protocols/view/211502">Life Events - Adult</a></li>
+					<li class="list-group-item"><a href="/protocols/view/211501">Life Events - Child</a></li>
+					<li class="list-group-item"><a href="/protocols/view/101301">Reproductive History - Female</a></li>
+					<li class="list-group-item"><a href="/protocols/view/101302">Reproductive History - Male</a></li>
+				</ul>
+		<form class="phone-only mb-2">
+			<select class="form-control" id="select-related-protocols">
+				<option>Select</option>
+									<option value="/protocols/view/640701">Aggression and Hostility</option>
+									<option value="/protocols/view/640101">Classification of Suicidal Ideation and Suicidal Behavior - Adolescent - Current</option>
+									<option value="/protocols/view/640104">Classification of Suicidal Ideation and Suicidal Behavior - Adolescent - Epidemiology</option>
+									<option value="/protocols/view/640102">Classification of Suicidal Ideation and Suicidal Behavior - Adolescent - Lifetime</option>
+									<option value="/protocols/view/640103">Classification of Suicidal Ideation and Suicidal Behavior - Adolescent - Since Last Visit</option>
+									<option value="/protocols/view/640105">Classification of Suicidal Ideation and Suicidal Behavior - Adult - Current</option>
+									<option value="/protocols/view/640108">Classification of Suicidal Ideation and Suicidal Behavior - Adult - Epidemiology</option>
+									<option value="/protocols/view/640106">Classification of Suicidal Ideation and Suicidal Behavior - Adult - Lifetime</option>
+									<option value="/protocols/view/640107">Classification of Suicidal Ideation and Suicidal Behavior - Adult - Since Last Visit</option>
+									<option value="/protocols/view/120503">Depression Screener - Adults</option>
+									<option value="/protocols/view/640601">Hopelessness - Adolescent</option>
+									<option value="/protocols/view/640602">Hopelessness - Adult</option>
+									<option value="/protocols/view/610101">Impairment - Adolescent</option>
+									<option value="/protocols/view/610102">Impairment - Adult</option>
+									<option value="/protocols/view/640801">Insomnia</option>
+									<option value="/protocols/view/211502">Life Events - Adult</option>
+									<option value="/protocols/view/211501">Life Events - Child</option>
+									<option value="/protocols/view/101301">Reproductive History - Female</option>
+									<option value="/protocols/view/101302">Reproductive History - Male</option>
+							</select>
+		</form>
+				        <h6><label for="select-essential-protocols"><b>Essential Protocols:</b></label></h6>
+		<ul class="desktop-only list-group">
+					<li class="list-group-item"><a href="/protocols/view/10102">Current Age</a></li>
+					<li class="list-group-item"><a href="/protocols/view/10903">Current Marital Status</a></li>
+					<li class="list-group-item"><a href="/protocols/view/11901">Ethnicity and Race</a></li>
+				</ul>
+		<form class="phone-only mb-2">
+			<select class="form-control" id="select-essential-protocols">
+				<option>Select</option>
+									<option value="/protocols/view/10102">Current Age</option>
+									<option value="/protocols/view/10903">Current Marital Status</option>
+									<option value="/protocols/view/11901">Ethnicity and Race</option>
+							</select>
+		</form>	
+		</ul>
+					</div>
+	<div class="col-md-9 col-sm-12">
+		<div class="toolbar clearfix">
+			<form method="post" accept-charset="utf-8" class="float-start mb-0" action="/protocols/download"><div style="display:none;"><input type="hidden" name="_csrfToken" autocomplete="off" value="78IwSlVa06bRlv2Q9nq2RtCwEwfIR8X51aY+NxhCDRRJkd9wWXIISLoPTtSTStlIw0iLkAgsrCpvzVim/UPGHwiaZNNoU7WO4Yl1Yqtw8pztkg1WK3Q7IH+h6kBtFz9w3m15tqN/un2gf7KpbByfGw=="/></div>				<div>
+					<a href="/toolkit/?add[]=241401" class="btn btn-phenx-or" style="float: left; margin-right: 10px;"><i class="fa fa-plus"></i> Add to My Toolkit</a>				
+					<input type="hidden" name="protocolid" value="241401"/>
+					<div class="dropdown div-inline">
+						<fieldset>
+						<legend class="display-none">Menu Functions</legend>
+						<button class="btn btn-phenx-lg-blue dropdown-toggle" type="button" data-bs-toggle="dropdown" style="margin-right: 5px;">
+							<i class="fa fa-download"></i> Download
+							<span class="caret"></span>
+						</button>
+						<ul class="dropdown-menu wider">
+															<li><input type="checkbox" id="download-pdf" name="docType[]" value="pdf" /> <label for="download-pdf">Data Collection Worksheet-English (PDF)</label></li> 
+															<li><input type="checkbox" id="download-dcw" name="docType[]" value="dcw" /> <label for="download-dcw">Data Collection Worksheet-English (Word)</label></li> 
+															<li><input type="checkbox" id="download-dd" name="docType[]" value="dd" /> <label for="download-dd">Data Dictionary (RTF)</label></li> 
+															<li><input type="checkbox" id="download-dd-csv" name="docType[]" value="dd-csv" /> <label for="download-dd-csv">Data Dictionary (CSV)</label></li> 
+															<li><input type="checkbox" id="download-redcap" name="docType[]" value="redcap" /> <label for="download-redcap">Data Dictionary (REDCap)</label></li> 
+														<li><button class="btn btn-phenx-lg-blue" onClick="useGtag(241401)" type="submit">Download</button></li>
+						</ul>
+						</fieldset>
+					</div>
+				</div>
+	    	</form>			<!-- Citation Button (also located in /toolkit) -->
+			<button class="btn btn-phenx-lg-blue" data-bs-toggle="modal" data-bs-target="#modal-citation" style="float: left; margin-right: 5px;"><i class="fa  fa-quote-left"></i> Cite This Protocol</button>
+			        </div>
+		<div class="card" id="card-right-content">
+			<div class="card-body card-body-tabs">
+				<ul class="nav nav-tabs" id="myTab" role="tablist">
+					<li class="nav-item">
+						<a class="nav-link active" id="tab1default" data-bs-toggle="tab" href="#tabprotocol" role="tab" aria-controls="tabprotocol" aria-selected="true"><font size="+1">Protocol</font></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" id="tab2default" data-bs-toggle="tab" href="#tabadministration" role="tab" aria-controls="tabadministration" aria-selected="true"><font size="+1">Administration</font></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" id="tab3default" data-bs-toggle="tab" href="#tabdetails" role="tab" aria-controls="tabdetails" aria-selected="true"><font size="+1">Details</font></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" id="tab4default" data-bs-toggle="tab" href="#tabsource" role="tab" aria-controls="tabsource" aria-selected="true"><font size="+1">Source</font></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" id="tab5default" data-bs-toggle="tab" href="#tabvariables" role="tab" aria-controls="tabvariables" aria-selected="true"><font size="+1">Variables</font></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" id="tab6default" data-bs-toggle="tab" href="#tabmeasure" role="tab" aria-controls="tabmeasure" aria-selected="true"><font size="+1">Measure</font></a>
+					</li>
+					<!--<li class="nav-item">
+                        <a class="nav-link" id="tab7default" data-bs-toggle="tab" href="#tabpublications" role="tab" aria-controls="tabpublications" aria-selected="true"><font size="+1">Publications</font></a>
+                    </li>-->
+				</ul>
+				<div class="tab-content" id="myTabContent">
+					<div class="tab-pane fade show active" id="tabprotocol" role="tabpanel" aria-labelledby="tab1default">
+                        <h5>Description</h5>
+                        <p><p>The Edinburgh Postnatal Depression Scale&#169; (EPDS) was developed to screen prenatal and postpartum women for the indication of depression. This 10-question self-report instrument is designed to screen for depression in the previous 7 days.</p></p>
+						
+						<h5>Specific Instructions</h5>
+                        <div class="full-instructions">
+                            <p>The Edinburgh Postnatal Depression Scale&#169; (EPDS) is a screening tool, and a clinical assessment should be performed to confirm diagnosis. The scale will not identify subjects with anxiety neuroses, phobias, or personality disorders.</p><p>The Working Group recommends this measure to screen for prenatal and postpartum depression. If the respondent scores 10 or more, it is strongly recommended that the investigator follow up with a complete clinical assessment.</p><p>Contained in this instrument may be questions about thoughts of suicide. If using this protocol, please inform your Institutional Review Boards of these questions and institute a plan of action for dealing with suicidal thoughts in your respondent. It may be necessary to create a separate protocol for immediate action and/or referral.</p><p>Users may reproduce the scale without further permission, providing they respect copyright by quoting the names of the authors, the title, and the source of the paper in all reproduced copies.</p>						</div>
+
+						<h5>Availability</h5>
+                        <p><a href="/protocols/view/241401#tabsource">This protocol is freely available; permission not required for use.</a></p>						
+						<div class="phone-only">
+							                            <p><a href="/toolkit_content/PDF/PX241401.pdf"><i class="fa fa-3x fa-file-pdf"></i> Download PDF</a></p>
+													</div>
+						
+                        <h5>Protocol</h5>
+                        <div class="full-protocol desktop-only">
+							                            <p>Instructions for Users</p> <p>1. The mother is asked to underline 1 of 4 possible responses that comes the closest to how she has been feeling the previous 7 days.</p> <p>2. All 10 items must be completed.</p> <p>3. Care should be taken to avoid the possibility of the mother discussing her answers with others.</p> <p>4. The mother should complete the scale herself, unless she has limited English or has difficulty with reading.</p> <p>As you have recently had a baby, we would like to know how you are feeling. Please CHECK the answer which comes closest to how you have felt IN THE PAST 7 DAYS, not just how you feel today.</p> <p>Here is an example, already completed.</p> <p>I have felt happy:</p> <p class="ms-4">[ ] Yes, all the time</p> <p class="ms-4">[X] Yes, most of the time</p> <p class="ms-4">[ ] No, not very often</p> <p class="ms-4">[ ] No, not at all</p> <p>This would mean: "I have felt happy most of the time" during the past week. Please complete the other questions in the same way.</p> <p>In the past 7 days:</p> <p>1. I have been able to laugh and see the funny side of things</p> <p class="ms-4">[ ] As much as I always could</p> <p class="ms-4">[ ] Not quite so much now</p> <p class="ms-4">[ ] Definitely not so much now</p> <p class="ms-4">[ ] Not at all</p> <p>2. I have looked forward with enjoyment to things</p> <p class="ms-4">[ ] As much as I ever did</p> <p class="ms-4">[ ] Rather less than I used to</p> <p class="ms-4">[ ] Definitely less than I used to</p> <p class="ms-4">[ ] Hardly at all</p> <p>3. I have blamed myself unnecessarily when things went wrong</p> <p class="ms-4">[ ] Yes, most of the time</p> <p class="ms-4">[ ] Yes, some of the time</p> <p class="ms-4">[ ] Not very often</p> <p class="ms-4">[ ] No, never</p> <p>4. I have been anxious or worried for no good reason</p> <p class="ms-4">[ ] No, not at all</p> <p class="ms-4">[ ] Hardly ever</p> <p class="ms-4">[ ] Yes, sometimes</p> <p class="ms-4">[ ] Yes, very often</p> <p>5. I have felt scared or panicky for no very good reason</p> <p class="ms-4">[ ] Yes, quite a lot</p> <p class="ms-4">[ ] Yes, sometimes</p> <p class="ms-4">[ ] No, not much</p> <p class="ms-4">[ ] No, not at all</p> <p>6. Things have been getting on top of me</p> <p class="ms-4">[ ] Yes, most of the time I haven&#8217;t been able to cope at all</p> <p class="ms-4">[ ] Yes, sometimes I haven&#8217;t been coping as well as usual</p> <p class="ms-4">[ ] No, most of the time I have coped quite well</p> <p class="ms-4">[ ] No, have been coping as well as ever</p> <p>7. I have been so unhappy that I have had difficulty sleeping</p> <p class="ms-4">[ ] Yes, most of the time</p> <p class="ms-4">[ ] Yes, sometimes</p> <p class="ms-4">[ ] Not very often</p> <p class="ms-4">[ ] No, not at all</p> <p>8. I have felt sad or miserable</p> <p class="ms-4">[ ] Yes, most of the time</p> <p class="ms-4">[ ] Yes, quite often</p> <p class="ms-4">[ ] Not very often</p> <p class="ms-4">[ ] No, not at all</p> <p>9 I have been so unhappy that I have been crying</p> <p class="ms-4">[ ] Yes, most of the time</p> <p class="ms-4">[ ] Yes, quite often</p> <p class="ms-4">[ ] Only occasionally</p> <p class="ms-4">[ ] No, never</p> <p>10. The thought of harming myself has occurred to me</p> <p class="ms-4">[ ] Yes, quite often</p> <p class="ms-4">[ ] Sometimes</p> <p class="ms-4">[ ] Hardly ever</p> <p class="ms-4">[ ] Never</p><p>Administered/Reviewed by __________________ Date ________________</p> <p><strong>SCORING</strong></p> <p>QUESTIONS 1, 2 &amp; 4 are scored 0, 1, 2 or 3 with top box scored as 0 and the bottom box scored as 3.</p> <p>QUESTIONS 3, 5-10 are reverse scored, with the top box scored as a 3 and the bottom box scored as 0.</p> <p>Maximum score: 30</p> <p>Possible Depression: 10 or greater</p> <p>Always look at item 10 (suicidal thoughts)</p>													</div>
+						
+					</div>
+					<div class="tab-pane fade" id="tabadministration" role="tabpanel" aria-labelledby="tab2default">
+						<h5>Personnel and Training Required</h5>
+						<p>None</p>                        <h5>Equipment Needs</h5>
+                        <p>None</p>
+                        <h5>Requirements</h5>
+						<table class="table table-bordered">
+							<tr>
+								<th nowrap>Requirement Category</th><th nowrap>Required</th>
+							</tr>
+														<tr>
+								<td>Major equipment</td>
+								<td> 
+																		No
+										
+								</td>
+							</tr>
+														<tr>
+								<td>Specialized training</td>
+								<td> 
+																		No
+										
+								</td>
+							</tr>
+														<tr>
+								<td>Specialized requirements for biospecimen collection</td>
+								<td> 
+																		No
+										
+								</td>
+							</tr>
+														<tr>
+								<td>Average time of greater than 15 minutes in an unaffected individual</td>
+								<td> 
+																		No
+										
+								</td>
+							</tr>
+													</table>
+
+                        <h5>Mode of Administration</h5>
+                        <p>Self-administered questionnaire</p>
+
+                        <h5>Lifestage</h5>
+                        <p>Adolescent, Adult, Pregnancy</p>
+						
+												<h5>Participants</h5>
+                        <p><p>A woman who is pregnant or has recently given birth</p></p>
+											</div>
+					<div class="tab-pane fade" id="tabdetails" role="tabpanel" aria-labelledby="tab3default">
+						<h5>Selection Rationale</h5>
+                        <p><p>This is one of the most widely used, validated self-report instruments to screen for depression during and after pregnancy.</p></p>
+
+                        <h5>Language</h5>
+                        <p>English, Other languages available at source</p>
+                        <h5>Standards</h5>
+                        <table class="table table-bordered">
+							<tr>
+								<th nowrap>Standard</th><th nowrap>Name</th><th nowrap>ID</th><th nowrap>Source</th>
+							</tr>
+																																		<tr>
+											<td>Human Phenotype Ontology</td>
+											<td>Depression</td>
+											<td>HP:0000716</td>
+											<td><a href="https://hpo.jax.org/app/browse/term/HP:0000716" target="_blank">HPO</a></td>
+										</tr>
+																																									<tr>
+										<td>caDSR Form</td>
+										<td>PhenX PX241401 - Prenatal And Postpartum Depression</td>
+										<td>6873261</td>
+										<td><a href="https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/FRMDD?filter=FRMDD.ITEM_ID=6873261%20and%20ver_nr=1" target="_blank">caDSR Form</a></td>
+									</tr>
+																					</table>
+						
+						<h5>Derived Variables</h5>
+                        <p><p>None</p></p>
+                        
+                        <h5>Process and Review</h5>
+                       	<p><p>Not applicable.</p></p>
+					</div>
+					<div class="tab-pane fade" id="tabsource" role="tabpanel" aria-labelledby="tab4default">
+						<h5>Protocol Name from Source</h5>
+                        <p>The Edinburgh Postnatal Depression Scale&copy; (EPDS)</p>
+												<h5>Source</h5>
+                        <p>Cox, J. L., Holden, J. M., &amp; Sagovsky, R. (1987). Detection of postnatal depression: Development of the 10-item Edinburgh Postnatal Depression Scale. <i>British Journal of Psychiatry,</i> <i>150,</i> 782-786.</p><p>Wisner, K. L., Parry, B. L., &amp; Piontek, C. M. (2002). Postpartum depression. <i>New England Journal of Medicine,</i> <i>347</i>(3), 194-199.</p>						                        <h5>General References</h5>
+                        <p>American College of Obstetricians and Gynecologists. (2008). <i>Perinatal depression screening: Tools for obstetrician-gynecologists. </i>Albany, NY: Author. http://mail.ny.acog.org/website/DepressionToolKit.pdf</p><p>American Psychiatric Association. (2000). <i>Diagnostic and statistical manual of mental disorders: DSM-IV-TR</i>. Washington, DC: Author.</p><p>Committee on Obstetric Practice. (2015). American College of Obstetricians and Gynecologists. Committee Opinion no. 630. Screening for perinatal depression. <i>Obstetrics and Gynecology</i>, <i>125,</i> 1268-1271.</p><p>Garcia-Esteve, L., Ascaso, C., Ojuel, J., &amp; Navarro, P. (2003). Validation of the Edinburgh Postnatal Depression Scale (EPDS) in Spanish mothers. <i>Journal of Affective Disorders, 75</i>(1), 71-76.</p>					</div>
+					<div class="tab-pane fade" id="tabvariables" role="tabpanel" aria-labelledby="tab5default">
+						<h5>Protocol ID</h5>
+                        <p>241401</p>
+
+                        <h5>Variables</h5>
+						<a href="/protocols/export/241401" class="btn btn-outline-dark"><i class="fa fa-download"></i> Export Variables</a>                        <table class="table table-bordered mt-2">
+							<tr>
+								<th class="table-head-variable-name">Variable Name</th>
+								<th>Variable ID</th><th>Variable Description</th><th>dbGaP Mapping</th>
+							</tr>
+															<tr>
+									<td colspan=5 class="table-row-variable-name">PX241401_Prenatal_Postpartum_Depression_Anxiety_Worry</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td>PX241401040000</td>
+																			<td>I have been anxious or worried for no good reason</td>
+																												<td>N/A</td>
+																	</tr>
+															<tr>
+									<td colspan=5 class="table-row-variable-name">PX241401_Prenatal_Postpartum_Depression_Blame</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td>PX241401030000</td>
+																			<td>I have blamed myself unnecessarily when <a id="15947-ellipse" class="show-more-ellipses" href="" onclick="return false">more</a>
+											<div id="toggles-15947" class="hide-content">
+												things went wrong <a id="15947-show-less" class="show-less" href="" onclick="return false">show less</a>
+											</div>
+										</td>
+																												<td>N/A</td>
+																	</tr>
+															<tr>
+									<td colspan=5 class="table-row-variable-name">PX241401_Prenatal_Postpartum_Depression_Enjoyment</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td>PX241401020000</td>
+																			<td>I have looked forward with enjoyment to things</td>
+																												<td>N/A</td>
+																	</tr>
+															<tr>
+									<td colspan=5 class="table-row-variable-name">PX241401_Prenatal_Postpartum_Depression_Laugh_Funny</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td>PX241401010000</td>
+																			<td>I have been able to laugh and see the funny <a id="15945-ellipse" class="show-more-ellipses" href="" onclick="return false">more</a>
+											<div id="toggles-15945" class="hide-content">
+												side of things <a id="15945-show-less" class="show-less" href="" onclick="return false">show less</a>
+											</div>
+										</td>
+																												<td>N/A</td>
+																	</tr>
+															<tr>
+									<td colspan=5 class="table-row-variable-name">PX241401_Prenatal_Postpartum_Depression_Overwhelmed</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td>PX241401060000</td>
+																			<td>Things have been getting on top of me</td>
+																												<td>N/A</td>
+																	</tr>
+															<tr>
+									<td colspan=5 class="table-row-variable-name">PX241401_Prenatal_Postpartum_Depression_Sad_Miserable</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td>PX241401080000</td>
+																			<td>I have felt sad or miserable</td>
+																												<td>N/A</td>
+																	</tr>
+															<tr>
+									<td colspan=5 class="table-row-variable-name">PX241401_Prenatal_Postpartum_Depression_Scared_Panicky</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td>PX241401050000</td>
+																			<td>I have felt scared or panicky for no very <a id="15949-ellipse" class="show-more-ellipses" href="" onclick="return false">more</a>
+											<div id="toggles-15949" class="hide-content">
+												good reason <a id="15949-show-less" class="show-less" href="" onclick="return false">show less</a>
+											</div>
+										</td>
+																												<td>N/A</td>
+																	</tr>
+															<tr>
+									<td colspan=5 class="table-row-variable-name">PX241401_Prenatal_Postpartum_Depression_Self_Harm</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td>PX241401100000</td>
+																			<td>The thought of harming myself has occurred to me</td>
+																												<td>N/A</td>
+																	</tr>
+															<tr>
+									<td colspan=5 class="table-row-variable-name">PX241401_Prenatal_Postpartum_Depression_Unhappy_Affect_Sleep</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td>PX241401070000</td>
+																			<td>I have been so unhappy that I have had <a id="15951-ellipse" class="show-more-ellipses" href="" onclick="return false">more</a>
+											<div id="toggles-15951" class="hide-content">
+												difficulty sleeping <a id="15951-show-less" class="show-less" href="" onclick="return false">show less</a>
+											</div>
+										</td>
+																												<td>N/A</td>
+																	</tr>
+															<tr>
+									<td colspan=5 class="table-row-variable-name">PX241401_Prenatal_Postpartum_Depression_Unhappy_Crying</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td>PX241401090000</td>
+																			<td>I have been so unhappy that I have been crying</td>
+																												<td>N/A</td>
+																	</tr>
+													</table>
+					</div>
+					<div class="tab-pane fade" id="tabmeasure" role="tabpanel" aria-labelledby="tab6default">
+													<a href="/domains/view/240000" class="btn btn-outline-dark float-end"><i class="fa fa-link"></i> Pregnancy</a>												<h5>Measure Name</h5>
+                        <p>Prenatal and Postpartum Depression</p>
+						
+						<h5>Release Date</h5>
+						                        <p>January 31, 2017</p>
+						
+                        <h5>Definition</h5>
+                        <p><p>This measure is a questionnaire that can be used to screen for recent symptoms of depression, including perinatal and postnatal depression. There are 10 questions to assess a mother&#8217;s postnatal depression in the previous 7 days.</p></p>
+						
+                        <h5>Purpose</h5>
+                        <p><p>Nearly 15% of new moms suffer major depression, and up to 80% experience the "baby blues." A depression screening tool helps health care providers assess women for symptoms of depression before and after their pregnancy.</p></p>
+						
+						<h5>Keywords</h5>
+                        <p>pregnancy, depression, maternal depression, antenatal, postpartum, suicide, Edinburgh Postnatal Depression Scale&#169;, EPDS</p>
+                        <h5>Measure Protocols</h5>
+						<table class="table table-bordered">
+							<thead>
+								<tr>
+									<th>Protocol ID</th>
+									<th>Protocol Name</th>
+								</tr>
+							</thead>
+							<tbody>
+																<tr>
+									<td>241401</td>
+									<td>
+									Prenatal and Postpartum Depression									</td>
+								</tr>
+															</tbody>
+						</table>
+					</div>
+					<!--<div class="tab-pane fade" id="tabpublications" role="tabpanel" aria-labelledby="tab7default">
+                        <h5>Publications</h5>
+                                                                            <p>There are no publications listed for this protocol.</p>
+                                            </div> -->
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+											
+
+<!-- Modal -->
+<div class="modal fade" id="modal-large-image" tabindex="-1" role="dialog" aria-labelledby="modal-large-image-label" aria-hidden="true">
+	<div class="modal-dialog modal-lg" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="modal-large-image-label">View Image</h5>
+				<button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+				  <span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<img class="modal-full-src" width="600px" src="" alt="View Image" />
+			</div>
+			<div class="modal-footer">
+			</div>
+		</div>
+	</div>
+</div>
+
+	
+
+<!-- Citation Modal (also located in /toolkit) -->
+<div class="modal fade" id="modal-citation" tabindex="-1" role="dialog" aria-labelledby="modal-citation-label" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="modal-citation-label">Cite This Protocol</h5>
+				<button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div style="font-size: 16px;" class="modal-body">
+				<p>Click the <strong>Copy</strong> button to copy the citation.</p>
+				<p>Click the <strong>Zotero</strong> or <strong>Endnote</strong> buttons to download the citation in a format that can be imported into an external citation manager.</p>
+				<div class="d-flex gap-2 citation-actions">
+    <button class="btn btn-outline-dark d-flex align-items-center justify-content-center citation-btn" title="Copy citation above into clipboard" onClick="copyToClip(document.getElementById('citation-text-modal').innerHTML, 'citation-text-modal-copy')"><i id="citation-text-modal-copy" class="fa-solid fa-copy"></i><span>Copy</span></button>
+    <button class="btn btn-outline-dark d-flex align-items-center justify-content-center citation-btn" title="Download .RIS file for Zotero" onClick='downloadRIS("241401", {"type":"ELEC","authors":"PhenX Toolkit","title":"Prenatal and Postpartum Depression","year":"2017","access_date":"November 10","url":"https:\/\/doi.org\/10.82568\/phenx_toolkit\/241401","doi":"10.82568\/phenx_toolkit\/241401"}, "citation-text-modal-ris")'><i id="citation-text-modal-ris" class="fa-solid fa-download"></i><span>Zotero</span></button>
+    <button class="btn btn-outline-dark d-flex align-items-center justify-content-center citation-btn citation-btn-endnote" title="Download .ENW file for Endnote" onClick='downloadENW("241401", {"type":"ELEC","authors":"PhenX Toolkit","title":"Prenatal and Postpartum Depression","year":"2017","access_date":"November 10","url":"https:\/\/doi.org\/10.82568\/phenx_toolkit\/241401","doi":"10.82568\/phenx_toolkit\/241401"}, "citation-text-modal-enw")'><i id="citation-text-modal-enw" class="fa-solid fa-download"></i><span>Endnote</span></button>
+</div>
+<br />
+<div class="form-control" style="background-color: rgb(235, 236, 240); border-radius: 12px; color: #000;">
+	<div id="citation-text-modal">
+                    PhenX Toolkit. (2017). <em>Prenatal and Postpartum Depression</em>.  Retrieved November 10, 2026, from  <a style="word-break: break-all;" href="https://doi.org/10.82568/phenx_toolkit/241401">https://doi.org/10.82568/phenx_toolkit/241401</a>
+        	</div>
+</div>
+			</div>
+			<div style="font-size: 16px; justify-content: flex-start" class="modal-footer">
+				To cite multiple protocols, use the feature in My Toolkit.
+			</div>
+		</div>
+	</div>
+</div>	
+<script>
+	$(document).ready(function(){
+		$("[data-bs-target='#modal-citation']").on('click', function(){
+			var ids = "241401";
+			$.ajax({
+				url: "/toolkit/recordCitation",
+				data: {"event": "cite protocol", "ids": ids},
+				dataType: "json",
+				success: function(data) {
+				}
+			});
+		});
+	});
+</script>
+
+<script>
+	function useGtag(protocol){
+		$.each($(".dropdown-menu input:checked"), function(key, value){
+			gtag('event', 'download', {'event_category': 'PDF','event_action': 'download','event_label': 'protocols_'+protocol+'_'+value.id});
+		});
+	}
+</script>
+			</div>
+        </div>
+    </div>
+     <footer class="footer-dark">
+    	<div class="container">
+				<div class="row g-0">
+					<div class="col-md-3">
+						<p class="text-center pt-2">Maintained by <a href="https://rti.org" target="blank">RTI International</a></p>
+					</div>
+					<div class="col-md-6">
+						<p class="text-center pt-2"><a href="/">Home</a> | <a href="/toolkit">My Toolkit</a> | <a href="/about/contact-form">Contact Us</a> | <a href="/about/funding">Funding</a></p>
+					</div>
+					<div class="col-md-3">
+													<p class="text-center pt-2"><a href="/about/releases">September 30, 2026, Ver 49.4</a></p>
+											</div>
+				</div>
+		</div>
+    </footer>
+	<script src="/js/popper.min.js?v="></script>	<script src="/js/bootstrap.min.js?v="></script>	<script src="/js/ie10-viewport-bug-workaround.js"></script>	<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>	<script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script>	<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>	<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script>	<script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.2.20171210/classList.min.js"></script>	<script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.3.8/jstree.min.js"></script>	<script src="/js/isotope.pkgd.min.js?v="></script>		<script src="/js/chosen/prism.js"></script>  	<script src="/js/chosen/init.js"></script>	<script src="/js/site-v27.js?v="></script>	
+	</body>
+</html>

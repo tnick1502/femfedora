@@ -1,0 +1,54 @@
+[project]
+name = "emo-core"
+version = "0.1.0"
+description = "Изолированное многопользовательское ядро эмоциональной поддержки"
+authors = [{name = "EMO Core maintainers"}]
+readme = "README.md"
+requires-python = ">=3.12,<3.15"
+dynamic = ["dependencies"]
+
+[project.scripts]
+emo-config = "emo_core.cli:main"
+
+[tool.poetry]
+packages = [{include = "emo_core"}]
+include = ["emo_core/policies/**/*", "emo_core/questionnaires/*", "demo/*"]
+
+[tool.poetry.dependencies]
+python = ">=3.12,<3.15"
+fastapi = ">=0.115,<1"
+uvicorn = {version = ">=0.34,<1", extras = ["standard"]}
+pydantic-settings = ">=2.7,<3"
+sqlalchemy = {version = ">=2.0.36,<3", extras = ["asyncio"]}
+asyncpg = ">=0.30,<1"
+alembic = ">=1.14,<2"
+httpx = ">=0.28,<1"
+pyjwt = {version = ">=2.10,<3", extras = ["crypto"]}
+cryptography = ">=43,<51"
+python-dotenv = ">=1.0,<2"
+pyyaml = ">=6.0.2,<7"
+typesafe-sdk = ">=0.1,<1"
+
+[tool.poetry.group.dev.dependencies]
+pytest = ">=8.3,<10"
+pytest-asyncio = ">=0.25,<2"
+aiosqlite = ">=0.20,<1"
+ruff = ">=0.9,<1"
+
+[build-system]
+requires = ["poetry-core>=2.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+testpaths = ["tests"]
+markers = ["postgres: requires TEST_DATABASE_URL pointing to an isolated PostgreSQL database"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "ASYNC"]
+ignore = ["E501", "B008"]

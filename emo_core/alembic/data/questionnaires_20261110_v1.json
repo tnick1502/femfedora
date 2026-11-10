@@ -1,0 +1,793 @@
+[
+  {
+    "code": "GAD2",
+    "version": "ru-russia-pfizer-2026-11-10-v1",
+    "language": "ru",
+    "enabled": true,
+    "license_reference": "https://www.phqscreeners.com/images/sites/g/files/g10016261/f/201412/instructions.pdf#page=8",
+    "definition": {
+      "title": "GAD-2 · Краткая оценка тревоги",
+      "instructions": "Как часто Вас за последние 14 дней беспокоили следующие проблемы?",
+      "timeframe_days": 14,
+      "items": [
+        {
+          "id": "1",
+          "text": "Вы нервничали, тревожились или испытывали сильный стресс",
+          "options": [
+            "Ни разу",
+            "Несколько дней",
+            "Более недели",
+            "Почти каждый день"
+          ],
+          "score_map": [
+            0,
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "id": "2",
+          "text": "Вы были неспособны успокоиться или контролировать свое волнение",
+          "options": [
+            "Ни разу",
+            "Несколько дней",
+            "Более недели",
+            "Почти каждый день"
+          ],
+          "score_map": [
+            0,
+            1,
+            2,
+            3
+          ]
+        }
+      ],
+      "auxiliary_items": [],
+      "expected_item_count": 2,
+      "source_review_status": "verified",
+      "source_reviewed_at": "2026-11-10",
+      "source_review_reference": "docs/questionnaires/RESEARCH.md#gad2",
+      "clinical_review_status": "not_performed",
+      "validation_note": "Использован опубликованный русский бланк Pfizer для России. Исследования русских переводов существуют; эквивалентность именно этого текста их выборкам и перинатальная точность порогов отдельно не установлены.",
+      "limitations": "Самооценка симптомов, не диагноз. Интернет-сверка текстов и ключа не является клинической валидацией приложения. Порог не подтверждает и не исключает заболевание; при беспокоящем состоянии можно обратиться к специалисту при любом балле.",
+      "attribution": "Разработано Robert L. Spitzer, Janet B.W. Williams, Kurt Kroenke и коллегами при поддержке образовательного гранта Pfizer Inc. Воспроизведение, перевод, показ и распространение разрешены (подпись на русском бланке; руководство, с. 8).",
+      "references": [
+        {
+          "kind": "wording",
+          "title": "GAD-7 Russian for Russia · бланк Pfizer, Project TEACH",
+          "url": "https://projectteachny.org/app/uploads/2022/07/GAD7_Russian-for-Russia.pdf",
+          "source_file": "docs/questionnaires/sources/gad7_ru.pdf",
+          "sha256": "c8a7ac7f911ca1930d56b556abc88b7ed6443a7b0bb61a84ddf041895e6199a9",
+          "pages": "1"
+        },
+        {
+          "kind": "scoring",
+          "title": "PHQ / GAD: руководство авторов",
+          "url": "https://www.phqscreeners.com/images/sites/g/files/g10016261/f/201412/instructions.pdf",
+          "source_file": "docs/questionnaires/sources/phq_gad_manual.pdf",
+          "sha256": "6ed2f00f97e438c1168cd702d38d31fc923031445c720653005f138aa424228a",
+          "pages": "2–3, 6–8"
+        }
+      ],
+      "usage": "standard",
+      "usage_note": "Добровольная самооценка.",
+      "derivation": "Первые два пункта русского GAD-7; руководство авторов, с. 3, 6–7."
+    },
+    "scoring_rules": {
+      "version": "source-scoring-2026-11-10-v1",
+      "method": "sum_of_item_score_maps",
+      "minimum": 0,
+      "maximum": 6,
+      "thresholds": [
+        {
+          "minimum": 0,
+          "maximum": 2,
+          "code": "below_followup_threshold",
+          "label": "Ниже порога следующего шага"
+        },
+        {
+          "minimum": 3,
+          "maximum": 6,
+          "code": "followup_suggested",
+          "label": "Стоит уточнить тревожные симптомы"
+        }
+      ],
+      "followup_score": 3,
+      "interpretation_authority": "published_source_guidance",
+      "interpretation_note": "Самооценка симптомов, не диагноз. Интернет-сверка текстов и ключа не является клинической валидацией приложения. Порог не подтверждает и не исключает заболевание; при беспокоящем состоянии можно обратиться к специалисту при любом балле.",
+      "safety_items": [],
+      "source_references": [
+        "https://www.phqscreeners.com/images/sites/g/files/g10016261/f/201412/instructions.pdf"
+      ]
+    }
+  },
+  {
+    "code": "GAD7",
+    "version": "ru-russia-pfizer-2026-11-10-v1",
+    "language": "ru",
+    "enabled": true,
+    "license_reference": "https://www.phqscreeners.com/images/sites/g/files/g10016261/f/201412/instructions.pdf#page=8",
+    "definition": {
+      "title": "GAD-7 · Оценка тревожных симптомов",
+      "instructions": "Как часто Вас за последние 14 дней беспокоили следующие проблемы?",
+      "timeframe_days": 14,
+      "items": [
+        {
+          "id": "1",
+          "text": "Вы нервничали, тревожились или испытывали сильный стресс",
+          "options": [
+            "Ни разу",
+            "Несколько дней",
+            "Более недели",
+            "Почти каждый день"
+          ],
+          "score_map": [
+            0,
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "id": "2",
+          "text": "Вы были неспособны успокоиться или контролировать свое волнение",
+          "options": [
+            "Ни разу",
+            "Несколько дней",
+            "Более недели",
+            "Почти каждый день"
+          ],
+          "score_map": [
+            0,
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "id": "3",
+          "text": "Вы слишком сильно волновались по различным поводам",
+          "options": [
+            "Ни разу",
+            "Несколько дней",
+            "Более недели",
+            "Почти каждый день"
+          ],
+          "score_map": [
+            0,
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "id": "4",
+          "text": "Вам было трудно расслабиться",
+          "options": [
+            "Ни разу",
+            "Несколько дней",
+            "Более недели",
+            "Почти каждый день"
+          ],
+          "score_map": [
+            0,
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "id": "5",
+          "text": "Вы были настолько суетливы, что Вам было тяжело усидеть на месте",
+          "options": [
+            "Ни разу",
+            "Несколько дней",
+            "Более недели",
+            "Почти каждый день"
+          ],
+          "score_map": [
+            0,
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "id": "6",
+          "text": "Вы легко злились или раздражались",
+          "options": [
+            "Ни разу",
+            "Несколько дней",
+            "Более недели",
+            "Почти каждый день"
+          ],
+          "score_map": [
+            0,
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "id": "7",
+          "text": "Вы испытывали страх, словно должно произойти нечто ужасное",
+          "options": [
+            "Ни разу",
+            "Несколько дней",
+            "Более недели",
+            "Почти каждый день"
+          ],
+          "score_map": [
+            0,
+            1,
+            2,
+            3
+          ]
+        }
+      ],
+      "auxiliary_items": [],
+      "expected_item_count": 7,
+      "source_review_status": "verified",
+      "source_reviewed_at": "2026-11-10",
+      "source_review_reference": "docs/questionnaires/RESEARCH.md#gad7",
+      "clinical_review_status": "not_performed",
+      "validation_note": "Использован опубликованный русский бланк Pfizer для России. Исследования русских переводов существуют; эквивалентность именно этого текста их выборкам и перинатальная точность порогов отдельно не установлены.",
+      "limitations": "Самооценка симптомов, не диагноз. Интернет-сверка текстов и ключа не является клинической валидацией приложения. Порог не подтверждает и не исключает заболевание; при беспокоящем состоянии можно обратиться к специалисту при любом балле.",
+      "attribution": "Разработано Robert L. Spitzer, Janet B.W. Williams, Kurt Kroenke и коллегами при поддержке образовательного гранта Pfizer Inc. Воспроизведение, перевод, показ и распространение разрешены (подпись на русском бланке; руководство, с. 8).",
+      "references": [
+        {
+          "kind": "wording",
+          "title": "GAD-7 Russian for Russia · бланк Pfizer, Project TEACH",
+          "url": "https://projectteachny.org/app/uploads/2022/07/GAD7_Russian-for-Russia.pdf",
+          "source_file": "docs/questionnaires/sources/gad7_ru.pdf",
+          "sha256": "c8a7ac7f911ca1930d56b556abc88b7ed6443a7b0bb61a84ddf041895e6199a9",
+          "pages": "1"
+        },
+        {
+          "kind": "scoring",
+          "title": "PHQ / GAD: руководство авторов",
+          "url": "https://www.phqscreeners.com/images/sites/g/files/g10016261/f/201412/instructions.pdf",
+          "source_file": "docs/questionnaires/sources/phq_gad_manual.pdf",
+          "sha256": "6ed2f00f97e438c1168cd702d38d31fc923031445c720653005f138aa424228a",
+          "pages": "2–3, 6–8"
+        }
+      ],
+      "usage": "standard",
+      "usage_note": "Добровольная самооценка.",
+      "derivation": null
+    },
+    "scoring_rules": {
+      "version": "source-scoring-2026-11-10-v1",
+      "method": "sum_of_item_score_maps",
+      "minimum": 0,
+      "maximum": 21,
+      "thresholds": [
+        {
+          "minimum": 0,
+          "maximum": 4,
+          "code": "minimal",
+          "label": "Минимальная выраженность тревожных симптомов"
+        },
+        {
+          "minimum": 5,
+          "maximum": 9,
+          "code": "mild",
+          "label": "Лёгкая выраженность тревожных симптомов"
+        },
+        {
+          "minimum": 10,
+          "maximum": 14,
+          "code": "moderate",
+          "label": "Умеренная выраженность тревожных симптомов"
+        },
+        {
+          "minimum": 15,
+          "maximum": 21,
+          "code": "severe",
+          "label": "Высокая выраженность тревожных симптомов"
+        }
+      ],
+      "followup_score": 10,
+      "interpretation_authority": "published_source_guidance",
+      "interpretation_note": "Самооценка симптомов, не диагноз. Интернет-сверка текстов и ключа не является клинической валидацией приложения. Порог не подтверждает и не исключает заболевание; при беспокоящем состоянии можно обратиться к специалисту при любом балле.",
+      "safety_items": [],
+      "source_references": [
+        "https://www.phqscreeners.com/images/sites/g/files/g10016261/f/201412/instructions.pdf"
+      ]
+    }
+  },
+  {
+    "code": "PHQ9",
+    "version": "ru-russia-pfizer-2026-11-10-v1",
+    "language": "ru",
+    "enabled": true,
+    "license_reference": "https://www.phqscreeners.com/images/sites/g/files/g10016261/f/201412/instructions.pdf#page=8",
+    "definition": {
+      "title": "PHQ-9 · Оценка депрессивных симптомов",
+      "instructions": "Как часто за последние 2 недели Вас беспокоили следующие проблемы?",
+      "timeframe_days": 14,
+      "items": [
+        {
+          "id": "1",
+          "text": "Вам не хотелось ничего делать",
+          "options": [
+            "Ни разу",
+            "Несколько дней",
+            "Более недели",
+            "Почти каждый день"
+          ],
+          "score_map": [
+            0,
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "id": "2",
+          "text": "У Вас было плохое настроение, Вы были подавлены или испытывали чувство безысходности",
+          "options": [
+            "Ни разу",
+            "Несколько дней",
+            "Более недели",
+            "Почти каждый день"
+          ],
+          "score_map": [
+            0,
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "id": "3",
+          "text": "Вам было трудно заснуть, у Вас был прерывистый сон, или Вы слишком много спали",
+          "options": [
+            "Ни разу",
+            "Несколько дней",
+            "Более недели",
+            "Почти каждый день"
+          ],
+          "score_map": [
+            0,
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "id": "4",
+          "text": "Вы были утомлены, или у Вас было мало сил",
+          "options": [
+            "Ни разу",
+            "Несколько дней",
+            "Более недели",
+            "Почти каждый день"
+          ],
+          "score_map": [
+            0,
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "id": "5",
+          "text": "У Вас был плохой аппетит, или Вы переедали",
+          "options": [
+            "Ни разу",
+            "Несколько дней",
+            "Более недели",
+            "Почти каждый день"
+          ],
+          "score_map": [
+            0,
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "id": "6",
+          "text": "Вы плохо о себе думали: считали себя неудачником (неудачницей), или были в себе разочарованы, или считали, что подвели свою семью",
+          "options": [
+            "Ни разу",
+            "Несколько дней",
+            "Более недели",
+            "Почти каждый день"
+          ],
+          "score_map": [
+            0,
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "id": "7",
+          "text": "Вам было трудно сосредоточиться (например, на чтении газеты или на просмотре телепередач)",
+          "options": [
+            "Ни разу",
+            "Несколько дней",
+            "Более недели",
+            "Почти каждый день"
+          ],
+          "score_map": [
+            0,
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "id": "8",
+          "text": "Вы двигались или говорили настолько медленно, что окружающие это замечали? Или, наоборот, Вы были настолько суетливы или взбудоражены, что двигались гораздо больше обычного",
+          "options": [
+            "Ни разу",
+            "Несколько дней",
+            "Более недели",
+            "Почти каждый день"
+          ],
+          "score_map": [
+            0,
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "id": "9",
+          "text": "Вас посещали мысли о том, что Вам лучше было бы умереть, или о том, чтобы причинить себе какой-нибудь вред",
+          "options": [
+            "Ни разу",
+            "Несколько дней",
+            "Более недели",
+            "Почти каждый день"
+          ],
+          "score_map": [
+            0,
+            1,
+            2,
+            3
+          ]
+        }
+      ],
+      "auxiliary_items": [
+        {
+          "id": "difficulty",
+          "text": "Если Вы положительно ответили на какие-нибудь пункты, то оцените, насколько трудно Вам было работать, заниматься домашними делами или общаться с людьми из-за этих проблем?",
+          "options": [
+            "Совсем не трудно",
+            "Немного трудно",
+            "Очень трудно",
+            "Чрезвычайно трудно"
+          ],
+          "required": false,
+          "scored": false
+        }
+      ],
+      "expected_item_count": 9,
+      "source_review_status": "verified",
+      "source_reviewed_at": "2026-11-10",
+      "source_review_reference": "docs/questionnaires/RESEARCH.md#phq9",
+      "clinical_review_status": "not_performed",
+      "validation_note": "Использован опубликованный русский бланк Pfizer для России. Исследования русских переводов существуют; эквивалентность именно этого текста их выборкам и перинатальная точность порогов отдельно не установлены.",
+      "limitations": "Самооценка симптомов, не диагноз. Интернет-сверка текстов и ключа не является клинической валидацией приложения. Порог не подтверждает и не исключает заболевание; при беспокоящем состоянии можно обратиться к специалисту при любом балле.",
+      "attribution": "Разработано Robert L. Spitzer, Janet B.W. Williams, Kurt Kroenke и коллегами при поддержке образовательного гранта Pfizer Inc. Воспроизведение, перевод, показ и распространение разрешены (подпись на русском бланке; руководство, с. 8).",
+      "references": [
+        {
+          "kind": "wording",
+          "title": "PHQ-9 Russian for Russia · бланк Pfizer, ECFS",
+          "url": "https://www.ecfs.eu/sites/default/files/general-content-files/working-groups/Mental%20Health/PHQ9_Russian%20for%20Russia.pdf",
+          "source_file": "docs/questionnaires/sources/phq9_ru.pdf",
+          "sha256": "304c429fe25a5ba918cae730e0d3de14b14b31935c88aff9a636f6ad3838ec78",
+          "pages": "1"
+        },
+        {
+          "kind": "scoring",
+          "title": "PHQ / GAD: руководство авторов",
+          "url": "https://www.phqscreeners.com/images/sites/g/files/g10016261/f/201412/instructions.pdf",
+          "source_file": "docs/questionnaires/sources/phq_gad_manual.pdf",
+          "sha256": "6ed2f00f97e438c1168cd702d38d31fc923031445c720653005f138aa424228a",
+          "pages": "2–3, 6–8"
+        }
+      ],
+      "usage": "alternative_to_epds",
+      "usage_note": "Альтернатива EPDS; не предлагается автоматически вместе с EPDS. Выбирайте вместо EPDS по согласованию со специалистом.",
+      "derivation": null
+    },
+    "scoring_rules": {
+      "version": "source-scoring-2026-11-10-v1",
+      "method": "sum_of_item_score_maps",
+      "minimum": 0,
+      "maximum": 27,
+      "thresholds": [
+        {
+          "minimum": 0,
+          "maximum": 4,
+          "code": "minimal",
+          "label": "Минимальная выраженность депрессивных симптомов"
+        },
+        {
+          "minimum": 5,
+          "maximum": 9,
+          "code": "mild",
+          "label": "Лёгкая выраженность депрессивных симптомов"
+        },
+        {
+          "minimum": 10,
+          "maximum": 14,
+          "code": "moderate",
+          "label": "Умеренная выраженность депрессивных симптомов"
+        },
+        {
+          "minimum": 15,
+          "maximum": 19,
+          "code": "moderately_severe",
+          "label": "Выраженные депрессивные симптомы"
+        },
+        {
+          "minimum": 20,
+          "maximum": 27,
+          "code": "severe",
+          "label": "Высокая выраженность депрессивных симптомов"
+        }
+      ],
+      "followup_score": 10,
+      "interpretation_authority": "published_source_guidance",
+      "interpretation_note": "Самооценка симптомов, не диагноз. Интернет-сверка текстов и ключа не является клинической валидацией приложения. Порог не подтверждает и не исключает заболевание; при беспокоящем состоянии можно обратиться к специалисту при любом балле.",
+      "safety_items": [
+        {
+          "item_id": "9",
+          "minimum_score": 1
+        }
+      ],
+      "source_references": [
+        "https://www.phqscreeners.com/images/sites/g/files/g10016261/f/201412/instructions.pdf"
+      ]
+    }
+  },
+  {
+    "code": "EPDS",
+    "version": "ru-roag2024-source-2026-11-10-v1",
+    "language": "ru",
+    "enabled": true,
+    "license_reference": "https://www.phenxtoolkit.org/protocols/view/241401?origin=domain",
+    "definition": {
+      "title": "EPDS · Эдинбургская шкала послеродовой депрессии",
+      "instructions": "Вы сейчас беременны или недавно родили. Нам важно знать, как вы себя чувствуете. Пожалуйста, поставьте галочку (✔) напротив утверждения, которое наиболее подходит к тому, как вы себя чувствовали в последние 7 дней. Ответьте на все 10 пунктов. Это скрининг-тест, он не является диагнозом.",
+      "timeframe_days": 7,
+      "items": [
+        {
+          "id": "1",
+          "text": "Я могла смеяться и замечать забавные стороны происходящего",
+          "options": [
+            "Так же часто, как всегда",
+            "Реже, чем обычно",
+            "Не так часто, как обычно",
+            "Нет, не могла совсем"
+          ],
+          "score_map": [
+            0,
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "id": "2",
+          "text": "Я с нетерпением ожидала различных событий в моей жизни",
+          "options": [
+            "Так же, как я делала это всегда",
+            "Скорее меньше, чем всегда",
+            "Определенно меньше, чем всегда",
+            "Вообще-то едва ли"
+          ],
+          "score_map": [
+            0,
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "id": "3",
+          "text": "Я необоснованно обвиняла себя",
+          "options": [
+            "Да, чаще всего",
+            "Да, иногда",
+            "Не очень часто",
+            "Нет, никогда"
+          ],
+          "score_map": [
+            3,
+            2,
+            1,
+            0
+          ]
+        },
+        {
+          "id": "4",
+          "text": "Я тревожилась без особой причины",
+          "options": [
+            "Нет, нисколько",
+            "Едва ли когда-либо",
+            "Да, иногда",
+            "Да, очень часто"
+          ],
+          "score_map": [
+            0,
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "id": "5",
+          "text": "Я была испугана, паниковала",
+          "options": [
+            "Да, очень часто",
+            "Да, иногда",
+            "Нет, не часто",
+            "Нет, нисколько"
+          ],
+          "score_map": [
+            3,
+            2,
+            1,
+            0
+          ]
+        },
+        {
+          "id": "6",
+          "text": "Происходящее давило на меня",
+          "options": [
+            "Да, большую часть времени я была не в состоянии справиться с этим",
+            "Да, иногда я не справлялась с происходящим, как это было обычно",
+            "Нет, большую часть времени я справлялась с этим",
+            "Нет, я справлялась с происходящим так же хорошо, как обычно"
+          ],
+          "score_map": [
+            3,
+            2,
+            1,
+            0
+          ]
+        },
+        {
+          "id": "7",
+          "text": "Я была настолько расстроена, что у меня появились проблемы со сном",
+          "options": [
+            "Да, большую часть времени",
+            "Да, иногда",
+            "Не очень часто",
+            "Нет, никогда"
+          ],
+          "score_map": [
+            3,
+            2,
+            1,
+            0
+          ]
+        },
+        {
+          "id": "8",
+          "text": "Я чувствовала себя несчастной",
+          "options": [
+            "Да, большую часть времени",
+            "Да, достаточно часто",
+            "Не очень часто",
+            "Нет, нисколько"
+          ],
+          "score_map": [
+            3,
+            2,
+            1,
+            0
+          ]
+        },
+        {
+          "id": "9",
+          "text": "Я была несчастной и часто плакала",
+          "options": [
+            "Да, большую часть времени",
+            "Да, достаточно часто",
+            "Только иногда",
+            "Нет, никогда"
+          ],
+          "score_map": [
+            3,
+            2,
+            1,
+            0
+          ]
+        },
+        {
+          "id": "10",
+          "text": "Мысли о нанесении себе телесного вреда посещали меня",
+          "options": [
+            "Да, очень часто",
+            "Иногда",
+            "Едва ли когда-либо",
+            "Никогда"
+          ],
+          "score_map": [
+            3,
+            2,
+            1,
+            0
+          ]
+        }
+      ],
+      "auxiliary_items": [],
+      "expected_item_count": 10,
+      "source_review_status": "verified",
+      "source_reviewed_at": "2026-11-10",
+      "source_review_reference": "docs/questionnaires/RESEARCH.md#epds",
+      "clinical_review_status": "not_performed",
+      "validation_note": "Русский текст и ключ опубликованы в рекомендациях РОАГ 2024. Эквивалентность этого текста исследованным русским переводам и точность порога в целевой группе EMO отдельно не установлены.",
+      "limitations": "Самооценка симптомов, не диагноз. Интернет-сверка текстов и ключа не является клинической валидацией приложения. Порог не подтверждает и не исключает заболевание; при беспокоящем состоянии можно обратиться к специалисту при любом балле.",
+      "attribution": "Cox, J. L., Holden, J. M., & Sagovsky, R. (1987). Detection of postnatal depression: Development of the 10-item Edinburgh Postnatal Depression Scale. British Journal of Psychiatry, 150, 782–786. Русский текст: РОАГ, «Нормальный послеродовый период (послеродовая помощь и обследование)», 2024, приложение Г2, с. 41–42. EPDS © The Royal College of Psychiatrists. Воспроизведение шкалы с указанием авторов, названия и источника — по условиям PhenX PX241401.",
+      "references": [
+        {
+          "kind": "wording_and_scoring",
+          "title": "РОАГ: Нормальный послеродовый период (2024), приложение Г2",
+          "url": "https://drive.google.com/uc?export=download&id=1p-cpmWJEEHf9CCUIMF-f2HaaJya-V3oz",
+          "source_file": "docs/questionnaires/sources/epds_roag_2024.pdf",
+          "sha256": "dc100eacd3c7ef230e4378e8c330d979347ca5826e451e71771392b3c36f5649",
+          "pages": "41–42"
+        },
+        {
+          "kind": "license_and_scoring",
+          "title": "PhenX: EPDS, условия воспроизведения и оригинальный ключ",
+          "url": "https://www.phenxtoolkit.org/protocols/view/241401?origin=domain",
+          "source_file": "docs/questionnaires/sources/epds_permission.html",
+          "sha256": "c64b37768458c3ee60b99f92bc1b67c2da779d7c559a4f8c24213fefc6bfa955",
+          "pages": null
+        },
+        {
+          "kind": "safety",
+          "title": "COPE: независимая немедленная оценка безопасности при Q10 > 0",
+          "url": "https://www.cope.org.au/health-professionals/screening-and-assessment-tools/using-the-epds-as-a-screening-tool"
+        }
+      ],
+      "usage": "standard",
+      "usage_note": "Добровольная самооценка.",
+      "derivation": null
+    },
+    "scoring_rules": {
+      "version": "source-scoring-2026-11-10-v1",
+      "method": "sum_of_item_score_maps",
+      "minimum": 0,
+      "maximum": 30,
+      "thresholds": [
+        {
+          "minimum": 0,
+          "maximum": 9,
+          "code": "below_followup_threshold",
+          "label": "Ниже порога направления из выбранного источника"
+        },
+        {
+          "minimum": 10,
+          "maximum": 30,
+          "code": "followup_suggested",
+          "label": "Рекомендуется профессиональная оценка состояния"
+        }
+      ],
+      "followup_score": 10,
+      "interpretation_authority": "published_source_guidance",
+      "interpretation_note": "Самооценка симптомов, не диагноз. Интернет-сверка текстов и ключа не является клинической валидацией приложения. Порог не подтверждает и не исключает заболевание; при беспокоящем состоянии можно обратиться к специалисту при любом балле.",
+      "safety_items": [
+        {
+          "item_id": "10",
+          "minimum_score": 1
+        }
+      ],
+      "source_references": [
+        "https://drive.google.com/uc?export=download&id=1p-cpmWJEEHf9CCUIMF-f2HaaJya-V3oz",
+        "https://www.phenxtoolkit.org/protocols/view/241401?origin=domain"
+      ]
+    }
+  }
+]

@@ -1,0 +1,124 @@
+[
+  {
+    "file": "phq9_ru.pdf",
+    "url": "https://www.ecfs.eu/sites/default/files/general-content-files/working-groups/Mental%20Health/PHQ9_Russian%20for%20Russia.pdf",
+    "final_url": "https://www.ecfs.eu/sites/default/files/general-content-files/working-groups/Mental%20Health/PHQ9_Russian%20for%20Russia.pdf",
+    "status": 200,
+    "saved": true,
+    "size": 134449,
+    "sha256": "304c429fe25a5ba918cae730e0d3de14b14b31935c88aff9a636f6ad3838ec78",
+    "checked_at": "2026-11-10"
+  },
+  {
+    "file": "gad7_ru.pdf",
+    "url": "https://projectteachny.org/app/uploads/2022/07/GAD7_Russian-for-Russia.pdf",
+    "final_url": "https://projectteachny.org/app/uploads/2022/07/GAD7_Russian-for-Russia.pdf",
+    "status": 200,
+    "saved": true,
+    "size": 175546,
+    "sha256": "c8a7ac7f911ca1930d56b556abc88b7ed6443a7b0bb61a84ddf041895e6199a9",
+    "checked_at": "2026-11-10"
+  },
+  {
+    "file": "phq_gad_manual.pdf",
+    "url": "https://www.phqscreeners.com/images/sites/g/files/g10016261/f/201412/instructions.pdf",
+    "final_url": "https://www.phqscreeners.com/images/sites/g/files/g10016261/f/201412/instructions.pdf",
+    "status": 200,
+    "saved": true,
+    "size": 134493,
+    "sha256": "6ed2f00f97e438c1168cd702d38d31fc923031445c720653005f138aa424228a",
+    "checked_at": "2026-11-10"
+  },
+  {
+    "file": "epds_ru_bc.pdf",
+    "url": "https://www.perinatalservicesbc.ca/Documents/Resources/HealthPromotion/EPDS/EdinburghEPDSScale_Russian.pdf",
+    "final_url": "https://www.perinatalservicesbc.ca/Documents/Resources/HealthPromotion/EPDS/EdinburghEPDSScale_Russian.pdf",
+    "status": 404,
+    "saved": false,
+    "size": 751,
+    "sha256": null,
+    "checked_at": "2026-11-10"
+  },
+  {
+    "file": "epds_periparto.html",
+    "url": "https://periparto.ch/en/for-affected/self-tests/epds-download",
+    "final_url": "https://periparto.ch/en/for-affected/self-tests/epds-download",
+    "status": 200,
+    "saved": true,
+    "size": 330503,
+    "sha256": "a5dc59a6f9402fd2498750392fed0a7e4be3bd2ea368595538429dca3da58fda",
+    "checked_at": "2026-11-10"
+  },
+  {
+    "file": "epds_permission.html",
+    "url": "https://www.phenxtoolkit.org/protocols/view/241401?origin=domain",
+    "final_url": "https://www.phenxtoolkit.org/protocols/view/241401?origin=domain",
+    "status": 200,
+    "saved": true,
+    "size": 57316,
+    "sha256": "c64b37768458c3ee60b99f92bc1b67c2da779d7c559a4f8c24213fefc6bfa955",
+    "checked_at": "2026-11-10"
+  },
+  {
+    "file": "epds_scoring.html",
+    "url": "https://www.cope.org.au/health-professionals/screening-and-assessment-tools/using-the-epds-as-a-screening-tool",
+    "final_url": "https://www.cope.org.au/health-professionals/screening-and-assessment-tools/using-the-epds-as-a-screening-tool",
+    "status": 403,
+    "saved": false,
+    "size": 5760,
+    "sha256": null,
+    "checked_at": "2026-11-10"
+  },
+  {
+    "file": "epds_ru_validation.html",
+    "url": "https://www.europeanproceedings.com/article/10.15405/epsbs.2018.07.89",
+    "final_url": "https://www.europeanproceedings.com/article/10.15405/epsbs.2018.07.89",
+    "status": 200,
+    "saved": true,
+    "size": 49606,
+    "sha256": "7b4b8c98a50aeddc176e3d1cb5936adb913bafec072ad7501e96aee450298383",
+    "checked_at": "2026-11-10"
+  },
+  {
+    "file": "gad7_ru_validation.html",
+    "url": "https://psyjournals.ru/en/journals/cpp/archive/2023_n4/Zolotareva",
+    "saved": false,
+    "error": "ConnectTimeout"
+  },
+  {
+    "file": "epds_ru.pdf",
+    "url": "https://periparto.ch/assets/pdfs/3eb51b94-9bfa-429a-9c72-7f908ade309b.pdf?t=1791271175531",
+    "final_url": "https://periparto.ch/assets/pdfs/3eb51b94-9bfa-429a-9c72-7f908ade309b.pdf?t=1791271175531",
+    "status": 200,
+    "saved": true,
+    "size": 127224,
+    "sha256": "fbade7e2a59f24ca0e66d37c9e1aef1d5f12dc2decc822ceccc0e03086ac7f2f",
+    "checked_at": "2026-11-10"
+  },
+  {
+    "file": "epds_roag_2024.pdf",
+    "url": "https://drive.google.com/uc?export=download&id=1p-cpmWJEEHf9CCUIMF-f2HaaJya-V3oz",
+    "final_url": "https://drive.usercontent.google.com/download?id=1p-cpmWJEEHf9CCUIMF-f2HaaJya-V3oz&export=download",
+    "status": 200,
+    "saved": true,
+    "size": 1069504,
+    "sha256": "dc100eacd3c7ef230e4378e8c330d979347ca5826e451e71771392b3c36f5649",
+    "checked_at": "2026-11-10"
+  },
+  {
+    "file": "epds_minzdrav_799_1.pdf",
+    "url": "https://apicr.minzdrav.gov.ru/api.ashx?id=799_1&op=GetClinrecPdf",
+    "saved": false,
+    "error": "ReadTimeout"
+  },
+  {
+    "file": "roag_index.html",
+    "url": "https://roag-portal.ru/recommendations_obstetrics",
+    "final_url": "https://roag-portal.ru/recommendations_obstetrics",
+    "status": 200,
+    "saved": true,
+    "size": 275756,
+    "sha256": "ac24dae87b3dd50d12abf563dc085b88e2335bc390082b0d16d5d2a9d0077ae2",
+    "checked_at": "2026-11-10"
+  }
+]

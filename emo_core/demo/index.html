@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="ru" data-theme="auto" data-dev="on">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#EFEEF5" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#14131E" media="(prefers-color-scheme: dark)">
+<title>EMO — пространство поддержки</title>
+<link rel="icon" href="/demo/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="/demo/fonts/geologica-cyrillic-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/demo/fonts/literata-cyrillic-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/demo/styles.css">
+<script src="/demo/diagnostics.js" defer></script>
+<script src="/demo/questionnaires.js" defer></script>
+<script src="/demo/app.js" defer></script>
+</head>
+<body data-view="chat">
+
+<svg class="sprite" aria-hidden="true" focusable="false">
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M5 6.5A2.5 2.5 0 0 1 7.5 4h9A2.5 2.5 0 0 1 19 6.5v6a2.5 2.5 0 0 1-2.5 2.5H11l-4 3.5V15A2.5 2.5 0 0 1 5 12.5z"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 19.5s-7-4.2-7-9.4A3.8 3.8 0 0 1 12 7.9a3.8 3.8 0 0 1 7 2.2c0 5.2-7 9.4-7 9.4z"/></symbol>
+  <symbol id="i-forms" viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="16" rx="2.5"/><path d="M9 9h6M9 13h6M9 17h3"/></symbol>
+  <symbol id="i-trend" viewBox="0 0 24 24"><path d="M4 19h16"/><path d="M5 15l4-4 3.5 3L18 8"/></symbol>
+  <symbol id="i-cloud" viewBox="0 0 24 24"><path d="M7.6 18a4 4 0 0 1-.6-7.96A5.5 5.5 0 0 1 17.6 9.2 4.4 4.4 0 0 1 16.9 18z"/></symbol>
+  <symbol id="i-settings" viewBox="0 0 24 24"><path d="M4 7h9M17 7h3M4 12h3M11 12h9M4 17h11M19 17h1"/><circle cx="15" cy="7" r="2"/><circle cx="9" cy="12" r="2"/><circle cx="17" cy="17" r="2"/></symbol>
+  <symbol id="i-chip" viewBox="0 0 24 24"><rect x="7" y="7" width="10" height="10" rx="2"/><path d="M10 4v3M14 4v3M10 17v3M14 17v3M4 10h3M4 14h3M17 10h3M17 14h3"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M8.7 4.5H6.6A1.6 1.6 0 0 0 5 6.2a13.6 13.6 0 0 0 12.8 12.8 1.6 1.6 0 0 0 1.7-1.6v-2.1l-3.5-1.4-1.4 1.7a8.300 8.300 0 0 1-4.200-4.200l1.700-1.400z"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M19 14.5A7.5 7.5 0 0 1 9.5 5 7.5 7.5 0 1 0 19 14.5z"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.6"/><path d="M12 3.500v2M12 18.500v2M3.500 12h2M18.500 12h2M6 6l1.400 1.400M16.600 16.600L18 18M6 18l1.400-1.400M16.600 7.400L18 6"/></symbol>
+  <symbol id="i-auto" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 4a8 8 0 0 1 0 16z" fill="currentColor"/></symbol>
+  <symbol id="i-send" viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-more" viewBox="0 0 24 24"><circle cx="6" cy="12" r="1.400" fill="currentColor"/><circle cx="12" cy="12" r="1.400" fill="currentColor"/><circle cx="18" cy="12" r="1.400" fill="currentColor"/></symbol>
+  <symbol id="i-code" viewBox="0 0 24 24"><path d="M9 8l-4 4 4 4M15 8l4 4-4 4"/></symbol>
+  <symbol id="i-logout" viewBox="0 0 24 24"><path d="M14 5h3.500A1.500 1.500 0 0 1 19 6.500v11a1.500 1.500 0 0 1-1.500 1.500H14"/><path d="M10 8l-4 4 4 4M6 12h9"/></symbol>
+  <symbol id="i-journal" viewBox="0 0 24 24"><path d="M6 4.500h10.500A1.500 1.500 0 0 1 18 6v13.500H7.500A1.500 1.500 0 0 1 6 18z"/><path d="M6 17.500A1.500 1.500 0 0 1 7.500 16H18M9.500 8.500h5M9.500 12h3"/></symbol>
+  <symbol id="i-eye" viewBox="0 0 24 24"><path d="M3.500 12s3.200-6 8.500-6 8.500 6 8.500 6-3.200 6-8.500 6-8.500-6-8.500-6z"/><circle cx="12" cy="12" r="2.600"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3.800l6.500 2.400v5.300c0 4-2.700 7.100-6.500 8.700-3.800-1.600-6.500-4.700-6.500-8.700V6.200z"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+</svg>
+
+<div id="gate" class="gate" hidden>
+  <form id="gate-form" autocomplete="off">
+    <div class="brand"><span class="lamp" aria-hidden="true"></span><span class="brand__name">эмо</span></div>
+    <h1 class="voice">Вход в консоль</h1>
+    <p>Здесь демо-профили, настройки моделей и служебные отчёты по каждому ответу.</p>
+    <label>Логин<input id="gate-login" autocomplete="username" required></label>
+    <label>Пароль<input id="gate-password" type="password" autocomplete="current-password" required></label>
+    <button>Войти</button>
+    <p id="gate-error" class="form-error" role="alert"></p>
+  </form>
+</div>
+
+<div class="app">
+  <aside class="rail">
+    <div class="brand"><span class="lamp" aria-hidden="true"></span><span class="brand__name">эмо</span></div>
+    <nav id="nav" aria-label="Разделы">
+      <button data-view="chat" class="active" aria-current="page"><svg class="icon" aria-hidden="true"><use href="#i-chat"/></svg><span>Разговор</span></button>
+      <button data-view="checkin"><svg class="icon" aria-hidden="true"><use href="#i-heart"/></svg><span>Самочувствие</span></button>
+      <button data-view="questionnaires"><svg class="icon" aria-hidden="true"><use href="#i-forms"/></svg><span>Опросники</span></button>
+      <button data-view="history"><svg class="icon" aria-hidden="true"><use href="#i-trend"/></svg><span>Динамика</span></button>
+      <div class="nav-sheet">
+        <button data-view="journal"><svg class="icon" aria-hidden="true"><use href="#i-journal"/></svg><span>Журнал</span></button>
+        <button data-view="complaints"><svg class="icon" aria-hidden="true"><use href="#i-cloud"/></svg><span>Что беспокоит</span></button>
+        <button data-view="settings"><svg class="icon" aria-hidden="true"><use href="#i-settings"/></svg><span>Настройки</span></button>
+        <button data-view="admin" class="dev-only"><svg class="icon" aria-hidden="true"><use href="#i-chip"/></svg><span>Модели</span></button>
+      </div>
+      <button id="nav-more" type="button" class="nav-more" aria-expanded="false" aria-controls="nav"><svg class="icon" aria-hidden="true"><use href="#i-more"/></svg><span>Ещё</span></button>
+    </nav>
+    <div class="rail__foot">
+      <button id="sos-open" type="button" class="sos"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg><span>Срочная помощь</span></button>
+      <label class="profile"><span>Профиль</span><select id="user"><option value="anna">Анна, демо</option><option value="maria">Мария, демо</option></select></label>
+      <div class="rail__tools">
+        <button id="theme-toggle" type="button" class="icon-btn" aria-label="Тема: как в системе" title="Тема: как в системе"><svg class="icon" aria-hidden="true"><use href="#i-auto"/></svg></button>
+        <button id="dev-toggle" type="button" class="icon-btn" aria-pressed="true" aria-label="Служебные данные" title="Служебные данные: отчёты, модели, API-ключ"><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg></button>
+        <button id="gate-logout" type="button" class="icon-btn" aria-label="Выйти из консоли" title="Выйти из консоли" hidden><svg class="icon" aria-hidden="true"><use href="#i-logout"/></svg></button>
+      </div>
+      <div class="devbox dev-only">
+        <span id="mode">Подключение…</span>
+        <button id="copy-key" type="button" class="link" title="Отдельный токен выбранного профиля для вызовов API">Скопировать API-ключ</button>
+        <button id="login" type="button" class="link">Обновить сессию профиля</button>
+        <a href="/docs" target="_blank" rel="noopener">Документация API</a>
+      </div>
+    </div>
+  </aside>
+
+  <main>
+    <section id="chat" class="view view--chat">
+      <header class="chat-head">
+        <label class="conv"><span class="sr-only">Разговор</span><select id="conversations"></select></label>
+        <button id="new-chat" type="button" class="secondary"><svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg><span>Новый разговор</span></button>
+      </header>
+      <div id="active-models" class="models-strip dev-only" aria-live="polite"></div>
+      <div id="messages" class="messages" role="log" aria-live="polite" tabindex="0" aria-label="Сообщения"></div>
+      <div id="feedback" class="feedback" hidden>
+        <span>Как тебе после разговора?</span>
+        <button type="button" class="chip" data-rating="better">Стало легче</button>
+        <button type="button" class="chip" data-rating="unchanged">Так же</button>
+        <button type="button" class="chip" data-rating="worse">Стало тяжелее</button>
+        <button type="button" class="chip chip--quiet" data-rating="skip">Не оценивать</button>
+      </div>
+      <form id="chat-form" class="composer">
+        <label class="sr-only" for="message">Сообщение</label>
+        <textarea id="message" maxlength="12000" placeholder="Напиши, что на душе" rows="1" required></textarea>
+        <button type="submit" class="send" aria-label="Отправить"><svg class="icon" aria-hidden="true"><use href="#i-send"/></svg></button>
+      </form>
+      <p class="composer-note">EMO — AI-помощник, не врач и не психолог. Если есть опасность, открой <button type="button" class="link" data-sos>срочную помощь</button>.</p>
+      <p id="model-hint" class="hint dev-only"></p>
+    </section>
+
+    <section id="checkin" class="view" hidden>
+      <header class="page-head"><h1 class="voice">Как ты сегодня?</h1><p>Три шкалы от 0 до 10. Правильных ответов нет — только твоё ощущение.</p></header>
+      <form id="checkin-form" class="panel">
+        <div class="scale">
+          <div class="scale__head"><label for="ci-mood">Настроение</label><output for="ci-mood">5</output></div>
+          <input id="ci-mood" name="mood_score" type="range" min="0" max="10" value="5">
+          <div class="scale__ends"><span>очень низкое</span><span>отличное</span></div>
+        </div>
+        <div class="scale">
+          <div class="scale__head"><label for="ci-anxiety">Тревога</label><output for="ci-anxiety">5</output></div>
+          <input id="ci-anxiety" name="anxiety_score" type="range" min="0" max="10" value="5">
+          <div class="scale__ends"><span>спокойно</span><span>очень сильная</span></div>
+        </div>
+        <div class="scale">
+          <div class="scale__head"><label for="ci-sleep">Сон прошлой ночью</label><output for="ci-sleep">5</output></div>
+          <input id="ci-sleep" name="sleep_quality" type="range" min="0" max="10" value="5">
+          <div class="scale__ends"><span>очень плохо</span><span>отлично</span></div>
+        </div>
+        <label class="switch"><input id="skip-sleep" type="checkbox"><span>Не оценивать сон сегодня</span></label>
+        <div class="actions"><button>Сохранить самочувствие</button><span id="last-checkin" class="hint"></span></div>
+      </form>
+    </section>
+
+    <section id="questionnaires" class="view" hidden>
+      <header class="page-head"><h1 class="voice">Опросники</h1><p>Короткие шкалы самооценки. Результат — не диагноз, а способ заметить перемены и повод поговорить со специалистом.</p></header>
+      <div id="questionnaire-drafts"></div>
+      <div id="questionnaire-list"></div>
+      <form id="questionnaire-form" class="panel" hidden></form>
+      <div id="questionnaire-result" role="status"></div>
+      <h2>Что можно сделать дальше</h2>
+      <div id="next-actions" class="rows"></div>
+    </section>
+
+    <section id="history" class="view" hidden>
+      <header class="page-head"><h1 class="voice">Динамика</h1><p>Как менялись твои отметки и результаты опросников за последние три месяца.</p></header>
+      <div id="trends"></div>
+      <h2>Открыть результат или продолжить черновик</h2>
+      <div id="attempts"></div>
+      <button id="more-attempts" type="button" class="secondary">Показать ещё</button>
+    </section>
+
+    <section id="journal" class="view" hidden>
+      <header class="page-head"><h1 class="voice">Журнал</h1><p>Всё, что записано о твоём состоянии: твои отметки, результаты опросников и то, что EMO заметила в сообщениях. Сам текст сообщений сюда не попадает.</p></header>
+      <div class="toolbar">
+        <div id="journal-filters" class="chips" role="group" aria-label="Что показывать"></div>
+        <label class="period"><span class="sr-only">Период</span><select id="journal-days"><option value="7">7 дней</option><option value="30" selected>30 дней</option><option value="90">90 дней</option><option value="365">Год</option></select></label>
+      </div>
+      <div id="journal-list" aria-live="polite"></div>
+      <p class="hint">Наблюдения EMO — это оценки текста сообщения, а не диагноз. Они могут быть неточными.</p>
+    </section>
+
+    <section id="complaints" class="view" hidden>
+      <header class="page-head"><h1 class="voice">Что тебя беспокоит</h1><p>Темы, которые EMO заметила в твоих сообщениях. Она может ошибаться, а число упоминаний ничего не говорит о силе переживания.</p></header>
+      <div id="complaint-list" class="rows"></div>
+    </section>
+
+    <section id="settings" class="view" hidden>
+      <header class="page-head"><h1 class="voice">Настройки</h1><p>Ты решаешь, что EMO знает о тебе, когда пишет первой и что уходит внешним моделям.</p></header>
+      <nav class="subnav" aria-label="Разделы настроек"><a href="#set-about">Обо мне</a><a href="#set-contact">Сообщения</a><a href="#set-privacy">Конфиденциальность</a><a href="#set-context">Длинные разговоры</a><a href="#set-memory">Память</a><a href="#set-data">Данные</a></nav>
+
+      <form id="perinatal-form" class="panel">
+        <h2 id="set-about">Обо мне</h2>
+        <p>Срок помогает EMO говорить уместно. Можно не указывать.</p>
+        <fieldset class="choice"><legend class="sr-only">Сейчас я</legend>
+          <label><input type="radio" name="stage" value="pregnant"><span>Жду ребёнка</span></label>
+          <label><input type="radio" name="stage" value="postpartum"><span>Родила</span></label>
+          <label><input type="radio" name="stage" value="loss"><span>Беременность прервалась</span></label>
+          <label><input type="radio" name="stage" value="none"><span>Не указывать</span></label>
+        </fieldset>
+        <label id="due-label" hidden>Предполагаемая дата родов<input name="estimated_due_date" type="date"></label>
+        <label id="birth-label" hidden>Дата родов<input name="birth_date" type="date"></label>
+        <p id="stage-note" class="hint"></p>
+        <div class="actions"><button>Сохранить</button></div>
+      </form>
+
+      <div class="panel">
+        <form id="settings-form">
+          <h2 id="set-contact">Сообщения от EMO</h2>
+          <label class="switch"><input name="proactive_enabled" type="checkbox"><span>EMO может написать первой<small>Например, спросить, как прошёл день. Не в тихие часы и не чаще установленного лимита.</small></span></label>
+          <label class="switch"><input name="push_enabled" type="checkbox"><span>Push-уведомления<small>Работают, когда к приложению подключён сервис уведомлений.</small></span></label>
+          <div class="columns">
+            <label>Тихие часы, с<input name="quiet_hours_start" type="time" required></label>
+            <label>до<input name="quiet_hours_end" type="time" required></label>
+            <label>Часовой пояс<input name="timezone" placeholder="Europe/Moscow" required></label>
+          </div>
+          <div class="actions"><button>Сохранить</button></div>
+        </form>
+        <form id="followup-form" class="subform">
+          <h3>Попросить EMO написать позже</h3>
+          <label>Когда, по времени этого устройства<input id="followup-at" type="datetime-local" required></label>
+          <label class="check"><input id="followup-consent" type="checkbox" required><span>Я согласна, чтобы EMO написала мне в это время</span></label>
+          <div class="actions"><button class="secondary">Запланировать</button></div>
+        </form>
+      </div>
+
+      <form id="ai-form">
+        <div class="panel">
+          <h2 id="set-privacy">Конфиденциальность</h2>
+          <label class="switch"><input name="external_ai_consent" type="checkbox"><span>Разрешить отправку сообщений внешним AI-моделям<small>Без этого EMO отвечает только короткими заготовленными фразами.</small></span></label>
+          <label class="switch"><input name="anonymize" type="checkbox"><span>Скрывать личные данные перед отправкой<small>Имена, телефоны, адреса и номера документов заменяются обозначениями вроде [ИМЯ_1], а в ответе возвращаются на место. Сами переживания не скрываются. В базе EMO хранится исходный текст.</small></span></label>
+          <p id="anonymize-policy" class="hint"></p>
+          <label>Что скрывать<select name="level"><option value="standard">Имена, контакты, адреса, документы</option><option value="strict">То же и все даты и слова с заглавной буквы</option></select></label>
+          <label>Всегда скрывать эти слова<small>По одному в строке: имена близких, город, место работы.</small><textarea name="protected_terms" rows="3" maxlength="3000" placeholder="Химки&#10;Гульнара"></textarea></label>
+          <div class="inline"><p id="learned-names" class="hint"></p><button id="forget-names" type="button" class="link">Забыть их</button></div>
+          <div class="preview">
+            <label>Проверить на примере<textarea id="privacy-sample" rows="2" maxlength="4000" placeholder="Меня зовут Анна, мой телефон 8 916 000-00-00"></textarea></label>
+            <button id="privacy-preview" type="button" class="secondary">Показать, что увидит модель</button>
+            <div id="privacy-result" class="preview__out" aria-live="polite"></div>
+          </div>
+          <div class="actions"><button>Сохранить</button></div>
+        </div>
+        <div class="panel">
+          <h2 id="set-context">Длинные разговоры</h2>
+          <p>Когда разговор перестаёт помещаться в память модели, EMO сворачивает ранние реплики в краткое резюме, а последние передаёт дословно.</p>
+          <div class="columns">
+            <label>Сжатие<select name="compression"></select></label>
+            <label>Сжимать после, тыс. токенов<input name="input_target" type="number" min="0" step="1" title="0 — использовать всё окно модели. Меньшее значение сжимает разговор раньше."></label>
+            <label>Реплик дословно<input name="keep_recent" type="number" min="2" max="200" step="1"></label>
+          </div>
+          <p id="context-limits" class="hint"></p>
+          <div class="actions"><button>Сохранить</button></div>
+        </div>
+      </form>
+
+      <form id="memory-form" class="panel">
+        <h2 id="set-memory">Что EMO помнит</h2>
+        <label>Краткая заметка о тебе, которую EMO учитывает в новых разговорах. Её можно исправить.<textarea id="memory-summary" rows="6" maxlength="3000"></textarea></label>
+        <div class="actions"><button>Сохранить исправления</button><button id="clear-memory" type="button" class="secondary">Стереть память</button></div>
+      </form>
+
+      <div class="panel dev-only" id="dev-tools">
+        <h2>Проверка планировщика</h2>
+        <p>Только для разработки. Часы проверки можно перенести вперёд: согласие, тихие часы и лимиты продолжают действовать, сообщения датируются выбранным временем.</p>
+        <label>Время проверки<input id="worker-now" type="datetime-local"></label>
+        <div class="actions"><button id="run-worker" type="button" class="secondary">Запустить проверку</button></div>
+      </div>
+
+      <div class="panel panel--danger">
+        <h2 id="set-data">Удаление данных</h2>
+        <p>Будут удалены все разговоры, память и результаты этого профиля, а сам профиль отключён. Отменить это нельзя.</p>
+        <div class="actions"><button id="delete-data" type="button" class="danger">Удалить мои данные</button></div>
+      </div>
+    </section>
+
+    <section id="admin" class="view dev-only" hidden>
+      <header class="page-head"><h1 class="voice">Модели</h1><p>Общие настройки для всех пользователей. После входа по логину и паролю раздел открыт; без него нужен отдельный ADMIN_API_TOKEN из .env. Пользовательский JWT доступа сюда не даёт.</p></header>
+      <form id="admin-login-form" class="panel"><label>Токен администратора<input id="admin-token" type="password" autocomplete="off" required placeholder="ADMIN_API_TOKEN из .env"></label><div class="actions"><button>Войти как администратор</button><span id="admin-login-state" class="hint">Вход не выполнен</span></div></form>
+      <div id="admin-panel" hidden>
+        <form id="runtime-form" class="panel"><h2>Текущая конфигурация</h2><p id="runtime-description"></p><label>Режим AI<select id="runtime-mode"><option value="mock">Mock — без внешних вызовов</option><option value="live">Live — реальные провайдеры</option><option value="disabled">Отключён — только шаблоны</option></select></label><p class="hint">Live требует ключей LLM и Jev, разрешения внешнего AI и региона в .env, а также согласия каждого пользователя. Смена режима действует на новые сообщения всех профилей.</p><div class="actions"><button>Применить ко всем</button><button id="reset-model-profiles" type="button" class="secondary">Вернуть профили из .env</button><button id="refresh-models" type="button" class="secondary">Обновить список</button><button id="admin-logout" type="button" class="secondary">Выйти из админского режима</button></div></form>
+        <p id="model-hosts" class="hint"></p>
+        <div id="model-profiles"></div>
+        <form id="model-form" class="panel" autocomplete="off"><h2 id="model-form-title">Добавить модель</h2>
+          <div class="columns"><label>Тип<select name="kind"><option value="llm">LLM, OpenAI-совместимый API</option><option value="jev">Jev, TypeSafe</option></select></label><label>Название профиля<input name="name" maxlength="100" required placeholder="Основная LLM"></label></div>
+          <label>ID модели у провайдера<input name="model" maxlength="160" required placeholder="Точный ID модели; для Jev — jev-1.14.0"></label>
+          <label>Base URL<small>LLM: адрес OpenAI-совместимого API, обычно с /v1. TypeSafe Jev: https://api.typesafe.ai без /v1.</small><input name="base_url" type="url" required placeholder="https://provider.example/v1"></label>
+          <label>Таймаут, секунд<input name="timeout_seconds" type="number" min="1" max="120" value="30" required></label>
+          <label>Источник API-ключа<select id="model-secret-source"><option value="env">Ссылка на ключ из .env</option><option value="inline">Ввести API-ключ здесь</option><option id="model-keep-option" value="keep" hidden>Сохранить существующий ключ</option></select></label>
+          <label id="credential-ref-label">Ключ в .env<select id="model-credential-ref"></select></label>
+          <label id="api-key-label" hidden>API-ключ провайдера<input id="model-api-key" type="password" autocomplete="new-password" maxlength="4096" placeholder="Ключ не возвращается из API"></label>
+          <p id="key-encryption-note" class="hint"></p>
+          <div class="actions"><button>Сохранить профиль модели</button><button id="cancel-model-edit" type="button" class="secondary">Очистить форму</button></div>
+        </form>
+        <h2>Журнал изменений</h2><p class="hint">Ревизии и изменённые поля. Значения ключей в журнал не записываются.</p><div id="model-events"></div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<dialog id="sos" aria-labelledby="sos-title">
+  <form method="dialog"><button class="icon-btn dialog-close" aria-label="Закрыть"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button></form>
+  <h2 id="sos-title" class="voice">Если помощь нужна прямо сейчас</h2>
+  <p>EMO не вызывает помощь и не видит, где ты находишься. Если есть опасность для тебя или ребёнка — позвони.</p>
+  <div id="sos-list" class="sos-list"></div>
+  <p id="sos-note" class="hint"></p>
+</dialog>
+
+<dialog id="confirm" aria-labelledby="confirm-title">
+  <h2 id="confirm-title" class="voice"></h2>
+  <p id="confirm-text"></p>
+  <div class="actions"><button id="confirm-yes" type="button" class="danger"></button><button id="confirm-no" type="button" class="secondary">Отмена</button></div>
+</dialog>
+
+<div id="notice" role="status" aria-live="polite"></div>
+</body>
+</html>

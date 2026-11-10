@@ -1,0 +1,195 @@
+{
+  "code": "GAD7",
+  "version": "ru-russia-pfizer-2026-11-10-v1",
+  "language": "ru",
+  "enabled": true,
+  "license_reference": "https://www.phqscreeners.com/images/sites/g/files/g10016261/f/201412/instructions.pdf#page=8",
+  "definition": {
+    "title": "GAD-7 · Оценка тревожных симптомов",
+    "instructions": "Как часто Вас за последние 14 дней беспокоили следующие проблемы?",
+    "timeframe_days": 14,
+    "items": [
+      {
+        "id": "1",
+        "text": "Вы нервничали, тревожились или испытывали сильный стресс",
+        "options": [
+          "Ни разу",
+          "Несколько дней",
+          "Более недели",
+          "Почти каждый день"
+        ],
+        "score_map": [
+          0,
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "id": "2",
+        "text": "Вы были неспособны успокоиться или контролировать свое волнение",
+        "options": [
+          "Ни разу",
+          "Несколько дней",
+          "Более недели",
+          "Почти каждый день"
+        ],
+        "score_map": [
+          0,
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "id": "3",
+        "text": "Вы слишком сильно волновались по различным поводам",
+        "options": [
+          "Ни разу",
+          "Несколько дней",
+          "Более недели",
+          "Почти каждый день"
+        ],
+        "score_map": [
+          0,
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "id": "4",
+        "text": "Вам было трудно расслабиться",
+        "options": [
+          "Ни разу",
+          "Несколько дней",
+          "Более недели",
+          "Почти каждый день"
+        ],
+        "score_map": [
+          0,
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "id": "5",
+        "text": "Вы были настолько суетливы, что Вам было тяжело усидеть на месте",
+        "options": [
+          "Ни разу",
+          "Несколько дней",
+          "Более недели",
+          "Почти каждый день"
+        ],
+        "score_map": [
+          0,
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "id": "6",
+        "text": "Вы легко злились или раздражались",
+        "options": [
+          "Ни разу",
+          "Несколько дней",
+          "Более недели",
+          "Почти каждый день"
+        ],
+        "score_map": [
+          0,
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "id": "7",
+        "text": "Вы испытывали страх, словно должно произойти нечто ужасное",
+        "options": [
+          "Ни разу",
+          "Несколько дней",
+          "Более недели",
+          "Почти каждый день"
+        ],
+        "score_map": [
+          0,
+          1,
+          2,
+          3
+        ]
+      }
+    ],
+    "auxiliary_items": [],
+    "expected_item_count": 7,
+    "source_review_status": "verified",
+    "source_reviewed_at": "2026-11-10",
+    "source_review_reference": "docs/questionnaires/RESEARCH.md#gad7",
+    "clinical_review_status": "not_performed",
+    "validation_note": "Использован опубликованный русский бланк Pfizer для России. Исследования русских переводов существуют; эквивалентность именно этого текста их выборкам и перинатальная точность порогов отдельно не установлены.",
+    "limitations": "Самооценка симптомов, не диагноз. Интернет-сверка текстов и ключа не является клинической валидацией приложения. Порог не подтверждает и не исключает заболевание; при беспокоящем состоянии можно обратиться к специалисту при любом балле.",
+    "attribution": "Разработано Robert L. Spitzer, Janet B.W. Williams, Kurt Kroenke и коллегами при поддержке образовательного гранта Pfizer Inc. Воспроизведение, перевод, показ и распространение разрешены (подпись на русском бланке; руководство, с. 8).",
+    "references": [
+      {
+        "kind": "wording",
+        "title": "GAD-7 Russian for Russia · бланк Pfizer, Project TEACH",
+        "url": "https://projectteachny.org/app/uploads/2022/07/GAD7_Russian-for-Russia.pdf",
+        "source_file": "docs/questionnaires/sources/gad7_ru.pdf",
+        "sha256": "c8a7ac7f911ca1930d56b556abc88b7ed6443a7b0bb61a84ddf041895e6199a9",
+        "pages": "1"
+      },
+      {
+        "kind": "scoring",
+        "title": "PHQ / GAD: руководство авторов",
+        "url": "https://www.phqscreeners.com/images/sites/g/files/g10016261/f/201412/instructions.pdf",
+        "source_file": "docs/questionnaires/sources/phq_gad_manual.pdf",
+        "sha256": "6ed2f00f97e438c1168cd702d38d31fc923031445c720653005f138aa424228a",
+        "pages": "2–3, 6–8"
+      }
+    ],
+    "usage": "standard",
+    "usage_note": "Добровольная самооценка.",
+    "derivation": null
+  },
+  "scoring_rules": {
+    "version": "source-scoring-2026-11-10-v1",
+    "method": "sum_of_item_score_maps",
+    "minimum": 0,
+    "maximum": 21,
+    "thresholds": [
+      {
+        "minimum": 0,
+        "maximum": 4,
+        "code": "minimal",
+        "label": "Минимальная выраженность тревожных симптомов"
+      },
+      {
+        "minimum": 5,
+        "maximum": 9,
+        "code": "mild",
+        "label": "Лёгкая выраженность тревожных симптомов"
+      },
+      {
+        "minimum": 10,
+        "maximum": 14,
+        "code": "moderate",
+        "label": "Умеренная выраженность тревожных симптомов"
+      },
+      {
+        "minimum": 15,
+        "maximum": 21,
+        "code": "severe",
+        "label": "Высокая выраженность тревожных симптомов"
+      }
+    ],
+    "followup_score": 10,
+    "interpretation_authority": "published_source_guidance",
+    "interpretation_note": "Самооценка симптомов, не диагноз. Интернет-сверка текстов и ключа не является клинической валидацией приложения. Порог не подтверждает и не исключает заболевание; при беспокоящем состоянии можно обратиться к специалисту при любом балле.",
+    "safety_items": [],
+    "source_references": [
+      "https://www.phqscreeners.com/images/sites/g/files/g10016261/f/201412/instructions.pdf"
+    ]
+  }
+}

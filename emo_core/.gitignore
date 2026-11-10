@@ -1,0 +1,13 @@
+.venv/
+.env
+.env.*
+!.env.example
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+*.db
+*.sqlite*
+.coverage
+
+# JWT for the standalone integration example
+examples/client.env

@@ -1,0 +1,17 @@
+version: '1.0'
+proactive:
+  enabled_by_default: false
+  allowed_start: '10:00'
+  allowed_end: '19:00'
+  weekly_checkin_days: 7
+  minimum_gap_between_messages_hours: 72
+  maximum_messages_7_days: 2
+  maximum_messages_30_days: 5
+  suppress_if_user_active_within_hours: 24
+  unanswered_limit: 2
+  unanswered_pause_days: 30
+  allow_questionnaire_reminders: true
+  allow_agreed_followups: true
+  allow_reengagement_messages: false
+  allow_sensitive_push_text: false
+  default_delivery_channel: in_app
