@@ -1,0 +1,8 @@
+{
+  "fertility_demo_status": "scored",
+  "menopause_demo_has_score": true,
+  "split_overlap": false,
+  "target_leakage_features": false,
+  "causality_prefix_checks": 3,
+  "nan_output": false
+}

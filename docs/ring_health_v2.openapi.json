@@ -1,0 +1,405 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Ring Health Research API",
+    "description": "Missing-aware reproductive research models. Clinical performance on Oura is not established.",
+    "version": "2.0.0"
+  },
+  "paths": {
+    "/health/live": {
+      "get": {
+        "summary": "Live",
+        "operationId": "live_health_live_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/health/ready": {
+      "get": {
+        "summary": "Ready",
+        "operationId": "ready_health_ready_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v2/analyze": {
+      "post": {
+        "summary": "Analyze",
+        "operationId": "analyze_v2_analyze_post",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AnalyzeRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AnalyzeRequest": {
+        "properties": {
+          "as_of": {
+            "type": "string",
+            "format": "date",
+            "title": "As Of"
+          },
+          "context": {
+            "$ref": "#/components/schemas/Context"
+          },
+          "daily": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/Daily"
+                },
+                "type": "array",
+                "maxItems": 730
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Daily"
+          },
+          "oura": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/OuraExport"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "as_of",
+          "context"
+        ],
+        "title": "AnalyzeRequest"
+      },
+      "Context": {
+        "properties": {
+          "age": {
+            "type": "number",
+            "maximum": 65.0,
+            "minimum": 18.0,
+            "title": "Age"
+          },
+          "pregnant": {
+            "type": "boolean",
+            "title": "Pregnant"
+          },
+          "breastfeeding": {
+            "type": "boolean",
+            "title": "Breastfeeding"
+          },
+          "hormonal_medication": {
+            "type": "boolean",
+            "title": "Hormonal Medication"
+          },
+          "hysterectomy": {
+            "type": "boolean",
+            "title": "Hysterectomy"
+          },
+          "bilateral_oophorectomy": {
+            "type": "boolean",
+            "title": "Bilateral Oophorectomy"
+          },
+          "period_start_dates": {
+            "items": {
+              "type": "string",
+              "format": "date"
+            },
+            "type": "array",
+            "maxItems": 24,
+            "title": "Period Start Dates"
+          },
+          "cycle_day": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "maximum": 90.0,
+                "minimum": 1.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Cycle Day"
+          },
+          "period_logs_complete": {
+            "type": "boolean",
+            "title": "Period Logs Complete",
+            "default": false
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "age",
+          "pregnant",
+          "breastfeeding",
+          "hormonal_medication",
+          "hysterectomy",
+          "bilateral_oophorectomy"
+        ],
+        "title": "Context"
+      },
+      "Daily": {
+        "properties": {
+          "date": {
+            "type": "string",
+            "format": "date",
+            "title": "Date"
+          },
+          "temperature_deviation": {
+            "anyOf": [
+              {
+                "type": "number",
+                "maximum": 3.0,
+                "minimum": -3.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Temperature Deviation"
+          },
+          "resting_hr": {
+            "anyOf": [
+              {
+                "type": "number",
+                "maximum": 180.0,
+                "minimum": 25.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Resting Hr"
+          },
+          "hrv_ms": {
+            "anyOf": [
+              {
+                "type": "number",
+                "maximum": 400.0,
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Hrv Ms"
+          },
+          "respiratory_rate": {
+            "anyOf": [
+              {
+                "type": "number",
+                "maximum": 40.0,
+                "minimum": 5.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Respiratory Rate"
+          },
+          "sleep_minutes": {
+            "anyOf": [
+              {
+                "type": "number",
+                "maximum": 1440.0,
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Sleep Minutes"
+          },
+          "sleep_efficiency": {
+            "anyOf": [
+              {
+                "type": "number",
+                "maximum": 100.0,
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Sleep Efficiency"
+          },
+          "steps": {
+            "anyOf": [
+              {
+                "type": "number",
+                "maximum": 100000.0,
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Steps"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "date"
+        ],
+        "title": "Daily"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "OuraExport": {
+        "properties": {
+          "sleep": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "type": "array",
+            "maxItems": 3000,
+            "title": "Sleep"
+          },
+          "daily_readiness": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "type": "array",
+            "maxItems": 730,
+            "title": "Daily Readiness"
+          },
+          "daily_activity": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "type": "array",
+            "maxItems": 730,
+            "title": "Daily Activity"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "title": "OuraExport"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "ctx": {
+            "type": "object",
+            "title": "Context"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      }
+    }
+  }
+}

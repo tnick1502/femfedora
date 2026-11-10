@@ -1,0 +1,20 @@
+{
+  "tests_passed": 47,
+  "container_http": {
+    "inference": 200,
+    "missing_token": 401,
+    "invalid_input": 422
+  },
+  "linux_vs_macos_max_absolute_difference": 8.257283745649602e-16,
+  "docker_image": "femfedora-ring-health:v2",
+  "image_manifest": "sha256:b9fcccac65fedc2a476687551e64e9e3d78f95841a595d30f1be978c3c361ad9",
+  "scope": "Local synthetic sample smoke test; no load or external deployment validation",
+  "archive_replay": {
+    "crc": "passed",
+    "file_sha256_checks": 72,
+    "isolated_v2_tests_passed": 33,
+    "synthetic_examples_replayed": 5,
+    "model_outputs": "matched saved outputs",
+    "environment": "fresh extraction outside project; existing Python runtime"
+  }
+}

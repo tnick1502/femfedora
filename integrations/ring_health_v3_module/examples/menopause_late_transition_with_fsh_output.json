@@ -1,0 +1,119 @@
+{
+ "model_version": "ring-health-v3.0.0",
+ "artifact_registry_sha256": "6d9e588c97c56b998c948193972ec20073646f6d6b72869686337af84fa5ab47",
+ "as_of": "2030-06-28",
+ "mode": "demonstration",
+ "clinical_validation": "not_established",
+ "training_data": "synthetic (literature- and real-data-calibrated generator)",
+ "recommendations": [],
+ "data_quality": {
+  "nights_supplied": 179,
+  "coverage": {
+   "temperature_deviation": {
+    "nights_last30": 24,
+    "coverage_last30": 0.8
+   },
+   "resting_hr": {
+    "nights_last30": 24,
+    "coverage_last30": 0.8
+   },
+   "hrv_ms": {
+    "nights_last30": 21,
+    "coverage_last30": 0.7
+   },
+   "respiratory_rate": {
+    "nights_last30": 23,
+    "coverage_last30": 0.77
+   },
+   "sleep_minutes": {
+    "nights_last30": 24,
+    "coverage_last30": 0.8
+   },
+   "sleep_efficiency": {
+    "nights_last30": 24,
+    "coverage_last30": 0.8
+   },
+   "awake_minutes": {
+    "nights_last30": 24,
+    "coverage_last30": 0.8
+   },
+   "longest_temperature_gap_last90": 2
+  }
+ },
+ "menopause": {
+  "status": "ok",
+  "stage": {
+   "label": "late_transition",
+   "label_ru": "поздний менопаузальный переход",
+   "basis": "model",
+   "probabilities": {
+    "reproductive": 0.01,
+    "early_transition": 0.081,
+    "late_transition": 0.901,
+    "postmenopause": 0.007
+   },
+   "grouped": {
+    "label": "transition",
+    "probabilities": {
+     "reproductive": 0.01,
+     "transition": 0.983,
+     "postmenopause": 0.007
+    }
+   },
+   "model_used": "full",
+   "age_only_reference": {
+    "reproductive": 0.039,
+    "early_transition": 0.058,
+    "late_transition": 0.15,
+    "postmenopause": 0.753
+   },
+   "straw10_criteria": {
+    "amenorrhea_12m": false,
+    "interval_ge60": false,
+    "persistent_diff7": true
+   }
+  },
+  "final_menstrual_period": {
+   "probability_by_months": {
+    "6": 0.341,
+    "12": 0.528,
+    "24": 0.986,
+    "36": 0.986,
+    "48": 0.997,
+    "60": 0.998
+   },
+   "median_months": 11.1,
+   "already_confirmed": false,
+   "definition": "P(final menstrual period has occurred or occurs within N months); FMP is confirmed only after 12 months without bleeding"
+  },
+  "vasomotor": {
+   "index_last30": 0.238,
+   "share_of_scored_nights_with_likely_hot_flashes_last30": 0.083,
+   "self_reported_symptom_days_last30": 19
+  },
+  "signals": {
+   "ring_ovulatory_fraction": 0.412,
+   "ring_cycles_completed": 9.0,
+   "temp_cycle_power": 0.079,
+   "temp_night_sd": 0.094,
+   "lnhrv_age_resid": 0.126,
+   "eff_mean_30": 91.083,
+   "awake_mean_30": 35.708,
+   "days_since_last_period": 12.0,
+   "max_interval": 56.0,
+   "persistent_diff7": 6.0,
+   "hot_flash_days_30": 19.0
+  },
+  "data_quality": {
+   "input_pattern": "labs",
+   "symptoms_used": true,
+   "bleeding_information": true,
+   "ring_nights_last90": 72,
+   "labs_used": [
+    "fsh"
+   ],
+   "confidence": "high",
+   "missing_inputs_policy": "not imputed; trees route missing inputs learned under random masking"
+  }
+ }
+}

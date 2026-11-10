@@ -1,0 +1,945 @@
+{
+ "$schema": "http://json-schema.org/schema#",
+ "title": "RingHealthV3Response",
+ "type": "object",
+ "properties": {
+  "model_version": {
+   "type": "string"
+  },
+  "artifact_registry_sha256": {
+   "type": "string"
+  },
+  "as_of": {
+   "type": "string"
+  },
+  "mode": {
+   "type": "string"
+  },
+  "clinical_validation": {
+   "type": "string"
+  },
+  "training_data": {
+   "type": "string"
+  },
+  "recommendations": {
+   "type": "array"
+  },
+  "data_quality": {
+   "type": "object",
+   "properties": {
+    "nights_supplied": {
+     "type": "integer"
+    },
+    "coverage": {
+     "type": "object",
+     "properties": {
+      "temperature_deviation": {
+       "type": "object",
+       "properties": {
+        "nights_last30": {
+         "type": "integer"
+        },
+        "coverage_last30": {
+         "type": "number"
+        }
+       },
+       "required": [
+        "coverage_last30",
+        "nights_last30"
+       ]
+      },
+      "resting_hr": {
+       "type": "object",
+       "properties": {
+        "nights_last30": {
+         "type": "integer"
+        },
+        "coverage_last30": {
+         "type": "number"
+        }
+       },
+       "required": [
+        "coverage_last30",
+        "nights_last30"
+       ]
+      },
+      "hrv_ms": {
+       "type": "object",
+       "properties": {
+        "nights_last30": {
+         "type": "integer"
+        },
+        "coverage_last30": {
+         "type": "number"
+        }
+       },
+       "required": [
+        "coverage_last30",
+        "nights_last30"
+       ]
+      },
+      "respiratory_rate": {
+       "type": "object",
+       "properties": {
+        "nights_last30": {
+         "type": "integer"
+        },
+        "coverage_last30": {
+         "type": "number"
+        }
+       },
+       "required": [
+        "coverage_last30",
+        "nights_last30"
+       ]
+      },
+      "sleep_minutes": {
+       "type": "object",
+       "properties": {
+        "nights_last30": {
+         "type": "integer"
+        },
+        "coverage_last30": {
+         "type": "number"
+        }
+       },
+       "required": [
+        "coverage_last30",
+        "nights_last30"
+       ]
+      },
+      "sleep_efficiency": {
+       "type": "object",
+       "properties": {
+        "nights_last30": {
+         "type": "integer"
+        },
+        "coverage_last30": {
+         "type": "number"
+        }
+       },
+       "required": [
+        "coverage_last30",
+        "nights_last30"
+       ]
+      },
+      "awake_minutes": {
+       "type": "object",
+       "properties": {
+        "nights_last30": {
+         "type": "integer"
+        },
+        "coverage_last30": {
+         "type": "number"
+        }
+       },
+       "required": [
+        "coverage_last30",
+        "nights_last30"
+       ]
+      },
+      "longest_temperature_gap_last90": {
+       "type": "integer"
+      }
+     },
+     "required": [
+      "awake_minutes",
+      "hrv_ms",
+      "longest_temperature_gap_last90",
+      "respiratory_rate",
+      "resting_hr",
+      "sleep_efficiency",
+      "sleep_minutes",
+      "temperature_deviation"
+     ]
+    }
+   },
+   "required": [
+    "coverage",
+    "nights_supplied"
+   ]
+  },
+  "menopause": {
+   "type": "object",
+   "properties": {
+    "status": {
+     "type": "string"
+    },
+    "stage": {
+     "type": "object",
+     "properties": {
+      "label": {
+       "type": [
+        "null",
+        "string"
+       ]
+      },
+      "label_ru": {
+       "type": [
+        "null",
+        "string"
+       ]
+      },
+      "basis": {
+       "type": "string"
+      },
+      "probabilities": {
+       "anyOf": [
+        {
+         "type": "null"
+        },
+        {
+         "type": "object",
+         "properties": {
+          "reproductive": {
+           "type": "number"
+          },
+          "early_transition": {
+           "type": "number"
+          },
+          "late_transition": {
+           "type": "number"
+          },
+          "postmenopause": {
+           "type": "number"
+          }
+         },
+         "required": [
+          "early_transition",
+          "late_transition",
+          "postmenopause",
+          "reproductive"
+         ]
+        }
+       ]
+      },
+      "grouped": {
+       "anyOf": [
+        {
+         "type": "null"
+        },
+        {
+         "type": "object",
+         "properties": {
+          "label": {
+           "type": "string"
+          },
+          "probabilities": {
+           "type": "object",
+           "properties": {
+            "reproductive": {
+             "type": "number"
+            },
+            "transition": {
+             "type": "number"
+            },
+            "postmenopause": {
+             "type": "number"
+            }
+           },
+           "required": [
+            "postmenopause",
+            "reproductive",
+            "transition"
+           ]
+          }
+         },
+         "required": [
+          "label",
+          "probabilities"
+         ]
+        }
+       ]
+      },
+      "model_used": {
+       "type": "string"
+      },
+      "age_only_reference": {
+       "type": "object",
+       "properties": {
+        "reproductive": {
+         "type": "number"
+        },
+        "early_transition": {
+         "type": "number"
+        },
+        "late_transition": {
+         "type": "number"
+        },
+        "postmenopause": {
+         "type": "number"
+        }
+       },
+       "required": [
+        "early_transition",
+        "late_transition",
+        "postmenopause",
+        "reproductive"
+       ]
+      },
+      "straw10_criteria": {
+       "type": "object",
+       "properties": {
+        "amenorrhea_12m": {
+         "type": "boolean"
+        },
+        "interval_ge60": {
+         "type": "boolean"
+        },
+        "persistent_diff7": {
+         "type": "boolean"
+        }
+       },
+       "required": [
+        "amenorrhea_12m",
+        "interval_ge60",
+        "persistent_diff7"
+       ]
+      }
+     },
+     "required": [
+      "age_only_reference",
+      "basis",
+      "grouped",
+      "label",
+      "label_ru",
+      "probabilities",
+      "straw10_criteria"
+     ]
+    },
+    "final_menstrual_period": {
+     "type": "object",
+     "properties": {
+      "probability_by_months": {
+       "anyOf": [
+        {
+         "type": "null"
+        },
+        {
+         "type": "object",
+         "properties": {
+          "6": {
+           "type": "number"
+          },
+          "12": {
+           "type": "number"
+          },
+          "24": {
+           "type": "number"
+          },
+          "36": {
+           "type": "number"
+          },
+          "48": {
+           "type": "number"
+          },
+          "60": {
+           "type": "number"
+          }
+         },
+         "required": [
+          "12",
+          "24",
+          "36",
+          "48",
+          "6",
+          "60"
+         ]
+        }
+       ]
+      },
+      "median_months": {
+       "type": [
+        "null",
+        "number",
+        "string"
+       ]
+      },
+      "already_confirmed": {
+       "type": "boolean"
+      },
+      "definition": {
+       "type": "string"
+      },
+      "age_only_reference_by_months": {
+       "type": "object",
+       "properties": {
+        "6": {
+         "type": "number"
+        },
+        "12": {
+         "type": "number"
+        },
+        "24": {
+         "type": "number"
+        },
+        "36": {
+         "type": "number"
+        },
+        "48": {
+         "type": "number"
+        },
+        "60": {
+         "type": "number"
+        }
+       },
+       "required": [
+        "12",
+        "24",
+        "36",
+        "48",
+        "6",
+        "60"
+       ]
+      }
+     },
+     "required": [
+      "already_confirmed",
+      "median_months",
+      "probability_by_months"
+     ]
+    },
+    "vasomotor": {
+     "type": "object",
+     "properties": {
+      "index_last30": {
+       "type": [
+        "null",
+        "number"
+       ]
+      },
+      "share_of_scored_nights_with_likely_hot_flashes_last30": {
+       "type": [
+        "null",
+        "number"
+       ]
+      },
+      "self_reported_symptom_days_last30": {
+       "type": [
+        "integer",
+        "null"
+       ]
+      }
+     },
+     "required": [
+      "index_last30",
+      "self_reported_symptom_days_last30",
+      "share_of_scored_nights_with_likely_hot_flashes_last30"
+     ]
+    },
+    "signals": {
+     "type": "object",
+     "properties": {
+      "ring_ovulatory_fraction": {
+       "type": [
+        "null",
+        "number"
+       ]
+      },
+      "ring_cycles_completed": {
+       "type": [
+        "null",
+        "number"
+       ]
+      },
+      "temp_cycle_power": {
+       "type": [
+        "null",
+        "number"
+       ]
+      },
+      "temp_night_sd": {
+       "type": [
+        "null",
+        "number"
+       ]
+      },
+      "lnhrv_age_resid": {
+       "type": [
+        "null",
+        "number"
+       ]
+      },
+      "eff_mean_30": {
+       "type": [
+        "null",
+        "number"
+       ]
+      },
+      "awake_mean_30": {
+       "type": [
+        "null",
+        "number"
+       ]
+      },
+      "days_since_last_period": {
+       "type": [
+        "null",
+        "number"
+       ]
+      },
+      "max_interval": {
+       "type": [
+        "null",
+        "number"
+       ]
+      },
+      "persistent_diff7": {
+       "type": [
+        "null",
+        "number"
+       ]
+      },
+      "hot_flash_days_30": {
+       "type": [
+        "null",
+        "number"
+       ]
+      }
+     },
+     "required": [
+      "awake_mean_30",
+      "days_since_last_period",
+      "eff_mean_30",
+      "hot_flash_days_30",
+      "lnhrv_age_resid",
+      "max_interval",
+      "persistent_diff7",
+      "ring_cycles_completed",
+      "ring_ovulatory_fraction",
+      "temp_cycle_power",
+      "temp_night_sd"
+     ]
+    },
+    "data_quality": {
+     "type": "object",
+     "properties": {
+      "input_pattern": {
+       "type": "string"
+      },
+      "symptoms_used": {
+       "type": "boolean"
+      },
+      "bleeding_information": {
+       "type": "boolean"
+      },
+      "ring_nights_last90": {
+       "type": [
+        "integer",
+        "null"
+       ]
+      },
+      "labs_used": {
+       "type": "array",
+       "items": {
+        "type": "string"
+       }
+      },
+      "confidence": {
+       "type": "string"
+      },
+      "missing_inputs_policy": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "bleeding_information",
+      "confidence",
+      "input_pattern",
+      "labs_used",
+      "missing_inputs_policy",
+      "ring_nights_last90",
+      "symptoms_used"
+     ]
+    },
+    "needed": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    }
+   },
+   "required": [
+    "data_quality",
+    "final_menstrual_period",
+    "signals",
+    "stage",
+    "status",
+    "vasomotor"
+   ]
+  },
+  "fertility": {
+   "type": "object",
+   "properties": {
+    "status": {
+     "type": "string"
+    },
+    "as_of": {
+     "type": "string"
+    },
+    "cycle_start": {
+     "type": "string"
+    },
+    "cycle_day": {
+     "type": "integer"
+    },
+    "phase": {
+     "type": "string"
+    },
+    "cycle_start_source": {
+     "type": "string"
+    },
+    "unlogged_period_suggestions": {
+     "type": "array",
+     "items": {
+      "type": "object",
+      "properties": {
+       "date": {
+        "type": "string"
+       },
+       "probability": {
+        "type": "number"
+       },
+       "action": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "action",
+       "date",
+       "probability"
+      ]
+     }
+    },
+    "fertile_window": {
+     "type": "object",
+     "properties": {
+      "today_probability": {
+       "type": "number"
+      },
+      "in_window_today": {
+       "type": "boolean"
+      },
+      "window": {
+       "type": "object",
+       "properties": {
+        "start": {
+         "type": "string"
+        },
+        "end": {
+         "type": "string"
+        },
+        "peak_day": {
+         "type": "string"
+        },
+        "status": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "end",
+        "peak_day",
+        "start",
+        "status"
+       ]
+      },
+      "forecast_7d": {
+       "type": "array",
+       "items": {
+        "type": "object",
+        "properties": {
+         "date": {
+          "type": "string"
+         },
+         "cycle_day": {
+          "type": "integer"
+         },
+         "fertile_probability": {
+          "type": "number"
+         }
+        },
+        "required": [
+         "cycle_day",
+         "date",
+         "fertile_probability"
+        ]
+       }
+      }
+     },
+     "required": [
+      "forecast_7d",
+      "in_window_today",
+      "today_probability",
+      "window"
+     ]
+    },
+    "ovulation": {
+     "type": "object",
+     "properties": {
+      "status": {
+       "type": "string"
+      },
+      "date": {
+       "type": "string"
+      },
+      "interval_80": {
+       "type": "array",
+       "items": {
+        "type": "string"
+       }
+      },
+      "probability_already_passed": {
+       "type": "number"
+      },
+      "probability_ovulatory_cycle": {
+       "type": "number"
+      },
+      "concentration_3d": {
+       "type": "number"
+      }
+     },
+     "required": [
+      "concentration_3d",
+      "date",
+      "interval_80",
+      "probability_already_passed",
+      "probability_ovulatory_cycle",
+      "status"
+     ]
+    },
+    "next_period": {
+     "type": "object",
+     "properties": {
+      "date": {
+       "type": "string"
+      },
+      "interval_80": {
+       "type": "array",
+       "items": {
+        "type": "string"
+       }
+      },
+      "days_until": {
+       "type": "integer"
+      },
+      "late_or_unlogged": {
+       "type": "boolean"
+      }
+     },
+     "required": [
+      "date",
+      "days_until",
+      "interval_80",
+      "late_or_unlogged"
+     ]
+    },
+    "insights": {
+     "type": "object",
+     "properties": {
+      "completed_cycles": {
+       "type": "integer"
+      },
+      "cycle_length_median": {
+       "type": [
+        "null",
+        "number"
+       ]
+      },
+      "cycle_length_range": {
+       "anyOf": [
+        {
+         "type": "null"
+        },
+        {
+         "type": "array",
+         "items": {
+          "type": "integer"
+         }
+        }
+       ]
+      },
+      "cycle_variability_sd": {
+       "type": [
+        "null",
+        "number"
+       ]
+      },
+      "regularity": {
+       "type": [
+        "null",
+        "string"
+       ]
+      },
+      "luteal_length_median": {
+       "type": [
+        "null",
+        "number"
+       ]
+      },
+      "short_luteal_cycles": {
+       "type": "integer"
+      },
+      "possible_anovulatory_cycles": {
+       "type": "integer"
+      },
+      "personal_follicular_mean": {
+       "type": "number"
+      },
+      "personal_luteal_mean": {
+       "type": "number"
+      }
+     },
+     "required": [
+      "completed_cycles",
+      "cycle_length_median",
+      "cycle_length_range",
+      "cycle_variability_sd",
+      "luteal_length_median",
+      "personal_follicular_mean",
+      "personal_luteal_mean",
+      "possible_anovulatory_cycles",
+      "regularity",
+      "short_luteal_cycles"
+     ]
+    },
+    "history": {
+     "type": "array",
+     "items": {
+      "type": "object",
+      "properties": {
+       "start": {
+        "type": "string"
+       },
+       "length": {
+        "type": "integer"
+       },
+       "quality": {
+        "type": "string"
+       },
+       "ovulation_detected": {
+        "type": "boolean"
+       },
+       "ovulation_date": {
+        "type": [
+         "null",
+         "string"
+        ]
+       },
+       "ovulation_date_estimate": {
+        "type": "string"
+       },
+       "estimate_basis": {
+        "type": "string"
+       },
+       "luteal_length": {
+        "type": [
+         "integer",
+         "null"
+        ]
+       },
+       "possible_anovulatory": {
+        "type": "boolean"
+       },
+       "temperature_shift_c": {
+        "type": [
+         "null",
+         "number"
+        ]
+       }
+      },
+      "required": [
+       "estimate_basis",
+       "length",
+       "luteal_length",
+       "ovulation_date",
+       "ovulation_date_estimate",
+       "ovulation_detected",
+       "possible_anovulatory",
+       "quality",
+       "start",
+       "temperature_shift_c"
+      ]
+     }
+    },
+    "data_quality": {
+     "type": "object",
+     "properties": {
+      "temperature_nights_last14": {
+       "type": "integer"
+      },
+      "coverage_last14": {
+       "type": "number"
+      },
+      "days_since_last_temperature": {
+       "type": [
+        "integer",
+        "null"
+       ]
+      },
+      "possible_illness_nights_last14": {
+       "type": "integer"
+      },
+      "evidence": {
+       "type": "string"
+      },
+      "confidence": {
+       "type": "string"
+      },
+      "observed_nights_current_cycle": {
+       "type": "object",
+       "properties": {
+        "temperature_deviation": {
+         "type": "integer"
+        },
+        "resting_hr": {
+         "type": "integer"
+        },
+        "lnhrv": {
+         "type": "integer"
+        },
+        "respiratory_rate": {
+         "type": "integer"
+        }
+       },
+       "required": [
+        "lnhrv",
+        "respiratory_rate",
+        "resting_hr",
+        "temperature_deviation"
+       ]
+      },
+      "imputation": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "confidence",
+      "coverage_last14",
+      "days_since_last_temperature",
+      "evidence",
+      "imputation",
+      "observed_nights_current_cycle",
+      "possible_illness_nights_last14",
+      "temperature_nights_last14"
+     ]
+    },
+    "reason": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "status"
+   ]
+  }
+ },
+ "required": [
+  "artifact_registry_sha256",
+  "as_of",
+  "clinical_validation",
+  "data_quality",
+  "mode",
+  "model_version",
+  "recommendations",
+  "training_data"
+ ]
+}

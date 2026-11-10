@@ -1,0 +1,143 @@
+{
+  "status": "fixed-specification research benchmark; no model selected using OOF results",
+  "features": [
+    "signal_delta",
+    "signal_mean3_delta",
+    "signal_mean7_delta",
+    "signal_change3",
+    "signal_std7"
+  ],
+  "target": "fertile_target",
+  "models": {
+    "dummy": {
+      "n": 1239,
+      "accuracy": 0.7142857142857143,
+      "balanced_accuracy": 0.5,
+      "macro_f1": 0.4166666666666667,
+      "log_loss": 0.5982695885852573,
+      "confusion_matrix": [
+        [
+          885,
+          0
+        ],
+        [
+          354,
+          0
+        ]
+      ],
+      "roc_auc": 0.5,
+      "average_precision": 0.2857142857142857,
+      "brier": 0.20408163265306123,
+      "positive_f1": 0.0,
+      "precision": 0.0,
+      "sensitivity": 0.0,
+      "positive_prevalence": 0.2857142857142857,
+      "threshold": 0.5
+    },
+    "logistic": {
+      "n": 1239,
+      "accuracy": 0.7142857142857143,
+      "balanced_accuracy": 0.5,
+      "macro_f1": 0.4166666666666667,
+      "log_loss": 0.5810027468711483,
+      "confusion_matrix": [
+        [
+          885,
+          0
+        ],
+        [
+          354,
+          0
+        ]
+      ],
+      "roc_auc": 0.6338791534999522,
+      "average_precision": 0.37837753621511894,
+      "brier": 0.19584747825202153,
+      "positive_f1": 0.0,
+      "precision": 0.0,
+      "sensitivity": 0.0,
+      "positive_prevalence": 0.2857142857142857,
+      "threshold": 0.5
+    },
+    "hist_gradient": {
+      "n": 1239,
+      "accuracy": 0.6795803066989508,
+      "balanced_accuracy": 0.5468926553672316,
+      "macro_f1": 0.544908844468911,
+      "log_loss": 0.687930594664361,
+      "confusion_matrix": [
+        [
+          758,
+          127
+        ],
+        [
+          270,
+          84
+        ]
+      ],
+      "roc_auc": 0.5912748571610967,
+      "average_precision": 0.3554980502298973,
+      "brier": 0.2252828887257357,
+      "positive_f1": 0.2973451327433628,
+      "precision": 0.3981042654028436,
+      "sensitivity": 0.23728813559322035,
+      "positive_prevalence": 0.2857142857142857,
+      "threshold": 0.5
+    },
+    "random_forest": {
+      "n": 1239,
+      "accuracy": 0.7037933817594835,
+      "balanced_accuracy": 0.543502824858757,
+      "macro_f1": 0.5310385440849326,
+      "log_loss": 0.5991744865334112,
+      "confusion_matrix": [
+        [
+          812,
+          73
+        ],
+        [
+          294,
+          60
+        ]
+      ],
+      "roc_auc": 0.6104280379201379,
+      "average_precision": 0.3850249461270068,
+      "brier": 0.20292072377912476,
+      "positive_f1": 0.2464065708418891,
+      "precision": 0.45112781954887216,
+      "sensitivity": 0.1694915254237288,
+      "positive_prevalence": 0.2857142857142857,
+      "threshold": 0.5
+    }
+  },
+  "logistic_ci": {
+    "method": "percentile participant bootstrap; conditional on fitted model and split; not survey-design or external-validation uncertainty",
+    "replicates": 200,
+    "intervals_95": {
+      "macro_f1": [
+        0.4166666666666667,
+        0.4166666666666667
+      ],
+      "accuracy": [
+        0.7142857142857143,
+        0.7142857142857143
+      ],
+      "brier": [
+        0.18828073168846376,
+        0.2047646156430424
+      ],
+      "roc_auc": [
+        0.5742677532163092,
+        0.6893449222614046
+      ],
+      "average_precision": [
+        0.3326561647970064,
+        0.4361755399666044
+      ],
+      "positive_f1": [
+        0.0,
+        0.0
+      ]
+    }
+  }
+}

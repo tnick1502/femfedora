@@ -1,0 +1,21 @@
+{
+  "date": "2026-11-09",
+  "version": "v1",
+  "seeds": {
+    "split": 701,
+    "stage_train": 704,
+    "stage_shift": 1704,
+    "fertility_train": 905,
+    "fertility_shift": 1905
+  },
+  "candidate_families": [
+    "dummy",
+    "logistic_C0.3",
+    "hist_gradient_leaf15_l2_4",
+    "random_forest_depth9_leaf8"
+  ],
+  "selection": "validation log loss; binary threshold validation F1; no test-driven changes",
+  "split_policy": "person disjoint60/20/20; NHANES2015-16 train/validation,2017-18 temporal test; processed TempID and Jordan5fold grouped CV",
+  "synthetic_policy": "independent model artifacts, never mixed with real records; physiology-informed assumptions, no inferred clinical validity",
+  "claim_policy": "current stage and current fertile-day signal; no validated future FMP/time-to-menopause output"
+}

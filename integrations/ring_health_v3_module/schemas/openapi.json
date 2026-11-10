@@ -1,0 +1,617 @@
+{
+ "openapi": "3.1.0",
+ "info": {
+  "title": "Ring Health v3 (research/demo)",
+  "description": "Cycle (fertile window, ovulation, next period) and menopausal-transition analysis from smart-ring nights. Synthetic-trained; clinical validity not established.",
+  "version": "3.0.0"
+ },
+ "paths": {
+  "/health/live": {
+   "get": {
+    "summary": "Live",
+    "operationId": "live_health_live_get",
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     }
+    }
+   }
+  },
+  "/health/ready": {
+   "get": {
+    "summary": "Ready",
+    "operationId": "ready_health_ready_get",
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     }
+    }
+   }
+  },
+  "/v3/analyze": {
+   "post": {
+    "summary": "Analyze",
+    "operationId": "analyze_v3_analyze_post",
+    "parameters": [
+     {
+      "name": "authorization",
+      "in": "header",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Authorization"
+      }
+     }
+    ],
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/AnalyzeRequest"
+       }
+      }
+     }
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+ },
+ "components": {
+  "schemas": {
+   "AnalyzeRequest": {
+    "properties": {
+     "as_of": {
+      "type": "string",
+      "format": "date",
+      "title": "As Of"
+     },
+     "modules": {
+      "items": {
+       "type": "string",
+       "enum": [
+        "fertility",
+        "menopause"
+       ]
+      },
+      "type": "array",
+      "title": "Modules"
+     },
+     "profile": {
+      "$ref": "#/components/schemas/Profile"
+     },
+     "cycle": {
+      "$ref": "#/components/schemas/Cycle"
+     },
+     "lh_tests": {
+      "items": {
+       "$ref": "#/components/schemas/LHTest"
+      },
+      "type": "array",
+      "maxItems": 400,
+      "title": "Lh Tests"
+     },
+     "symptoms": {
+      "$ref": "#/components/schemas/Symptoms"
+     },
+     "labs": {
+      "$ref": "#/components/schemas/Labs"
+     },
+     "nights": {
+      "anyOf": [
+       {
+        "items": {
+         "$ref": "#/components/schemas/Night"
+        },
+        "type": "array",
+        "maxItems": 800
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Nights"
+     },
+     "oura": {
+      "anyOf": [
+       {
+        "$ref": "#/components/schemas/OuraExport"
+       },
+       {
+        "type": "null"
+       }
+      ]
+     }
+    },
+    "additionalProperties": false,
+    "type": "object",
+    "required": [
+     "as_of",
+     "profile"
+    ],
+    "title": "AnalyzeRequest"
+   },
+   "Cycle": {
+    "properties": {
+     "period_starts": {
+      "items": {
+       "type": "string",
+       "format": "date"
+      },
+      "type": "array",
+      "maxItems": 60,
+      "title": "Period Starts"
+     },
+     "last_period_date": {
+      "anyOf": [
+       {
+        "type": "string",
+        "format": "date"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Last Period Date",
+      "description": "Onboarding answer: first day of the most recent period (may be years ago)"
+     },
+     "period_logs_complete": {
+      "type": "boolean",
+      "title": "Period Logs Complete",
+      "description": "True only if every period start in the history is logged",
+      "default": false
+     },
+     "logging_since": {
+      "anyOf": [
+       {
+        "type": "string",
+        "format": "date"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Logging Since",
+      "description": "Date from which periods are logged in the app"
+     },
+     "menses_length": {
+      "anyOf": [
+       {
+        "type": "integer",
+        "maximum": 12.0,
+        "minimum": 1.0
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Menses Length"
+     }
+    },
+    "additionalProperties": false,
+    "type": "object",
+    "title": "Cycle"
+   },
+   "HTTPValidationError": {
+    "properties": {
+     "detail": {
+      "items": {
+       "$ref": "#/components/schemas/ValidationError"
+      },
+      "type": "array",
+      "title": "Detail"
+     }
+    },
+    "type": "object",
+    "title": "HTTPValidationError"
+   },
+   "LHTest": {
+    "properties": {
+     "date": {
+      "type": "string",
+      "format": "date",
+      "title": "Date"
+     },
+     "result": {
+      "type": "string",
+      "enum": [
+       "positive",
+       "negative"
+      ],
+      "title": "Result"
+     }
+    },
+    "additionalProperties": false,
+    "type": "object",
+    "required": [
+     "date",
+     "result"
+    ],
+    "title": "LHTest"
+   },
+   "Lab": {
+    "properties": {
+     "value": {
+      "type": "number",
+      "exclusiveMinimum": 0.0,
+      "title": "Value"
+     },
+     "date": {
+      "type": "string",
+      "format": "date",
+      "title": "Date"
+     }
+    },
+    "additionalProperties": false,
+    "type": "object",
+    "required": [
+     "value",
+     "date"
+    ],
+    "title": "Lab"
+   },
+   "Labs": {
+    "properties": {
+     "fsh_iu_l": {
+      "anyOf": [
+       {
+        "$ref": "#/components/schemas/Lab"
+       },
+       {
+        "type": "null"
+       }
+      ]
+     },
+     "amh_pg_ml": {
+      "anyOf": [
+       {
+        "$ref": "#/components/schemas/Lab"
+       },
+       {
+        "type": "null"
+       }
+      ]
+     }
+    },
+    "additionalProperties": false,
+    "type": "object",
+    "title": "Labs"
+   },
+   "Night": {
+    "properties": {
+     "date": {
+      "type": "string",
+      "format": "date",
+      "title": "Date"
+     },
+     "temperature_deviation": {
+      "anyOf": [
+       {
+        "type": "number",
+        "maximum": 3.0,
+        "minimum": -3.0
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Temperature Deviation",
+      "description": "Nightly skin temperature deviation from personal baseline, deg C (Oura daily_readiness.temperature_deviation)"
+     },
+     "resting_hr": {
+      "anyOf": [
+       {
+        "type": "number",
+        "maximum": 180.0,
+        "minimum": 25.0
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Resting Hr",
+      "description": "Lowest/resting nightly HR, bpm (Oura sleep.lowest_heart_rate)"
+     },
+     "hrv_ms": {
+      "anyOf": [
+       {
+        "type": "number",
+        "maximum": 400.0,
+        "minimum": 1.0
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Hrv Ms",
+      "description": "Nightly average RMSSD, ms (Oura sleep.average_hrv)"
+     },
+     "respiratory_rate": {
+      "anyOf": [
+       {
+        "type": "number",
+        "maximum": 40.0,
+        "minimum": 5.0
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Respiratory Rate",
+      "description": "breaths/min (Oura sleep.average_breath)"
+     },
+     "sleep_minutes": {
+      "anyOf": [
+       {
+        "type": "number",
+        "maximum": 1440.0,
+        "minimum": 0.0
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Sleep Minutes"
+     },
+     "sleep_efficiency": {
+      "anyOf": [
+       {
+        "type": "number",
+        "maximum": 100.0,
+        "minimum": 0.0
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Sleep Efficiency"
+     },
+     "awake_minutes": {
+      "anyOf": [
+       {
+        "type": "number",
+        "maximum": 1000.0,
+        "minimum": 0.0
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Awake Minutes",
+      "description": "Awake time inside the sleep period, minutes (Oura sleep.awake_time/60)"
+     }
+    },
+    "additionalProperties": false,
+    "type": "object",
+    "required": [
+     "date"
+    ],
+    "title": "Night"
+   },
+   "OuraExport": {
+    "properties": {
+     "sleep": {
+      "items": {
+       "additionalProperties": true,
+       "type": "object"
+      },
+      "type": "array",
+      "maxItems": 4000,
+      "title": "Sleep"
+     },
+     "daily_readiness": {
+      "items": {
+       "additionalProperties": true,
+       "type": "object"
+      },
+      "type": "array",
+      "maxItems": 800,
+      "title": "Daily Readiness"
+     }
+    },
+    "additionalProperties": false,
+    "type": "object",
+    "title": "OuraExport"
+   },
+   "Profile": {
+    "properties": {
+     "age": {
+      "type": "number",
+      "maximum": 70.0,
+      "minimum": 16.0,
+      "title": "Age"
+     },
+     "pregnant": {
+      "type": "boolean",
+      "title": "Pregnant",
+      "default": false
+     },
+     "breastfeeding": {
+      "type": "boolean",
+      "title": "Breastfeeding",
+      "default": false
+     },
+     "hormonal_contraception": {
+      "type": "boolean",
+      "title": "Hormonal Contraception",
+      "default": false
+     },
+     "menopausal_hormone_therapy": {
+      "type": "boolean",
+      "title": "Menopausal Hormone Therapy",
+      "default": false
+     },
+     "hysterectomy": {
+      "type": "boolean",
+      "title": "Hysterectomy",
+      "default": false
+     },
+     "bilateral_oophorectomy": {
+      "type": "boolean",
+      "title": "Bilateral Oophorectomy",
+      "default": false
+     },
+     "smoker": {
+      "anyOf": [
+       {
+        "type": "boolean"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Smoker"
+     },
+     "bmi": {
+      "anyOf": [
+       {
+        "type": "number",
+        "maximum": 70.0,
+        "minimum": 12.0
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Bmi"
+     },
+     "parous": {
+      "anyOf": [
+       {
+        "type": "boolean"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Parous"
+     },
+     "college_education": {
+      "anyOf": [
+       {
+        "type": "boolean"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "College Education"
+     }
+    },
+    "additionalProperties": false,
+    "type": "object",
+    "required": [
+     "age"
+    ],
+    "title": "Profile"
+   },
+   "Symptoms": {
+    "properties": {
+     "logging_enabled": {
+      "type": "boolean",
+      "title": "Logging Enabled",
+      "description": "True if the user logs symptoms; then absence of a log means 'no symptom'",
+      "default": false
+     },
+     "hot_flash_dates": {
+      "items": {
+       "type": "string",
+       "format": "date"
+      },
+      "type": "array",
+      "maxItems": 400,
+      "title": "Hot Flash Dates"
+     },
+     "night_sweat_dates": {
+      "items": {
+       "type": "string",
+       "format": "date"
+      },
+      "type": "array",
+      "maxItems": 400,
+      "title": "Night Sweat Dates"
+     }
+    },
+    "additionalProperties": false,
+    "type": "object",
+    "title": "Symptoms"
+   },
+   "ValidationError": {
+    "properties": {
+     "loc": {
+      "items": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "integer"
+        }
+       ]
+      },
+      "type": "array",
+      "title": "Location"
+     },
+     "msg": {
+      "type": "string",
+      "title": "Message"
+     },
+     "type": {
+      "type": "string",
+      "title": "Error Type"
+     },
+     "input": {
+      "title": "Input"
+     },
+     "ctx": {
+      "type": "object",
+      "title": "Context"
+     }
+    },
+    "type": "object",
+    "required": [
+     "loc",
+     "msg",
+     "type"
+    ],
+    "title": "ValidationError"
+   }
+  }
+ }
+}

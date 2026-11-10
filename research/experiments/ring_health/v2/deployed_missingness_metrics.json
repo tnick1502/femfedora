@@ -1,0 +1,350 @@
+{
+  "provenance": "synthetic_literature_constrained",
+  "test_people": 72,
+  "regimes": {
+    "block14": {
+      "days": 1710,
+      "cycles": 72,
+      "forecast_coverage": 0.968421052631579,
+      "positive_prevalence": 0.21578947368421053,
+      "positive_f1_all_days_unavailable_as_negative": 0.4657933042212518,
+      "average_precision_all_days": 0.4192028711848185,
+      "brier_all_days": 0.1408652239898471,
+      "ovulatory_cycles": 67,
+      "detected_cycles": 1,
+      "detection_rate_all_ovulatory": 0.014925373134328358,
+      "detection_rate_ci95": [
+        0.0,
+        0.04477611940298507
+      ],
+      "mae_detected_only": 22.0,
+      "within2_all_ovulatory": 0.0,
+      "within2_ci95": [
+        0.0,
+        0.0
+      ],
+      "median_alarm_delay_detected": -18.0,
+      "anovulatory_cycles": 5,
+      "anovulatory_false_alarm_fraction": 0.0,
+      "thermal_evidence_day_fraction": 0.43450292397660817
+    },
+    "block3": {
+      "days": 1710,
+      "cycles": 72,
+      "forecast_coverage": 0.987719298245614,
+      "positive_prevalence": 0.21578947368421053,
+      "positive_f1_all_days_unavailable_as_negative": 0.5421853388658368,
+      "average_precision_all_days": 0.5352922356158014,
+      "brier_all_days": 0.12758514276530242,
+      "ovulatory_cycles": 67,
+      "detected_cycles": 46,
+      "detection_rate_all_ovulatory": 0.6865671641791045,
+      "detection_rate_ci95": [
+        0.582089552238806,
+        0.7910447761194029
+      ],
+      "mae_detected_only": 1.6956521739130435,
+      "within2_all_ovulatory": 0.6119402985074627,
+      "within2_ci95": [
+        0.5074626865671642,
+        0.7242537313432832
+      ],
+      "median_alarm_delay_detected": 4.0,
+      "anovulatory_cycles": 5,
+      "anovulatory_false_alarm_fraction": 0.0,
+      "thermal_evidence_day_fraction": 0.8070175438596491
+    },
+    "block7": {
+      "days": 1710,
+      "cycles": 72,
+      "forecast_coverage": 0.9830409356725146,
+      "positive_prevalence": 0.21578947368421053,
+      "positive_f1_all_days_unavailable_as_negative": 0.49504950495049505,
+      "average_precision_all_days": 0.48146007200254476,
+      "brier_all_days": 0.13434994669804232,
+      "ovulatory_cycles": 67,
+      "detected_cycles": 32,
+      "detection_rate_all_ovulatory": 0.47761194029850745,
+      "detection_rate_ci95": [
+        0.3582089552238806,
+        0.582089552238806
+      ],
+      "mae_detected_only": 1.9375,
+      "within2_all_ovulatory": 0.4626865671641791,
+      "within2_ci95": [
+        0.34328358208955223,
+        0.5749999999999996
+      ],
+      "median_alarm_delay_detected": 6.0,
+      "anovulatory_cycles": 5,
+      "anovulatory_false_alarm_fraction": 0.0,
+      "thermal_evidence_day_fraction": 0.7549707602339182
+    },
+    "complete": {
+      "days": 1710,
+      "cycles": 72,
+      "forecast_coverage": 0.9888888888888889,
+      "positive_prevalence": 0.21578947368421053,
+      "positive_f1_all_days_unavailable_as_negative": 0.5679347826086957,
+      "average_precision_all_days": 0.5593341484473315,
+      "brier_all_days": 0.12551895468087595,
+      "ovulatory_cycles": 67,
+      "detected_cycles": 47,
+      "detection_rate_all_ovulatory": 0.7014925373134329,
+      "detection_rate_ci95": [
+        0.582089552238806,
+        0.8059701492537313
+      ],
+      "mae_detected_only": 1.2340425531914894,
+      "within2_all_ovulatory": 0.6567164179104478,
+      "within2_ci95": [
+        0.5522388059701493,
+        0.7611940298507462
+      ],
+      "median_alarm_delay_detected": 4.0,
+      "anovulatory_cycles": 5,
+      "anovulatory_false_alarm_fraction": 0.0,
+      "thermal_evidence_day_fraction": 0.8204678362573099
+    },
+    "illness_nonwear": {
+      "days": 1710,
+      "cycles": 72,
+      "forecast_coverage": 0.9888888888888889,
+      "positive_prevalence": 0.21578947368421053,
+      "positive_f1_all_days_unavailable_as_negative": 0.555858310626703,
+      "average_precision_all_days": 0.5595950857607301,
+      "brier_all_days": 0.12758998867174892,
+      "ovulatory_cycles": 67,
+      "detected_cycles": 39,
+      "detection_rate_all_ovulatory": 0.582089552238806,
+      "detection_rate_ci95": [
+        0.4626865671641791,
+        0.6865671641791045
+      ],
+      "mae_detected_only": 0.7948717948717948,
+      "within2_all_ovulatory": 0.5373134328358209,
+      "within2_ci95": [
+        0.417910447761194,
+        0.6417910447761194
+      ],
+      "median_alarm_delay_detected": 6.0,
+      "anovulatory_cycles": 5,
+      "anovulatory_false_alarm_fraction": 0.0,
+      "thermal_evidence_day_fraction": 0.8052631578947368
+    },
+    "metric_dropout": {
+      "days": 1710,
+      "cycles": 72,
+      "forecast_coverage": 0.9900584795321637,
+      "positive_prevalence": 0.21578947368421053,
+      "positive_f1_all_days_unavailable_as_negative": 0.5482517482517483,
+      "average_precision_all_days": 0.5405757297862093,
+      "brier_all_days": 0.12864891152976535,
+      "ovulatory_cycles": 67,
+      "detected_cycles": 33,
+      "detection_rate_all_ovulatory": 0.4925373134328358,
+      "detection_rate_ci95": [
+        0.373134328358209,
+        0.5970149253731343
+      ],
+      "mae_detected_only": 0.7878787878787878,
+      "within2_all_ovulatory": 0.4626865671641791,
+      "within2_ci95": [
+        0.34328358208955223,
+        0.5671641791044776
+      ],
+      "median_alarm_delay_detected": 5.0,
+      "anovulatory_cycles": 5,
+      "anovulatory_false_alarm_fraction": 0.0,
+      "thermal_evidence_day_fraction": 0.6923976608187135
+    },
+    "missed_period_log": {
+      "days": 1710,
+      "cycles": 72,
+      "forecast_coverage": 0.28538011695906434,
+      "positive_prevalence": 0.21578947368421053,
+      "positive_f1_all_days_unavailable_as_negative": 0.0,
+      "average_precision_all_days": 0.2218696324763757,
+      "brier_all_days": 0.21578946754809517,
+      "ovulatory_cycles": 67,
+      "detected_cycles": 0,
+      "detection_rate_all_ovulatory": 0.0,
+      "detection_rate_ci95": [
+        0.0,
+        0.0
+      ],
+      "mae_detected_only": null,
+      "within2_all_ovulatory": 0.0,
+      "within2_ci95": [
+        0.0,
+        0.0
+      ],
+      "median_alarm_delay_detected": null,
+      "anovulatory_cycles": 5,
+      "anovulatory_false_alarm_fraction": 0.0,
+      "thermal_evidence_day_fraction": 0.28538011695906434
+    },
+    "no_temperature": {
+      "days": 1710,
+      "cycles": 72,
+      "forecast_coverage": 1.0,
+      "positive_prevalence": 0.21578947368421053,
+      "positive_f1_all_days_unavailable_as_negative": 0.4653902798232695,
+      "average_precision_all_days": 0.45708707512269536,
+      "brier_all_days": 0.13963028225229618,
+      "ovulatory_cycles": 67,
+      "detected_cycles": 0,
+      "detection_rate_all_ovulatory": 0.0,
+      "detection_rate_ci95": [
+        0.0,
+        0.0
+      ],
+      "mae_detected_only": null,
+      "within2_all_ovulatory": 0.0,
+      "within2_ci95": [
+        0.0,
+        0.0
+      ],
+      "median_alarm_delay_detected": null,
+      "anovulatory_cycles": 5,
+      "anovulatory_false_alarm_fraction": 0.0,
+      "thermal_evidence_day_fraction": 0.0
+    },
+    "random10": {
+      "days": 1710,
+      "cycles": 72,
+      "forecast_coverage": 0.9883040935672515,
+      "positive_prevalence": 0.21578947368421053,
+      "positive_f1_all_days_unavailable_as_negative": 0.5620736698499318,
+      "average_precision_all_days": 0.5546594497168605,
+      "brier_all_days": 0.12624082679141682,
+      "ovulatory_cycles": 67,
+      "detected_cycles": 46,
+      "detection_rate_all_ovulatory": 0.6865671641791045,
+      "detection_rate_ci95": [
+        0.5671641791044776,
+        0.7910447761194029
+      ],
+      "mae_detected_only": 1.173913043478261,
+      "within2_all_ovulatory": 0.6417910447761194,
+      "within2_ci95": [
+        0.5223880597014925,
+        0.746268656716418
+      ],
+      "median_alarm_delay_detected": 4.0,
+      "anovulatory_cycles": 5,
+      "anovulatory_false_alarm_fraction": 0.0,
+      "thermal_evidence_day_fraction": 0.808187134502924
+    },
+    "random30": {
+      "days": 1710,
+      "cycles": 72,
+      "forecast_coverage": 0.9847953216374269,
+      "positive_prevalence": 0.21578947368421053,
+      "positive_f1_all_days_unavailable_as_negative": 0.09429280397022333,
+      "average_precision_all_days": 0.48706986909930494,
+      "brier_all_days": 0.1380131998225602,
+      "ovulatory_cycles": 67,
+      "detected_cycles": 28,
+      "detection_rate_all_ovulatory": 0.417910447761194,
+      "detection_rate_ci95": [
+        0.29850746268656714,
+        0.5223880597014925
+      ],
+      "mae_detected_only": 1.6785714285714286,
+      "within2_all_ovulatory": 0.373134328358209,
+      "within2_ci95": [
+        0.2537313432835821,
+        0.47761194029850745
+      ],
+      "median_alarm_delay_detected": 5.0,
+      "anovulatory_cycles": 5,
+      "anovulatory_false_alarm_fraction": 0.0,
+      "thermal_evidence_day_fraction": 0.7538011695906432
+    },
+    "random50": {
+      "days": 1710,
+      "cycles": 72,
+      "forecast_coverage": 0.9865497076023392,
+      "positive_prevalence": 0.21578947368421053,
+      "positive_f1_all_days_unavailable_as_negative": 0.07253886010362694,
+      "average_precision_all_days": 0.493701670655246,
+      "brier_all_days": 0.14045059762369166,
+      "ovulatory_cycles": 67,
+      "detected_cycles": 20,
+      "detection_rate_all_ovulatory": 0.29850746268656714,
+      "detection_rate_ci95": [
+        0.19402985074626866,
+        0.40298507462686567
+      ],
+      "mae_detected_only": 1.2,
+      "within2_all_ovulatory": 0.26865671641791045,
+      "within2_ci95": [
+        0.16417910447761194,
+        0.373134328358209
+      ],
+      "median_alarm_delay_detected": 6.5,
+      "anovulatory_cycles": 5,
+      "anovulatory_false_alarm_fraction": 0.0,
+      "thermal_evidence_day_fraction": 0.57953216374269
+    },
+    "random70": {
+      "days": 1710,
+      "cycles": 72,
+      "forecast_coverage": 0.9935672514619883,
+      "positive_prevalence": 0.21578947368421053,
+      "positive_f1_all_days_unavailable_as_negative": 0.0,
+      "average_precision_all_days": 0.3591678178852448,
+      "brier_all_days": 0.15122781296958462,
+      "ovulatory_cycles": 67,
+      "detected_cycles": 3,
+      "detection_rate_all_ovulatory": 0.04477611940298507,
+      "detection_rate_ci95": [
+        0.0,
+        0.1044776119402985
+      ],
+      "mae_detected_only": 0.3333333333333333,
+      "within2_all_ovulatory": 0.04477611940298507,
+      "within2_ci95": [
+        0.0,
+        0.1044776119402985
+      ],
+      "median_alarm_delay_detected": 6.0,
+      "anovulatory_cycles": 5,
+      "anovulatory_false_alarm_fraction": 0.0,
+      "thermal_evidence_day_fraction": 0.23333333333333334
+    },
+    "temperature_only": {
+      "days": 1710,
+      "cycles": 72,
+      "forecast_coverage": 0.9888888888888889,
+      "positive_prevalence": 0.21578947368421053,
+      "positive_f1_all_days_unavailable_as_negative": 0.5679347826086957,
+      "average_precision_all_days": 0.5593341484473315,
+      "brier_all_days": 0.12551895468087595,
+      "ovulatory_cycles": 67,
+      "detected_cycles": 47,
+      "detection_rate_all_ovulatory": 0.7014925373134329,
+      "detection_rate_ci95": [
+        0.582089552238806,
+        0.8059701492537313
+      ],
+      "mae_detected_only": 1.2340425531914894,
+      "within2_all_ovulatory": 0.6567164179104478,
+      "within2_ci95": [
+        0.5522388059701493,
+        0.7611940298507462
+      ],
+      "median_alarm_delay_detected": 4.0,
+      "anovulatory_cycles": 5,
+      "anovulatory_false_alarm_fraction": 0.0,
+      "thermal_evidence_day_fraction": 0.8204678362573099
+    }
+  },
+  "latency_ms_p50_p95": [
+    9.614791488274932,
+    11.35948747396469
+  ],
+  "evaluation": "Actual Engine.analyze on every eligible day of fixed final cycle; no sampling of favorable days; misses remain in all-cycle denominator",
+  "clinical_comparison": "Not equivalent to Oura validation"
+}

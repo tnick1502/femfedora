@@ -1,0 +1,12 @@
+# Ring Health v3 (training + serving). Python 3.12/3.13. Artifacts require the same scikit-learn version.
+numpy>=2.2,<2.6
+pandas>=2.2,<3.1
+scipy==1.18.1
+scikit-learn==1.9.1
+joblib==1.6.0
+pydantic>=2.13,<2.15
+fastapi>=0.160
+uvicorn>=0.54
+matplotlib>=3.10       # figures only
+lifelines>=0.30        # NHANES survival fit only (training)
+pytest>=9

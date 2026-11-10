@@ -1,0 +1,11 @@
+{
+  "ovulatory_cycles": 274,
+  "detected_cycles": 274,
+  "detection_rate": 1.0,
+  "mae_days_detected_only": 0.6167883211678832,
+  "within_2_days_all_ovulatory": 0.9306569343065694,
+  "median_alarm_delay_days": 2.0,
+  "anovulatory_cycles": 14,
+  "anovulatory_false_alarm_fraction": 0.35714285714285715,
+  "warning": "synthetic only; first-alarm specification fixed before scoring"
+}

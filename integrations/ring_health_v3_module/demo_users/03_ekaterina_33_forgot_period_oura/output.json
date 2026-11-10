@@ -1,0 +1,217 @@
+{
+ "model_version": "ring-health-v3.0.0",
+ "artifact_registry_sha256": "6d9e588c97c56b998c948193972ec20073646f6d6b72869686337af84fa5ab47",
+ "as_of": "2026-11-09",
+ "mode": "demonstration",
+ "clinical_validation": "not_established",
+ "training_data": "synthetic (literature- and real-data-calibrated generator)",
+ "recommendations": [],
+ "data_quality": {
+  "nights_supplied": 136,
+  "coverage": {
+   "temperature_deviation": {
+    "nights_last30": 27,
+    "coverage_last30": 0.9
+   },
+   "resting_hr": {
+    "nights_last30": 28,
+    "coverage_last30": 0.93
+   },
+   "hrv_ms": {
+    "nights_last30": 28,
+    "coverage_last30": 0.93
+   },
+   "respiratory_rate": {
+    "nights_last30": 26,
+    "coverage_last30": 0.87
+   },
+   "sleep_minutes": {
+    "nights_last30": 28,
+    "coverage_last30": 0.93
+   },
+   "sleep_efficiency": {
+    "nights_last30": 28,
+    "coverage_last30": 0.93
+   },
+   "awake_minutes": {
+    "nights_last30": 28,
+    "coverage_last30": 0.93
+   },
+   "longest_temperature_gap_last90": 3
+  }
+ },
+ "fertility": {
+  "status": "ok",
+  "as_of": "2026-11-09",
+  "cycle_start": "2026-11-01",
+  "cycle_day": 9,
+  "phase": "fertile_window",
+  "cycle_start_source": "inferred_from_physiology",
+  "unlogged_period_suggestions": [
+   {
+    "date": "2026-11-01",
+    "probability": 0.886,
+    "action": "ask_user_to_confirm_period_start"
+   }
+  ],
+  "fertile_window": {
+   "today_probability": 0.731,
+   "in_window_today": true,
+   "window": {
+    "start": "2026-11-06",
+    "end": "2026-11-14",
+    "peak_day": "2026-11-10",
+    "status": "now"
+   },
+   "forecast_7d": [
+    {
+     "date": "2026-11-09",
+     "cycle_day": 9,
+     "fertile_probability": 0.731
+    },
+    {
+     "date": "2026-11-10",
+     "cycle_day": 10,
+     "fertile_probability": 0.739
+    },
+    {
+     "date": "2026-11-11",
+     "cycle_day": 11,
+     "fertile_probability": 0.676
+    },
+    {
+     "date": "2026-11-12",
+     "cycle_day": 12,
+     "fertile_probability": 0.565
+    },
+    {
+     "date": "2026-11-13",
+     "cycle_day": 13,
+     "fertile_probability": 0.43
+    },
+    {
+     "date": "2026-11-14",
+     "cycle_day": 14,
+     "fertile_probability": 0.29
+    },
+    {
+     "date": "2026-11-15",
+     "cycle_day": 15,
+     "fertile_probability": 0.167
+    }
+   ]
+  },
+  "ovulation": {
+   "status": "predicted",
+   "date": "2026-11-12",
+   "interval_80": [
+    "2026-11-09",
+    "2026-11-15"
+   ],
+   "probability_already_passed": 0.051,
+   "probability_ovulatory_cycle": 0.949,
+   "concentration_3d": 0.44
+  },
+  "next_period": {
+   "date": "2026-11-28",
+   "interval_80": [
+    "2026-11-25",
+    "2026-12-02"
+   ],
+   "days_until": 19,
+   "late_or_unlogged": false
+  },
+  "insights": {
+   "completed_cycles": 5,
+   "cycle_length_median": 29.0,
+   "cycle_length_range": [
+    24,
+    30
+   ],
+   "cycle_variability_sd": 2.7,
+   "regularity": "regular",
+   "luteal_length_median": 15.0,
+   "short_luteal_cycles": 0,
+   "possible_anovulatory_cycles": 0,
+   "personal_follicular_mean": 12.7,
+   "personal_luteal_mean": 14.7
+  },
+  "history": [
+   {
+    "start": "2026-06-17",
+    "length": 24,
+    "quality": "ok",
+    "ovulation_detected": true,
+    "ovulation_date": "2026-06-26",
+    "ovulation_date_estimate": "2026-06-26",
+    "estimate_basis": "physiology",
+    "luteal_length": 14,
+    "possible_anovulatory": false,
+    "temperature_shift_c": 0.39
+   },
+   {
+    "start": "2026-07-11",
+    "length": 30,
+    "quality": "ok",
+    "ovulation_detected": true,
+    "ovulation_date": "2026-07-23",
+    "ovulation_date_estimate": "2026-07-23",
+    "estimate_basis": "physiology",
+    "luteal_length": 17,
+    "possible_anovulatory": false,
+    "temperature_shift_c": 0.36
+   },
+   {
+    "start": "2026-08-10",
+    "length": 29,
+    "quality": "ok",
+    "ovulation_detected": true,
+    "ovulation_date": "2026-08-23",
+    "ovulation_date_estimate": "2026-08-23",
+    "estimate_basis": "physiology",
+    "luteal_length": 15,
+    "possible_anovulatory": false,
+    "temperature_shift_c": 0.4
+   },
+   {
+    "start": "2026-09-08",
+    "length": 25,
+    "quality": "ok",
+    "ovulation_detected": true,
+    "ovulation_date": "2026-09-17",
+    "ovulation_date_estimate": "2026-09-17",
+    "estimate_basis": "physiology",
+    "luteal_length": 15,
+    "possible_anovulatory": false,
+    "temperature_shift_c": 0.52
+   },
+   {
+    "start": "2026-10-03",
+    "length": 29,
+    "quality": "ok",
+    "ovulation_detected": true,
+    "ovulation_date": "2026-10-16",
+    "ovulation_date_estimate": "2026-10-16",
+    "estimate_basis": "physiology",
+    "luteal_length": 15,
+    "possible_anovulatory": false,
+    "temperature_shift_c": 0.28
+   }
+  ],
+  "data_quality": {
+   "temperature_nights_last14": 14,
+   "coverage_last14": 1.0,
+   "days_since_last_temperature": 0,
+   "possible_illness_nights_last14": 0,
+   "evidence": "physiology_and_history",
+   "confidence": "high",
+   "observed_nights_current_cycle": {
+    "temperature_deviation": 9,
+    "resting_hr": 9,
+    "lnhrv": 9,
+    "respiratory_rate": 9
+   },
+   "imputation": "none (missing nights marginalised in the likelihood)"
+  }
+ }
+}

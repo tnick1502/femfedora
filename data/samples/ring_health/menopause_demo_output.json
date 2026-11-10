@@ -1,0 +1,46 @@
+{
+  "mode": "demonstration",
+  "model_version": "ring-health-v1",
+  "medical_recommendation": false,
+  "validation_status": "Ring ML models trained only on synthetic scenarios. Prospective Oura performance is unknown.",
+  "as_of": "2024-04-29",
+  "status": "ok",
+  "observed_calendar_days": 120,
+  "coverage_last28": {
+    "temperature_deviation": 0.8571428571428571,
+    "resting_hr": 0.8571428571428571,
+    "hrv_ms": 0.8571428571428571,
+    "respiratory_rate": 0.8571428571428571,
+    "sleep_minutes": 0.8571428571428571,
+    "sleep_efficiency": 0.8571428571428571,
+    "steps": 0.8571428571428571
+  },
+  "coverage_last90": {
+    "temperature_deviation": 0.8666666666666667,
+    "resting_hr": 0.8666666666666667,
+    "hrv_ms": 0.8666666666666667,
+    "respiratory_rate": 0.8666666666666667,
+    "sleep_minutes": 0.8666666666666667,
+    "sleep_efficiency": 0.8666666666666667,
+    "steps": 0.8666666666666667
+  },
+  "menopause_stage_demo": {
+    "status": "scored",
+    "probabilities": {
+      "reproductive": 0.07456776780548385,
+      "transition": 0.924564463599475,
+      "postmenopause": 0.0008677685950413223
+    },
+    "model": "synthetic_stage_hybrid",
+    "provenance": "synthetic_only",
+    "future_menopause_risk": null,
+    "time_to_menopause": null
+  },
+  "fertility_demo": {
+    "status": "out_of_training_age_support",
+    "age_support": [
+      22,
+      43
+    ]
+  }
+}

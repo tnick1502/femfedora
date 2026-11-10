@@ -1,0 +1,25 @@
+{
+ "version": "ring-health-v3.0.0",
+ "sklearn": "1.9.1",
+ "numpy": "2.5.3",
+ "artifacts": {
+  "cycle_engine_params.json": "487ab45a377818f7d06f3b10928f24dbdbbc6d27177d81b4631e30525dc3bf7c",
+  "menopause_models.joblib": "b8efd6c14fd8f2b2245e844af7106d33b504c992471f41b8b394ffd0df3cac32",
+  "menopause_vms_night.joblib": "63950eaa4ac550dab7a60f5a003fa0d4a5cf08f901bbfb11ba76c11b37b85e5f",
+  "nhanes_age_at_menopause.json": "3a29359dbda2e8af5c8ff95fb03d6a21bab3e6871391be6548adfafc4e58a39f"
+ },
+ "seeds": {
+  "cycle_train": 101,
+  "cycle_val": 20000,
+  "cycle_val_anov": 30000,
+  "cycle_test": 900000,
+  "cycle_test_anov": 950000,
+  "meno_night": 7000,
+  "meno_train": 71000,
+  "meno_val": 72000,
+  "meno_test": 73000
+ },
+ "tempering": 0.7,
+ "training_data": "synthetic (literature + real-data-fitted parameters); real data used for priors/calibration/benchmarks only",
+ "clinical_validation": "not_established"
+}

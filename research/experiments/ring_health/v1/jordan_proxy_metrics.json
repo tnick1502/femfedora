@@ -1,0 +1,136 @@
+{
+  "status": "fixed-specification research benchmark; no model selected using OOF results",
+  "features": [
+    "Age",
+    "hypertension_code",
+    "thyroid_code",
+    "Back pain",
+    "DM",
+    "Heart disease",
+    "Varcoise",
+    "Constipation",
+    "Respiratory",
+    "Tumors"
+  ],
+  "target": "stage_proxy",
+  "models": {
+    "dummy": {
+      "n": 199,
+      "accuracy": 0.3969849246231156,
+      "balanced_accuracy": 0.3333333333333333,
+      "macro_f1": 0.1894484412470024,
+      "log_loss": 1.1012060297091346,
+      "confusion_matrix": [
+        [
+          0,
+          0,
+          68
+        ],
+        [
+          0,
+          0,
+          52
+        ],
+        [
+          0,
+          0,
+          79
+        ]
+      ],
+      "brier": 0.667624773286327
+    },
+    "logistic": {
+      "n": 199,
+      "accuracy": 0.6180904522613065,
+      "balanced_accuracy": 0.577214235255933,
+      "macro_f1": 0.5612683438155136,
+      "log_loss": 0.867844566703038,
+      "confusion_matrix": [
+        [
+          50,
+          10,
+          8
+        ],
+        [
+          31,
+          11,
+          10
+        ],
+        [
+          10,
+          7,
+          62
+        ]
+      ],
+      "brier": 0.5085437901442967
+    },
+    "hist_gradient": {
+      "n": 199,
+      "accuracy": 0.6130653266331658,
+      "balanced_accuracy": 0.5762978024705501,
+      "macro_f1": 0.570626548760065,
+      "log_loss": 0.8320034680022065,
+      "confusion_matrix": [
+        [
+          42,
+          18,
+          8
+        ],
+        [
+          22,
+          15,
+          15
+        ],
+        [
+          4,
+          10,
+          65
+        ]
+      ],
+      "brier": 0.4764729550760883
+    },
+    "random_forest": {
+      "n": 199,
+      "accuracy": 0.6231155778894473,
+      "balanced_accuracy": 0.5877532122878363,
+      "macro_f1": 0.5838841934080029,
+      "log_loss": 0.7800825871458035,
+      "confusion_matrix": [
+        [
+          40,
+          22,
+          6
+        ],
+        [
+          22,
+          17,
+          13
+        ],
+        [
+          5,
+          7,
+          67
+        ]
+      ],
+      "brier": 0.4593079598571367
+    }
+  },
+  "logistic_ci": {
+    "method": "percentile participant bootstrap; conditional on fitted model and split; not survey-design or external-validation uncertainty",
+    "replicates": 200,
+    "intervals_95": {
+      "macro_f1": [
+        0.49721198083918744,
+        0.6255569239923439
+      ],
+      "accuracy": [
+        0.5527638190954773,
+        0.678391959798995
+      ],
+      "brier": [
+        0.445977287922497,
+        0.5710244974975699
+      ]
+    }
+  }
+}

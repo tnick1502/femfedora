@@ -1,0 +1,8 @@
+{
+ "note": "Synthetic hidden truth for QA only. NEVER send to the API or show as data.",
+ "age_at_fmp": 48.05,
+ "years_to_fmp": 1.52,
+ "stage": "late_transition",
+ "vms_class": "high",
+ "nights_with_hot_flash_last30": 18
+}

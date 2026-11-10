@@ -1,0 +1,579 @@
+{
+ "cycle": {
+  "follicular_mean": {
+   "value": 16.0,
+   "kind": "fitted_real",
+   "source": "https://epublications.marquette.edu/data_nfp/7/ (mirror raw CSV: https://raw.githubusercontent.com/chiomajaco6/MenstrualCyclePrediction/main/rawFedCycleData.csv)",
+   "note": "estimated ovulation day; Bull 2019 reports 16.9 (BBT-based, app users)"
+  },
+  "follicular_between_sd": {
+   "value": 2.8,
+   "kind": "fitted_real",
+   "source": "https://epublications.marquette.edu/data_nfp/7/ (mirror raw CSV: https://raw.githubusercontent.com/chiomajaco6/MenstrualCyclePrediction/main/rawFedCycleData.csv)",
+   "note": ""
+  },
+  "follicular_within_sd_median": {
+   "value": 1.9,
+   "kind": "fitted_real",
+   "source": "https://epublications.marquette.edu/data_nfp/7/ (mirror raw CSV: https://raw.githubusercontent.com/chiomajaco6/MenstrualCyclePrediction/main/rawFedCycleData.csv)",
+   "note": "q10 0.95, q90 3.5"
+  },
+  "follicular_within_sdlog": {
+   "value": 0.48,
+   "kind": "derived",
+   "source": "https://epublications.marquette.edu/data_nfp/7/ (mirror raw CSV: https://raw.githubusercontent.com/chiomajaco6/MenstrualCyclePrediction/main/rawFedCycleData.csv)",
+   "note": "log-normal fitted to q50/q90"
+  },
+  "follicular_age_slope_per_year": {
+   "value": -0.14,
+   "kind": "fitted_real",
+   "source": "https://epublications.marquette.edu/data_nfp/7/ (mirror raw CSV: https://raw.githubusercontent.com/chiomajaco6/MenstrualCyclePrediction/main/rawFedCycleData.csv)",
+   "note": "WHOOP 2026: cycle 29.1 d at 24 -> 26.9 d at 44"
+  },
+  "luteal_mean": {
+   "value": 12.8,
+   "kind": "derived",
+   "source": "https://epublications.marquette.edu/data_nfp/7/ (mirror raw CSV: https://raw.githubusercontent.com/chiomajaco6/MenstrualCyclePrediction/main/rawFedCycleData.csv); https://www.nature.com/articles/s41746-019-0152-7",
+   "note": "FedCycle 13.2 (mucus peak), Bull 12.4 (BBT); midpoint"
+  },
+  "luteal_between_sd": {
+   "value": 1.5,
+   "kind": "fitted_real",
+   "source": "https://epublications.marquette.edu/data_nfp/7/ (mirror raw CSV: https://raw.githubusercontent.com/chiomajaco6/MenstrualCyclePrediction/main/rawFedCycleData.csv)",
+   "note": ""
+  },
+  "luteal_within_sd_median": {
+   "value": 1.1,
+   "kind": "fitted_real",
+   "source": "https://epublications.marquette.edu/data_nfp/7/ (mirror raw CSV: https://raw.githubusercontent.com/chiomajaco6/MenstrualCyclePrediction/main/rawFedCycleData.csv)",
+   "note": "Fehring 2006 within-woman range 3.6 d"
+  },
+  "luteal_within_sdlog": {
+   "value": 0.5,
+   "kind": "assumption",
+   "source": "https://epublications.marquette.edu/data_nfp/7/ (mirror raw CSV: https://raw.githubusercontent.com/chiomajaco6/MenstrualCyclePrediction/main/rawFedCycleData.csv)",
+   "note": "real q90 3.1 includes peak-day measurement error"
+  },
+  "corr_person_means_foll_luteal": {
+   "value": -0.42,
+   "kind": "fitted_real",
+   "source": "https://epublications.marquette.edu/data_nfp/7/ (mirror raw CSV: https://raw.githubusercontent.com/chiomajaco6/MenstrualCyclePrediction/main/rawFedCycleData.csv)",
+   "note": ""
+  },
+  "corr_within_foll_luteal": {
+   "value": -0.2,
+   "kind": "fitted_real",
+   "source": "https://epublications.marquette.edu/data_nfp/7/ (mirror raw CSV: https://raw.githubusercontent.com/chiomajaco6/MenstrualCyclePrediction/main/rawFedCycleData.csv)",
+   "note": ""
+  },
+  "menses_length_mean": {
+   "value": 5.25,
+   "kind": "fitted_real",
+   "source": "https://epublications.marquette.edu/data_nfp/7/ (mirror raw CSV: https://raw.githubusercontent.com/chiomajaco6/MenstrualCyclePrediction/main/rawFedCycleData.csv)",
+   "note": ""
+  },
+  "menses_length_between_sd": {
+   "value": 0.9,
+   "kind": "fitted_real",
+   "source": "https://epublications.marquette.edu/data_nfp/7/ (mirror raw CSV: https://raw.githubusercontent.com/chiomajaco6/MenstrualCyclePrediction/main/rawFedCycleData.csv)",
+   "note": ""
+  },
+  "irregular_fraction": {
+   "value": 0.12,
+   "kind": "assumption",
+   "source": "npj Women's Health 2026 review: ~20% marked variability; Apple WHS within-person SD 4-6 d",
+   "note": "subgroup with follicular within-SD 4-9 d"
+  },
+  "anovulatory_rate_lt35": {
+   "value": 0.07,
+   "kind": "literature",
+   "source": "BioCycle, Lynch et al. 2014 (anovulation 5.5-12.8% serum definitions); FedCycle no-peak 8.8%",
+   "note": ""
+  },
+  "anovulatory_rate_35_40": {
+   "value": 0.1,
+   "kind": "assumption",
+   "source": "interpolated; age breakdown not verified",
+   "note": ""
+  },
+  "anovulatory_rate_40_45": {
+   "value": 0.15,
+   "kind": "assumption",
+   "source": "Santoro 2017: ELA ~100% at 10 y pre-FMP, 87.9% at 5 y",
+   "note": ""
+  }
+ },
+ "signal": {
+  "temp_luteal_amplitude_mean": {
+   "value": 0.3,
+   "kind": "derived",
+   "source": "https://doi.org/10.1186/s12905-019-0844-9",
+   "note": "set so simulated luteal-follicular mean difference matches Oura 0.30+-0.12 C"
+  },
+  "temp_luteal_amplitude_sd": {
+   "value": 0.12,
+   "kind": "literature",
+   "source": "https://doi.org/10.1186/s12905-019-0844-9",
+   "note": ""
+  },
+  "temp_rise_range": {
+   "value": [
+    0.3,
+    0.7
+   ],
+   "kind": "literature",
+   "source": "https://www.jmir.org/2025/1/e60667",
+   "note": "algorithm searches 0.3-0.7 C"
+  },
+  "temp_noise_sd_median": {
+   "value": 0.16,
+   "kind": "derived",
+   "source": "https://doi.org/10.1186/s12905-019-0844-9",
+   "note": "night-to-night SD 0.20+-0.07 follicular incl. confounders"
+  },
+  "temp_noise_sdlog": {
+   "value": 0.3,
+   "kind": "assumption",
+   "source": "https://doi.org/10.1186/s12905-019-0844-9",
+   "note": ""
+  },
+  "temp_ar_rho": {
+   "value": [
+    0.2,
+    0.5
+   ],
+   "kind": "assumption",
+   "source": "",
+   "note": ""
+  },
+  "hr_luteal_plateau_mean": {
+   "value": 3.4,
+   "kind": "literature",
+   "source": "https://www.jmir.org/2019/4/e13404/; review 2.7-3.9 bpm; https://www.nature.com/articles/s41598-017-01433-9",
+   "note": "follicular low -> late luteal ~+3.9 bpm"
+  },
+  "hr_luteal_plateau_sd": {
+   "value": 1.2,
+   "kind": "assumption",
+   "source": "",
+   "note": ""
+  },
+  "hr_preovulatory_weight": {
+   "value": 0.35,
+   "kind": "derived",
+   "source": "https://www.nature.com/articles/s41598-017-01433-9",
+   "note": "+2.1 bpm fertile vs +3.8 mid-luteal"
+  },
+  "hr_noise_sd": {
+   "value": [
+    1.5,
+    3.0
+   ],
+   "kind": "assumption",
+   "source": "",
+   "note": ""
+  },
+  "lnhrv_luteal_drop_mean": {
+   "value": 0.1,
+   "kind": "literature",
+   "source": "https://github.com/alexgonzl/menstrual_cycle_physiology_sleep_whoop (npj Digit Med 2026)",
+   "note": "HRV varies 9.4-14.3% of mean across cycle"
+  },
+  "lnhrv_luteal_drop_sd": {
+   "value": 0.05,
+   "kind": "assumption",
+   "source": "",
+   "note": ""
+  },
+  "lnhrv_noise_sd": {
+   "value": [
+    0.12,
+    0.22
+   ],
+   "kind": "assumption",
+   "source": "",
+   "note": ""
+  },
+  "rr_luteal_rise_mean": {
+   "value": 0.45,
+   "kind": "literature",
+   "source": "https://github.com/alexgonzl/menstrual_cycle_physiology_sleep_whoop (npj Digit Med 2026); https://www.jmir.org/2019/4/e13404/",
+   "note": "RR varies 2.7-3.3% of mean"
+  },
+  "rr_luteal_rise_sd": {
+   "value": 0.15,
+   "kind": "assumption",
+   "source": "",
+   "note": ""
+  },
+  "rr_noise_sd": {
+   "value": [
+    0.2,
+    0.45
+   ],
+   "kind": "assumption",
+   "source": "",
+   "note": ""
+  },
+  "rmssd_decline_per_decade_ln": {
+   "value": 0.25,
+   "kind": "assumption",
+   "source": "age-related HRV decline; RMSSD per decade not verified",
+   "note": ""
+  },
+  "fever_episodes_per_year": {
+   "value": 2.0,
+   "kind": "assumption",
+   "source": "",
+   "note": ""
+  },
+  "alcohol_night_fraction_max": {
+   "value": 0.25,
+   "kind": "assumption",
+   "source": "",
+   "note": ""
+  }
+ },
+ "lh": {
+  "user_fraction": {
+   "value": 0.3,
+   "kind": "assumption",
+   "source": "",
+   "note": ""
+  },
+  "positive_prob_by_offset": {
+   "value": {
+    "-3": 0.1,
+    "-2": 0.4,
+    "-1": 0.9,
+    "0": 0.5,
+    "1": 0.1
+   },
+   "kind": "derived",
+   "source": "WHO 1980 LH->ovulation 32 h median; Behre 2000: 76.3% ovulate the day after urine LH surge",
+   "note": "offset = test day - ovulation day"
+  },
+  "false_positive": {
+   "value": 0.02,
+   "kind": "assumption",
+   "source": "",
+   "note": ""
+  }
+ },
+ "missing": {
+  "adherence_mixture": {
+   "value": {
+    "good": [
+     0.6,
+     0.93,
+     0.99
+    ],
+    "medium": [
+     0.3,
+     0.8,
+     0.93
+    ],
+    "poor": [
+     0.1,
+     0.55,
+     0.8
+    ]
+   },
+   "kind": "assumption",
+   "source": "Maijala 2019: data on 97.4% of days, 4/22 women >50% missing in some cycles; Oura excludes >40% missing",
+   "note": ""
+  },
+  "long_gap_person_fraction": {
+   "value": 0.15,
+   "kind": "assumption",
+   "source": "",
+   "note": ""
+  },
+  "period_log_reliability": {
+   "value": {
+    "1.0": 0.7,
+    "0.9": 0.2,
+    "0.75": 0.1
+   },
+   "kind": "assumption",
+   "source": "",
+   "note": ""
+  },
+  "period_log_jitter": {
+   "value": {
+    "0": 0.85,
+    "1": 0.12,
+    "2": 0.03
+   },
+   "kind": "assumption",
+   "source": "",
+   "note": ""
+  }
+ },
+ "menopause": {
+  "fmp_age_median": {
+   "value": 52.5,
+   "kind": "literature",
+   "source": "https://academic.oup.com/aje/article/178/1/70/108605",
+   "note": "SWAN 52.54; InterLACE 50.0 (recall); NHANES fit in fitted_real"
+  },
+  "fmp_age_sd": {
+   "value": 3.8,
+   "kind": "derived",
+   "source": "https://eprints.whiterose.ac.uk/151718/ (SD 4.4)",
+   "note": "SWAN prospective distribution narrower"
+  },
+  "premature_fraction": {
+   "value": 0.012,
+   "kind": "literature",
+   "source": "https://eprints.whiterose.ac.uk/151718/",
+   "note": "<40 y: 1.2%"
+  },
+  "early_mt_duration_median_by_onset_quartile": {
+   "value": [
+    5.14,
+    3.27,
+    2.18,
+    1.68
+   ],
+   "kind": "literature",
+   "source": "https://escholarship.org/content/qt4pv4j4fr/qt4pv4j4fr.pdf",
+   "note": ""
+  },
+  "late_mt_duration_median_by_onset_quartile": {
+   "value": [
+    3.42,
+    2.55,
+    2.47,
+    2.15
+   ],
+   "kind": "literature",
+   "source": "https://escholarship.org/content/qt4pv4j4fr/qt4pv4j4fr.pdf",
+   "note": ""
+  },
+  "total_mt_duration_median_by_onset_quartile": {
+   "value": [
+    8.57,
+    6.84,
+    5.08,
+    4.37
+   ],
+   "kind": "literature",
+   "source": "https://escholarship.org/content/qt4pv4j4fr/qt4pv4j4fr.pdf",
+   "note": ""
+  },
+  "smoking_total_mt_hr": {
+   "value": 1.87,
+   "kind": "literature",
+   "source": "https://escholarship.org/content/qt4pv4j4fr/qt4pv4j4fr.pdf",
+   "note": ""
+  },
+  "smoking_onset_years_earlier": {
+   "value": 1.22,
+   "kind": "literature",
+   "source": "https://escholarship.org/content/qt4pv4j4fr/qt4pv4j4fr.pdf",
+   "note": "46.05 vs 47.27"
+  },
+  "ela_by_years_to_fmp": {
+   "value": {
+    "10": 1.0,
+    "5": 0.879,
+    "1": 0.228
+   },
+   "kind": "literature",
+   "source": "https://academic.oup.com/jcem/article/102/7/2218/3063809",
+   "note": "fraction cycles with luteal activity"
+  },
+  "cycle_length_stable_until_years_before_fmp": {
+   "value": 4.0,
+   "kind": "literature",
+   "source": "https://academic.oup.com/jcem/article/102/7/2218/3063809",
+   "note": ""
+  },
+  "fsh_rise_onset_years_before": {
+   "value": 6.1,
+   "kind": "literature",
+   "source": "https://academic.oup.com/jcem/article/96/3/746/2596797",
+   "note": ""
+  },
+  "fsh_acceleration_years_before": {
+   "value": 2.05,
+   "kind": "literature",
+   "source": "https://academic.oup.com/jcem/article/96/3/746/2596797",
+   "note": ""
+  },
+  "fsh_plateau_years_after": {
+   "value": 2.0,
+   "kind": "literature",
+   "source": "https://academic.oup.com/jcem/article/96/3/746/2596797",
+   "note": ""
+  },
+  "e2_decline_start_years_before": {
+   "value": 2.03,
+   "kind": "literature",
+   "source": "https://academic.oup.com/jcem/article/96/3/746/2596797",
+   "note": ""
+  },
+  "vms_trajectory_shares": {
+   "value": {
+    "low": 0.27,
+    "early_onset": 0.184,
+    "late_onset": 0.29,
+    "high": 0.256
+   },
+   "kind": "literature",
+   "source": "https://escholarship.org/content/qt64w2r98p/qt64w2r98p.pdf",
+   "note": ""
+  },
+  "vms_median_total_duration_years": {
+   "value": 7.4,
+   "kind": "literature",
+   "source": "https://core.ac.uk/download/56530091.pdf",
+   "note": ""
+  },
+  "hot_flash_hr_rise_bpm": {
+   "value": 4.0,
+   "kind": "literature",
+   "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3713094",
+   "note": ""
+  },
+  "hot_flash_hf_hrv_drop": {
+   "value": 0.38,
+   "kind": "literature",
+   "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3713094",
+   "note": ""
+  },
+  "hot_flash_duration_min": {
+   "value": [
+    1,
+    5
+   ],
+   "kind": "literature",
+   "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3713094",
+   "note": ""
+  },
+  "peri_hrv_lower_fraction": {
+   "value": [
+    0.2,
+    0.3
+   ],
+   "kind": "literature",
+   "source": "https://femtechinsider.com/oura-ring-perimenopause-report/ (company report, not peer reviewed)",
+   "note": "company report"
+  },
+  "post_sleep_less_hours_per_week": {
+   "value": 2.0,
+   "kind": "literature",
+   "source": "https://femtechinsider.com/oura-ring-perimenopause-report/ (company report, not peer reviewed)",
+   "note": "company report"
+  },
+  "amh_age_bmi_auc_12_24_36": {
+   "value": [
+    0.881,
+    0.891,
+    0.896
+   ],
+   "kind": "literature",
+   "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7067546",
+   "note": "external benchmark for FMP prediction"
+  },
+  "fsh_age_bmi_auc_12_24_36": {
+   "value": [
+    0.885,
+    0.877,
+    0.871
+   ],
+   "kind": "literature",
+   "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7067546",
+   "note": ""
+  },
+  "nightly_hot_flash_skin_temp_rise": {
+   "value": 0.05,
+   "kind": "assumption",
+   "source": "UNVERIFIED in sources: +0.05 C on the nightly deviation per nocturnal flash; also +3..12 min awake, -1.6% efficiency, -0.035 ln-RMSSD, +0.3 bpm lowest HR",
+   "note": ""
+  },
+  "fmp_age_distribution": {
+   "value": "NHANES 2015-2018 weighted KM (natural menopause), early tail rescaled to InterLACE (<40: 1.2%, 40-44: 4.7%)",
+   "kind": "fitted_real",
+   "source": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/RHQ_J.htm; https://eprints.whiterose.ac.uk/151718/",
+   "note": "real NHANES median 52.0; generator median 51.4, SD 4.4"
+  },
+  "fmp_covariates_years": {
+   "value": {
+    "college": 1.79,
+    "parous": 0.92,
+    "smoker": -1.22
+   },
+   "kind": "fitted_real",
+   "source": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/RHQ_J.htm (college, parity; log-logistic AFT); smoking from https://escholarship.org/content/qt4pv4j4fr/qt4pv4j4fr.pdf",
+   "note": ""
+  },
+  "generator_total_transition_median_years": {
+   "value": 5.0,
+   "kind": "derived",
+   "source": "https://escholarship.org/content/qt4pv4j4fr/qt4pv4j4fr.pdf",
+   "note": "range of quartile medians 4.37-8.57; smokers /1.4"
+  },
+  "generator_late_transition_median_years": {
+   "value": 2.5,
+   "kind": "derived",
+   "source": "https://escholarship.org/content/qt4pv4j4fr/qt4pv4j4fr.pdf",
+   "note": "range 2.15-3.42"
+  },
+  "ela_interpolation": {
+   "value": {
+    "0": 0.2,
+    "1": 0.26,
+    "5": 0.879,
+    "10": 1.0
+   },
+   "kind": "derived",
+   "source": "https://academic.oup.com/jcem/article/102/7/2218/3063809",
+   "note": "generator last-year mean 0.25 vs published 0.228"
+  },
+  "amh_trajectory": {
+   "value": {
+    "ln_amh_at_4.75y": "ln(142)",
+    "slope_per_year": 0.35,
+    "person_sd": 0.7,
+    "visit_sd": 0.6
+   },
+   "kind": "fitted_real",
+   "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7067546",
+   "note": "grid-fitted to published Table 4 P(FMP<=12 mo | AMH band, age): MAE 0.040, r 0.94 (published-table fit, not individual data)"
+  },
+  "stage_hrv_drop_ln": {
+   "value": 0.12,
+   "kind": "derived",
+   "source": "https://femtechinsider.com/oura-ring-perimenopause-report/ (company report, not peer reviewed)",
+   "note": "Oura report: HRV 20-30% lower in perimenopause (part is age); applied in late transition/post"
+  }
+ },
+ "sources": {
+  "fedcycle": "https://epublications.marquette.edu/data_nfp/7/ (mirror raw CSV: https://raw.githubusercontent.com/chiomajaco6/MenstrualCyclePrediction/main/rawFedCycleData.csv)",
+  "fehring2006": "Fehring et al. 2006, JOGNN, 141 women / 1060 cycles (Marquette)",
+  "bull2019": "https://www.nature.com/articles/s41746-019-0152-7",
+  "maijala2019": "https://doi.org/10.1186/s12905-019-0844-9",
+  "oura2025": "https://www.jmir.org/2025/1/e60667",
+  "alzueta2024": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11416332/",
+  "goodale2019": "https://www.jmir.org/2019/4/e13404/",
+  "whoop2026": "https://github.com/alexgonzl/menstrual_cycle_physiology_sleep_whoop (npj Digit Med 2026)",
+  "shilaih2017": "https://www.nature.com/articles/s41598-017-01433-9",
+  "lynch2014": "BioCycle, Lynch et al. 2014 (anovulation 5.5-12.8% serum definitions)",
+  "who1980_behre2000": "WHO 1980 LH->ovulation 32 h median; Behre 2000: 76.3% ovulate the day after urine LH surge",
+  "wilcox1995": "https://www.nejm.org/doi/full/10.1056/NEJM199512073332301",
+  "gold2013": "https://academic.oup.com/aje/article/178/1/70/108605",
+  "interlace2019": "https://eprints.whiterose.ac.uk/151718/",
+  "paramsothy2017": "https://escholarship.org/content/qt4pv4j4fr/qt4pv4j4fr.pdf",
+  "santoro2017": "https://academic.oup.com/jcem/article/102/7/2218/3063809",
+  "randolph2011": "https://academic.oup.com/jcem/article/96/3/746/2596797",
+  "finkelstein2020": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7067546",
+  "avis2015": "https://core.ac.uk/download/56530091.pdf",
+  "tepper2016": "https://escholarship.org/content/qt64w2r98p/qt64w2r98p.pdf",
+  "dezambotti2013": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3713094",
+  "oura_peri_2024": "https://femtechinsider.com/oura-ring-perimenopause-report/ (company report, not peer reviewed)",
+  "nhanes_rhq": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/RHQ_J.htm",
+  "straw10": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3580996/"
+ }
+}

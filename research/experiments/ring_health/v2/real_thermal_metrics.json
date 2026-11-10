@@ -1,0 +1,74 @@
+{
+  "block14": {
+    "cycles": 59,
+    "reported_cycles": 0,
+    "coverage": 0.0,
+    "mae_all_estimates": 8.491525423728813,
+    "mae_reported": null,
+    "within2_all_cycles": 0.0,
+    "limitations": "processed aligned non-ring data, no anovulatory specificity or prospective validation"
+  },
+  "block3": {
+    "cycles": 59,
+    "reported_cycles": 1,
+    "coverage": 0.01694915254237288,
+    "mae_all_estimates": 4.627118644067797,
+    "mae_reported": 2.0,
+    "within2_all_cycles": 0.01694915254237288,
+    "limitations": "processed aligned non-ring data, no anovulatory specificity or prospective validation"
+  },
+  "block7": {
+    "cycles": 59,
+    "reported_cycles": 1,
+    "coverage": 0.01694915254237288,
+    "mae_all_estimates": 5.711864406779661,
+    "mae_reported": 4.0,
+    "within2_all_cycles": 0.0,
+    "limitations": "processed aligned non-ring data, no anovulatory specificity or prospective validation"
+  },
+  "complete": {
+    "cycles": 59,
+    "reported_cycles": 3,
+    "coverage": 0.05084745762711865,
+    "mae_all_estimates": 4.237288135593221,
+    "mae_reported": 2.0,
+    "within2_all_cycles": 0.03389830508474576,
+    "limitations": "processed aligned non-ring data, no anovulatory specificity or prospective validation"
+  },
+  "random10": {
+    "cycles": 59,
+    "reported_cycles": 3,
+    "coverage": 0.05084745762711865,
+    "mae_all_estimates": 4.084745762711864,
+    "mae_reported": 2.0,
+    "within2_all_cycles": 0.03389830508474576,
+    "limitations": "processed aligned non-ring data, no anovulatory specificity or prospective validation"
+  },
+  "random30": {
+    "cycles": 59,
+    "reported_cycles": 1,
+    "coverage": 0.01694915254237288,
+    "mae_all_estimates": 4.322033898305085,
+    "mae_reported": 2.0,
+    "within2_all_cycles": 0.01694915254237288,
+    "limitations": "processed aligned non-ring data, no anovulatory specificity or prospective validation"
+  },
+  "random50": {
+    "cycles": 59,
+    "reported_cycles": 0,
+    "coverage": 0.0,
+    "mae_all_estimates": 4.47457627118644,
+    "mae_reported": null,
+    "within2_all_cycles": 0.0,
+    "limitations": "processed aligned non-ring data, no anovulatory specificity or prospective validation"
+  },
+  "random70": {
+    "cycles": 59,
+    "reported_cycles": 0,
+    "coverage": 0.0,
+    "mae_all_estimates": 4.559322033898305,
+    "mae_reported": null,
+    "within2_all_cycles": 0.0,
+    "limitations": "processed aligned non-ring data, no anovulatory specificity or prospective validation"
+  }
+}

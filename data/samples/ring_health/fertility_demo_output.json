@@ -1,0 +1,89 @@
+{
+  "mode": "demonstration",
+  "model_version": "ring-health-v1",
+  "medical_recommendation": false,
+  "validation_status": "Ring ML models trained only on synthetic scenarios. Prospective Oura performance is unknown.",
+  "as_of": "2024-04-05",
+  "status": "ok",
+  "observed_calendar_days": 96,
+  "coverage_last28": {
+    "temperature_deviation": 0.9642857142857143,
+    "resting_hr": 0.9642857142857143,
+    "hrv_ms": 0.9642857142857143,
+    "respiratory_rate": 0.9642857142857143,
+    "sleep_minutes": 0.9642857142857143,
+    "sleep_efficiency": 0.9642857142857143,
+    "steps": 0.9642857142857143
+  },
+  "coverage_last90": {
+    "temperature_deviation": 0.9333333333333333,
+    "resting_hr": 0.9333333333333333,
+    "hrv_ms": 0.9333333333333333,
+    "respiratory_rate": 0.9333333333333333,
+    "sleep_minutes": 0.9333333333333333,
+    "sleep_efficiency": 0.9333333333333333,
+    "steps": 0.9333333333333333
+  },
+  "menopause_stage_demo": {
+    "status": "insufficient_or_out_of_support",
+    "requirements": "age35..65,90calendar days,at least70% valid nights per signal over both28and90days"
+  },
+  "fertility_demo": {
+    "status": "scored",
+    "cycle_day": 11,
+    "fertile_day_probability": 0.3517151958623817,
+    "postovulatory_signal_probability": 0.18013067847066025,
+    "model": "synthetic_fertility_hybrid",
+    "provenance": "synthetic_only",
+    "interpretation": "Current-day research signal; not pregnancy probability or confirmed ovulation",
+    "timing_distribution": {
+      "model": "bayesian_timing_temperature_baseline_v1",
+      "provenance": "mechanistic_assumptions_unvalidated",
+      "ovulation_cycle_day_conditional_quantiles_05_50_95": [
+        11,
+        16,
+        21
+      ],
+      "no_ovulation_component_probability": 0.10017288702103604,
+      "ovulation_already_occurred_probability": 0.027603053937192597,
+      "forecast": [
+        {
+          "date": "2024-04-05",
+          "cycle_day": 11,
+          "fertile_day_probability": 0.481305292754604
+        },
+        {
+          "date": "2024-04-06",
+          "cycle_day": 12,
+          "fertile_day_probability": 0.5648395446845014
+        },
+        {
+          "date": "2024-04-07",
+          "cycle_day": 13,
+          "fertile_day_probability": 0.6115617713408683
+        },
+        {
+          "date": "2024-04-08",
+          "cycle_day": 14,
+          "fertile_day_probability": 0.6115617713408683
+        },
+        {
+          "date": "2024-04-09",
+          "cycle_day": 15,
+          "fertile_day_probability": 0.5648395446845014
+        },
+        {
+          "date": "2024-04-10",
+          "cycle_day": 16,
+          "fertile_day_probability": 0.481305292754604
+        },
+        {
+          "date": "2024-04-11",
+          "cycle_day": 17,
+          "fertile_day_probability": 0.37761828801167063
+        }
+      ],
+      "interpretation": "Probability of belonging to the six-day current-cycle window, not probability of pregnancy. Future window before temperature rise is mainly driven by historical cycle timing."
+    }
+  }
+}

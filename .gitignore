@@ -44,3 +44,13 @@ data/processed/**/*
 
 # Локальные промежуточные файлы
 tmp/
+
+# Individual research health records remain local; keep aggregate metrics.
+research/experiments/ring_health/**/*_test_predictions.csv
+research/experiments/ring_health/**/*_oof.csv
+research/experiments/ring_health/**/*_split.csv
+research/experiments/ring_health/**/*_folds.csv
+research/experiments/ring_health/**/bayesian_forecast_predictions.csv
+output/ring_health_mvp_v1.zip
+output/ring_health_mvp_v2.zip
+research/experiments/ring_health/**/*predictions.csv

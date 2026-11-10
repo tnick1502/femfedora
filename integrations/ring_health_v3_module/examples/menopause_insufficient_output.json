@@ -1,0 +1,108 @@
+{
+ "model_version": "ring-health-v3.0.0",
+ "artifact_registry_sha256": "6d9e588c97c56b998c948193972ec20073646f6d6b72869686337af84fa5ab47",
+ "as_of": "2031-01-01",
+ "mode": "demonstration",
+ "clinical_validation": "not_established",
+ "training_data": "synthetic (literature- and real-data-calibrated generator)",
+ "recommendations": [],
+ "data_quality": {
+  "nights_supplied": 0,
+  "coverage": {
+   "temperature_deviation": {
+    "nights_last30": 0,
+    "coverage_last30": 0.0
+   },
+   "resting_hr": {
+    "nights_last30": 0,
+    "coverage_last30": 0.0
+   },
+   "hrv_ms": {
+    "nights_last30": 0,
+    "coverage_last30": 0.0
+   },
+   "respiratory_rate": {
+    "nights_last30": 0,
+    "coverage_last30": 0.0
+   },
+   "sleep_minutes": {
+    "nights_last30": 0,
+    "coverage_last30": 0.0
+   },
+   "sleep_efficiency": {
+    "nights_last30": 0,
+    "coverage_last30": 0.0
+   },
+   "awake_minutes": {
+    "nights_last30": 0,
+    "coverage_last30": 0.0
+   },
+   "longest_temperature_gap_last90": 1
+  }
+ },
+ "menopause": {
+  "status": "insufficient_data",
+  "stage": {
+   "label": null,
+   "label_ru": null,
+   "basis": "insufficient_data",
+   "probabilities": null,
+   "grouped": null,
+   "age_only_reference": {
+    "reproductive": 0.336,
+    "early_transition": 0.213,
+    "late_transition": 0.211,
+    "postmenopause": 0.239
+   },
+   "straw10_criteria": {
+    "amenorrhea_12m": false,
+    "interval_ge60": false,
+    "persistent_diff7": false
+   }
+  },
+  "final_menstrual_period": {
+   "probability_by_months": null,
+   "median_months": null,
+   "already_confirmed": false,
+   "age_only_reference_by_months": {
+    "6": 0.269,
+    "12": 0.311,
+    "24": 0.397,
+    "36": 0.489,
+    "48": 0.586,
+    "60": 0.682
+   }
+  },
+  "vasomotor": {
+   "index_last30": null,
+   "share_of_scored_nights_with_likely_hot_flashes_last30": null,
+   "self_reported_symptom_days_last30": null
+  },
+  "signals": {
+   "ring_ovulatory_fraction": null,
+   "ring_cycles_completed": null,
+   "temp_cycle_power": null,
+   "temp_night_sd": null,
+   "lnhrv_age_resid": null,
+   "eff_mean_30": null,
+   "awake_mean_30": null,
+   "days_since_last_period": null,
+   "max_interval": null,
+   "persistent_diff7": null,
+   "hot_flash_days_30": null
+  },
+  "data_quality": {
+   "input_pattern": "age_only",
+   "symptoms_used": false,
+   "bleeding_information": false,
+   "ring_nights_last90": null,
+   "labs_used": [],
+   "confidence": "low",
+   "missing_inputs_policy": "not imputed; trees route missing inputs learned under random masking"
+  },
+  "needed": [
+   "date of last period or period logs",
+   "or >= 20 nights of ring data in the last 90 days"
+  ]
+ }
+}

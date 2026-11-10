@@ -1,0 +1,2474 @@
+{
+ "as_of": "2026-11-09",
+ "modules": [
+  "fertility"
+ ],
+ "profile": {
+  "age": 33,
+  "parous": true,
+  "bmi": 24.0
+ },
+ "cycle": {
+  "period_starts": [
+   "2026-06-17",
+   "2026-07-11",
+   "2026-08-10",
+   "2026-09-08",
+   "2026-10-03"
+  ],
+  "period_logs_complete": false
+ },
+ "oura": {
+  "sleep": [
+   {
+    "id": "sl-2026-06-17",
+    "day": "2026-06-17",
+    "type": "long_sleep",
+    "lowest_heart_rate": 52,
+    "average_hrv": 46,
+    "average_breath": 13.7,
+    "total_sleep_duration": 22260,
+    "efficiency": 86,
+    "awake_time": 3180
+   },
+   {
+    "id": "sl-2026-06-18",
+    "day": "2026-06-18",
+    "type": "long_sleep",
+    "lowest_heart_rate": 53,
+    "average_hrv": 45,
+    "average_breath": 13.8,
+    "total_sleep_duration": 24600,
+    "efficiency": 89,
+    "awake_time": 3300
+   },
+   {
+    "id": "sl-2026-06-19",
+    "day": "2026-06-19",
+    "type": "long_sleep",
+    "lowest_heart_rate": 54,
+    "average_hrv": 42,
+    "average_breath": 14.1,
+    "total_sleep_duration": 25140,
+    "efficiency": 86,
+    "awake_time": 2580
+   },
+   {
+    "id": "nap-2026-06-19",
+    "day": "2026-06-19",
+    "type": "rest",
+    "lowest_heart_rate": 60,
+    "total_sleep_duration": 1500
+   },
+   {
+    "id": "sl-2026-06-20",
+    "day": "2026-06-20",
+    "type": "long_sleep",
+    "lowest_heart_rate": 50,
+    "average_hrv": 66,
+    "average_breath": 14.1,
+    "total_sleep_duration": 24480,
+    "efficiency": 89,
+    "awake_time": 3480
+   },
+   {
+    "id": "sl-2026-06-21",
+    "day": "2026-06-21",
+    "type": "long_sleep",
+    "lowest_heart_rate": 49,
+    "average_hrv": 49,
+    "average_breath": 14.3,
+    "total_sleep_duration": 26220,
+    "efficiency": 84,
+    "awake_time": 3540
+   },
+   {
+    "id": "sl-2026-06-22",
+    "day": "2026-06-22",
+    "type": "long_sleep",
+    "lowest_heart_rate": 49,
+    "average_hrv": 40,
+    "average_breath": 14.6,
+    "total_sleep_duration": 24840,
+    "efficiency": 92,
+    "awake_time": 4380
+   },
+   {
+    "id": "sl-2026-06-23",
+    "day": "2026-06-23",
+    "type": "long_sleep",
+    "lowest_heart_rate": 54,
+    "average_hrv": 34,
+    "average_breath": 14.7,
+    "total_sleep_duration": 30000,
+    "efficiency": 89,
+    "awake_time": 2760
+   },
+   {
+    "id": "sl-2026-06-26",
+    "day": "2026-06-26",
+    "type": "long_sleep",
+    "lowest_heart_rate": 48,
+    "average_hrv": 50,
+    "average_breath": 14.5,
+    "total_sleep_duration": 29700,
+    "efficiency": 90,
+    "awake_time": 3960
+   },
+   {
+    "id": "sl-2026-06-27",
+    "day": "2026-06-27",
+    "type": "long_sleep",
+    "lowest_heart_rate": 48,
+    "average_hrv": 43,
+    "average_breath": 15.2,
+    "total_sleep_duration": 20100,
+    "efficiency": 89,
+    "awake_time": 3000
+   },
+   {
+    "id": "sl-2026-06-28",
+    "day": "2026-06-28",
+    "type": "long_sleep",
+    "lowest_heart_rate": 49,
+    "average_hrv": 40,
+    "average_breath": 14.9,
+    "total_sleep_duration": 24420,
+    "efficiency": 89,
+    "awake_time": 3060
+   },
+   {
+    "id": "sl-2026-06-29",
+    "day": "2026-06-29",
+    "type": "long_sleep",
+    "lowest_heart_rate": 48,
+    "average_hrv": 39,
+    "average_breath": 14.9,
+    "total_sleep_duration": 23400,
+    "efficiency": 88,
+    "awake_time": 2880
+   },
+   {
+    "id": "sl-2026-07-01",
+    "day": "2026-07-01",
+    "type": "long_sleep",
+    "lowest_heart_rate": 51,
+    "average_hrv": 28,
+    "average_breath": 15.5,
+    "total_sleep_duration": 29940,
+    "efficiency": 86,
+    "awake_time": 3480
+   },
+   {
+    "id": "sl-2026-07-02",
+    "day": "2026-07-02",
+    "type": "long_sleep",
+    "lowest_heart_rate": 51,
+    "average_hrv": 29,
+    "average_breath": 15.2,
+    "total_sleep_duration": 26760,
+    "efficiency": 82,
+    "awake_time": 3060
+   },
+   {
+    "id": "sl-2026-07-03",
+    "day": "2026-07-03",
+    "type": "long_sleep",
+    "lowest_heart_rate": 51,
+    "average_hrv": 28,
+    "average_breath": 14.9,
+    "total_sleep_duration": 26280,
+    "efficiency": 87,
+    "awake_time": 3480
+   },
+   {
+    "id": "sl-2026-07-04",
+    "day": "2026-07-04",
+    "type": "long_sleep",
+    "lowest_heart_rate": 52,
+    "average_hrv": null,
+    "average_breath": 14.9,
+    "total_sleep_duration": 30840,
+    "efficiency": 85,
+    "awake_time": 2880
+   },
+   {
+    "id": "sl-2026-07-05",
+    "day": "2026-07-05",
+    "type": "long_sleep",
+    "lowest_heart_rate": 47,
+    "average_hrv": 34,
+    "average_breath": 15.1,
+    "total_sleep_duration": 28680,
+    "efficiency": 89,
+    "awake_time": 2820
+   },
+   {
+    "id": "sl-2026-07-06",
+    "day": "2026-07-06",
+    "type": "long_sleep",
+    "lowest_heart_rate": 50,
+    "average_hrv": 40,
+    "average_breath": 15.0,
+    "total_sleep_duration": 22680,
+    "efficiency": 90,
+    "awake_time": 2760
+   },
+   {
+    "id": "sl-2026-07-07",
+    "day": "2026-07-07",
+    "type": "long_sleep",
+    "lowest_heart_rate": 51,
+    "average_hrv": 29,
+    "average_breath": 15.2,
+    "total_sleep_duration": 23820,
+    "efficiency": 81,
+    "awake_time": 2820
+   },
+   {
+    "id": "sl-2026-07-08",
+    "day": "2026-07-08",
+    "type": "long_sleep",
+    "lowest_heart_rate": 53,
+    "average_hrv": 35,
+    "average_breath": 14.8,
+    "total_sleep_duration": 25320,
+    "efficiency": 79,
+    "awake_time": 3240
+   },
+   {
+    "id": "sl-2026-07-09",
+    "day": "2026-07-09",
+    "type": "long_sleep",
+    "lowest_heart_rate": 51,
+    "average_hrv": 43,
+    "average_breath": 14.8,
+    "total_sleep_duration": 25260,
+    "efficiency": 88,
+    "awake_time": 3420
+   },
+   {
+    "id": "sl-2026-07-10",
+    "day": "2026-07-10",
+    "type": "long_sleep",
+    "lowest_heart_rate": 55,
+    "average_hrv": 29,
+    "average_breath": 14.8,
+    "total_sleep_duration": 27540,
+    "efficiency": 80,
+    "awake_time": 2820
+   },
+   {
+    "id": "sl-2026-07-11",
+    "day": "2026-07-11",
+    "type": "long_sleep",
+    "lowest_heart_rate": 56,
+    "average_hrv": 47,
+    "average_breath": 14.7,
+    "total_sleep_duration": 23640,
+    "efficiency": 80,
+    "awake_time": 2760
+   },
+   {
+    "id": "sl-2026-07-12",
+    "day": "2026-07-12",
+    "type": "long_sleep",
+    "lowest_heart_rate": 54,
+    "average_hrv": 55,
+    "average_breath": 14.7,
+    "total_sleep_duration": 22560,
+    "efficiency": 82,
+    "awake_time": 3000
+   },
+   {
+    "id": "sl-2026-07-13",
+    "day": "2026-07-13",
+    "type": "long_sleep",
+    "lowest_heart_rate": 54,
+    "average_hrv": 39,
+    "average_breath": 14.7,
+    "total_sleep_duration": 26640,
+    "efficiency": 83,
+    "awake_time": 3540
+   },
+   {
+    "id": "sl-2026-07-14",
+    "day": "2026-07-14",
+    "type": "long_sleep",
+    "lowest_heart_rate": 51,
+    "average_hrv": 37,
+    "average_breath": null,
+    "total_sleep_duration": 30120,
+    "efficiency": 84,
+    "awake_time": 2880
+   },
+   {
+    "id": "sl-2026-07-16",
+    "day": "2026-07-16",
+    "type": "long_sleep",
+    "lowest_heart_rate": 53,
+    "average_hrv": 47,
+    "average_breath": 14.6,
+    "total_sleep_duration": 26100,
+    "efficiency": 84,
+    "awake_time": 2820
+   },
+   {
+    "id": "sl-2026-07-17",
+    "day": "2026-07-17",
+    "type": "long_sleep",
+    "lowest_heart_rate": 56,
+    "average_hrv": 38,
+    "average_breath": 14.5,
+    "total_sleep_duration": 28260,
+    "efficiency": 83,
+    "awake_time": 3240
+   },
+   {
+    "id": "sl-2026-07-18",
+    "day": "2026-07-18",
+    "type": "long_sleep",
+    "lowest_heart_rate": 55,
+    "average_hrv": 32,
+    "average_breath": 15.1,
+    "total_sleep_duration": 26340,
+    "efficiency": 84,
+    "awake_time": 3420
+   },
+   {
+    "id": "sl-2026-07-19",
+    "day": "2026-07-19",
+    "type": "long_sleep",
+    "lowest_heart_rate": 47,
+    "average_hrv": 38,
+    "average_breath": 14.5,
+    "total_sleep_duration": 26040,
+    "efficiency": 91,
+    "awake_time": 2880
+   },
+   {
+    "id": "nap-2026-07-19",
+    "day": "2026-07-19",
+    "type": "rest",
+    "lowest_heart_rate": 53,
+    "total_sleep_duration": 1500
+   },
+   {
+    "id": "sl-2026-07-21",
+    "day": "2026-07-21",
+    "type": "long_sleep",
+    "lowest_heart_rate": 46,
+    "average_hrv": 39,
+    "average_breath": 13.8,
+    "total_sleep_duration": 31440,
+    "efficiency": 91,
+    "awake_time": 2580
+   },
+   {
+    "id": "sl-2026-07-22",
+    "day": "2026-07-22",
+    "type": "long_sleep",
+    "lowest_heart_rate": 46,
+    "average_hrv": 41,
+    "average_breath": 14.2,
+    "total_sleep_duration": 20100,
+    "efficiency": 90,
+    "awake_time": 2880
+   },
+   {
+    "id": "sl-2026-07-23",
+    "day": "2026-07-23",
+    "type": "long_sleep",
+    "lowest_heart_rate": 47,
+    "average_hrv": 45,
+    "average_breath": 15.0,
+    "total_sleep_duration": 23760,
+    "efficiency": 76,
+    "awake_time": 4260
+   },
+   {
+    "id": "sl-2026-07-24",
+    "day": "2026-07-24",
+    "type": "long_sleep",
+    "lowest_heart_rate": 46,
+    "average_hrv": 28,
+    "average_breath": 15.3,
+    "total_sleep_duration": 20220,
+    "efficiency": 92,
+    "awake_time": 2820
+   },
+   {
+    "id": "nap-2026-07-24",
+    "day": "2026-07-24",
+    "type": "rest",
+    "lowest_heart_rate": 52,
+    "total_sleep_duration": 1500
+   },
+   {
+    "id": "sl-2026-07-25",
+    "day": "2026-07-25",
+    "type": "long_sleep",
+    "lowest_heart_rate": 50,
+    "average_hrv": 38,
+    "average_breath": 15.2,
+    "total_sleep_duration": 24000,
+    "efficiency": 88,
+    "awake_time": 3120
+   },
+   {
+    "id": "sl-2026-07-26",
+    "day": "2026-07-26",
+    "type": "long_sleep",
+    "lowest_heart_rate": 52,
+    "average_hrv": 30,
+    "average_breath": 14.8,
+    "total_sleep_duration": 30240,
+    "efficiency": 86,
+    "awake_time": 3300
+   },
+   {
+    "id": "sl-2026-07-27",
+    "day": "2026-07-27",
+    "type": "long_sleep",
+    "lowest_heart_rate": 49,
+    "average_hrv": null,
+    "average_breath": 15.1,
+    "total_sleep_duration": 25380,
+    "efficiency": 80,
+    "awake_time": 3900
+   },
+   {
+    "id": "sl-2026-07-28",
+    "day": "2026-07-28",
+    "type": "long_sleep",
+    "lowest_heart_rate": 53,
+    "average_hrv": 29,
+    "average_breath": 15.1,
+    "total_sleep_duration": 27780,
+    "efficiency": 83,
+    "awake_time": 3720
+   },
+   {
+    "id": "sl-2026-07-29",
+    "day": "2026-07-29",
+    "type": "long_sleep",
+    "lowest_heart_rate": 51,
+    "average_hrv": 37,
+    "average_breath": 14.6,
+    "total_sleep_duration": 22500,
+    "efficiency": 82,
+    "awake_time": 2760
+   },
+   {
+    "id": "sl-2026-07-30",
+    "day": "2026-07-30",
+    "type": "long_sleep",
+    "lowest_heart_rate": 49,
+    "average_hrv": 41,
+    "average_breath": 15.1,
+    "total_sleep_duration": 28980,
+    "efficiency": 82,
+    "awake_time": 3180
+   },
+   {
+    "id": "sl-2026-07-31",
+    "day": "2026-07-31",
+    "type": "long_sleep",
+    "lowest_heart_rate": 51,
+    "average_hrv": 43,
+    "average_breath": 14.8,
+    "total_sleep_duration": 23040,
+    "efficiency": 90,
+    "awake_time": 2880
+   },
+   {
+    "id": "sl-2026-08-01",
+    "day": "2026-08-01",
+    "type": "long_sleep",
+    "lowest_heart_rate": 56,
+    "average_hrv": 36,
+    "average_breath": 14.7,
+    "total_sleep_duration": 28500,
+    "efficiency": 91,
+    "awake_time": 3060
+   },
+   {
+    "id": "sl-2026-08-02",
+    "day": "2026-08-02",
+    "type": "long_sleep",
+    "lowest_heart_rate": 56,
+    "average_hrv": 37,
+    "average_breath": 15.2,
+    "total_sleep_duration": 31080,
+    "efficiency": 89,
+    "awake_time": 2880
+   },
+   {
+    "id": "sl-2026-08-03",
+    "day": "2026-08-03",
+    "type": "long_sleep",
+    "lowest_heart_rate": 52,
+    "average_hrv": 34,
+    "average_breath": null,
+    "total_sleep_duration": 25380,
+    "efficiency": 85,
+    "awake_time": 3240
+   },
+   {
+    "id": "sl-2026-08-04",
+    "day": "2026-08-04",
+    "type": "long_sleep",
+    "lowest_heart_rate": 50,
+    "average_hrv": null,
+    "average_breath": 14.9,
+    "total_sleep_duration": 23700,
+    "efficiency": 77,
+    "awake_time": 4260
+   },
+   {
+    "id": "sl-2026-08-05",
+    "day": "2026-08-05",
+    "type": "long_sleep",
+    "lowest_heart_rate": 52,
+    "average_hrv": 31,
+    "average_breath": 15.1,
+    "total_sleep_duration": 26460,
+    "efficiency": 87,
+    "awake_time": 3060
+   },
+   {
+    "id": "sl-2026-08-06",
+    "day": "2026-08-06",
+    "type": "long_sleep",
+    "lowest_heart_rate": 49,
+    "average_hrv": 36,
+    "average_breath": 15.1,
+    "total_sleep_duration": 24360,
+    "efficiency": 86,
+    "awake_time": 3420
+   },
+   {
+    "id": "sl-2026-08-07",
+    "day": "2026-08-07",
+    "type": "long_sleep",
+    "lowest_heart_rate": 51,
+    "average_hrv": 39,
+    "average_breath": 14.7,
+    "total_sleep_duration": 24360,
+    "efficiency": 84,
+    "awake_time": 3120
+   },
+   {
+    "id": "sl-2026-08-08",
+    "day": "2026-08-08",
+    "type": "long_sleep",
+    "lowest_heart_rate": 49,
+    "average_hrv": 23,
+    "average_breath": 14.6,
+    "total_sleep_duration": 27240,
+    "efficiency": 90,
+    "awake_time": 3840
+   },
+   {
+    "id": "sl-2026-08-09",
+    "day": "2026-08-09",
+    "type": "long_sleep",
+    "lowest_heart_rate": 52,
+    "average_hrv": 36,
+    "average_breath": 14.5,
+    "total_sleep_duration": 24660,
+    "efficiency": 85,
+    "awake_time": 3720
+   },
+   {
+    "id": "sl-2026-08-10",
+    "day": "2026-08-10",
+    "type": "long_sleep",
+    "lowest_heart_rate": 52,
+    "average_hrv": 41,
+    "average_breath": 14.6,
+    "total_sleep_duration": 26340,
+    "efficiency": 94,
+    "awake_time": 3540
+   },
+   {
+    "id": "sl-2026-08-11",
+    "day": "2026-08-11",
+    "type": "long_sleep",
+    "lowest_heart_rate": 50,
+    "average_hrv": 38,
+    "average_breath": 15.0,
+    "total_sleep_duration": 20040,
+    "efficiency": 89,
+    "awake_time": 3480
+   },
+   {
+    "id": "sl-2026-08-12",
+    "day": "2026-08-12",
+    "type": "long_sleep",
+    "lowest_heart_rate": 45,
+    "average_hrv": 33,
+    "average_breath": 14.6,
+    "total_sleep_duration": 29460,
+    "efficiency": 92,
+    "awake_time": 3000
+   },
+   {
+    "id": "sl-2026-08-13",
+    "day": "2026-08-13",
+    "type": "long_sleep",
+    "lowest_heart_rate": 46,
+    "average_hrv": 37,
+    "average_breath": 14.5,
+    "total_sleep_duration": 30240,
+    "efficiency": 94,
+    "awake_time": 3480
+   },
+   {
+    "id": "sl-2026-08-14",
+    "day": "2026-08-14",
+    "type": "long_sleep",
+    "lowest_heart_rate": 49,
+    "average_hrv": 39,
+    "average_breath": 14.7,
+    "total_sleep_duration": 24600,
+    "efficiency": 80,
+    "awake_time": 3060
+   },
+   {
+    "id": "sl-2026-08-15",
+    "day": "2026-08-15",
+    "type": "long_sleep",
+    "lowest_heart_rate": 45,
+    "average_hrv": 61,
+    "average_breath": 14.5,
+    "total_sleep_duration": 25800,
+    "efficiency": 84,
+    "awake_time": 2940
+   },
+   {
+    "id": "sl-2026-08-16",
+    "day": "2026-08-16",
+    "type": "long_sleep",
+    "lowest_heart_rate": 48,
+    "average_hrv": 60,
+    "average_breath": 14.4,
+    "total_sleep_duration": 25980,
+    "efficiency": 85,
+    "awake_time": 3360
+   },
+   {
+    "id": "sl-2026-08-17",
+    "day": "2026-08-17",
+    "type": "long_sleep",
+    "lowest_heart_rate": 49,
+    "average_hrv": 38,
+    "average_breath": 14.3,
+    "total_sleep_duration": 25200,
+    "efficiency": 84,
+    "awake_time": 3240
+   },
+   {
+    "id": "sl-2026-08-18",
+    "day": "2026-08-18",
+    "type": "long_sleep",
+    "lowest_heart_rate": 48,
+    "average_hrv": 43,
+    "average_breath": 14.6,
+    "total_sleep_duration": 23640,
+    "efficiency": 87,
+    "awake_time": 2760
+   },
+   {
+    "id": "sl-2026-08-19",
+    "day": "2026-08-19",
+    "type": "long_sleep",
+    "lowest_heart_rate": 51,
+    "average_hrv": 36,
+    "average_breath": 14.8,
+    "total_sleep_duration": 30780,
+    "efficiency": 84,
+    "awake_time": 2820
+   },
+   {
+    "id": "nap-2026-08-19",
+    "day": "2026-08-19",
+    "type": "rest",
+    "lowest_heart_rate": 57,
+    "total_sleep_duration": 1500
+   },
+   {
+    "id": "sl-2026-08-20",
+    "day": "2026-08-20",
+    "type": "long_sleep",
+    "lowest_heart_rate": 57,
+    "average_hrv": 29,
+    "average_breath": 14.6,
+    "total_sleep_duration": 27720,
+    "efficiency": 83,
+    "awake_time": 3180
+   },
+   {
+    "id": "sl-2026-08-21",
+    "day": "2026-08-21",
+    "type": "long_sleep",
+    "lowest_heart_rate": 49,
+    "average_hrv": 35,
+    "average_breath": 14.6,
+    "total_sleep_duration": 26100,
+    "efficiency": 79,
+    "awake_time": 2640
+   },
+   {
+    "id": "sl-2026-08-22",
+    "day": "2026-08-22",
+    "type": "long_sleep",
+    "lowest_heart_rate": 52,
+    "average_hrv": null,
+    "average_breath": 14.6,
+    "total_sleep_duration": 24600,
+    "efficiency": 83,
+    "awake_time": 3000
+   },
+   {
+    "id": "sl-2026-08-23",
+    "day": "2026-08-23",
+    "type": "long_sleep",
+    "lowest_heart_rate": 54,
+    "average_hrv": 39,
+    "average_breath": 14.6,
+    "total_sleep_duration": 25560,
+    "efficiency": 83,
+    "awake_time": 2940
+   },
+   {
+    "id": "sl-2026-08-24",
+    "day": "2026-08-24",
+    "type": "long_sleep",
+    "lowest_heart_rate": 50,
+    "average_hrv": 30,
+    "average_breath": 15.1,
+    "total_sleep_duration": 23280,
+    "efficiency": 86,
+    "awake_time": 3720
+   },
+   {
+    "id": "nap-2026-08-24",
+    "day": "2026-08-24",
+    "type": "rest",
+    "lowest_heart_rate": 56,
+    "total_sleep_duration": 1500
+   },
+   {
+    "id": "sl-2026-08-25",
+    "day": "2026-08-25",
+    "type": "long_sleep",
+    "lowest_heart_rate": 53,
+    "average_hrv": 35,
+    "average_breath": 15.4,
+    "total_sleep_duration": 28800,
+    "efficiency": 85,
+    "awake_time": 3600
+   },
+   {
+    "id": "sl-2026-08-26",
+    "day": "2026-08-26",
+    "type": "long_sleep",
+    "lowest_heart_rate": 51,
+    "average_hrv": 28,
+    "average_breath": 15.4,
+    "total_sleep_duration": 32520,
+    "efficiency": 88,
+    "awake_time": 2700
+   },
+   {
+    "id": "sl-2026-08-28",
+    "day": "2026-08-28",
+    "type": "long_sleep",
+    "lowest_heart_rate": 50,
+    "average_hrv": 49,
+    "average_breath": 15.4,
+    "total_sleep_duration": 29640,
+    "efficiency": 80,
+    "awake_time": 2700
+   },
+   {
+    "id": "sl-2026-08-29",
+    "day": "2026-08-29",
+    "type": "long_sleep",
+    "lowest_heart_rate": 50,
+    "average_hrv": 32,
+    "average_breath": 15.2,
+    "total_sleep_duration": 29640,
+    "efficiency": 86,
+    "awake_time": 2760
+   },
+   {
+    "id": "sl-2026-08-30",
+    "day": "2026-08-30",
+    "type": "long_sleep",
+    "lowest_heart_rate": 50,
+    "average_hrv": 33,
+    "average_breath": 15.2,
+    "total_sleep_duration": 31920,
+    "efficiency": 82,
+    "awake_time": 3660
+   },
+   {
+    "id": "sl-2026-08-31",
+    "day": "2026-08-31",
+    "type": "long_sleep",
+    "lowest_heart_rate": 48,
+    "average_hrv": 38,
+    "average_breath": 15.3,
+    "total_sleep_duration": 26460,
+    "efficiency": 84,
+    "awake_time": 3240
+   },
+   {
+    "id": "sl-2026-09-01",
+    "day": "2026-09-01",
+    "type": "long_sleep",
+    "lowest_heart_rate": 48,
+    "average_hrv": 38,
+    "average_breath": 15.6,
+    "total_sleep_duration": 30120,
+    "efficiency": 86,
+    "awake_time": 3180
+   },
+   {
+    "id": "sl-2026-09-02",
+    "day": "2026-09-02",
+    "type": "long_sleep",
+    "lowest_heart_rate": 49,
+    "average_hrv": 34,
+    "average_breath": 15.4,
+    "total_sleep_duration": 26400,
+    "efficiency": 86,
+    "awake_time": 3060
+   },
+   {
+    "id": "sl-2026-09-03",
+    "day": "2026-09-03",
+    "type": "long_sleep",
+    "lowest_heart_rate": 50,
+    "average_hrv": 42,
+    "average_breath": 15.3,
+    "total_sleep_duration": 27120,
+    "efficiency": 89,
+    "awake_time": 3840
+   },
+   {
+    "id": "sl-2026-09-04",
+    "day": "2026-09-04",
+    "type": "long_sleep",
+    "lowest_heart_rate": 56,
+    "average_hrv": 47,
+    "average_breath": 15.0,
+    "total_sleep_duration": 26640,
+    "efficiency": 80,
+    "awake_time": 3720
+   },
+   {
+    "id": "sl-2026-09-05",
+    "day": "2026-09-05",
+    "type": "long_sleep",
+    "lowest_heart_rate": 56,
+    "average_hrv": 32,
+    "average_breath": 15.2,
+    "total_sleep_duration": 25800,
+    "efficiency": 86,
+    "awake_time": 4080
+   },
+   {
+    "id": "sl-2026-09-07",
+    "day": "2026-09-07",
+    "type": "long_sleep",
+    "lowest_heart_rate": 57,
+    "average_hrv": 26,
+    "average_breath": 14.4,
+    "total_sleep_duration": 27060,
+    "efficiency": 86,
+    "awake_time": 2940
+   },
+   {
+    "id": "sl-2026-09-08",
+    "day": "2026-09-08",
+    "type": "long_sleep",
+    "lowest_heart_rate": 55,
+    "average_hrv": 31,
+    "average_breath": 14.4,
+    "total_sleep_duration": 25500,
+    "efficiency": 88,
+    "awake_time": 3180
+   },
+   {
+    "id": "sl-2026-09-09",
+    "day": "2026-09-09",
+    "type": "long_sleep",
+    "lowest_heart_rate": 52,
+    "average_hrv": 39,
+    "average_breath": 14.3,
+    "total_sleep_duration": 21720,
+    "efficiency": 88,
+    "awake_time": 3780
+   },
+   {
+    "id": "sl-2026-09-10",
+    "day": "2026-09-10",
+    "type": "long_sleep",
+    "lowest_heart_rate": 49,
+    "average_hrv": 42,
+    "average_breath": 14.5,
+    "total_sleep_duration": 26940,
+    "efficiency": 84,
+    "awake_time": 3060
+   },
+   {
+    "id": "sl-2026-09-11",
+    "day": "2026-09-11",
+    "type": "long_sleep",
+    "lowest_heart_rate": 48,
+    "average_hrv": 42,
+    "average_breath": 14.3,
+    "total_sleep_duration": 20760,
+    "efficiency": 85,
+    "awake_time": 3240
+   },
+   {
+    "id": "sl-2026-09-12",
+    "day": "2026-09-12",
+    "type": "long_sleep",
+    "lowest_heart_rate": 54,
+    "average_hrv": 28,
+    "average_breath": 14.5,
+    "total_sleep_duration": 26820,
+    "efficiency": 84,
+    "awake_time": 2940
+   },
+   {
+    "id": "sl-2026-09-13",
+    "day": "2026-09-13",
+    "type": "long_sleep",
+    "lowest_heart_rate": 56,
+    "average_hrv": 34,
+    "average_breath": 14.8,
+    "total_sleep_duration": 26400,
+    "efficiency": 93,
+    "awake_time": 2940
+   },
+   {
+    "id": "sl-2026-09-14",
+    "day": "2026-09-14",
+    "type": "long_sleep",
+    "lowest_heart_rate": 56,
+    "average_hrv": 31,
+    "average_breath": 14.8,
+    "total_sleep_duration": 27000,
+    "efficiency": 88,
+    "awake_time": 3060
+   },
+   {
+    "id": "sl-2026-09-15",
+    "day": "2026-09-15",
+    "type": "long_sleep",
+    "lowest_heart_rate": 52,
+    "average_hrv": 44,
+    "average_breath": 14.9,
+    "total_sleep_duration": 23340,
+    "efficiency": 80,
+    "awake_time": 3480
+   },
+   {
+    "id": "sl-2026-09-16",
+    "day": "2026-09-16",
+    "type": "long_sleep",
+    "lowest_heart_rate": 50,
+    "average_hrv": 45,
+    "average_breath": 14.6,
+    "total_sleep_duration": 27960,
+    "efficiency": 80,
+    "awake_time": 3360
+   },
+   {
+    "id": "sl-2026-09-17",
+    "day": "2026-09-17",
+    "type": "long_sleep",
+    "lowest_heart_rate": 49,
+    "average_hrv": 40,
+    "average_breath": 14.9,
+    "total_sleep_duration": 22200,
+    "efficiency": 79,
+    "awake_time": 2760
+   },
+   {
+    "id": "sl-2026-09-18",
+    "day": "2026-09-18",
+    "type": "long_sleep",
+    "lowest_heart_rate": 52,
+    "average_hrv": 41,
+    "average_breath": 15.2,
+    "total_sleep_duration": 24360,
+    "efficiency": 78,
+    "awake_time": 4860
+   },
+   {
+    "id": "sl-2026-09-19",
+    "day": "2026-09-19",
+    "type": "long_sleep",
+    "lowest_heart_rate": 52,
+    "average_hrv": 47,
+    "average_breath": 15.5,
+    "total_sleep_duration": 22560,
+    "efficiency": 89,
+    "awake_time": 2760
+   },
+   {
+    "id": "nap-2026-09-19",
+    "day": "2026-09-19",
+    "type": "rest",
+    "lowest_heart_rate": 58,
+    "total_sleep_duration": 1500
+   },
+   {
+    "id": "sl-2026-09-20",
+    "day": "2026-09-20",
+    "type": "long_sleep",
+    "lowest_heart_rate": 53,
+    "average_hrv": 35,
+    "average_breath": 15.4,
+    "total_sleep_duration": 21720,
+    "efficiency": 81,
+    "awake_time": 2760
+   },
+   {
+    "id": "sl-2026-09-21",
+    "day": "2026-09-21",
+    "type": "long_sleep",
+    "lowest_heart_rate": 50,
+    "average_hrv": 36,
+    "average_breath": 15.7,
+    "total_sleep_duration": 29820,
+    "efficiency": 89,
+    "awake_time": 2760
+   },
+   {
+    "id": "sl-2026-09-22",
+    "day": "2026-09-22",
+    "type": "long_sleep",
+    "lowest_heart_rate": 50,
+    "average_hrv": 29,
+    "average_breath": 15.2,
+    "total_sleep_duration": 21960,
+    "efficiency": 87,
+    "awake_time": 2820
+   },
+   {
+    "id": "sl-2026-09-23",
+    "day": "2026-09-23",
+    "type": "long_sleep",
+    "lowest_heart_rate": 53,
+    "average_hrv": 39,
+    "average_breath": 15.3,
+    "total_sleep_duration": 27180,
+    "efficiency": 93,
+    "awake_time": 3120
+   },
+   {
+    "id": "sl-2026-09-24",
+    "day": "2026-09-24",
+    "type": "long_sleep",
+    "lowest_heart_rate": 49,
+    "average_hrv": 36,
+    "average_breath": 15.4,
+    "total_sleep_duration": 26640,
+    "efficiency": 89,
+    "awake_time": 3480
+   },
+   {
+    "id": "nap-2026-09-24",
+    "day": "2026-09-24",
+    "type": "rest",
+    "lowest_heart_rate": 55,
+    "total_sleep_duration": 1500
+   },
+   {
+    "id": "sl-2026-09-25",
+    "day": "2026-09-25",
+    "type": "long_sleep",
+    "lowest_heart_rate": 48,
+    "average_hrv": 33,
+    "average_breath": 15.0,
+    "total_sleep_duration": 27960,
+    "efficiency": 84,
+    "awake_time": 3300
+   },
+   {
+    "id": "sl-2026-09-26",
+    "day": "2026-09-26",
+    "type": "long_sleep",
+    "lowest_heart_rate": 46,
+    "average_hrv": 43,
+    "average_breath": 14.9,
+    "total_sleep_duration": 25800,
+    "efficiency": 80,
+    "awake_time": 4200
+   },
+   {
+    "id": "sl-2026-09-30",
+    "day": "2026-09-30",
+    "type": "long_sleep",
+    "lowest_heart_rate": 53,
+    "average_hrv": 34,
+    "average_breath": null,
+    "total_sleep_duration": 22860,
+    "efficiency": 82,
+    "awake_time": 2880
+   },
+   {
+    "id": "sl-2026-10-01",
+    "day": "2026-10-01",
+    "type": "long_sleep",
+    "lowest_heart_rate": 53,
+    "average_hrv": 33,
+    "average_breath": 15.0,
+    "total_sleep_duration": 22080,
+    "efficiency": 75,
+    "awake_time": 2940
+   },
+   {
+    "id": "sl-2026-10-02",
+    "day": "2026-10-02",
+    "type": "long_sleep",
+    "lowest_heart_rate": 48,
+    "average_hrv": 29,
+    "average_breath": 14.5,
+    "total_sleep_duration": 23940,
+    "efficiency": 83,
+    "awake_time": 3300
+   },
+   {
+    "id": "sl-2026-10-03",
+    "day": "2026-10-03",
+    "type": "long_sleep",
+    "lowest_heart_rate": 52,
+    "average_hrv": 39,
+    "average_breath": null,
+    "total_sleep_duration": 22260,
+    "efficiency": 81,
+    "awake_time": 3060
+   },
+   {
+    "id": "sl-2026-10-04",
+    "day": "2026-10-04",
+    "type": "long_sleep",
+    "lowest_heart_rate": 49,
+    "average_hrv": 43,
+    "average_breath": 14.8,
+    "total_sleep_duration": 27120,
+    "efficiency": 95,
+    "awake_time": 3000
+   },
+   {
+    "id": "sl-2026-10-05",
+    "day": "2026-10-05",
+    "type": "long_sleep",
+    "lowest_heart_rate": 51,
+    "average_hrv": 31,
+    "average_breath": 14.8,
+    "total_sleep_duration": 26400,
+    "efficiency": 92,
+    "awake_time": 4020
+   },
+   {
+    "id": "sl-2026-10-06",
+    "day": "2026-10-06",
+    "type": "long_sleep",
+    "lowest_heart_rate": 47,
+    "average_hrv": 38,
+    "average_breath": 14.3,
+    "total_sleep_duration": 27240,
+    "efficiency": 80,
+    "awake_time": 3480
+   },
+   {
+    "id": "sl-2026-10-07",
+    "day": "2026-10-07",
+    "type": "long_sleep",
+    "lowest_heart_rate": 47,
+    "average_hrv": 38,
+    "average_breath": 14.2,
+    "total_sleep_duration": 26400,
+    "efficiency": 80,
+    "awake_time": 2880
+   },
+   {
+    "id": "sl-2026-10-08",
+    "day": "2026-10-08",
+    "type": "long_sleep",
+    "lowest_heart_rate": 49,
+    "average_hrv": 40,
+    "average_breath": 14.2,
+    "total_sleep_duration": 28200,
+    "efficiency": 87,
+    "awake_time": 3300
+   },
+   {
+    "id": "sl-2026-10-09",
+    "day": "2026-10-09",
+    "type": "long_sleep",
+    "lowest_heart_rate": 49,
+    "average_hrv": 31,
+    "average_breath": 14.6,
+    "total_sleep_duration": 30000,
+    "efficiency": 85,
+    "awake_time": 2820
+   },
+   {
+    "id": "sl-2026-10-10",
+    "day": "2026-10-10",
+    "type": "long_sleep",
+    "lowest_heart_rate": 52,
+    "average_hrv": 30,
+    "average_breath": 14.6,
+    "total_sleep_duration": 26340,
+    "efficiency": 85,
+    "awake_time": 3480
+   },
+   {
+    "id": "sl-2026-10-11",
+    "day": "2026-10-11",
+    "type": "long_sleep",
+    "lowest_heart_rate": 49,
+    "average_hrv": 35,
+    "average_breath": 14.6,
+    "total_sleep_duration": 28560,
+    "efficiency": 84,
+    "awake_time": 3060
+   },
+   {
+    "id": "sl-2026-10-12",
+    "day": "2026-10-12",
+    "type": "long_sleep",
+    "lowest_heart_rate": 49,
+    "average_hrv": 30,
+    "average_breath": 14.3,
+    "total_sleep_duration": 27180,
+    "efficiency": 83,
+    "awake_time": 4320
+   },
+   {
+    "id": "sl-2026-10-13",
+    "day": "2026-10-13",
+    "type": "long_sleep",
+    "lowest_heart_rate": 51,
+    "average_hrv": 54,
+    "average_breath": 14.3,
+    "total_sleep_duration": 25620,
+    "efficiency": 81,
+    "awake_time": 3540
+   },
+   {
+    "id": "sl-2026-10-15",
+    "day": "2026-10-15",
+    "type": "long_sleep",
+    "lowest_heart_rate": 44,
+    "average_hrv": 41,
+    "average_breath": 14.8,
+    "total_sleep_duration": 25140,
+    "efficiency": 83,
+    "awake_time": 2700
+   },
+   {
+    "id": "sl-2026-10-16",
+    "day": "2026-10-16",
+    "type": "long_sleep",
+    "lowest_heart_rate": 42,
+    "average_hrv": 35,
+    "average_breath": 14.6,
+    "total_sleep_duration": 25620,
+    "efficiency": 93,
+    "awake_time": 3240
+   },
+   {
+    "id": "sl-2026-10-18",
+    "day": "2026-10-18",
+    "type": "long_sleep",
+    "lowest_heart_rate": 49,
+    "average_hrv": 32,
+    "average_breath": 15.1,
+    "total_sleep_duration": 25980,
+    "efficiency": 89,
+    "awake_time": 3300
+   },
+   {
+    "id": "sl-2026-10-19",
+    "day": "2026-10-19",
+    "type": "long_sleep",
+    "lowest_heart_rate": 49,
+    "average_hrv": 31,
+    "average_breath": 14.8,
+    "total_sleep_duration": 26340,
+    "efficiency": 81,
+    "awake_time": 3780
+   },
+   {
+    "id": "nap-2026-10-19",
+    "day": "2026-10-19",
+    "type": "rest",
+    "lowest_heart_rate": 55,
+    "total_sleep_duration": 1500
+   },
+   {
+    "id": "sl-2026-10-20",
+    "day": "2026-10-20",
+    "type": "long_sleep",
+    "lowest_heart_rate": 52,
+    "average_hrv": 36,
+    "average_breath": 15.0,
+    "total_sleep_duration": 24060,
+    "efficiency": 90,
+    "awake_time": 3120
+   },
+   {
+    "id": "sl-2026-10-21",
+    "day": "2026-10-21",
+    "type": "long_sleep",
+    "lowest_heart_rate": 53,
+    "average_hrv": 30,
+    "average_breath": 15.2,
+    "total_sleep_duration": 31380,
+    "efficiency": 85,
+    "awake_time": 3360
+   },
+   {
+    "id": "sl-2026-10-22",
+    "day": "2026-10-22",
+    "type": "long_sleep",
+    "lowest_heart_rate": 50,
+    "average_hrv": 38,
+    "average_breath": 15.4,
+    "total_sleep_duration": 25800,
+    "efficiency": 82,
+    "awake_time": 3300
+   },
+   {
+    "id": "sl-2026-10-23",
+    "day": "2026-10-23",
+    "type": "long_sleep",
+    "lowest_heart_rate": 53,
+    "average_hrv": 26,
+    "average_breath": 15.3,
+    "total_sleep_duration": 22200,
+    "efficiency": 89,
+    "awake_time": 2820
+   },
+   {
+    "id": "sl-2026-10-24",
+    "day": "2026-10-24",
+    "type": "long_sleep",
+    "lowest_heart_rate": 52,
+    "average_hrv": 38,
+    "average_breath": 15.2,
+    "total_sleep_duration": 28200,
+    "efficiency": 82,
+    "awake_time": 2820
+   },
+   {
+    "id": "nap-2026-10-24",
+    "day": "2026-10-24",
+    "type": "rest",
+    "lowest_heart_rate": 58,
+    "total_sleep_duration": 1500
+   },
+   {
+    "id": "sl-2026-10-25",
+    "day": "2026-10-25",
+    "type": "long_sleep",
+    "lowest_heart_rate": 52,
+    "average_hrv": 37,
+    "average_breath": 14.9,
+    "total_sleep_duration": 28920,
+    "efficiency": 86,
+    "awake_time": 2700
+   },
+   {
+    "id": "sl-2026-10-26",
+    "day": "2026-10-26",
+    "type": "long_sleep",
+    "lowest_heart_rate": 51,
+    "average_hrv": 40,
+    "average_breath": 14.7,
+    "total_sleep_duration": 26100,
+    "efficiency": 82,
+    "awake_time": 3480
+   },
+   {
+    "id": "sl-2026-10-27",
+    "day": "2026-10-27",
+    "type": "long_sleep",
+    "lowest_heart_rate": 53,
+    "average_hrv": 37,
+    "average_breath": null,
+    "total_sleep_duration": 26520,
+    "efficiency": 89,
+    "awake_time": 3180
+   },
+   {
+    "id": "sl-2026-10-28",
+    "day": "2026-10-28",
+    "type": "long_sleep",
+    "lowest_heart_rate": 53,
+    "average_hrv": 36,
+    "average_breath": 14.9,
+    "total_sleep_duration": 24840,
+    "efficiency": 94,
+    "awake_time": 2700
+   },
+   {
+    "id": "sl-2026-10-29",
+    "day": "2026-10-29",
+    "type": "long_sleep",
+    "lowest_heart_rate": 52,
+    "average_hrv": 28,
+    "average_breath": null,
+    "total_sleep_duration": 20640,
+    "efficiency": 83,
+    "awake_time": 2640
+   },
+   {
+    "id": "sl-2026-10-30",
+    "day": "2026-10-30",
+    "type": "long_sleep",
+    "lowest_heart_rate": 48,
+    "average_hrv": 33,
+    "average_breath": 15.0,
+    "total_sleep_duration": 23760,
+    "efficiency": 83,
+    "awake_time": 3360
+   },
+   {
+    "id": "sl-2026-10-31",
+    "day": "2026-10-31",
+    "type": "long_sleep",
+    "lowest_heart_rate": 44,
+    "average_hrv": 43,
+    "average_breath": 14.6,
+    "total_sleep_duration": 22920,
+    "efficiency": 91,
+    "awake_time": 2820
+   },
+   {
+    "id": "sl-2026-11-01",
+    "day": "2026-11-01",
+    "type": "long_sleep",
+    "lowest_heart_rate": 51,
+    "average_hrv": 34,
+    "average_breath": 14.2,
+    "total_sleep_duration": 27900,
+    "efficiency": 90,
+    "awake_time": 3000
+   },
+   {
+    "id": "sl-2026-11-02",
+    "day": "2026-11-02",
+    "type": "long_sleep",
+    "lowest_heart_rate": 48,
+    "average_hrv": 34,
+    "average_breath": 14.3,
+    "total_sleep_duration": 26880,
+    "efficiency": 90,
+    "awake_time": 2940
+   },
+   {
+    "id": "sl-2026-11-03",
+    "day": "2026-11-03",
+    "type": "long_sleep",
+    "lowest_heart_rate": 47,
+    "average_hrv": 27,
+    "average_breath": 14.5,
+    "total_sleep_duration": 27840,
+    "efficiency": 93,
+    "awake_time": 4380
+   },
+   {
+    "id": "sl-2026-11-04",
+    "day": "2026-11-04",
+    "type": "long_sleep",
+    "lowest_heart_rate": 48,
+    "average_hrv": 33,
+    "average_breath": 14.7,
+    "total_sleep_duration": 26220,
+    "efficiency": 85,
+    "awake_time": 2640
+   },
+   {
+    "id": "sl-2026-11-05",
+    "day": "2026-11-05",
+    "type": "long_sleep",
+    "lowest_heart_rate": 49,
+    "average_hrv": 31,
+    "average_breath": 14.5,
+    "total_sleep_duration": 28320,
+    "efficiency": 92,
+    "awake_time": 3780
+   },
+   {
+    "id": "sl-2026-11-06",
+    "day": "2026-11-06",
+    "type": "long_sleep",
+    "lowest_heart_rate": 55,
+    "average_hrv": 28,
+    "average_breath": 14.6,
+    "total_sleep_duration": 29160,
+    "efficiency": 76,
+    "awake_time": 3000
+   },
+   {
+    "id": "sl-2026-11-07",
+    "day": "2026-11-07",
+    "type": "long_sleep",
+    "lowest_heart_rate": 55,
+    "average_hrv": 34,
+    "average_breath": 14.6,
+    "total_sleep_duration": 25860,
+    "efficiency": 84,
+    "awake_time": 2700
+   },
+   {
+    "id": "sl-2026-11-08",
+    "day": "2026-11-08",
+    "type": "long_sleep",
+    "lowest_heart_rate": 55,
+    "average_hrv": 50,
+    "average_breath": 14.6,
+    "total_sleep_duration": 28500,
+    "efficiency": 84,
+    "awake_time": 2940
+   },
+   {
+    "id": "sl-2026-11-09",
+    "day": "2026-11-09",
+    "type": "long_sleep",
+    "lowest_heart_rate": 50,
+    "average_hrv": 37,
+    "average_breath": 14.8,
+    "total_sleep_duration": 28320,
+    "efficiency": 81,
+    "awake_time": 3060
+   }
+  ],
+  "daily_readiness": [
+   {
+    "id": "rd-2026-06-17",
+    "day": "2026-06-17",
+    "score": null,
+    "temperature_deviation": -0.59,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-06-19",
+    "day": "2026-06-19",
+    "score": null,
+    "temperature_deviation": 0.06,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-06-20",
+    "day": "2026-06-20",
+    "score": null,
+    "temperature_deviation": -0.39,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-06-21",
+    "day": "2026-06-21",
+    "score": null,
+    "temperature_deviation": -0.52,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-06-22",
+    "day": "2026-06-22",
+    "score": null,
+    "temperature_deviation": -0.56,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-06-23",
+    "day": "2026-06-23",
+    "score": null,
+    "temperature_deviation": -0.52,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-06-26",
+    "day": "2026-06-26",
+    "score": null,
+    "temperature_deviation": -0.05,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-06-27",
+    "day": "2026-06-27",
+    "score": null,
+    "temperature_deviation": 0.06,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-06-28",
+    "day": "2026-06-28",
+    "score": null,
+    "temperature_deviation": 0.04,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-07-01",
+    "day": "2026-07-01",
+    "score": null,
+    "temperature_deviation": 0.05,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-07-02",
+    "day": "2026-07-02",
+    "score": null,
+    "temperature_deviation": 0.38,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-07-03",
+    "day": "2026-07-03",
+    "score": null,
+    "temperature_deviation": 0.11,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-07-04",
+    "day": "2026-07-04",
+    "score": null,
+    "temperature_deviation": 0.03,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-07-05",
+    "day": "2026-07-05",
+    "score": null,
+    "temperature_deviation": -0.16,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-07-06",
+    "day": "2026-07-06",
+    "score": null,
+    "temperature_deviation": -0.14,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-07-07",
+    "day": "2026-07-07",
+    "score": null,
+    "temperature_deviation": 0.2,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-07-08",
+    "day": "2026-07-08",
+    "score": null,
+    "temperature_deviation": 0.46,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-07-09",
+    "day": "2026-07-09",
+    "score": null,
+    "temperature_deviation": 0.08,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-07-10",
+    "day": "2026-07-10",
+    "score": null,
+    "temperature_deviation": -0.08,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-07-11",
+    "day": "2026-07-11",
+    "score": null,
+    "temperature_deviation": -0.28,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-07-12",
+    "day": "2026-07-12",
+    "score": null,
+    "temperature_deviation": -0.59,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-07-13",
+    "day": "2026-07-13",
+    "score": null,
+    "temperature_deviation": -0.64,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-07-14",
+    "day": "2026-07-14",
+    "score": null,
+    "temperature_deviation": -0.28,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-07-16",
+    "day": "2026-07-16",
+    "score": null,
+    "temperature_deviation": -0.29,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-07-17",
+    "day": "2026-07-17",
+    "score": null,
+    "temperature_deviation": -0.65,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-07-18",
+    "day": "2026-07-18",
+    "score": null,
+    "temperature_deviation": -0.5,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-07-19",
+    "day": "2026-07-19",
+    "score": null,
+    "temperature_deviation": -0.18,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-07-21",
+    "day": "2026-07-21",
+    "score": null,
+    "temperature_deviation": -0.3,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-07-22",
+    "day": "2026-07-22",
+    "score": null,
+    "temperature_deviation": -0.23,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-07-23",
+    "day": "2026-07-23",
+    "score": null,
+    "temperature_deviation": 0.02,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-07-24",
+    "day": "2026-07-24",
+    "score": null,
+    "temperature_deviation": -0.02,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-07-25",
+    "day": "2026-07-25",
+    "score": null,
+    "temperature_deviation": 0.29,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-07-26",
+    "day": "2026-07-26",
+    "score": null,
+    "temperature_deviation": -0.32,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-07-27",
+    "day": "2026-07-27",
+    "score": null,
+    "temperature_deviation": -0.14,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-07-29",
+    "day": "2026-07-29",
+    "score": null,
+    "temperature_deviation": 0.02,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-07-30",
+    "day": "2026-07-30",
+    "score": null,
+    "temperature_deviation": -0.31,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-07-31",
+    "day": "2026-07-31",
+    "score": null,
+    "temperature_deviation": -0.09,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-08-01",
+    "day": "2026-08-01",
+    "score": null,
+    "temperature_deviation": 0.42,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-08-02",
+    "day": "2026-08-02",
+    "score": null,
+    "temperature_deviation": 0.17,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-08-04",
+    "day": "2026-08-04",
+    "score": null,
+    "temperature_deviation": -0.17,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-08-05",
+    "day": "2026-08-05",
+    "score": null,
+    "temperature_deviation": -0.08,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-08-06",
+    "day": "2026-08-06",
+    "score": null,
+    "temperature_deviation": 0.45,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-08-07",
+    "day": "2026-08-07",
+    "score": null,
+    "temperature_deviation": 0.37,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-08-08",
+    "day": "2026-08-08",
+    "score": null,
+    "temperature_deviation": -0.04,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-08-09",
+    "day": "2026-08-09",
+    "score": null,
+    "temperature_deviation": 0.17,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-08-10",
+    "day": "2026-08-10",
+    "score": null,
+    "temperature_deviation": -0.47,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-08-11",
+    "day": "2026-08-11",
+    "score": null,
+    "temperature_deviation": -0.5,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-08-12",
+    "day": "2026-08-12",
+    "score": null,
+    "temperature_deviation": -0.71,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-08-13",
+    "day": "2026-08-13",
+    "score": null,
+    "temperature_deviation": -0.37,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-08-14",
+    "day": "2026-08-14",
+    "score": null,
+    "temperature_deviation": -0.22,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-08-15",
+    "day": "2026-08-15",
+    "score": null,
+    "temperature_deviation": -0.36,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-08-16",
+    "day": "2026-08-16",
+    "score": null,
+    "temperature_deviation": -0.22,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-08-17",
+    "day": "2026-08-17",
+    "score": null,
+    "temperature_deviation": -0.55,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-08-18",
+    "day": "2026-08-18",
+    "score": null,
+    "temperature_deviation": -0.33,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-08-19",
+    "day": "2026-08-19",
+    "score": null,
+    "temperature_deviation": -0.38,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-08-20",
+    "day": "2026-08-20",
+    "score": null,
+    "temperature_deviation": -0.21,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-08-21",
+    "day": "2026-08-21",
+    "score": null,
+    "temperature_deviation": -0.2,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-08-22",
+    "day": "2026-08-22",
+    "score": null,
+    "temperature_deviation": -0.57,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-08-23",
+    "day": "2026-08-23",
+    "score": null,
+    "temperature_deviation": -0.32,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-08-24",
+    "day": "2026-08-24",
+    "score": null,
+    "temperature_deviation": -0.03,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-08-25",
+    "day": "2026-08-25",
+    "score": null,
+    "temperature_deviation": -0.18,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-08-26",
+    "day": "2026-08-26",
+    "score": null,
+    "temperature_deviation": -0.19,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-08-27",
+    "day": "2026-08-27",
+    "score": null,
+    "temperature_deviation": -0.02,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-08-28",
+    "day": "2026-08-28",
+    "score": null,
+    "temperature_deviation": -0.01,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-08-29",
+    "day": "2026-08-29",
+    "score": null,
+    "temperature_deviation": 0.14,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-08-30",
+    "day": "2026-08-30",
+    "score": null,
+    "temperature_deviation": 0.29,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-08-31",
+    "day": "2026-08-31",
+    "score": null,
+    "temperature_deviation": 0.22,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-09-01",
+    "day": "2026-09-01",
+    "score": null,
+    "temperature_deviation": 0.1,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-09-02",
+    "day": "2026-09-02",
+    "score": null,
+    "temperature_deviation": 0.12,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-09-03",
+    "day": "2026-09-03",
+    "score": null,
+    "temperature_deviation": 0.01,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-09-04",
+    "day": "2026-09-04",
+    "score": null,
+    "temperature_deviation": -0.03,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-09-05",
+    "day": "2026-09-05",
+    "score": null,
+    "temperature_deviation": -0.09,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-09-06",
+    "day": "2026-09-06",
+    "score": null,
+    "temperature_deviation": -0.28,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-09-07",
+    "day": "2026-09-07",
+    "score": null,
+    "temperature_deviation": -0.35,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-09-08",
+    "day": "2026-09-08",
+    "score": null,
+    "temperature_deviation": -0.16,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-09-09",
+    "day": "2026-09-09",
+    "score": null,
+    "temperature_deviation": -0.42,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-09-10",
+    "day": "2026-09-10",
+    "score": null,
+    "temperature_deviation": -0.48,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-09-11",
+    "day": "2026-09-11",
+    "score": null,
+    "temperature_deviation": -0.44,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-09-12",
+    "day": "2026-09-12",
+    "score": null,
+    "temperature_deviation": -0.27,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-09-13",
+    "day": "2026-09-13",
+    "score": null,
+    "temperature_deviation": -0.43,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-09-14",
+    "day": "2026-09-14",
+    "score": null,
+    "temperature_deviation": -0.03,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-09-15",
+    "day": "2026-09-15",
+    "score": null,
+    "temperature_deviation": -0.36,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-09-16",
+    "day": "2026-09-16",
+    "score": null,
+    "temperature_deviation": -0.22,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-09-17",
+    "day": "2026-09-17",
+    "score": null,
+    "temperature_deviation": -0.6,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-09-18",
+    "day": "2026-09-18",
+    "score": null,
+    "temperature_deviation": -0.18,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-09-19",
+    "day": "2026-09-19",
+    "score": null,
+    "temperature_deviation": -0.07,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-09-20",
+    "day": "2026-09-20",
+    "score": null,
+    "temperature_deviation": 0.42,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-09-21",
+    "day": "2026-09-21",
+    "score": null,
+    "temperature_deviation": -0.03,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-09-22",
+    "day": "2026-09-22",
+    "score": null,
+    "temperature_deviation": 0.28,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-09-23",
+    "day": "2026-09-23",
+    "score": null,
+    "temperature_deviation": 0.15,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-09-24",
+    "day": "2026-09-24",
+    "score": null,
+    "temperature_deviation": 0.17,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-09-25",
+    "day": "2026-09-25",
+    "score": null,
+    "temperature_deviation": 0.21,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-09-26",
+    "day": "2026-09-26",
+    "score": null,
+    "temperature_deviation": 0.15,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-09-30",
+    "day": "2026-09-30",
+    "score": null,
+    "temperature_deviation": 0.34,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-10-01",
+    "day": "2026-10-01",
+    "score": null,
+    "temperature_deviation": -0.03,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-10-03",
+    "day": "2026-10-03",
+    "score": null,
+    "temperature_deviation": -0.04,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-10-04",
+    "day": "2026-10-04",
+    "score": null,
+    "temperature_deviation": -0.54,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-10-05",
+    "day": "2026-10-05",
+    "score": null,
+    "temperature_deviation": -0.29,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-10-06",
+    "day": "2026-10-06",
+    "score": null,
+    "temperature_deviation": -0.02,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-10-07",
+    "day": "2026-10-07",
+    "score": null,
+    "temperature_deviation": -0.0,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-10-08",
+    "day": "2026-10-08",
+    "score": null,
+    "temperature_deviation": 0.16,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-10-09",
+    "day": "2026-10-09",
+    "score": null,
+    "temperature_deviation": -0.17,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-10-10",
+    "day": "2026-10-10",
+    "score": null,
+    "temperature_deviation": -0.17,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-10-11",
+    "day": "2026-10-11",
+    "score": null,
+    "temperature_deviation": 0.07,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-10-12",
+    "day": "2026-10-12",
+    "score": null,
+    "temperature_deviation": -0.2,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-10-15",
+    "day": "2026-10-15",
+    "score": null,
+    "temperature_deviation": -0.38,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-10-16",
+    "day": "2026-10-16",
+    "score": null,
+    "temperature_deviation": -0.06,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-10-18",
+    "day": "2026-10-18",
+    "score": null,
+    "temperature_deviation": -0.16,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-10-19",
+    "day": "2026-10-19",
+    "score": null,
+    "temperature_deviation": 0.04,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-10-20",
+    "day": "2026-10-20",
+    "score": null,
+    "temperature_deviation": -0.18,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-10-21",
+    "day": "2026-10-21",
+    "score": null,
+    "temperature_deviation": 0.22,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-10-22",
+    "day": "2026-10-22",
+    "score": null,
+    "temperature_deviation": 0.05,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-10-23",
+    "day": "2026-10-23",
+    "score": null,
+    "temperature_deviation": 0.38,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-10-24",
+    "day": "2026-10-24",
+    "score": null,
+    "temperature_deviation": 0.3,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-10-25",
+    "day": "2026-10-25",
+    "score": null,
+    "temperature_deviation": 0.28,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-10-26",
+    "day": "2026-10-26",
+    "score": null,
+    "temperature_deviation": -0.19,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-10-27",
+    "day": "2026-10-27",
+    "score": null,
+    "temperature_deviation": -0.13,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-10-28",
+    "day": "2026-10-28",
+    "score": null,
+    "temperature_deviation": 0.19,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-10-29",
+    "day": "2026-10-29",
+    "score": null,
+    "temperature_deviation": 0.09,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-10-30",
+    "day": "2026-10-30",
+    "score": null,
+    "temperature_deviation": 0.03,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-10-31",
+    "day": "2026-10-31",
+    "score": null,
+    "temperature_deviation": -0.43,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-11-01",
+    "day": "2026-11-01",
+    "score": null,
+    "temperature_deviation": -0.35,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-11-02",
+    "day": "2026-11-02",
+    "score": null,
+    "temperature_deviation": -0.43,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-11-03",
+    "day": "2026-11-03",
+    "score": null,
+    "temperature_deviation": -0.25,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-11-04",
+    "day": "2026-11-04",
+    "score": null,
+    "temperature_deviation": -0.4,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-11-05",
+    "day": "2026-11-05",
+    "score": null,
+    "temperature_deviation": -0.43,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-11-06",
+    "day": "2026-11-06",
+    "score": null,
+    "temperature_deviation": -0.34,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-11-07",
+    "day": "2026-11-07",
+    "score": null,
+    "temperature_deviation": -0.16,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-11-08",
+    "day": "2026-11-08",
+    "score": null,
+    "temperature_deviation": 0.04,
+    "temperature_trend_deviation": null
+   },
+   {
+    "id": "rd-2026-11-09",
+    "day": "2026-11-09",
+    "score": null,
+    "temperature_deviation": -0.11,
+    "temperature_trend_deviation": null
+   }
+  ]
+ }
+}

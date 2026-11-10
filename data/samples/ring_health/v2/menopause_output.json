@@ -1,0 +1,37 @@
+{
+  "model_version": "ring-health-v2",
+  "artifact_manifest_sha256": "c62d48b0200e7e1f9f4a2736236ff1beb4b9def988f9165b6f838c09c8d8b6b4",
+  "as_of": "2024-04-29",
+  "clinical_validation": "not_established",
+  "recommendations": [],
+  "measurement_imputation": "none; missing measurements remain unobserved",
+  "status": "ok",
+  "observed_nights_last28": {
+    "temperature_deviation": 24,
+    "resting_hr": 24,
+    "hrv_ms": 24,
+    "respiratory_rate": 24,
+    "sleep_minutes": 24,
+    "sleep_efficiency": 24,
+    "steps": 24
+  },
+  "fertility": {
+    "status": "outside_evaluated_age_support",
+    "age_support": [
+      18,
+      45
+    ]
+  },
+  "menopause": {
+    "status": "experimental_model_output",
+    "stage_probabilities": {
+      "reproductive": 0.00041346772195107427,
+      "transition": 0.9995461732203703,
+      "postmenopause": 4.0359057678583295e-05
+    },
+    "training_data": "synthetic_only",
+    "ring_stage_validation": "not_established",
+    "future_onset_prediction": null,
+    "diagnosis": null
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "review_date":"2026-11-09",
+  "mode":"deep_review_and_scoped_repairs",
+  "independent_reviewers":2,
+  "v1_remaining_as_historical_snapshot":true,
+  "material_findings":[
+    {"severity":"P1","location":"v1 predict.py coverage gates versus train.py daily evaluation","evidence":"Regenerated heldout nightly eligibility6470/8440days,76.66percent; published scores covered all days","repair_v2":"Evaluate exact deployed Engine.analyze for all fixed heldout final-cycle days; report forecast coverage, thermal evidence, missed cycles and all-cycle event denominators"},
+    {"severity":"P1","location":"v1 predict.py optional-signal completeness gate","evidence":"Missing optional sleep/activity/HRV channel blocks temperature-only user","repair_v2":"Optional channels; temperature marginalization; one anchor sufficient; prior-only fallback with named evidence source"},
+    {"severity":"P1","location":"v1 ovulation_filter.py finite grid and duration model","evidence":"Day60 old thermal rise can retain p>.9999999999; hard stop60creates forecast zeros beyond support","repair_v2":"Explicitly refuse stale/unsupported anchors above50days; support extends through forecast+5; condition on duration survival only when logs explicitly complete"},
+    {"severity":"P1","location":"v1 features.py Oura adapter and morning features","evidence":"Readiness-only temperatures discarded; same-day full-day steps used for morning scoring","repair_v2":"Union of endpoint days; omit current-day steps from fertility ML features"},
+    {"severity":"P1","location":"v1 schema and HTTP server","evidence":"NaT/null/timestamp dates may crash, drop records or shift day; unbounded calendar range; no verified startup health","repair_v2":"Strict ISO-date/numeric/boolean schema,730day bound,exactly one source,checksummed startup models,readiness,auth,ASGI container"},
+    {"severity":"P1","location":"scientific interpretation","evidence":"TempID sensor shift much smaller than fixed simulated Oura shift; real-data metrics not nearOura; stage labels remain synthetic","repair_v2":"Device-specific thermal profiles, processed-data groupedCV, literature table distinguishing reported marginals from assumptions; no claim of clinical parity or future-menopause prediction"}
+  ],
+  "coverage":{"source_and_metric_definition":"principal v1/v2 claims and7primary references","calculation":"core scores and runtime gates; all model training artifacts,not every historical project experiment","data_quality":"dates,units,missing-channel and block-gap regimes,person splits","visual":"new scientific figure only; no frontend was requested or built","clinical":"not verified; no independent pairedOura cohort"}
+}

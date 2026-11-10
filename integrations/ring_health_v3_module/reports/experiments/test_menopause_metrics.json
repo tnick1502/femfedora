@@ -1,0 +1,2540 @@
+{
+ "validation": {
+  "stage": {
+   "age_only": {
+    "val_log_loss": 0.7736753370926005,
+    "val_macro_f1": 0.3983028314313831,
+    "val_balanced_accuracy": 0.45523562609510615
+   },
+   "age_bleeding": {
+    "val_log_loss": 0.40476305197858437,
+    "val_macro_f1": 0.7119263946972414,
+    "val_balanced_accuracy": 0.7077563708850324
+   },
+   "age_ring": {
+    "val_log_loss": 0.5913678060518323,
+    "val_macro_f1": 0.6037856918987276,
+    "val_balanced_accuracy": 0.6012149616804362
+   },
+   "full": {
+    "val_log_loss": 0.3694284272966815,
+    "val_macro_f1": 0.7423635817156239,
+    "val_balanced_accuracy": 0.7389342441605108
+   }
+  },
+  "fmp": {
+   "age_only": {
+    "6": {
+     "val_auc_all": 0.9337217182194373,
+     "val_auc_pre_fmp": 0.843959244650323,
+     "val_brier": 0.10140087897745892
+    },
+    "12": {
+     "val_auc_all": 0.9341635959939532,
+     "val_auc_pre_fmp": 0.842576591568527,
+     "val_brier": 0.1016061257778619
+    },
+    "24": {
+     "val_auc_all": 0.9311244897959183,
+     "val_auc_pre_fmp": 0.8260381355932204,
+     "val_brier": 0.10395380342029707
+    },
+    "36": {
+     "val_auc_all": 0.930049731108049,
+     "val_auc_pre_fmp": 0.8288181546475386,
+     "val_brier": 0.10562762722574694
+    },
+    "48": {
+     "val_auc_all": 0.9261607084871784,
+     "val_auc_pre_fmp": 0.8296492096702923,
+     "val_brier": 0.10771871967750397
+    },
+    "60": {
+     "val_auc_all": 0.9261274509803922,
+     "val_auc_pre_fmp": 0.8369198815889992,
+     "val_brier": 0.10576377809391176
+    }
+   },
+   "age_bleeding": {
+    "6": {
+     "val_auc_all": 0.9949602601998994,
+     "val_auc_pre_fmp": 0.9327730189267327,
+     "val_brier": 0.02419430819578979
+    },
+    "12": {
+     "val_auc_all": 0.9909001795162509,
+     "val_auc_pre_fmp": 0.9235231054787506,
+     "val_brier": 0.0337510327024933
+    },
+    "24": {
+     "val_auc_all": 0.9858030612244898,
+     "val_auc_pre_fmp": 0.9221610169491524,
+     "val_brier": 0.04367176852674754
+    },
+    "36": {
+     "val_auc_all": 0.977863786814305,
+     "val_auc_pre_fmp": 0.9110210921822297,
+     "val_brier": 0.055514434104079656
+    },
+    "48": {
+     "val_auc_all": 0.9722162822586223,
+     "val_auc_pre_fmp": 0.9082207776766241,
+     "val_brier": 0.0646718860742697
+    },
+    "60": {
+     "val_auc_all": 0.9601558713372988,
+     "val_auc_pre_fmp": 0.8862140310669723,
+     "val_brier": 0.07645281386703466
+    }
+   },
+   "age_ring": {
+    "6": {
+     "val_auc_all": 0.9774414609853106,
+     "val_auc_pre_fmp": 0.8991649022494975,
+     "val_brier": 0.05615754484797818
+    },
+    "12": {
+     "val_auc_all": 0.9784896295474712,
+     "val_auc_pre_fmp": 0.9168853473288957,
+     "val_brier": 0.05543157962685646
+    },
+    "24": {
+     "val_auc_all": 0.9748533163265306,
+     "val_auc_pre_fmp": 0.9134851694915255,
+     "val_brier": 0.06017569351836612
+    },
+    "36": {
+     "val_auc_all": 0.9699563964565169,
+     "val_auc_pre_fmp": 0.9049592246274709,
+     "val_brier": 0.06630220627478307
+    },
+    "48": {
+     "val_auc_all": 0.9650033184596646,
+     "val_auc_pre_fmp": 0.9016342531220108,
+     "val_brier": 0.07408413504220936
+    },
+    "60": {
+     "val_auc_all": 0.9540116215025335,
+     "val_auc_pre_fmp": 0.8822972370766489,
+     "val_brier": 0.08392115780275698
+    }
+   },
+   "full": {
+    "6": {
+     "val_auc_all": 0.996795720991294,
+     "val_auc_pre_fmp": 0.9543974291456638,
+     "val_brier": 0.020496615672596138
+    },
+    "12": {
+     "val_auc_all": 0.9939901081205429,
+     "val_auc_pre_fmp": 0.946113884621949,
+     "val_brier": 0.028519583067310044
+    },
+    "24": {
+     "val_auc_all": 0.9911678571428572,
+     "val_auc_pre_fmp": 0.951361985472155,
+     "val_brier": 0.035565447202641334
+    },
+    "36": {
+     "val_auc_all": 0.9840961378835907,
+     "val_auc_pre_fmp": 0.9362068229366809,
+     "val_brier": 0.04670217060803765
+    },
+    "48": {
+     "val_auc_all": 0.9816885442126011,
+     "val_auc_pre_fmp": 0.9394639564577755,
+     "val_brier": 0.05326608532143523
+    },
+    "60": {
+     "val_auc_all": 0.9715174047146949,
+     "val_auc_pre_fmp": 0.9187452253628725,
+     "val_brier": 0.06446715781206248
+    }
+   }
+  }
+ },
+ "routing": {
+  "labs": "full",
+  "bleeding_ring": "full",
+  "bleeding_only": "age_bleeding",
+  "ring_only": "full",
+  "age_only": "full"
+ },
+ "routing_validation_detail": {
+  "labs": {
+   "n": 1019,
+   "scores": {
+    "full": {
+     "stage_log_loss": 0.33916719254950534,
+     "fmp_mean_auc": 0.9926595103650078
+    }
+   },
+   "chosen": "full"
+  },
+  "bleeding_ring": {
+   "n": 1437,
+   "scores": {
+    "full": {
+     "stage_log_loss": 0.4085777349556161,
+     "fmp_mean_auc": 0.9794931402469205
+    },
+    "age_bleeding": {
+     "stage_log_loss": 0.42176910852285526,
+     "fmp_mean_auc": 0.975073890676965
+    },
+    "age_ring": {
+     "stage_log_loss": 0.6305603086127297,
+     "fmp_mean_auc": 0.9668470567863948
+    }
+   },
+   "chosen": "full"
+  },
+  "bleeding_only": {
+   "n": 109,
+   "scores": {
+    "full": {
+     "stage_log_loss": 0.32668326223165683,
+     "fmp_mean_auc": 0.9855099922785197
+    },
+    "age_bleeding": {
+     "stage_log_loss": 0.29222233495350486,
+     "fmp_mean_auc": 0.982465828093079
+    }
+   },
+   "chosen": "age_bleeding"
+  },
+  "ring_only": {
+   "n": 212,
+   "scores": {
+    "full": {
+     "stage_log_loss": 0.25988973856300124,
+     "fmp_mean_auc": 0.9921391957283515
+    },
+    "age_ring": {
+     "stage_log_loss": 0.3722349675055353,
+     "fmp_mean_auc": 0.9721002839720679
+    }
+   },
+   "chosen": "full"
+  }
+ },
+ "test": {
+  "random": {
+   "age_only": {
+    "n": 3000,
+    "women": 1000,
+    "stage_macro_f1": 0.39725272534497824,
+    "stage_balanced_accuracy": 0.45284688278572943,
+    "stage_log_loss": 0.7693367587446184,
+    "stage_recall": {
+     "reproductive": 0.8982092365692743,
+     "early_transition": 0.0,
+     "late_transition": 0.0,
+     "postmenopause": 0.9131782945736434
+    },
+    "stage_confusion": [
+     [
+      953,
+      0,
+      0,
+      108
+     ],
+     [
+      237,
+      0,
+      0,
+      121
+     ],
+     [
+      124,
+      0,
+      0,
+      167
+     ],
+     [
+      112,
+      0,
+      0,
+      1178
+     ]
+    ],
+    "fmp_auc_6m_pre_fmp_42_56": 0.7641415843066787,
+    "fmp_brier_6m_pre_fmp_42_56": 0.1169900011715318,
+    "fmp_calibration_6m": {
+     "mean_pred": 0.2518079384487965,
+     "observed": 0.041343669250646
+    },
+    "fmp_auc_12m_pre_fmp_42_56": 0.7573861953194431,
+    "fmp_brier_12m_pre_fmp_42_56": 0.13730635158409568,
+    "fmp_calibration_12m": {
+     "mean_pred": 0.2814604318058203,
+     "observed": 0.0818260120585702
+    },
+    "fmp_auc_24m_pre_fmp_42_56": 0.776875562026292,
+    "fmp_brier_24m_pre_fmp_42_56": 0.16251707242236196,
+    "fmp_calibration_24m": {
+     "mean_pred": 0.33889864379126317,
+     "observed": 0.16623600344530576
+    },
+    "fmp_auc_36m_pre_fmp_42_56": 0.7733772211830723,
+    "fmp_brier_36m_pre_fmp_42_56": 0.18428337467658734,
+    "fmp_calibration_36m": {
+     "mean_pred": 0.399955619486978,
+     "observed": 0.2833763996554694
+    },
+    "fmp_auc_48m_pre_fmp_42_56": 0.7784492458626748,
+    "fmp_brier_48m_pre_fmp_42_56": 0.19301001186535993,
+    "fmp_calibration_48m": {
+     "mean_pred": 0.466305606678731,
+     "observed": 0.3763996554694229
+    },
+    "fmp_auc_60m_pre_fmp_42_56": 0.7744229736983361,
+    "fmp_brier_60m_pre_fmp_42_56": 0.19922597719338847,
+    "fmp_calibration_60m": {
+     "mean_pred": 0.5359003239364988,
+     "observed": 0.46511627906976744
+    },
+    "c_index_time_to_fmp_pre": 0.6652202322611304,
+    "median_abs_error_months_pre": 12.344466847616479
+   },
+   "age_bleeding": {
+    "n": 3000,
+    "women": 1000,
+    "stage_macro_f1": 0.7366270851476948,
+    "stage_balanced_accuracy": 0.730305725964773,
+    "stage_log_loss": 0.38730378615208305,
+    "stage_recall": {
+     "reproductive": 0.9095193213949104,
+     "early_transition": 0.3854748603351955,
+     "late_transition": 0.6494845360824743,
+     "postmenopause": 0.9767441860465116
+    },
+    "stage_confusion": [
+     [
+      965,
+      64,
+      26,
+      6
+     ],
+     [
+      162,
+      138,
+      56,
+      2
+     ],
+     [
+      53,
+      36,
+      189,
+      13
+     ],
+     [
+      5,
+      0,
+      25,
+      1260
+     ]
+    ],
+    "fmp_auc_6m_pre_fmp_42_56": 0.9099655585504642,
+    "fmp_brier_6m_pre_fmp_42_56": 0.04000221192443126,
+    "fmp_calibration_6m": {
+     "mean_pred": 0.06649814120865664,
+     "observed": 0.041343669250646
+    },
+    "fmp_auc_12m_pre_fmp_42_56": 0.9131727066258518,
+    "fmp_brier_12m_pre_fmp_42_56": 0.06032377512057176,
+    "fmp_calibration_12m": {
+     "mean_pred": 0.10993280744702255,
+     "observed": 0.0818260120585702
+    },
+    "fmp_auc_24m_pre_fmp_42_56": 0.9090400590930502,
+    "fmp_brier_24m_pre_fmp_42_56": 0.08949885800160338,
+    "fmp_calibration_24m": {
+     "mean_pred": 0.19715909494839753,
+     "observed": 0.16623600344530576
+    },
+    "fmp_auc_36m_pre_fmp_42_56": 0.8964154196866962,
+    "fmp_brier_36m_pre_fmp_42_56": 0.11548092661256458,
+    "fmp_calibration_36m": {
+     "mean_pred": 0.2882897178012828,
+     "observed": 0.2833763996554694
+    },
+    "fmp_auc_48m_pre_fmp_42_56": 0.8764633930490411,
+    "fmp_brier_48m_pre_fmp_42_56": 0.1364357399808973,
+    "fmp_calibration_48m": {
+     "mean_pred": 0.38052532696031727,
+     "observed": 0.3763996554694229
+    },
+    "fmp_auc_60m_pre_fmp_42_56": 0.8536321345500089,
+    "fmp_brier_60m_pre_fmp_42_56": 0.15606409415667288,
+    "fmp_calibration_60m": {
+     "mean_pred": 0.47525703954798876,
+     "observed": 0.46511627906976744
+    },
+    "c_index_time_to_fmp_pre": 0.709078826219965,
+    "median_abs_error_months_pre": 5.878086798026928
+   },
+   "age_ring": {
+    "n": 3000,
+    "women": 1000,
+    "stage_macro_f1": 0.6023153310624969,
+    "stage_balanced_accuracy": 0.5983647983513833,
+    "stage_log_loss": 0.5726835358677826,
+    "stage_recall": {
+     "reproductive": 0.9236569274269557,
+     "early_transition": 0.15083798882681565,
+     "late_transition": 0.36082474226804123,
+     "postmenopause": 0.958139534883721
+    },
+    "stage_confusion": [
+     [
+      980,
+      29,
+      29,
+      23
+     ],
+     [
+      216,
+      54,
+      44,
+      44
+     ],
+     [
+      61,
+      31,
+      105,
+      94
+     ],
+     [
+      28,
+      2,
+      24,
+      1236
+     ]
+    ],
+    "fmp_auc_6m_pre_fmp_42_56": 0.8662492512728363,
+    "fmp_brier_6m_pre_fmp_42_56": 0.07846472923123629,
+    "fmp_calibration_6m": {
+     "mean_pred": 0.13085677419236322,
+     "observed": 0.041343669250646
+    },
+    "fmp_auc_12m_pre_fmp_42_56": 0.8689592179322603,
+    "fmp_brier_12m_pre_fmp_42_56": 0.09959616608624308,
+    "fmp_calibration_12m": {
+     "mean_pred": 0.16669907183738472,
+     "observed": 0.0818260120585702
+    },
+    "fmp_auc_24m_pre_fmp_42_56": 0.8844286601293196,
+    "fmp_brier_24m_pre_fmp_42_56": 0.11535081474179425,
+    "fmp_calibration_24m": {
+     "mean_pred": 0.2351944814517978,
+     "observed": 0.16623600344530576
+    },
+    "fmp_auc_36m_pre_fmp_42_56": 0.8832472381342061,
+    "fmp_brier_36m_pre_fmp_42_56": 0.1265556934890712,
+    "fmp_calibration_36m": {
+     "mean_pred": 0.3123278981455864,
+     "observed": 0.2833763996554694
+    },
+    "fmp_auc_48m_pre_fmp_42_56": 0.8777482078966332,
+    "fmp_brier_48m_pre_fmp_42_56": 0.13787764043567943,
+    "fmp_calibration_48m": {
+     "mean_pred": 0.39782601516173055,
+     "observed": 0.3763996554694229
+    },
+    "fmp_auc_60m_pre_fmp_42_56": 0.8499716705433291,
+    "fmp_brier_60m_pre_fmp_42_56": 0.1580494928853683,
+    "fmp_calibration_60m": {
+     "mean_pred": 0.4961861649017378,
+     "observed": 0.46511627906976744
+    },
+    "c_index_time_to_fmp_pre": 0.7042524280495411,
+    "median_abs_error_months_pre": 6.02673023550804
+   },
+   "full": {
+    "n": 3000,
+    "women": 1000,
+    "stage_macro_f1": 0.7456146159469489,
+    "stage_balanced_accuracy": 0.744079636976827,
+    "stage_log_loss": 0.35863841071983277,
+    "stage_recall": {
+     "reproductive": 0.9132893496701225,
+     "early_transition": 0.3715083798882682,
+     "late_transition": 0.7147766323024055,
+     "postmenopause": 0.9767441860465116
+    },
+    "stage_confusion": [
+     [
+      969,
+      62,
+      27,
+      3
+     ],
+     [
+      163,
+      133,
+      60,
+      2
+     ],
+     [
+      42,
+      31,
+      208,
+      10
+     ],
+     [
+      2,
+      2,
+      26,
+      1260
+     ]
+    ],
+    "fmp_auc_6m_pre_fmp_42_56": 0.9261942198262952,
+    "fmp_brier_6m_pre_fmp_42_56": 0.03719037803377622,
+    "fmp_calibration_6m": {
+     "mean_pred": 0.054188138123611646,
+     "observed": 0.041343669250646
+    },
+    "fmp_auc_12m_pre_fmp_42_56": 0.9295349066850992,
+    "fmp_brier_12m_pre_fmp_42_56": 0.05670928222844192,
+    "fmp_calibration_12m": {
+     "mean_pred": 0.09498857771071158,
+     "observed": 0.0818260120585702
+    },
+    "fmp_auc_24m_pre_fmp_42_56": 0.9351635764141653,
+    "fmp_brier_24m_pre_fmp_42_56": 0.07758316744083656,
+    "fmp_calibration_24m": {
+     "mean_pred": 0.1838201117366671,
+     "observed": 0.16623600344530576
+    },
+    "fmp_auc_36m_pre_fmp_42_56": 0.9233655307458498,
+    "fmp_brier_36m_pre_fmp_42_56": 0.10143912673906046,
+    "fmp_calibration_36m": {
+     "mean_pred": 0.2732733281971884,
+     "observed": 0.2833763996554694
+    },
+    "fmp_auc_48m_pre_fmp_42_56": 0.9214603587999546,
+    "fmp_brier_48m_pre_fmp_42_56": 0.1104155786761073,
+    "fmp_calibration_48m": {
+     "mean_pred": 0.36895855420350887,
+     "observed": 0.3763996554694229
+    },
+    "fmp_auc_60m_pre_fmp_42_56": 0.8957595276435857,
+    "fmp_brier_60m_pre_fmp_42_56": 0.13130400331855177,
+    "fmp_calibration_60m": {
+     "mean_pred": 0.46933633040228456,
+     "observed": 0.46511627906976744
+    },
+    "c_index_time_to_fmp_pre": 0.734972081142891,
+    "median_abs_error_months_pre": 4.138141055073596
+   }
+  },
+  "full": {
+   "age_only": {
+    "n": 3000,
+    "women": 1000,
+    "stage_macro_f1": 0.39725272534497824,
+    "stage_balanced_accuracy": 0.45284688278572943,
+    "stage_log_loss": 0.7693367587446184,
+    "stage_recall": {
+     "reproductive": 0.8982092365692743,
+     "early_transition": 0.0,
+     "late_transition": 0.0,
+     "postmenopause": 0.9131782945736434
+    },
+    "stage_confusion": [
+     [
+      953,
+      0,
+      0,
+      108
+     ],
+     [
+      237,
+      0,
+      0,
+      121
+     ],
+     [
+      124,
+      0,
+      0,
+      167
+     ],
+     [
+      112,
+      0,
+      0,
+      1178
+     ]
+    ],
+    "fmp_auc_6m_pre_fmp_42_56": 0.7641415843066787,
+    "fmp_brier_6m_pre_fmp_42_56": 0.1169900011715318,
+    "fmp_calibration_6m": {
+     "mean_pred": 0.2518079384487965,
+     "observed": 0.041343669250646
+    },
+    "fmp_auc_12m_pre_fmp_42_56": 0.7573861953194431,
+    "fmp_brier_12m_pre_fmp_42_56": 0.13730635158409568,
+    "fmp_calibration_12m": {
+     "mean_pred": 0.2814604318058203,
+     "observed": 0.0818260120585702
+    },
+    "fmp_auc_24m_pre_fmp_42_56": 0.776875562026292,
+    "fmp_brier_24m_pre_fmp_42_56": 0.16251707242236196,
+    "fmp_calibration_24m": {
+     "mean_pred": 0.33889864379126317,
+     "observed": 0.16623600344530576
+    },
+    "fmp_auc_36m_pre_fmp_42_56": 0.7733772211830723,
+    "fmp_brier_36m_pre_fmp_42_56": 0.18428337467658734,
+    "fmp_calibration_36m": {
+     "mean_pred": 0.399955619486978,
+     "observed": 0.2833763996554694
+    },
+    "fmp_auc_48m_pre_fmp_42_56": 0.7784492458626748,
+    "fmp_brier_48m_pre_fmp_42_56": 0.19301001186535993,
+    "fmp_calibration_48m": {
+     "mean_pred": 0.466305606678731,
+     "observed": 0.3763996554694229
+    },
+    "fmp_auc_60m_pre_fmp_42_56": 0.7744229736983361,
+    "fmp_brier_60m_pre_fmp_42_56": 0.19922597719338847,
+    "fmp_calibration_60m": {
+     "mean_pred": 0.5359003239364988,
+     "observed": 0.46511627906976744
+    },
+    "c_index_time_to_fmp_pre": 0.6652202322611304,
+    "median_abs_error_months_pre": 12.344466847616479
+   },
+   "age_bleeding": {
+    "n": 3000,
+    "women": 1000,
+    "stage_macro_f1": 0.7592299714165393,
+    "stage_balanced_accuracy": 0.7538322639518585,
+    "stage_log_loss": 0.3492399606882012,
+    "stage_recall": {
+     "reproductive": 0.9095193213949104,
+     "early_transition": 0.441340782122905,
+     "late_transition": 0.6838487972508591,
+     "postmenopause": 0.9806201550387597
+    },
+    "stage_confusion": [
+     [
+      965,
+      72,
+      24,
+      0
+     ],
+     [
+      151,
+      158,
+      49,
+      0
+     ],
+     [
+      44,
+      40,
+      199,
+      8
+     ],
+     [
+      1,
+      0,
+      24,
+      1265
+     ]
+    ],
+    "fmp_auc_6m_pre_fmp_42_56": 0.9299752920035939,
+    "fmp_brier_6m_pre_fmp_42_56": 0.03581678507017234,
+    "fmp_calibration_6m": {
+     "mean_pred": 0.055996336745283544,
+     "observed": 0.041343669250646
+    },
+    "fmp_auc_12m_pre_fmp_42_56": 0.9332428162338303,
+    "fmp_brier_12m_pre_fmp_42_56": 0.05472842875543213,
+    "fmp_calibration_12m": {
+     "mean_pred": 0.09709057821734883,
+     "observed": 0.0818260120585702
+    },
+    "fmp_auc_24m_pre_fmp_42_56": 0.9311491028989852,
+    "fmp_brier_24m_pre_fmp_42_56": 0.07925396420736855,
+    "fmp_calibration_24m": {
+     "mean_pred": 0.18190977838416564,
+     "observed": 0.16623600344530576
+    },
+    "fmp_auc_36m_pre_fmp_42_56": 0.9159384498480243,
+    "fmp_brier_36m_pre_fmp_42_56": 0.10369943042043588,
+    "fmp_calibration_36m": {
+     "mean_pred": 0.27089025057438765,
+     "observed": 0.2833763996554694
+    },
+    "fmp_auc_48m_pre_fmp_42_56": 0.8900116312881652,
+    "fmp_brier_48m_pre_fmp_42_56": 0.1279042392707618,
+    "fmp_calibration_48m": {
+     "mean_pred": 0.36255074525186676,
+     "observed": 0.3763996554694229
+    },
+    "fmp_auc_60m_pre_fmp_42_56": 0.8681099779328443,
+    "fmp_brier_60m_pre_fmp_42_56": 0.1469834447400565,
+    "fmp_calibration_60m": {
+     "mean_pred": 0.46382292437165296,
+     "observed": 0.46511627906976744
+    },
+    "c_index_time_to_fmp_pre": 0.7155981763640143,
+    "median_abs_error_months_pre": 5.47423368570589
+   },
+   "age_ring": {
+    "n": 3000,
+    "women": 1000,
+    "stage_macro_f1": 0.6312444682077671,
+    "stage_balanced_accuracy": 0.6273775620765669,
+    "stage_log_loss": 0.5169675867700009,
+    "stage_recall": {
+     "reproductive": 0.9359095193213949,
+     "early_transition": 0.18435754189944134,
+     "late_transition": 0.42955326460481097,
+     "postmenopause": 0.9596899224806201
+    },
+    "stage_confusion": [
+     [
+      993,
+      39,
+      27,
+      2
+     ],
+     [
+      220,
+      66,
+      58,
+      14
+     ],
+     [
+      63,
+      34,
+      125,
+      69
+     ],
+     [
+      19,
+      2,
+      31,
+      1238
+     ]
+    ],
+    "fmp_auc_6m_pre_fmp_42_56": 0.9072701407607068,
+    "fmp_brier_6m_pre_fmp_42_56": 0.053170431920399365,
+    "fmp_calibration_6m": {
+     "mean_pred": 0.08563659860288987,
+     "observed": 0.041343669250646
+    },
+    "fmp_auc_12m_pre_fmp_42_56": 0.904729929890392,
+    "fmp_brier_12m_pre_fmp_42_56": 0.07577877039447757,
+    "fmp_calibration_12m": {
+     "mean_pred": 0.1227110356467674,
+     "observed": 0.0818260120585702
+    },
+    "fmp_auc_24m_pre_fmp_42_56": 0.9153748983000043,
+    "fmp_brier_24m_pre_fmp_42_56": 0.09037074753012286,
+    "fmp_calibration_24m": {
+     "mean_pred": 0.19414918747155968,
+     "observed": 0.16623600344530576
+    },
+    "fmp_auc_36m_pre_fmp_42_56": 0.9047740823006781,
+    "fmp_brier_36m_pre_fmp_42_56": 0.11025741745409941,
+    "fmp_calibration_36m": {
+     "mean_pred": 0.2792848789339107,
+     "observed": 0.2833763996554694
+    },
+    "fmp_auc_48m_pre_fmp_42_56": 0.8990796111104088,
+    "fmp_brier_48m_pre_fmp_42_56": 0.12191148083094908,
+    "fmp_calibration_48m": {
+     "mean_pred": 0.37024016169569024,
+     "observed": 0.3763996554694229
+    },
+    "fmp_auc_60m_pre_fmp_42_56": 0.8675225144629333,
+    "fmp_brier_60m_pre_fmp_42_56": 0.14595699087983902,
+    "fmp_calibration_60m": {
+     "mean_pred": 0.47932126860202223,
+     "observed": 0.46511627906976744
+    },
+    "c_index_time_to_fmp_pre": 0.7182875939291337,
+    "median_abs_error_months_pre": 5.052906921596929
+   },
+   "full": {
+    "n": 3000,
+    "women": 1000,
+    "stage_macro_f1": 0.7613251030320254,
+    "stage_balanced_accuracy": 0.7571327699783424,
+    "stage_log_loss": 0.3398907848523862,
+    "stage_recall": {
+     "reproductive": 0.9264844486333648,
+     "early_transition": 0.3994413407821229,
+     "late_transition": 0.7250859106529209,
+     "postmenopause": 0.9775193798449613
+    },
+    "stage_confusion": [
+     [
+      983,
+      61,
+      17,
+      0
+     ],
+     [
+      161,
+      143,
+      54,
+      0
+     ],
+     [
+      41,
+      31,
+      211,
+      8
+     ],
+     [
+      1,
+      1,
+      27,
+      1261
+     ]
+    ],
+    "fmp_auc_6m_pre_fmp_42_56": 0.9359089547768793,
+    "fmp_brier_6m_pre_fmp_42_56": 0.03516597578631844,
+    "fmp_calibration_6m": {
+     "mean_pred": 0.0464757054546949,
+     "observed": 0.041343669250646
+    },
+    "fmp_auc_12m_pre_fmp_42_56": 0.9375037029722524,
+    "fmp_brier_12m_pre_fmp_42_56": 0.055957668238956565,
+    "fmp_calibration_12m": {
+     "mean_pred": 0.08203751892409405,
+     "observed": 0.0818260120585702
+    },
+    "fmp_auc_24m_pre_fmp_42_56": 0.9427482550421787,
+    "fmp_brier_24m_pre_fmp_42_56": 0.07099345700935539,
+    "fmp_calibration_24m": {
+     "mean_pred": 0.17075476298474068,
+     "observed": 0.16623600344530576
+    },
+    "fmp_auc_36m_pre_fmp_42_56": 0.9283157002571896,
+    "fmp_brier_36m_pre_fmp_42_56": 0.09521381868901901,
+    "fmp_calibration_36m": {
+     "mean_pred": 0.2647565213271352,
+     "observed": 0.2833763996554694
+    },
+    "fmp_auc_48m_pre_fmp_42_56": 0.9116622627912563,
+    "fmp_brier_48m_pre_fmp_42_56": 0.11486127602120838,
+    "fmp_calibration_48m": {
+     "mean_pred": 0.3755562356145121,
+     "observed": 0.3763996554694229
+    },
+    "fmp_auc_60m_pre_fmp_42_56": 0.889228842368939,
+    "fmp_brier_60m_pre_fmp_42_56": 0.1354628190769412,
+    "fmp_calibration_60m": {
+     "mean_pred": 0.487431552074974,
+     "observed": 0.46511627906976744
+    },
+    "c_index_time_to_fmp_pre": 0.7361348718405655,
+    "median_abs_error_months_pre": 5.293767313016815
+   }
+  },
+  "ring_only": {
+   "age_only": {
+    "n": 3000,
+    "women": 1000,
+    "stage_macro_f1": 0.39725272534497824,
+    "stage_balanced_accuracy": 0.45284688278572943,
+    "stage_log_loss": 0.7693367587446184,
+    "stage_recall": {
+     "reproductive": 0.8982092365692743,
+     "early_transition": 0.0,
+     "late_transition": 0.0,
+     "postmenopause": 0.9131782945736434
+    },
+    "stage_confusion": [
+     [
+      953,
+      0,
+      0,
+      108
+     ],
+     [
+      237,
+      0,
+      0,
+      121
+     ],
+     [
+      124,
+      0,
+      0,
+      167
+     ],
+     [
+      112,
+      0,
+      0,
+      1178
+     ]
+    ],
+    "fmp_auc_6m_pre_fmp_42_56": 0.7641415843066787,
+    "fmp_brier_6m_pre_fmp_42_56": 0.1169900011715318,
+    "fmp_calibration_6m": {
+     "mean_pred": 0.2518079384487965,
+     "observed": 0.041343669250646
+    },
+    "fmp_auc_12m_pre_fmp_42_56": 0.7573861953194431,
+    "fmp_brier_12m_pre_fmp_42_56": 0.13730635158409568,
+    "fmp_calibration_12m": {
+     "mean_pred": 0.2814604318058203,
+     "observed": 0.0818260120585702
+    },
+    "fmp_auc_24m_pre_fmp_42_56": 0.776875562026292,
+    "fmp_brier_24m_pre_fmp_42_56": 0.16251707242236196,
+    "fmp_calibration_24m": {
+     "mean_pred": 0.33889864379126317,
+     "observed": 0.16623600344530576
+    },
+    "fmp_auc_36m_pre_fmp_42_56": 0.7733772211830723,
+    "fmp_brier_36m_pre_fmp_42_56": 0.18428337467658734,
+    "fmp_calibration_36m": {
+     "mean_pred": 0.399955619486978,
+     "observed": 0.2833763996554694
+    },
+    "fmp_auc_48m_pre_fmp_42_56": 0.7784492458626748,
+    "fmp_brier_48m_pre_fmp_42_56": 0.19301001186535993,
+    "fmp_calibration_48m": {
+     "mean_pred": 0.466305606678731,
+     "observed": 0.3763996554694229
+    },
+    "fmp_auc_60m_pre_fmp_42_56": 0.7744229736983361,
+    "fmp_brier_60m_pre_fmp_42_56": 0.19922597719338847,
+    "fmp_calibration_60m": {
+     "mean_pred": 0.5359003239364988,
+     "observed": 0.46511627906976744
+    },
+    "c_index_time_to_fmp_pre": 0.6652202322611304,
+    "median_abs_error_months_pre": 12.344466847616479
+   },
+   "age_bleeding": {
+    "n": 3000,
+    "women": 1000,
+    "stage_macro_f1": 0.39739424496197207,
+    "stage_balanced_accuracy": 0.45396510531968526,
+    "stage_log_loss": 0.8173817959014703,
+    "stage_recall": {
+     "reproductive": 0.9321394910461829,
+     "early_transition": 0.0,
+     "late_transition": 0.0,
+     "postmenopause": 0.8837209302325582
+    },
+    "stage_confusion": [
+     [
+      989,
+      0,
+      0,
+      72
+     ],
+     [
+      258,
+      0,
+      0,
+      100
+     ],
+     [
+      144,
+      0,
+      0,
+      147
+     ],
+     [
+      150,
+      0,
+      0,
+      1140
+     ]
+    ],
+    "fmp_auc_6m_pre_fmp_42_56": 0.7653769841269841,
+    "fmp_brier_6m_pre_fmp_42_56": 0.09934342655085626,
+    "fmp_calibration_6m": {
+     "mean_pred": 0.22288260616594208,
+     "observed": 0.041343669250646
+    },
+    "fmp_auc_12m_pre_fmp_42_56": 0.7600227115631479,
+    "fmp_brier_12m_pre_fmp_42_56": 0.12567962113045572,
+    "fmp_calibration_12m": {
+     "mean_pred": 0.2744953670459137,
+     "observed": 0.0818260120585702
+    },
+    "fmp_auc_24m_pre_fmp_42_56": 0.778042435661371,
+    "fmp_brier_24m_pre_fmp_42_56": 0.16946914756228107,
+    "fmp_calibration_24m": {
+     "mean_pred": 0.3637915526931066,
+     "observed": 0.16623600344530576
+    },
+    "fmp_auc_36m_pre_fmp_42_56": 0.7733772211830723,
+    "fmp_brier_36m_pre_fmp_42_56": 0.18560329939562045,
+    "fmp_calibration_36m": {
+     "mean_pred": 0.4135840022228944,
+     "observed": 0.2833763996554694
+    },
+    "fmp_auc_48m_pre_fmp_42_56": 0.7774504722050142,
+    "fmp_brier_48m_pre_fmp_42_56": 0.2063482015308389,
+    "fmp_calibration_48m": {
+     "mean_pred": 0.5134196894195581,
+     "observed": 0.3763996554694229
+    },
+    "fmp_auc_60m_pre_fmp_42_56": 0.7725472654619192,
+    "fmp_brier_60m_pre_fmp_42_56": 0.20937505493921751,
+    "fmp_calibration_60m": {
+     "mean_pred": 0.5835475474587091,
+     "observed": 0.46511627906976744
+    },
+    "c_index_time_to_fmp_pre": 0.6824779470729752,
+    "median_abs_error_months_pre": 15.892141873702535
+   },
+   "age_ring": {
+    "n": 3000,
+    "women": 1000,
+    "stage_macro_f1": 0.4488882396718629,
+    "stage_balanced_accuracy": 0.47436134353443926,
+    "stage_log_loss": 0.8020935501987833,
+    "stage_recall": {
+     "reproductive": 0.8067860508953817,
+     "early_transition": 0.0223463687150838,
+     "late_transition": 0.09621993127147767,
+     "postmenopause": 0.9720930232558139
+    },
+    "stage_confusion": [
+     [
+      856,
+      13,
+      52,
+      140
+     ],
+     [
+      156,
+      8,
+      47,
+      147
+     ],
+     [
+      46,
+      4,
+      28,
+      213
+     ],
+     [
+      19,
+      2,
+      15,
+      1254
+     ]
+    ],
+    "fmp_auc_6m_pre_fmp_42_56": 0.8221960167714885,
+    "fmp_brier_6m_pre_fmp_42_56": 0.20895806384021404,
+    "fmp_calibration_6m": {
+     "mean_pred": 0.3475392359970616,
+     "observed": 0.041343669250646
+    },
+    "fmp_auc_12m_pre_fmp_42_56": 0.8268490174780291,
+    "fmp_brier_12m_pre_fmp_42_56": 0.22978506847133953,
+    "fmp_calibration_12m": {
+     "mean_pred": 0.3912551552896949,
+     "observed": 0.0818260120585702
+    },
+    "fmp_auc_24m_pre_fmp_42_56": 0.8409893803793944,
+    "fmp_brier_24m_pre_fmp_42_56": 0.2315595501183998,
+    "fmp_calibration_24m": {
+     "mean_pred": 0.4442177624291449,
+     "observed": 0.16623600344530576
+    },
+    "fmp_auc_36m_pre_fmp_42_56": 0.8263860474631751,
+    "fmp_brier_36m_pre_fmp_42_56": 0.22111090686526397,
+    "fmp_calibration_36m": {
+     "mean_pred": 0.4993889337088819,
+     "observed": 0.2833763996554694
+    },
+    "fmp_auc_48m_pre_fmp_42_56": 0.8300314803342731,
+    "fmp_brier_48m_pre_fmp_42_56": 0.21541154433272752,
+    "fmp_calibration_48m": {
+     "mean_pred": 0.5698550530487704,
+     "observed": 0.3763996554694229
+    },
+    "fmp_auc_60m_pre_fmp_42_56": 0.8037126498479157,
+    "fmp_brier_60m_pre_fmp_42_56": 0.22267767032112298,
+    "fmp_calibration_60m": {
+     "mean_pred": 0.6327870702634524,
+     "observed": 0.46511627906976744
+    },
+    "c_index_time_to_fmp_pre": 0.7003809141940658,
+    "median_abs_error_months_pre": 15.47051611981634
+   },
+   "full": {
+    "n": 3000,
+    "women": 1000,
+    "stage_macro_f1": 0.48589122306739807,
+    "stage_balanced_accuracy": 0.5138912321606708,
+    "stage_log_loss": 0.773867453359817,
+    "stage_recall": {
+     "reproductive": 0.8737040527803959,
+     "early_transition": 0.027932960893854747,
+     "late_transition": 0.32989690721649484,
+     "postmenopause": 0.8240310077519379
+    },
+    "stage_confusion": [
+     [
+      927,
+      14,
+      92,
+      28
+     ],
+     [
+      208,
+      10,
+      86,
+      54
+     ],
+     [
+      76,
+      6,
+      96,
+      113
+     ],
+     [
+      49,
+      2,
+      176,
+      1063
+     ]
+    ],
+    "fmp_auc_6m_pre_fmp_42_56": 0.8262578616352201,
+    "fmp_brier_6m_pre_fmp_42_56": 0.06340201448089697,
+    "fmp_calibration_6m": {
+     "mean_pred": 0.13502402411964898,
+     "observed": 0.041343669250646
+    },
+    "fmp_auc_12m_pre_fmp_42_56": 0.8419768934531451,
+    "fmp_brier_12m_pre_fmp_42_56": 0.09029799322104269,
+    "fmp_calibration_12m": {
+     "mean_pred": 0.193356377467059,
+     "observed": 0.0818260120585702
+    },
+    "fmp_auc_24m_pre_fmp_42_56": 0.8521870851710701,
+    "fmp_brier_24m_pre_fmp_42_56": 0.13454106262126217,
+    "fmp_calibration_24m": {
+     "mean_pred": 0.2961908967809189,
+     "observed": 0.16623600344530576
+    },
+    "fmp_auc_36m_pre_fmp_42_56": 0.8213993453355154,
+    "fmp_brier_36m_pre_fmp_42_56": 0.16418306795887955,
+    "fmp_calibration_36m": {
+     "mean_pred": 0.38016988069351687,
+     "observed": 0.2833763996554694
+    },
+    "fmp_auc_48m_pre_fmp_42_56": 0.8128026347396236,
+    "fmp_brier_48m_pre_fmp_42_56": 0.19161533750912207,
+    "fmp_calibration_48m": {
+     "mean_pred": 0.5142808306482006,
+     "observed": 0.3763996554694229
+    },
+    "fmp_auc_60m_pre_fmp_42_56": 0.8033935707043598,
+    "fmp_brier_60m_pre_fmp_42_56": 0.2007169629985758,
+    "fmp_calibration_60m": {
+     "mean_pred": 0.5908539042494714,
+     "observed": 0.46511627906976744
+    },
+    "c_index_time_to_fmp_pre": 0.7015838011226945,
+    "median_abs_error_months_pre": 11.26256927415762
+   }
+  },
+  "lpd_ring": {
+   "age_only": {
+    "n": 3000,
+    "women": 1000,
+    "stage_macro_f1": 0.39725272534497824,
+    "stage_balanced_accuracy": 0.45284688278572943,
+    "stage_log_loss": 0.7693367587446184,
+    "stage_recall": {
+     "reproductive": 0.8982092365692743,
+     "early_transition": 0.0,
+     "late_transition": 0.0,
+     "postmenopause": 0.9131782945736434
+    },
+    "stage_confusion": [
+     [
+      953,
+      0,
+      0,
+      108
+     ],
+     [
+      237,
+      0,
+      0,
+      121
+     ],
+     [
+      124,
+      0,
+      0,
+      167
+     ],
+     [
+      112,
+      0,
+      0,
+      1178
+     ]
+    ],
+    "fmp_auc_6m_pre_fmp_42_56": 0.7641415843066787,
+    "fmp_brier_6m_pre_fmp_42_56": 0.1169900011715318,
+    "fmp_calibration_6m": {
+     "mean_pred": 0.2518079384487965,
+     "observed": 0.041343669250646
+    },
+    "fmp_auc_12m_pre_fmp_42_56": 0.7573861953194431,
+    "fmp_brier_12m_pre_fmp_42_56": 0.13730635158409568,
+    "fmp_calibration_12m": {
+     "mean_pred": 0.2814604318058203,
+     "observed": 0.0818260120585702
+    },
+    "fmp_auc_24m_pre_fmp_42_56": 0.776875562026292,
+    "fmp_brier_24m_pre_fmp_42_56": 0.16251707242236196,
+    "fmp_calibration_24m": {
+     "mean_pred": 0.33889864379126317,
+     "observed": 0.16623600344530576
+    },
+    "fmp_auc_36m_pre_fmp_42_56": 0.7733772211830723,
+    "fmp_brier_36m_pre_fmp_42_56": 0.18428337467658734,
+    "fmp_calibration_36m": {
+     "mean_pred": 0.399955619486978,
+     "observed": 0.2833763996554694
+    },
+    "fmp_auc_48m_pre_fmp_42_56": 0.7784492458626748,
+    "fmp_brier_48m_pre_fmp_42_56": 0.19301001186535993,
+    "fmp_calibration_48m": {
+     "mean_pred": 0.466305606678731,
+     "observed": 0.3763996554694229
+    },
+    "fmp_auc_60m_pre_fmp_42_56": 0.7744229736983361,
+    "fmp_brier_60m_pre_fmp_42_56": 0.19922597719338847,
+    "fmp_calibration_60m": {
+     "mean_pred": 0.5359003239364988,
+     "observed": 0.46511627906976744
+    },
+    "c_index_time_to_fmp_pre": 0.6652202322611304,
+    "median_abs_error_months_pre": 12.344466847616479
+   },
+   "age_bleeding": {
+    "n": 3000,
+    "women": 1000,
+    "stage_macro_f1": 0.602644636097644,
+    "stage_balanced_accuracy": 0.6332829617390417,
+    "stage_log_loss": 0.45392381951766847,
+    "stage_recall": {
+     "reproductive": 0.9340245051837889,
+     "early_transition": 0.0335195530726257,
+     "late_transition": 0.584192439862543,
+     "postmenopause": 0.9813953488372092
+    },
+    "stage_confusion": [
+     [
+      991,
+      11,
+      59,
+      0
+     ],
+     [
+      249,
+      12,
+      97,
+      0
+     ],
+     [
+      93,
+      21,
+      170,
+      7
+     ],
+     [
+      8,
+      1,
+      15,
+      1266
+     ]
+    ],
+    "fmp_auc_6m_pre_fmp_42_56": 0.8048161874812817,
+    "fmp_brier_6m_pre_fmp_42_56": 0.04058055364984749,
+    "fmp_calibration_6m": {
+     "mean_pred": 0.06156634229514708,
+     "observed": 0.041343669250646
+    },
+    "fmp_auc_12m_pre_fmp_42_56": 0.8227263750370297,
+    "fmp_brier_12m_pre_fmp_42_56": 0.06651184767070689,
+    "fmp_calibration_12m": {
+     "mean_pred": 0.11503018488004149,
+     "observed": 0.0818260120585702
+    },
+    "fmp_auc_24m_pre_fmp_42_56": 0.8269922493898,
+    "fmp_brier_24m_pre_fmp_42_56": 0.1063530838504488,
+    "fmp_calibration_24m": {
+     "mean_pred": 0.1986674186019295,
+     "observed": 0.16623600344530576
+    },
+    "fmp_auc_36m_pre_fmp_42_56": 0.821034019172317,
+    "fmp_brier_36m_pre_fmp_42_56": 0.14169907829686512,
+    "fmp_calibration_36m": {
+     "mean_pred": 0.30481957551591365,
+     "observed": 0.2833763996554694
+    },
+    "fmp_auc_48m_pre_fmp_42_56": 0.811990340973741,
+    "fmp_brier_48m_pre_fmp_42_56": 0.1647609236415085,
+    "fmp_calibration_48m": {
+     "mean_pred": 0.396419533471856,
+     "observed": 0.3763996554694229
+    },
+    "fmp_auc_60m_pre_fmp_42_56": 0.796081588835212,
+    "fmp_brier_60m_pre_fmp_42_56": 0.18272445213177382,
+    "fmp_calibration_60m": {
+     "mean_pred": 0.4777938018402167,
+     "observed": 0.46511627906976744
+    },
+    "c_index_time_to_fmp_pre": 0.6742329739523003,
+    "median_abs_error_months_pre": 8.14244709405908
+   },
+   "age_ring": {
+    "n": 3000,
+    "women": 1000,
+    "stage_macro_f1": 0.4488882396718629,
+    "stage_balanced_accuracy": 0.47436134353443926,
+    "stage_log_loss": 0.8020935501987833,
+    "stage_recall": {
+     "reproductive": 0.8067860508953817,
+     "early_transition": 0.0223463687150838,
+     "late_transition": 0.09621993127147767,
+     "postmenopause": 0.9720930232558139
+    },
+    "stage_confusion": [
+     [
+      856,
+      13,
+      52,
+      140
+     ],
+     [
+      156,
+      8,
+      47,
+      147
+     ],
+     [
+      46,
+      4,
+      28,
+      213
+     ],
+     [
+      19,
+      2,
+      15,
+      1254
+     ]
+    ],
+    "fmp_auc_6m_pre_fmp_42_56": 0.8221960167714885,
+    "fmp_brier_6m_pre_fmp_42_56": 0.20895806384021404,
+    "fmp_calibration_6m": {
+     "mean_pred": 0.3475392359970616,
+     "observed": 0.041343669250646
+    },
+    "fmp_auc_12m_pre_fmp_42_56": 0.8268490174780291,
+    "fmp_brier_12m_pre_fmp_42_56": 0.22978506847133953,
+    "fmp_calibration_12m": {
+     "mean_pred": 0.3912551552896949,
+     "observed": 0.0818260120585702
+    },
+    "fmp_auc_24m_pre_fmp_42_56": 0.8409893803793944,
+    "fmp_brier_24m_pre_fmp_42_56": 0.2315595501183998,
+    "fmp_calibration_24m": {
+     "mean_pred": 0.4442177624291449,
+     "observed": 0.16623600344530576
+    },
+    "fmp_auc_36m_pre_fmp_42_56": 0.8263860474631751,
+    "fmp_brier_36m_pre_fmp_42_56": 0.22111090686526397,
+    "fmp_calibration_36m": {
+     "mean_pred": 0.4993889337088819,
+     "observed": 0.2833763996554694
+    },
+    "fmp_auc_48m_pre_fmp_42_56": 0.8300314803342731,
+    "fmp_brier_48m_pre_fmp_42_56": 0.21541154433272752,
+    "fmp_calibration_48m": {
+     "mean_pred": 0.5698550530487704,
+     "observed": 0.3763996554694229
+    },
+    "fmp_auc_60m_pre_fmp_42_56": 0.8037126498479157,
+    "fmp_brier_60m_pre_fmp_42_56": 0.22267767032112298,
+    "fmp_calibration_60m": {
+     "mean_pred": 0.6327870702634524,
+     "observed": 0.46511627906976744
+    },
+    "c_index_time_to_fmp_pre": 0.7003809141940658,
+    "median_abs_error_months_pre": 15.47051611981634
+   },
+   "full": {
+    "n": 3000,
+    "women": 1000,
+    "stage_macro_f1": 0.6421811508641908,
+    "stage_balanced_accuracy": 0.6655865100417724,
+    "stage_log_loss": 0.44255709681527433,
+    "stage_recall": {
+     "reproductive": 0.879359095193214,
+     "early_transition": 0.12849162011173185,
+     "late_transition": 0.6769759450171822,
+     "postmenopause": 0.9775193798449613
+    },
+    "stage_confusion": [
+     [
+      933,
+      52,
+      76,
+      0
+     ],
+     [
+      211,
+      46,
+      101,
+      0
+     ],
+     [
+      53,
+      37,
+      197,
+      4
+     ],
+     [
+      2,
+      0,
+      27,
+      1261
+     ]
+    ],
+    "fmp_auc_6m_pre_fmp_42_56": 0.8478773584905661,
+    "fmp_brier_6m_pre_fmp_42_56": 0.040700977414645456,
+    "fmp_calibration_6m": {
+     "mean_pred": 0.05556279206028277,
+     "observed": 0.041343669250646
+    },
+    "fmp_auc_12m_pre_fmp_42_56": 0.8714328033968599,
+    "fmp_brier_12m_pre_fmp_42_56": 0.06607954636666241,
+    "fmp_calibration_12m": {
+     "mean_pred": 0.09732964793877417,
+     "observed": 0.0818260120585702
+    },
+    "fmp_auc_24m_pre_fmp_42_56": 0.8795711471759518,
+    "fmp_brier_24m_pre_fmp_42_56": 0.09587018756236633,
+    "fmp_calibration_24m": {
+     "mean_pred": 0.1858034317036651,
+     "observed": 0.16623600344530576
+    },
+    "fmp_auc_36m_pre_fmp_42_56": 0.8544577098433481,
+    "fmp_brier_36m_pre_fmp_42_56": 0.13596753823649513,
+    "fmp_calibration_36m": {
+     "mean_pred": 0.31127408910434884,
+     "observed": 0.2833763996554694
+    },
+    "fmp_auc_48m_pre_fmp_42_56": 0.8424529375323969,
+    "fmp_brier_48m_pre_fmp_42_56": 0.1613527831339252,
+    "fmp_calibration_48m": {
+     "mean_pred": 0.43680504900372225,
+     "observed": 0.3763996554694229
+    },
+    "fmp_auc_60m_pre_fmp_42_56": 0.8139142362974892,
+    "fmp_brier_60m_pre_fmp_42_56": 0.18290243599226363,
+    "fmp_calibration_60m": {
+     "mean_pred": 0.5265194771376458,
+     "observed": 0.46511627906976744
+    },
+    "c_index_time_to_fmp_pre": 0.7051597909055808,
+    "median_abs_error_months_pre": 8.781939963486767
+   }
+  },
+  "logs_only": {
+   "age_only": {
+    "n": 3000,
+    "women": 1000,
+    "stage_macro_f1": 0.39725272534497824,
+    "stage_balanced_accuracy": 0.45284688278572943,
+    "stage_log_loss": 0.7693367587446184,
+    "stage_recall": {
+     "reproductive": 0.8982092365692743,
+     "early_transition": 0.0,
+     "late_transition": 0.0,
+     "postmenopause": 0.9131782945736434
+    },
+    "stage_confusion": [
+     [
+      953,
+      0,
+      0,
+      108
+     ],
+     [
+      237,
+      0,
+      0,
+      121
+     ],
+     [
+      124,
+      0,
+      0,
+      167
+     ],
+     [
+      112,
+      0,
+      0,
+      1178
+     ]
+    ],
+    "fmp_auc_6m_pre_fmp_42_56": 0.7641415843066787,
+    "fmp_brier_6m_pre_fmp_42_56": 0.1169900011715318,
+    "fmp_calibration_6m": {
+     "mean_pred": 0.2518079384487965,
+     "observed": 0.041343669250646
+    },
+    "fmp_auc_12m_pre_fmp_42_56": 0.7573861953194431,
+    "fmp_brier_12m_pre_fmp_42_56": 0.13730635158409568,
+    "fmp_calibration_12m": {
+     "mean_pred": 0.2814604318058203,
+     "observed": 0.0818260120585702
+    },
+    "fmp_auc_24m_pre_fmp_42_56": 0.776875562026292,
+    "fmp_brier_24m_pre_fmp_42_56": 0.16251707242236196,
+    "fmp_calibration_24m": {
+     "mean_pred": 0.33889864379126317,
+     "observed": 0.16623600344530576
+    },
+    "fmp_auc_36m_pre_fmp_42_56": 0.7733772211830723,
+    "fmp_brier_36m_pre_fmp_42_56": 0.18428337467658734,
+    "fmp_calibration_36m": {
+     "mean_pred": 0.399955619486978,
+     "observed": 0.2833763996554694
+    },
+    "fmp_auc_48m_pre_fmp_42_56": 0.7784492458626748,
+    "fmp_brier_48m_pre_fmp_42_56": 0.19301001186535993,
+    "fmp_calibration_48m": {
+     "mean_pred": 0.466305606678731,
+     "observed": 0.3763996554694229
+    },
+    "fmp_auc_60m_pre_fmp_42_56": 0.7744229736983361,
+    "fmp_brier_60m_pre_fmp_42_56": 0.19922597719338847,
+    "fmp_calibration_60m": {
+     "mean_pred": 0.5359003239364988,
+     "observed": 0.46511627906976744
+    },
+    "c_index_time_to_fmp_pre": 0.6652202322611304,
+    "median_abs_error_months_pre": 12.344466847616479
+   },
+   "age_bleeding": {
+    "n": 3000,
+    "women": 1000,
+    "stage_macro_f1": 0.7592299714165393,
+    "stage_balanced_accuracy": 0.7538322639518585,
+    "stage_log_loss": 0.3492399606882012,
+    "stage_recall": {
+     "reproductive": 0.9095193213949104,
+     "early_transition": 0.441340782122905,
+     "late_transition": 0.6838487972508591,
+     "postmenopause": 0.9806201550387597
+    },
+    "stage_confusion": [
+     [
+      965,
+      72,
+      24,
+      0
+     ],
+     [
+      151,
+      158,
+      49,
+      0
+     ],
+     [
+      44,
+      40,
+      199,
+      8
+     ],
+     [
+      1,
+      0,
+      24,
+      1265
+     ]
+    ],
+    "fmp_auc_6m_pre_fmp_42_56": 0.9299752920035939,
+    "fmp_brier_6m_pre_fmp_42_56": 0.03581678507017234,
+    "fmp_calibration_6m": {
+     "mean_pred": 0.055996336745283544,
+     "observed": 0.041343669250646
+    },
+    "fmp_auc_12m_pre_fmp_42_56": 0.9332428162338303,
+    "fmp_brier_12m_pre_fmp_42_56": 0.05472842875543213,
+    "fmp_calibration_12m": {
+     "mean_pred": 0.09709057821734883,
+     "observed": 0.0818260120585702
+    },
+    "fmp_auc_24m_pre_fmp_42_56": 0.9311491028989852,
+    "fmp_brier_24m_pre_fmp_42_56": 0.07925396420736855,
+    "fmp_calibration_24m": {
+     "mean_pred": 0.18190977838416564,
+     "observed": 0.16623600344530576
+    },
+    "fmp_auc_36m_pre_fmp_42_56": 0.9159384498480243,
+    "fmp_brier_36m_pre_fmp_42_56": 0.10369943042043588,
+    "fmp_calibration_36m": {
+     "mean_pred": 0.27089025057438765,
+     "observed": 0.2833763996554694
+    },
+    "fmp_auc_48m_pre_fmp_42_56": 0.8900116312881652,
+    "fmp_brier_48m_pre_fmp_42_56": 0.1279042392707618,
+    "fmp_calibration_48m": {
+     "mean_pred": 0.36255074525186676,
+     "observed": 0.3763996554694229
+    },
+    "fmp_auc_60m_pre_fmp_42_56": 0.8681099779328443,
+    "fmp_brier_60m_pre_fmp_42_56": 0.1469834447400565,
+    "fmp_calibration_60m": {
+     "mean_pred": 0.46382292437165296,
+     "observed": 0.46511627906976744
+    },
+    "c_index_time_to_fmp_pre": 0.7155981763640143,
+    "median_abs_error_months_pre": 5.47423368570589
+   },
+   "age_ring": {
+    "n": 3000,
+    "women": 1000,
+    "stage_macro_f1": 0.4050076643695743,
+    "stage_balanced_accuracy": 0.45740390915735557,
+    "stage_log_loss": 0.7800283022288004,
+    "stage_recall": {
+     "reproductive": 0.9161168708765316,
+     "early_transition": 0.0111731843575419,
+     "late_transition": 0.0,
+     "postmenopause": 0.9023255813953488
+    },
+    "stage_confusion": [
+     [
+      972,
+      4,
+      0,
+      85
+     ],
+     [
+      245,
+      4,
+      0,
+      109
+     ],
+     [
+      124,
+      3,
+      0,
+      164
+     ],
+     [
+      120,
+      6,
+      0,
+      1164
+     ]
+    ],
+    "fmp_auc_6m_pre_fmp_42_56": 0.7687088200059898,
+    "fmp_brier_6m_pre_fmp_42_56": 0.11724647406979831,
+    "fmp_calibration_6m": {
+     "mean_pred": 0.2429478453908008,
+     "observed": 0.041343669250646
+    },
+    "fmp_auc_12m_pre_fmp_42_56": 0.7722178335143676,
+    "fmp_brier_12m_pre_fmp_42_56": 0.13071201252060127,
+    "fmp_calibration_12m": {
+     "mean_pred": 0.2638972786068721,
+     "observed": 0.0818260120585702
+    },
+    "fmp_auc_24m_pre_fmp_42_56": 0.7755240226095149,
+    "fmp_brier_24m_pre_fmp_42_56": 0.16029200768175653,
+    "fmp_calibration_24m": {
+     "mean_pred": 0.32672051259774865,
+     "observed": 0.16623600344530576
+    },
+    "fmp_auc_36m_pre_fmp_42_56": 0.7654441635492168,
+    "fmp_brier_36m_pre_fmp_42_56": 0.1845720763580598,
+    "fmp_calibration_36m": {
+     "mean_pred": 0.378766812062327,
+     "observed": 0.2833763996554694
+    },
+    "fmp_auc_48m_pre_fmp_42_56": 0.7686258644449221,
+    "fmp_brier_48m_pre_fmp_42_56": 0.1926738665036234,
+    "fmp_calibration_48m": {
+     "mean_pred": 0.43785232638463906,
+     "observed": 0.3763996554694229
+    },
+    "fmp_auc_60m_pre_fmp_42_56": 0.7619162640901772,
+    "fmp_brier_60m_pre_fmp_42_56": 0.20184789859360283,
+    "fmp_calibration_60m": {
+     "mean_pred": 0.4873573997213421,
+     "observed": 0.46511627906976744
+    },
+    "c_index_time_to_fmp_pre": 0.6284839169562506,
+    "median_abs_error_months_pre": 10.74048258826268
+   },
+   "full": {
+    "n": 3000,
+    "women": 1000,
+    "stage_macro_f1": 0.7425719828472481,
+    "stage_balanced_accuracy": 0.7296902803706211,
+    "stage_log_loss": 0.3635678099983427,
+    "stage_recall": {
+     "reproductive": 0.9208294062205467,
+     "early_transition": 0.4106145251396648,
+     "late_transition": 0.6082474226804123,
+     "postmenopause": 0.9790697674418605
+    },
+    "stage_confusion": [
+     [
+      977,
+      67,
+      17,
+      0
+     ],
+     [
+      179,
+      147,
+      32,
+      0
+     ],
+     [
+      56,
+      51,
+      177,
+      7
+     ],
+     [
+      1,
+      1,
+      25,
+      1263
+     ]
+    ],
+    "fmp_auc_6m_pre_fmp_42_56": 0.9315569781371669,
+    "fmp_brier_6m_pre_fmp_42_56": 0.03381440350744678,
+    "fmp_calibration_6m": {
+     "mean_pred": 0.03794889164637394,
+     "observed": 0.041343669250646
+    },
+    "fmp_auc_12m_pre_fmp_42_56": 0.928162338303545,
+    "fmp_brier_12m_pre_fmp_42_56": 0.055494835474595605,
+    "fmp_calibration_12m": {
+     "mean_pred": 0.0628840057807382,
+     "observed": 0.0818260120585702
+    },
+    "fmp_auc_24m_pre_fmp_42_56": 0.9327174238855821,
+    "fmp_brier_24m_pre_fmp_42_56": 0.07690762422445416,
+    "fmp_calibration_24m": {
+     "mean_pred": 0.16064639840843284,
+     "observed": 0.16623600344530576
+    },
+    "fmp_auc_36m_pre_fmp_42_56": 0.9018039805938742,
+    "fmp_brier_36m_pre_fmp_42_56": 0.11301389465531843,
+    "fmp_calibration_36m": {
+     "mean_pred": 0.258012269645276,
+     "observed": 0.2833763996554694
+    },
+    "fmp_auc_48m_pre_fmp_42_56": 0.8844456806199983,
+    "fmp_brier_48m_pre_fmp_42_56": 0.13207021050335616,
+    "fmp_calibration_48m": {
+     "mean_pred": 0.3446040596625433,
+     "observed": 0.3763996554694229
+    },
+    "fmp_auc_60m_pre_fmp_42_56": 0.8551708713544461,
+    "fmp_brier_60m_pre_fmp_42_56": 0.15508357043847026,
+    "fmp_calibration_60m": {
+     "mean_pred": 0.4451539514722912,
+     "observed": 0.46511627906976744
+    },
+    "c_index_time_to_fmp_pre": 0.6997735305473878,
+    "median_abs_error_months_pre": 5.576779180539738
+   }
+  },
+  "age_only": {
+   "age_only": {
+    "n": 3000,
+    "women": 1000,
+    "stage_macro_f1": 0.39725272534497824,
+    "stage_balanced_accuracy": 0.45284688278572943,
+    "stage_log_loss": 0.7693367587446184,
+    "stage_recall": {
+     "reproductive": 0.8982092365692743,
+     "early_transition": 0.0,
+     "late_transition": 0.0,
+     "postmenopause": 0.9131782945736434
+    },
+    "stage_confusion": [
+     [
+      953,
+      0,
+      0,
+      108
+     ],
+     [
+      237,
+      0,
+      0,
+      121
+     ],
+     [
+      124,
+      0,
+      0,
+      167
+     ],
+     [
+      112,
+      0,
+      0,
+      1178
+     ]
+    ],
+    "fmp_auc_6m_pre_fmp_42_56": 0.7641415843066787,
+    "fmp_brier_6m_pre_fmp_42_56": 0.1169900011715318,
+    "fmp_calibration_6m": {
+     "mean_pred": 0.2518079384487965,
+     "observed": 0.041343669250646
+    },
+    "fmp_auc_12m_pre_fmp_42_56": 0.7573861953194431,
+    "fmp_brier_12m_pre_fmp_42_56": 0.13730635158409568,
+    "fmp_calibration_12m": {
+     "mean_pred": 0.2814604318058203,
+     "observed": 0.0818260120585702
+    },
+    "fmp_auc_24m_pre_fmp_42_56": 0.776875562026292,
+    "fmp_brier_24m_pre_fmp_42_56": 0.16251707242236196,
+    "fmp_calibration_24m": {
+     "mean_pred": 0.33889864379126317,
+     "observed": 0.16623600344530576
+    },
+    "fmp_auc_36m_pre_fmp_42_56": 0.7733772211830723,
+    "fmp_brier_36m_pre_fmp_42_56": 0.18428337467658734,
+    "fmp_calibration_36m": {
+     "mean_pred": 0.399955619486978,
+     "observed": 0.2833763996554694
+    },
+    "fmp_auc_48m_pre_fmp_42_56": 0.7784492458626748,
+    "fmp_brier_48m_pre_fmp_42_56": 0.19301001186535993,
+    "fmp_calibration_48m": {
+     "mean_pred": 0.466305606678731,
+     "observed": 0.3763996554694229
+    },
+    "fmp_auc_60m_pre_fmp_42_56": 0.7744229736983361,
+    "fmp_brier_60m_pre_fmp_42_56": 0.19922597719338847,
+    "fmp_calibration_60m": {
+     "mean_pred": 0.5359003239364988,
+     "observed": 0.46511627906976744
+    },
+    "c_index_time_to_fmp_pre": 0.6652202322611304,
+    "median_abs_error_months_pre": 12.344466847616479
+   },
+   "age_bleeding": {
+    "n": 3000,
+    "women": 1000,
+    "stage_macro_f1": 0.39739424496197207,
+    "stage_balanced_accuracy": 0.45396510531968526,
+    "stage_log_loss": 0.8173817959014703,
+    "stage_recall": {
+     "reproductive": 0.9321394910461829,
+     "early_transition": 0.0,
+     "late_transition": 0.0,
+     "postmenopause": 0.8837209302325582
+    },
+    "stage_confusion": [
+     [
+      989,
+      0,
+      0,
+      72
+     ],
+     [
+      258,
+      0,
+      0,
+      100
+     ],
+     [
+      144,
+      0,
+      0,
+      147
+     ],
+     [
+      150,
+      0,
+      0,
+      1140
+     ]
+    ],
+    "fmp_auc_6m_pre_fmp_42_56": 0.7653769841269841,
+    "fmp_brier_6m_pre_fmp_42_56": 0.09934342655085626,
+    "fmp_calibration_6m": {
+     "mean_pred": 0.22288260616594208,
+     "observed": 0.041343669250646
+    },
+    "fmp_auc_12m_pre_fmp_42_56": 0.7600227115631479,
+    "fmp_brier_12m_pre_fmp_42_56": 0.12567962113045572,
+    "fmp_calibration_12m": {
+     "mean_pred": 0.2744953670459137,
+     "observed": 0.0818260120585702
+    },
+    "fmp_auc_24m_pre_fmp_42_56": 0.778042435661371,
+    "fmp_brier_24m_pre_fmp_42_56": 0.16946914756228107,
+    "fmp_calibration_24m": {
+     "mean_pred": 0.3637915526931066,
+     "observed": 0.16623600344530576
+    },
+    "fmp_auc_36m_pre_fmp_42_56": 0.7733772211830723,
+    "fmp_brier_36m_pre_fmp_42_56": 0.18560329939562045,
+    "fmp_calibration_36m": {
+     "mean_pred": 0.4135840022228944,
+     "observed": 0.2833763996554694
+    },
+    "fmp_auc_48m_pre_fmp_42_56": 0.7774504722050142,
+    "fmp_brier_48m_pre_fmp_42_56": 0.2063482015308389,
+    "fmp_calibration_48m": {
+     "mean_pred": 0.5134196894195581,
+     "observed": 0.3763996554694229
+    },
+    "fmp_auc_60m_pre_fmp_42_56": 0.7725472654619192,
+    "fmp_brier_60m_pre_fmp_42_56": 0.20937505493921751,
+    "fmp_calibration_60m": {
+     "mean_pred": 0.5835475474587091,
+     "observed": 0.46511627906976744
+    },
+    "c_index_time_to_fmp_pre": 0.6824779470729752,
+    "median_abs_error_months_pre": 15.892141873702535
+   },
+   "age_ring": {
+    "n": 3000,
+    "women": 1000,
+    "stage_macro_f1": 0.4050076643695743,
+    "stage_balanced_accuracy": 0.45740390915735557,
+    "stage_log_loss": 0.7800283022288004,
+    "stage_recall": {
+     "reproductive": 0.9161168708765316,
+     "early_transition": 0.0111731843575419,
+     "late_transition": 0.0,
+     "postmenopause": 0.9023255813953488
+    },
+    "stage_confusion": [
+     [
+      972,
+      4,
+      0,
+      85
+     ],
+     [
+      245,
+      4,
+      0,
+      109
+     ],
+     [
+      124,
+      3,
+      0,
+      164
+     ],
+     [
+      120,
+      6,
+      0,
+      1164
+     ]
+    ],
+    "fmp_auc_6m_pre_fmp_42_56": 0.7687088200059898,
+    "fmp_brier_6m_pre_fmp_42_56": 0.11724647406979831,
+    "fmp_calibration_6m": {
+     "mean_pred": 0.2429478453908008,
+     "observed": 0.041343669250646
+    },
+    "fmp_auc_12m_pre_fmp_42_56": 0.7722178335143676,
+    "fmp_brier_12m_pre_fmp_42_56": 0.13071201252060127,
+    "fmp_calibration_12m": {
+     "mean_pred": 0.2638972786068721,
+     "observed": 0.0818260120585702
+    },
+    "fmp_auc_24m_pre_fmp_42_56": 0.7755240226095149,
+    "fmp_brier_24m_pre_fmp_42_56": 0.16029200768175653,
+    "fmp_calibration_24m": {
+     "mean_pred": 0.32672051259774865,
+     "observed": 0.16623600344530576
+    },
+    "fmp_auc_36m_pre_fmp_42_56": 0.7654441635492168,
+    "fmp_brier_36m_pre_fmp_42_56": 0.1845720763580598,
+    "fmp_calibration_36m": {
+     "mean_pred": 0.378766812062327,
+     "observed": 0.2833763996554694
+    },
+    "fmp_auc_48m_pre_fmp_42_56": 0.7686258644449221,
+    "fmp_brier_48m_pre_fmp_42_56": 0.1926738665036234,
+    "fmp_calibration_48m": {
+     "mean_pred": 0.43785232638463906,
+     "observed": 0.3763996554694229
+    },
+    "fmp_auc_60m_pre_fmp_42_56": 0.7619162640901772,
+    "fmp_brier_60m_pre_fmp_42_56": 0.20184789859360283,
+    "fmp_calibration_60m": {
+     "mean_pred": 0.4873573997213421,
+     "observed": 0.46511627906976744
+    },
+    "c_index_time_to_fmp_pre": 0.6284839169562506,
+    "median_abs_error_months_pre": 10.74048258826268
+   },
+   "full": {
+    "n": 3000,
+    "women": 1000,
+    "stage_macro_f1": 0.4229460909188558,
+    "stage_balanced_accuracy": 0.46028448133600497,
+    "stage_log_loss": 0.8334258860091933,
+    "stage_recall": {
+     "reproductive": 0.9274269557021678,
+     "early_transition": 0.07262569832402235,
+     "late_transition": 0.0,
+     "postmenopause": 0.8410852713178295
+    },
+    "stage_confusion": [
+     [
+      984,
+      23,
+      0,
+      54
+     ],
+     [
+      254,
+      26,
+      0,
+      78
+     ],
+     [
+      140,
+      25,
+      0,
+      126
+     ],
+     [
+      141,
+      64,
+      0,
+      1085
+     ]
+    ],
+    "fmp_auc_6m_pre_fmp_42_56": 0.766677897574124,
+    "fmp_brier_6m_pre_fmp_42_56": 0.06030926932482637,
+    "fmp_calibration_6m": {
+     "mean_pred": 0.1615066061851973,
+     "observed": 0.041343669250646
+    },
+    "fmp_auc_12m_pre_fmp_42_56": 0.7696652513083836,
+    "fmp_brier_12m_pre_fmp_42_56": 0.10576633343517754,
+    "fmp_calibration_12m": {
+     "mean_pred": 0.23097816063150278,
+     "observed": 0.0818260120585702
+    },
+    "fmp_auc_24m_pre_fmp_42_56": 0.7843076906607288,
+    "fmp_brier_24m_pre_fmp_42_56": 0.13812413823190892,
+    "fmp_calibration_24m": {
+     "mean_pred": 0.28236583155994593,
+     "observed": 0.16623600344530576
+    },
+    "fmp_auc_36m_pre_fmp_42_56": 0.7730301613280337,
+    "fmp_brier_36m_pre_fmp_42_56": 0.16464781600523348,
+    "fmp_calibration_36m": {
+     "mean_pred": 0.2897799106230192,
+     "observed": 0.2833763996554694
+    },
+    "fmp_auc_48m_pre_fmp_42_56": 0.7652028521941412,
+    "fmp_brier_48m_pre_fmp_42_56": 0.1865463470955192,
+    "fmp_calibration_48m": {
+     "mean_pred": 0.3977513590394129,
+     "observed": 0.3763996554694229
+    },
+    "fmp_auc_60m_pre_fmp_42_56": 0.7714737281564978,
+    "fmp_brier_60m_pre_fmp_42_56": 0.19511980055887676,
+    "fmp_calibration_60m": {
+     "mean_pred": 0.4458655943621396,
+     "observed": 0.46511627906976744
+    },
+    "c_index_time_to_fmp_pre": 0.6330793905372895,
+    "median_abs_error_months_pre": 9.334506839388382
+   }
+  },
+  "full_plus_labs": {
+   "age_only": {
+    "n": 3000,
+    "women": 1000,
+    "stage_macro_f1": 0.39725272534497824,
+    "stage_balanced_accuracy": 0.45284688278572943,
+    "stage_log_loss": 0.7693367587446184,
+    "stage_recall": {
+     "reproductive": 0.8982092365692743,
+     "early_transition": 0.0,
+     "late_transition": 0.0,
+     "postmenopause": 0.9131782945736434
+    },
+    "stage_confusion": [
+     [
+      953,
+      0,
+      0,
+      108
+     ],
+     [
+      237,
+      0,
+      0,
+      121
+     ],
+     [
+      124,
+      0,
+      0,
+      167
+     ],
+     [
+      112,
+      0,
+      0,
+      1178
+     ]
+    ],
+    "fmp_auc_6m_pre_fmp_42_56": 0.7641415843066787,
+    "fmp_brier_6m_pre_fmp_42_56": 0.1169900011715318,
+    "fmp_calibration_6m": {
+     "mean_pred": 0.2518079384487965,
+     "observed": 0.041343669250646
+    },
+    "fmp_auc_12m_pre_fmp_42_56": 0.7573861953194431,
+    "fmp_brier_12m_pre_fmp_42_56": 0.13730635158409568,
+    "fmp_calibration_12m": {
+     "mean_pred": 0.2814604318058203,
+     "observed": 0.0818260120585702
+    },
+    "fmp_auc_24m_pre_fmp_42_56": 0.776875562026292,
+    "fmp_brier_24m_pre_fmp_42_56": 0.16251707242236196,
+    "fmp_calibration_24m": {
+     "mean_pred": 0.33889864379126317,
+     "observed": 0.16623600344530576
+    },
+    "fmp_auc_36m_pre_fmp_42_56": 0.7733772211830723,
+    "fmp_brier_36m_pre_fmp_42_56": 0.18428337467658734,
+    "fmp_calibration_36m": {
+     "mean_pred": 0.399955619486978,
+     "observed": 0.2833763996554694
+    },
+    "fmp_auc_48m_pre_fmp_42_56": 0.7784492458626748,
+    "fmp_brier_48m_pre_fmp_42_56": 0.19301001186535993,
+    "fmp_calibration_48m": {
+     "mean_pred": 0.466305606678731,
+     "observed": 0.3763996554694229
+    },
+    "fmp_auc_60m_pre_fmp_42_56": 0.7744229736983361,
+    "fmp_brier_60m_pre_fmp_42_56": 0.19922597719338847,
+    "fmp_calibration_60m": {
+     "mean_pred": 0.5359003239364988,
+     "observed": 0.46511627906976744
+    },
+    "c_index_time_to_fmp_pre": 0.6652202322611304,
+    "median_abs_error_months_pre": 12.344466847616479
+   },
+   "age_bleeding": {
+    "n": 3000,
+    "women": 1000,
+    "stage_macro_f1": 0.7592299714165393,
+    "stage_balanced_accuracy": 0.7538322639518585,
+    "stage_log_loss": 0.3492399606882012,
+    "stage_recall": {
+     "reproductive": 0.9095193213949104,
+     "early_transition": 0.441340782122905,
+     "late_transition": 0.6838487972508591,
+     "postmenopause": 0.9806201550387597
+    },
+    "stage_confusion": [
+     [
+      965,
+      72,
+      24,
+      0
+     ],
+     [
+      151,
+      158,
+      49,
+      0
+     ],
+     [
+      44,
+      40,
+      199,
+      8
+     ],
+     [
+      1,
+      0,
+      24,
+      1265
+     ]
+    ],
+    "fmp_auc_6m_pre_fmp_42_56": 0.9299752920035939,
+    "fmp_brier_6m_pre_fmp_42_56": 0.03581678507017234,
+    "fmp_calibration_6m": {
+     "mean_pred": 0.055996336745283544,
+     "observed": 0.041343669250646
+    },
+    "fmp_auc_12m_pre_fmp_42_56": 0.9332428162338303,
+    "fmp_brier_12m_pre_fmp_42_56": 0.05472842875543213,
+    "fmp_calibration_12m": {
+     "mean_pred": 0.09709057821734883,
+     "observed": 0.0818260120585702
+    },
+    "fmp_auc_24m_pre_fmp_42_56": 0.9311491028989852,
+    "fmp_brier_24m_pre_fmp_42_56": 0.07925396420736855,
+    "fmp_calibration_24m": {
+     "mean_pred": 0.18190977838416564,
+     "observed": 0.16623600344530576
+    },
+    "fmp_auc_36m_pre_fmp_42_56": 0.9159384498480243,
+    "fmp_brier_36m_pre_fmp_42_56": 0.10369943042043588,
+    "fmp_calibration_36m": {
+     "mean_pred": 0.27089025057438765,
+     "observed": 0.2833763996554694
+    },
+    "fmp_auc_48m_pre_fmp_42_56": 0.8900116312881652,
+    "fmp_brier_48m_pre_fmp_42_56": 0.1279042392707618,
+    "fmp_calibration_48m": {
+     "mean_pred": 0.36255074525186676,
+     "observed": 0.3763996554694229
+    },
+    "fmp_auc_60m_pre_fmp_42_56": 0.8681099779328443,
+    "fmp_brier_60m_pre_fmp_42_56": 0.1469834447400565,
+    "fmp_calibration_60m": {
+     "mean_pred": 0.46382292437165296,
+     "observed": 0.46511627906976744
+    },
+    "c_index_time_to_fmp_pre": 0.7155981763640143,
+    "median_abs_error_months_pre": 5.47423368570589
+   },
+   "age_ring": {
+    "n": 3000,
+    "women": 1000,
+    "stage_macro_f1": 0.6312444682077671,
+    "stage_balanced_accuracy": 0.6273775620765669,
+    "stage_log_loss": 0.5169675867700009,
+    "stage_recall": {
+     "reproductive": 0.9359095193213949,
+     "early_transition": 0.18435754189944134,
+     "late_transition": 0.42955326460481097,
+     "postmenopause": 0.9596899224806201
+    },
+    "stage_confusion": [
+     [
+      993,
+      39,
+      27,
+      2
+     ],
+     [
+      220,
+      66,
+      58,
+      14
+     ],
+     [
+      63,
+      34,
+      125,
+      69
+     ],
+     [
+      19,
+      2,
+      31,
+      1238
+     ]
+    ],
+    "fmp_auc_6m_pre_fmp_42_56": 0.9072701407607068,
+    "fmp_brier_6m_pre_fmp_42_56": 0.053170431920399365,
+    "fmp_calibration_6m": {
+     "mean_pred": 0.08563659860288987,
+     "observed": 0.041343669250646
+    },
+    "fmp_auc_12m_pre_fmp_42_56": 0.904729929890392,
+    "fmp_brier_12m_pre_fmp_42_56": 0.07577877039447757,
+    "fmp_calibration_12m": {
+     "mean_pred": 0.1227110356467674,
+     "observed": 0.0818260120585702
+    },
+    "fmp_auc_24m_pre_fmp_42_56": 0.9153748983000043,
+    "fmp_brier_24m_pre_fmp_42_56": 0.09037074753012286,
+    "fmp_calibration_24m": {
+     "mean_pred": 0.19414918747155968,
+     "observed": 0.16623600344530576
+    },
+    "fmp_auc_36m_pre_fmp_42_56": 0.9047740823006781,
+    "fmp_brier_36m_pre_fmp_42_56": 0.11025741745409941,
+    "fmp_calibration_36m": {
+     "mean_pred": 0.2792848789339107,
+     "observed": 0.2833763996554694
+    },
+    "fmp_auc_48m_pre_fmp_42_56": 0.8990796111104088,
+    "fmp_brier_48m_pre_fmp_42_56": 0.12191148083094908,
+    "fmp_calibration_48m": {
+     "mean_pred": 0.37024016169569024,
+     "observed": 0.3763996554694229
+    },
+    "fmp_auc_60m_pre_fmp_42_56": 0.8675225144629333,
+    "fmp_brier_60m_pre_fmp_42_56": 0.14595699087983902,
+    "fmp_calibration_60m": {
+     "mean_pred": 0.47932126860202223,
+     "observed": 0.46511627906976744
+    },
+    "c_index_time_to_fmp_pre": 0.7182875939291337,
+    "median_abs_error_months_pre": 5.052906921596929
+   },
+   "full": {
+    "n": 3000,
+    "women": 1000,
+    "stage_macro_f1": 0.7965195046894975,
+    "stage_balanced_accuracy": 0.7940799433047637,
+    "stage_log_loss": 0.2741026101022395,
+    "stage_recall": {
+     "reproductive": 0.9283694627709708,
+     "early_transition": 0.44692737430167595,
+     "late_transition": 0.8041237113402062,
+     "postmenopause": 0.9968992248062015
+    },
+    "stage_confusion": [
+     [
+      985,
+      66,
+      10,
+      0
+     ],
+     [
+      139,
+      160,
+      59,
+      0
+     ],
+     [
+      11,
+      46,
+      234,
+      0
+     ],
+     [
+      0,
+      0,
+      4,
+      1286
+     ]
+    ],
+    "fmp_auc_6m_pre_fmp_42_56": 0.9533730158730158,
+    "fmp_brier_6m_pre_fmp_42_56": 0.0326261982906141,
+    "fmp_calibration_6m": {
+     "mean_pred": 0.049705248024573365,
+     "observed": 0.041343669250646
+    },
+    "fmp_auc_12m_pre_fmp_42_56": 0.9622296830255751,
+    "fmp_brier_12m_pre_fmp_42_56": 0.043907207984561054,
+    "fmp_calibration_12m": {
+     "mean_pred": 0.09330056099791295,
+     "observed": 0.0818260120585702
+    },
+    "fmp_auc_24m_pre_fmp_42_56": 0.9671027277009376,
+    "fmp_brier_24m_pre_fmp_42_56": 0.05781909687363136,
+    "fmp_calibration_24m": {
+     "mean_pred": 0.1827162086830854,
+     "observed": 0.16623600344530576
+    },
+    "fmp_auc_36m_pre_fmp_42_56": 0.9635989010989011,
+    "fmp_brier_36m_pre_fmp_42_56": 0.06968525359876784,
+    "fmp_calibration_36m": {
+     "mean_pred": 0.2664679019545558,
+     "observed": 0.2833763996554694
+    },
+    "fmp_auc_48m_pre_fmp_42_56": 0.9693477628734339,
+    "fmp_brier_48m_pre_fmp_42_56": 0.06539134301866964,
+    "fmp_calibration_48m": {
+     "mean_pred": 0.3629709956604058,
+     "observed": 0.3763996554694229
+    },
+    "fmp_auc_60m_pre_fmp_42_56": 0.9515894316216378,
+    "fmp_brier_60m_pre_fmp_42_56": 0.08846868268630978,
+    "fmp_calibration_60m": {
+     "mean_pred": 0.44730032206753706,
+     "observed": 0.46511627906976744
+    },
+    "c_index_time_to_fmp_pre": 0.7757625709109269,
+    "median_abs_error_months_pre": 2.4704331010684797
+   }
+  }
+ },
+ "test_deployed_routed": {
+  "random": {
+   "n": 3000,
+   "stage_macro_f1": 0.7469511343931982,
+   "stage_grouped3_macro_f1": 0.858374665865894,
+   "stage_recall": {
+    "reproductive": 0.9151743638077285,
+    "early_transition": 0.3770949720670391,
+    "late_transition": 0.711340206185567,
+    "postmenopause": 0.9767441860465116
+   },
+   "fmp_auc_6m_pre_fmp_42_56": 0.9238918837975441,
+   "fmp_auc_12m_pre_fmp_42_56": 0.9307593561765577,
+   "fmp_auc_24m_pre_fmp_42_56": 0.936121697426455,
+   "fmp_auc_36m_pre_fmp_42_56": 0.9239390928220715,
+   "fmp_auc_48m_pre_fmp_42_56": 0.9217511410040837,
+   "fmp_auc_60m_pre_fmp_42_56": 0.8961382477485538,
+   "c_index_time_to_fmp_pre": 0.7370481748789688,
+   "median_abs_error_months_pre": 4.238374009410386,
+   "straw_rule_false_confirmations_pre_fmp": 0.0
+  },
+  "full": {
+   "n": 3000,
+   "stage_macro_f1": 0.7613251030320254,
+   "stage_grouped3_macro_f1": 0.8652763269659586,
+   "stage_recall": {
+    "reproductive": 0.9264844486333648,
+    "early_transition": 0.3994413407821229,
+    "late_transition": 0.7250859106529209,
+    "postmenopause": 0.9775193798449613
+   },
+   "fmp_auc_6m_pre_fmp_42_56": 0.9359089547768793,
+   "fmp_auc_12m_pre_fmp_42_56": 0.9375037029722524,
+   "fmp_auc_24m_pre_fmp_42_56": 0.9427482550421787,
+   "fmp_auc_36m_pre_fmp_42_56": 0.9283157002571896,
+   "fmp_auc_48m_pre_fmp_42_56": 0.9116622627912563,
+   "fmp_auc_60m_pre_fmp_42_56": 0.889228842368939,
+   "c_index_time_to_fmp_pre": 0.7361348718405655,
+   "median_abs_error_months_pre": 5.293767313016815,
+   "straw_rule_false_confirmations_pre_fmp": 0.0
+  },
+  "ring_only": {
+   "n": 3000,
+   "stage_macro_f1": 0.48589122306739807,
+   "stage_grouped3_macro_f1": 0.6611020517471151,
+   "stage_recall": {
+    "reproductive": 0.8737040527803959,
+    "early_transition": 0.027932960893854747,
+    "late_transition": 0.32989690721649484,
+    "postmenopause": 0.8240310077519379
+   },
+   "fmp_auc_6m_pre_fmp_42_56": 0.8262578616352201,
+   "fmp_auc_12m_pre_fmp_42_56": 0.8419768934531451,
+   "fmp_auc_24m_pre_fmp_42_56": 0.8521870851710701,
+   "fmp_auc_36m_pre_fmp_42_56": 0.8213993453355154,
+   "fmp_auc_48m_pre_fmp_42_56": 0.8128026347396236,
+   "fmp_auc_60m_pre_fmp_42_56": 0.8033935707043598,
+   "c_index_time_to_fmp_pre": 0.7015838011226945,
+   "median_abs_error_months_pre": 11.26256927415762,
+   "straw_rule_false_confirmations_pre_fmp": 0.0
+  },
+  "lpd_ring": {
+   "n": 3000,
+   "stage_macro_f1": 0.6421811508641908,
+   "stage_grouped3_macro_f1": 0.8185952800752293,
+   "stage_recall": {
+    "reproductive": 0.879359095193214,
+    "early_transition": 0.12849162011173185,
+    "late_transition": 0.6769759450171822,
+    "postmenopause": 0.9775193798449613
+   },
+   "fmp_auc_6m_pre_fmp_42_56": 0.8478773584905661,
+   "fmp_auc_12m_pre_fmp_42_56": 0.8714328033968599,
+   "fmp_auc_24m_pre_fmp_42_56": 0.8795711471759518,
+   "fmp_auc_36m_pre_fmp_42_56": 0.8544577098433481,
+   "fmp_auc_48m_pre_fmp_42_56": 0.8424529375323969,
+   "fmp_auc_60m_pre_fmp_42_56": 0.8139142362974892,
+   "c_index_time_to_fmp_pre": 0.7051597909055808,
+   "median_abs_error_months_pre": 8.781939963486767,
+   "straw_rule_false_confirmations_pre_fmp": 0.0
+  },
+  "logs_only": {
+   "n": 3000,
+   "stage_macro_f1": 0.7592299714165393,
+   "stage_grouped3_macro_f1": 0.8632892336020017,
+   "stage_recall": {
+    "reproductive": 0.9095193213949104,
+    "early_transition": 0.441340782122905,
+    "late_transition": 0.6838487972508591,
+    "postmenopause": 0.9806201550387597
+   },
+   "fmp_auc_6m_pre_fmp_42_56": 0.9299752920035939,
+   "fmp_auc_12m_pre_fmp_42_56": 0.9332428162338303,
+   "fmp_auc_24m_pre_fmp_42_56": 0.9311491028989852,
+   "fmp_auc_36m_pre_fmp_42_56": 0.9159384498480243,
+   "fmp_auc_48m_pre_fmp_42_56": 0.8900116312881652,
+   "fmp_auc_60m_pre_fmp_42_56": 0.8681099779328443,
+   "c_index_time_to_fmp_pre": 0.7155981763640143,
+   "median_abs_error_months_pre": 5.47423368570589,
+   "straw_rule_false_confirmations_pre_fmp": 0.0
+  },
+  "age_only": {
+   "n": 3000,
+   "stage_macro_f1": 0.4229460909188558,
+   "stage_grouped3_macro_f1": 0.5721839177028502,
+   "stage_recall": {
+    "reproductive": 0.9274269557021678,
+    "early_transition": 0.07262569832402235,
+    "late_transition": 0.0,
+    "postmenopause": 0.8410852713178295
+   },
+   "fmp_auc_6m_pre_fmp_42_56": 0.766677897574124,
+   "fmp_auc_12m_pre_fmp_42_56": 0.7696652513083836,
+   "fmp_auc_24m_pre_fmp_42_56": 0.7843076906607288,
+   "fmp_auc_36m_pre_fmp_42_56": 0.7730301613280337,
+   "fmp_auc_48m_pre_fmp_42_56": 0.7652028521941412,
+   "fmp_auc_60m_pre_fmp_42_56": 0.7714737281564978,
+   "c_index_time_to_fmp_pre": 0.6330793905372895,
+   "median_abs_error_months_pre": 9.334506839388382,
+   "straw_rule_false_confirmations_pre_fmp": 0.0
+  },
+  "full_plus_labs": {
+   "n": 3000,
+   "stage_macro_f1": 0.7965195046894975,
+   "stage_grouped3_macro_f1": 0.9027454660770659,
+   "stage_recall": {
+    "reproductive": 0.9283694627709708,
+    "early_transition": 0.44692737430167595,
+    "late_transition": 0.8041237113402062,
+    "postmenopause": 0.9968992248062015
+   },
+   "fmp_auc_6m_pre_fmp_42_56": 0.9533730158730158,
+   "fmp_auc_12m_pre_fmp_42_56": 0.9622296830255751,
+   "fmp_auc_24m_pre_fmp_42_56": 0.9671027277009376,
+   "fmp_auc_36m_pre_fmp_42_56": 0.9635989010989011,
+   "fmp_auc_48m_pre_fmp_42_56": 0.9693477628734339,
+   "fmp_auc_60m_pre_fmp_42_56": 0.9515894316216378,
+   "c_index_time_to_fmp_pre": 0.7757625709109269,
+   "median_abs_error_months_pre": 2.4704331010684797,
+   "straw_rule_false_confirmations_pre_fmp": 0.0
+  }
+ },
+ "vms_night_model_test": {
+  "nights": 28140,
+  "prevalence": 0.2555081734186212,
+  "auroc": 0.6834284490856766
+ }
+}

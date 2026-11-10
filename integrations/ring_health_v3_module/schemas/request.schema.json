@@ -1,0 +1,484 @@
+{
+ "$defs": {
+  "Cycle": {
+   "additionalProperties": false,
+   "properties": {
+    "period_starts": {
+     "items": {
+      "format": "date",
+      "type": "string"
+     },
+     "maxItems": 60,
+     "title": "Period Starts",
+     "type": "array"
+    },
+    "last_period_date": {
+     "anyOf": [
+      {
+       "format": "date",
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "description": "Onboarding answer: first day of the most recent period (may be years ago)",
+     "title": "Last Period Date"
+    },
+    "period_logs_complete": {
+     "default": false,
+     "description": "True only if every period start in the history is logged",
+     "title": "Period Logs Complete",
+     "type": "boolean"
+    },
+    "logging_since": {
+     "anyOf": [
+      {
+       "format": "date",
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "description": "Date from which periods are logged in the app",
+     "title": "Logging Since"
+    },
+    "menses_length": {
+     "anyOf": [
+      {
+       "maximum": 12,
+       "minimum": 1,
+       "type": "integer"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Menses Length"
+    }
+   },
+   "title": "Cycle",
+   "type": "object"
+  },
+  "LHTest": {
+   "additionalProperties": false,
+   "properties": {
+    "date": {
+     "format": "date",
+     "title": "Date",
+     "type": "string"
+    },
+    "result": {
+     "enum": [
+      "positive",
+      "negative"
+     ],
+     "title": "Result",
+     "type": "string"
+    }
+   },
+   "required": [
+    "date",
+    "result"
+   ],
+   "title": "LHTest",
+   "type": "object"
+  },
+  "Lab": {
+   "additionalProperties": false,
+   "properties": {
+    "value": {
+     "exclusiveMinimum": 0,
+     "title": "Value",
+     "type": "number"
+    },
+    "date": {
+     "format": "date",
+     "title": "Date",
+     "type": "string"
+    }
+   },
+   "required": [
+    "value",
+    "date"
+   ],
+   "title": "Lab",
+   "type": "object"
+  },
+  "Labs": {
+   "additionalProperties": false,
+   "properties": {
+    "fsh_iu_l": {
+     "anyOf": [
+      {
+       "$ref": "#/$defs/Lab"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null
+    },
+    "amh_pg_ml": {
+     "anyOf": [
+      {
+       "$ref": "#/$defs/Lab"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null
+    }
+   },
+   "title": "Labs",
+   "type": "object"
+  },
+  "Night": {
+   "additionalProperties": false,
+   "properties": {
+    "date": {
+     "format": "date",
+     "title": "Date",
+     "type": "string"
+    },
+    "temperature_deviation": {
+     "anyOf": [
+      {
+       "maximum": 3,
+       "minimum": -3,
+       "type": "number"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "description": "Nightly skin temperature deviation from personal baseline, deg C (Oura daily_readiness.temperature_deviation)",
+     "title": "Temperature Deviation"
+    },
+    "resting_hr": {
+     "anyOf": [
+      {
+       "maximum": 180,
+       "minimum": 25,
+       "type": "number"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "description": "Lowest/resting nightly HR, bpm (Oura sleep.lowest_heart_rate)",
+     "title": "Resting Hr"
+    },
+    "hrv_ms": {
+     "anyOf": [
+      {
+       "maximum": 400,
+       "minimum": 1,
+       "type": "number"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "description": "Nightly average RMSSD, ms (Oura sleep.average_hrv)",
+     "title": "Hrv Ms"
+    },
+    "respiratory_rate": {
+     "anyOf": [
+      {
+       "maximum": 40,
+       "minimum": 5,
+       "type": "number"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "description": "breaths/min (Oura sleep.average_breath)",
+     "title": "Respiratory Rate"
+    },
+    "sleep_minutes": {
+     "anyOf": [
+      {
+       "maximum": 1440,
+       "minimum": 0,
+       "type": "number"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Sleep Minutes"
+    },
+    "sleep_efficiency": {
+     "anyOf": [
+      {
+       "maximum": 100,
+       "minimum": 0,
+       "type": "number"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Sleep Efficiency"
+    },
+    "awake_minutes": {
+     "anyOf": [
+      {
+       "maximum": 1000,
+       "minimum": 0,
+       "type": "number"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "description": "Awake time inside the sleep period, minutes (Oura sleep.awake_time/60)",
+     "title": "Awake Minutes"
+    }
+   },
+   "required": [
+    "date"
+   ],
+   "title": "Night",
+   "type": "object"
+  },
+  "OuraExport": {
+   "additionalProperties": false,
+   "properties": {
+    "sleep": {
+     "items": {
+      "additionalProperties": true,
+      "type": "object"
+     },
+     "maxItems": 4000,
+     "title": "Sleep",
+     "type": "array"
+    },
+    "daily_readiness": {
+     "items": {
+      "additionalProperties": true,
+      "type": "object"
+     },
+     "maxItems": 800,
+     "title": "Daily Readiness",
+     "type": "array"
+    }
+   },
+   "title": "OuraExport",
+   "type": "object"
+  },
+  "Profile": {
+   "additionalProperties": false,
+   "properties": {
+    "age": {
+     "maximum": 70,
+     "minimum": 16,
+     "title": "Age",
+     "type": "number"
+    },
+    "pregnant": {
+     "default": false,
+     "title": "Pregnant",
+     "type": "boolean"
+    },
+    "breastfeeding": {
+     "default": false,
+     "title": "Breastfeeding",
+     "type": "boolean"
+    },
+    "hormonal_contraception": {
+     "default": false,
+     "title": "Hormonal Contraception",
+     "type": "boolean"
+    },
+    "menopausal_hormone_therapy": {
+     "default": false,
+     "title": "Menopausal Hormone Therapy",
+     "type": "boolean"
+    },
+    "hysterectomy": {
+     "default": false,
+     "title": "Hysterectomy",
+     "type": "boolean"
+    },
+    "bilateral_oophorectomy": {
+     "default": false,
+     "title": "Bilateral Oophorectomy",
+     "type": "boolean"
+    },
+    "smoker": {
+     "anyOf": [
+      {
+       "type": "boolean"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Smoker"
+    },
+    "bmi": {
+     "anyOf": [
+      {
+       "maximum": 70,
+       "minimum": 12,
+       "type": "number"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Bmi"
+    },
+    "parous": {
+     "anyOf": [
+      {
+       "type": "boolean"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Parous"
+    },
+    "college_education": {
+     "anyOf": [
+      {
+       "type": "boolean"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "College Education"
+    }
+   },
+   "required": [
+    "age"
+   ],
+   "title": "Profile",
+   "type": "object"
+  },
+  "Symptoms": {
+   "additionalProperties": false,
+   "properties": {
+    "logging_enabled": {
+     "default": false,
+     "description": "True if the user logs symptoms; then absence of a log means 'no symptom'",
+     "title": "Logging Enabled",
+     "type": "boolean"
+    },
+    "hot_flash_dates": {
+     "items": {
+      "format": "date",
+      "type": "string"
+     },
+     "maxItems": 400,
+     "title": "Hot Flash Dates",
+     "type": "array"
+    },
+    "night_sweat_dates": {
+     "items": {
+      "format": "date",
+      "type": "string"
+     },
+     "maxItems": 400,
+     "title": "Night Sweat Dates",
+     "type": "array"
+    }
+   },
+   "title": "Symptoms",
+   "type": "object"
+  }
+ },
+ "additionalProperties": false,
+ "properties": {
+  "as_of": {
+   "format": "date",
+   "title": "As Of",
+   "type": "string"
+  },
+  "modules": {
+   "items": {
+    "enum": [
+     "fertility",
+     "menopause"
+    ],
+    "type": "string"
+   },
+   "title": "Modules",
+   "type": "array"
+  },
+  "profile": {
+   "$ref": "#/$defs/Profile"
+  },
+  "cycle": {
+   "$ref": "#/$defs/Cycle"
+  },
+  "lh_tests": {
+   "items": {
+    "$ref": "#/$defs/LHTest"
+   },
+   "maxItems": 400,
+   "title": "Lh Tests",
+   "type": "array"
+  },
+  "symptoms": {
+   "$ref": "#/$defs/Symptoms"
+  },
+  "labs": {
+   "$ref": "#/$defs/Labs"
+  },
+  "nights": {
+   "anyOf": [
+    {
+     "items": {
+      "$ref": "#/$defs/Night"
+     },
+     "maxItems": 800,
+     "type": "array"
+    },
+    {
+     "type": "null"
+    }
+   ],
+   "default": null,
+   "title": "Nights"
+  },
+  "oura": {
+   "anyOf": [
+    {
+     "$ref": "#/$defs/OuraExport"
+    },
+    {
+     "type": "null"
+    }
+   ],
+   "default": null
+  }
+ },
+ "required": [
+  "as_of",
+  "profile"
+ ],
+ "title": "AnalyzeRequest",
+ "type": "object"
+}

@@ -1,0 +1,180 @@
+{
+ "realistic": {
+  "women": 250,
+  "days": {
+   "days": 14515,
+   "prevalence": 0.18766792972786772,
+   "auroc": 0.896432182588801,
+   "average_precision": 0.6671016932109151,
+   "brier": 0.09552572490527042,
+   "sensitivity": 0.7918502202643172,
+   "specificity": 0.8438639640403698,
+   "precision": 0.5395197598799399,
+   "f1": 0.6417732817613805,
+   "accuracy": 0.8341026524285222,
+   "auroc_ci95_person_bootstrap": null
+  },
+  "cycles": {
+   "cycles": 500,
+   "ovulatory_cycles": 454,
+   "anovulatory_cycles": 46,
+   "realtime_detection_rate": 0.8612334801762115,
+   "realtime_final_mae": 1.2531969309462916,
+   "realtime_final_within2_of_all": 0.8039647577092511,
+   "realtime_median_delay_days": 5.0,
+   "anovulatory_false_detection": 0.13043478260869565,
+   "window_cycles_overlap_ge3": 0.8920704845814978,
+   "window_cycles_any": 0.9449339207048458,
+   "ovulation_prediction_mae_day5": 3.550660792951542,
+   "ovulation_prediction_mae_Om3": 2.8520971302428255,
+   "next_period_mae_day3": 3.656,
+   "next_period_within2_day3": 0.548,
+   "next_period_mae_after_ovulation": 1.8876651982378854,
+   "next_period_within2_after_ovulation": 0.762114537444934
+  },
+  "retrospective": {
+   "cycles": 2956,
+   "ovulatory": 2646,
+   "anovulatory": 310,
+   "detection_rate": 0.9482237339380196,
+   "mae_detected": 0.8469509764846552,
+   "within1_detected": 0.8250298923874053,
+   "within2_detected": 0.9457951375049821,
+   "within2_all_ovulatory": 0.8968253968253969,
+   "anovulatory_false_detection": 0.12580645161290321
+  },
+  "anchor_correct_fraction": 0.8513951085084396,
+  "status_counts": {
+   "ok": 14515,
+   "anchor_stale": 21
+  }
+ },
+ "irregular": {
+  "women": 80,
+  "days": {
+   "days": 4862,
+   "prevalence": 0.1740024681201152,
+   "auroc": 0.7131232752206305,
+   "average_precision": 0.36038127838324674,
+   "brier": 0.1415029080625257,
+   "sensitivity": 0.5460992907801419,
+   "specificity": 0.7442729083665338,
+   "precision": 0.31027535258562794,
+   "f1": 0.39571734475374737,
+   "accuracy": 0.7097902097902098
+  },
+  "cycles": {
+   "cycles": 160,
+   "ovulatory_cycles": 141,
+   "anovulatory_cycles": 19,
+   "realtime_detection_rate": 0.7730496453900709,
+   "realtime_final_mae": 1.7522935779816513,
+   "realtime_final_within2_of_all": 0.6524822695035462,
+   "realtime_median_delay_days": 5.0,
+   "anovulatory_false_detection": 0.10526315789473684,
+   "window_cycles_overlap_ge3": 0.5957446808510638,
+   "window_cycles_any": 0.7588652482269503,
+   "ovulation_prediction_mae_day5": 6.863309352517986,
+   "ovulation_prediction_mae_Om3": 5.673913043478261,
+   "next_period_mae_day3": 6.61875,
+   "next_period_within2_day3": 0.21875,
+   "next_period_mae_after_ovulation": 3.2624113475177303,
+   "next_period_within2_after_ovulation": 0.5460992907801419
+  },
+  "retrospective": {
+   "cycles": 939,
+   "ovulatory": 822,
+   "anovulatory": 117,
+   "detection_rate": 0.9051094890510949,
+   "mae_detected": 1.2311827956989247,
+   "within1_detected": 0.7217741935483871,
+   "within2_detected": 0.885752688172043,
+   "within2_all_ovulatory": 0.8017031630170316,
+   "anovulatory_false_detection": 0.11965811965811966
+  },
+  "anchor_correct_fraction": 0.8484162895927602,
+  "status_counts": {
+   "ok": 4862
+  }
+ },
+ "age40_45": {
+  "women": 80,
+  "days": {
+   "days": 4536,
+   "prevalence": 0.18915343915343916,
+   "auroc": 0.8981476200073264,
+   "average_precision": 0.6796908452274282,
+   "brier": 0.09440392614638449,
+   "sensitivity": 0.7913752913752914,
+   "specificity": 0.8493746601413812,
+   "precision": 0.5506893755068938,
+   "f1": 0.6494500239120039,
+   "accuracy": 0.8384038800705468
+  },
+  "cycles": {
+   "cycles": 160,
+   "ovulatory_cycles": 143,
+   "anovulatory_cycles": 17,
+   "realtime_detection_rate": 0.8671328671328671,
+   "realtime_final_mae": 0.8064516129032258,
+   "realtime_final_within2_of_all": 0.8181818181818182,
+   "realtime_median_delay_days": 4.5,
+   "anovulatory_false_detection": 0.058823529411764705,
+   "window_cycles_overlap_ge3": 0.8811188811188811,
+   "window_cycles_any": 0.9300699300699301,
+   "ovulation_prediction_mae_day5": 3.0839160839160837,
+   "ovulation_prediction_mae_Om3": 2.8380281690140845,
+   "next_period_mae_day3": 3.5375,
+   "next_period_within2_day3": 0.54375,
+   "next_period_mae_after_ovulation": 1.7272727272727273,
+   "next_period_within2_after_ovulation": 0.8251748251748252
+  },
+  "retrospective": {
+   "cycles": 947,
+   "ovulatory": 808,
+   "anovulatory": 139,
+   "detection_rate": 0.9393564356435643,
+   "mae_detected": 0.841897233201581,
+   "within1_detected": 0.8221343873517787,
+   "within2_detected": 0.9446640316205533,
+   "within2_all_ovulatory": 0.8873762376237624,
+   "anovulatory_false_detection": 0.08633093525179857
+  },
+  "anchor_correct_fraction": 0.822310405643739,
+  "status_counts": {
+   "ok": 4536
+  }
+ },
+ "anovulatory_enriched": {
+  "women": 100,
+  "cycles": {
+   "cycles": 200,
+   "ovulatory_cycles": 124,
+   "anovulatory_cycles": 76,
+   "realtime_detection_rate": 0.8629032258064516,
+   "realtime_final_mae": 1.3271028037383177,
+   "realtime_final_within2_of_all": 0.7661290322580645,
+   "realtime_median_delay_days": 5.0,
+   "anovulatory_false_detection": 0.11842105263157894,
+   "window_cycles_overlap_ge3": 0.8548387096774194,
+   "window_cycles_any": 0.9435483870967742,
+   "ovulation_prediction_mae_day5": 3.1735537190082646,
+   "ovulation_prediction_mae_Om3": 3.0165289256198347,
+   "next_period_mae_day3": 4.66,
+   "next_period_within2_day3": 0.455,
+   "next_period_mae_after_ovulation": 1.9838709677419355,
+   "next_period_within2_after_ovulation": 0.7338709677419355
+  },
+  "retrospective": {
+   "cycles": 1159,
+   "ovulatory": 755,
+   "anovulatory": 404,
+   "detection_rate": 0.9496688741721855,
+   "mae_detected": 0.9177126917712691,
+   "within1_detected": 0.8145048814504882,
+   "within2_detected": 0.9414225941422594,
+   "within2_all_ovulatory": 0.8940397350993378,
+   "anovulatory_false_detection": 0.09900990099009901
+  }
+ }
+}

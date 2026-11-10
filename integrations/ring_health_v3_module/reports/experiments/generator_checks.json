@@ -1,0 +1,247 @@
+{
+ "fmp_age": {
+  "median": 51.5007614152253,
+  "mean": 51.67495614281401,
+  "sd": 4.53994926349799,
+  "lt40": 0.01575,
+  "lt45": 0.06375,
+  "ge55": 0.23625
+ },
+ "fmp_cdf": {
+  "ages": [
+   38,
+   39,
+   40,
+   41,
+   42,
+   43,
+   44,
+   45,
+   46,
+   47,
+   48,
+   49,
+   50,
+   51,
+   52,
+   53,
+   54,
+   55,
+   56,
+   57,
+   58,
+   59,
+   60,
+   61,
+   62
+  ],
+  "cdf": [
+   0.009875,
+   0.01175,
+   0.01575,
+   0.021,
+   0.02925,
+   0.038375,
+   0.049,
+   0.06375,
+   0.0845,
+   0.121,
+   0.1795,
+   0.262,
+   0.363375,
+   0.453,
+   0.543375,
+   0.61225,
+   0.688125,
+   0.76375,
+   0.825375,
+   0.879625,
+   0.92075,
+   0.94675,
+   0.9685,
+   0.9805,
+   1.0
+  ]
+ },
+ "ela": {
+  "years": [
+   0.4995,
+   1.5,
+   2.5,
+   4.0,
+   6.0,
+   8.5,
+   11.0
+  ],
+  "generator": [
+   0.257,
+   0.365,
+   0.517,
+   0.76,
+   0.909,
+   0.969,
+   1.0
+  ],
+  "published_points": {
+   "10": 1.0,
+   "5": 0.879,
+   "<1": 0.228
+  }
+ },
+ "finkelstein_table4": [
+  {
+   "age_group": "<48",
+   "amh_band": "0-10",
+   "published": 0.51,
+   "generator": 0.625,
+   "n": 24
+  },
+  {
+   "age_group": "<48",
+   "amh_band": "10-25",
+   "published": 0.22,
+   "generator": 0.2732919254658385,
+   "n": 161
+  },
+  {
+   "age_group": "<48",
+   "amh_band": "25-50",
+   "published": 0.12,
+   "generator": 0.1282051282051282,
+   "n": 312
+  },
+  {
+   "age_group": "<48",
+   "amh_band": "50-100",
+   "published": 0.09,
+   "generator": 0.06331877729257641,
+   "n": 458
+  },
+  {
+   "age_group": "<48",
+   "amh_band": "100-200",
+   "published": 0.05,
+   "generator": 0.02727272727272727,
+   "n": 550
+  },
+  {
+   "age_group": "<48",
+   "amh_band": "200-400",
+   "published": 0.02,
+   "generator": 0.0033003300330033004,
+   "n": 606
+  },
+  {
+   "age_group": "<48",
+   "amh_band": "400-inf",
+   "published": 0.02,
+   "generator": 0.0,
+   "n": 1862
+  },
+  {
+   "age_group": "48-51",
+   "amh_band": "0-5",
+   "published": 0.67,
+   "generator": NaN,
+   "n": 8
+  },
+  {
+   "age_group": "48-51",
+   "amh_band": "5-10",
+   "published": 0.43,
+   "generator": 0.6111111111111112,
+   "n": 36
+  },
+  {
+   "age_group": "48-51",
+   "amh_band": "10-25",
+   "published": 0.4,
+   "generator": 0.36764705882352944,
+   "n": 136
+  },
+  {
+   "age_group": "48-51",
+   "amh_band": "25-50",
+   "published": 0.23,
+   "generator": 0.31336405529953915,
+   "n": 217
+  },
+  {
+   "age_group": "48-51",
+   "amh_band": "50-100",
+   "published": 0.19,
+   "generator": 0.17793594306049823,
+   "n": 281
+  },
+  {
+   "age_group": "48-51",
+   "amh_band": "100-200",
+   "published": 0.1,
+   "generator": 0.09454545454545454,
+   "n": 275
+  },
+  {
+   "age_group": "48-51",
+   "amh_band": "200-inf",
+   "published": 0.01,
+   "generator": 0.012152777777777778,
+   "n": 576
+  },
+  {
+   "age_group": ">=51",
+   "amh_band": "0-2",
+   "published": 0.82,
+   "generator": NaN,
+   "n": 0
+  },
+  {
+   "age_group": ">=51",
+   "amh_band": "2-5",
+   "published": 0.67,
+   "generator": NaN,
+   "n": 4
+  },
+  {
+   "age_group": ">=51",
+   "amh_band": "5-10",
+   "published": 0.72,
+   "generator": NaN,
+   "n": 9
+  },
+  {
+   "age_group": ">=51",
+   "amh_band": "10-25",
+   "published": 0.53,
+   "generator": 0.5232558139534884,
+   "n": 86
+  },
+  {
+   "age_group": ">=51",
+   "amh_band": "25-50",
+   "published": 0.35,
+   "generator": 0.18248175182481752,
+   "n": 137
+  },
+  {
+   "age_group": ">=51",
+   "amh_band": "50-100",
+   "published": 0.23,
+   "generator": 0.13821138211382114,
+   "n": 123
+  },
+  {
+   "age_group": ">=51",
+   "amh_band": "100-inf",
+   "published": 0.1,
+   "generator": 0.02821316614420063,
+   "n": 319
+  }
+ ],
+ "finkelstein_mae": 0.05393779957619282,
+ "finkelstein_corr": 0.9330877820280882,
+ "amh_parameters": {
+  "slope": 0.35,
+  "person_sd": 0.7,
+  "visit_sd": 0.6
+ }
+}

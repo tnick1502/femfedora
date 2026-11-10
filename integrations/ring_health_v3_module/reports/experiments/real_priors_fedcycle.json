@@ -1,0 +1,13 @@
+{
+ "source": "FedCycleData (Marquette), real; 1499 cycles / 157 women",
+ "follicular_mean": 15.97,
+ "follicular_between_sd": 2.79,
+ "follicular_within_sd": 2.31,
+ "follicular_within_sd_median": 1.91,
+ "follicular_age_slope": -0.138,
+ "luteal_mean_fedcycle": 13.21,
+ "luteal_between_sd": 1.49,
+ "luteal_within_sd_rms": 1.87,
+ "luteal_within_sd_median": 1.11,
+ "no_peak_fraction": 0.088
+}

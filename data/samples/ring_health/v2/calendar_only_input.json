@@ -1,0 +1,18 @@
+{
+  "as_of": "2024-04-05",
+  "context": {
+    "age": 32,
+    "pregnant": false,
+    "breastfeeding": false,
+    "hormonal_medication": false,
+    "hysterectomy": false,
+    "bilateral_oophorectomy": false,
+    "period_start_dates": [
+      "2024-01-01",
+      "2024-01-30",
+      "2024-02-29",
+      "2024-03-26"
+    ]
+  },
+  "daily": []
+}

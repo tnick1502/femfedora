@@ -1,0 +1,121 @@
+{
+  "jordan": {
+    "rows_raw": 200,
+    "columns_raw": 61,
+    "exact_duplicate_rows": 1,
+    "rows_prepared": 199,
+    "age_range": [
+      45,
+      60
+    ],
+    "stage_raw_counts": {
+      "3": 80,
+      "1": 68,
+      "2": 52
+    },
+    "missing_per_column": {
+      "Loss menstuartion": 62
+    },
+    "totalqol_not_equal_sum_subscales": 0,
+    "cause_recorded_outside_stage3": 58,
+    "qol_response_values": [
+      1,
+      2,
+      3
+    ],
+    "features_used": [
+      "Age",
+      "hypertension_code",
+      "thyroid_code",
+      "Back pain",
+      "DM",
+      "Heart disease",
+      "Varcoise",
+      "Constipation",
+      "Respiratory",
+      "Tumors"
+    ],
+    "excluded": [
+      "Loss menstuartion",
+      "all QOL items and aggregate scores",
+      "derived agecat",
+      "categorical Children/Pregnancies with no coding key",
+      "social/demographic codes with ambiguous mappings"
+    ],
+    "target_status": "Proxy mapping supported by questionnaire order and published counts; original codebook absent. Current stage only, no future menopause event.",
+    "source_doi": "10.12688/f1000research.125887.2",
+    "dataset_doi": "10.6084/m9.figshare.20822032.v2"
+  },
+  "nhanes": [
+    {
+      "cohort": 2015,
+      "candidate_35_60": 1257,
+      "included": 853,
+      "positive": 274,
+      "negative": 579,
+      "excluded": 404,
+      "known_surgery_excluded": 212,
+      "missing_fraction": {
+        "participant_id": 0.0,
+        "cohort": 0.0,
+        "target": 0.0,
+        "age": 0.0,
+        "bmi": 0.008206330597889801,
+        "waist_cm": 0.032825322391559206,
+        "pulse_bpm": 0.022274325908558032,
+        "sleep_hours": 0.005861664712778429,
+        "menarche_age": 0.0035169988276670576,
+        "exam_weight": 0.0,
+        "stratum": 0.0,
+        "psu": 0.0
+      },
+      "scope": "Current self-reported natural menopause versus at least one period in 12 months. Includes peri in comparator; not future onset.",
+      "limits": "Some surgery and pregnancy-related fields suppressed above age44; complete exclusion cannot be guaranteed. Ever hormone use is not current use."
+    },
+    {
+      "cohort": 2017,
+      "candidate_35_60": 1166,
+      "included": 815,
+      "positive": 289,
+      "negative": 526,
+      "excluded": 351,
+      "known_surgery_excluded": 208,
+      "missing_fraction": {
+        "participant_id": 0.0,
+        "cohort": 0.0,
+        "target": 0.0,
+        "age": 0.0,
+        "bmi": 0.013496932515337423,
+        "waist_cm": 0.03803680981595092,
+        "pulse_bpm": 0.04294478527607362,
+        "sleep_hours": 0.0036809815950920245,
+        "menarche_age": 0.012269938650306749,
+        "exam_weight": 0.0,
+        "stratum": 0.0,
+        "psu": 0.0
+      },
+      "scope": "Current self-reported natural menopause versus at least one period in 12 months. Includes peri in comparator; not future onset.",
+      "limits": "Some surgery and pregnancy-related fields suppressed above age44; complete exclusion cannot be guaranteed. Ever hormone use is not current use."
+    }
+  ],
+  "tempid": {
+    "hourly_rows": 39707,
+    "cycle_series": 59,
+    "participant_groups_inferred": 39,
+    "daily_rows": 1239,
+    "aligned_reference_dates": 1,
+    "per_series_mean_range": [
+      36.499999999999986,
+      36.500000000000014
+    ],
+    "upstream_cautions": [
+      "All series are aligned to one ovulation date; timestamps and relative_event_day are target-only and banned from X",
+      "Every series mean is exactly36.5C: full-series normalization upstream; offset-invariant fixed-window features used",
+      "Author data already filtered and bidirectionally imputed; cannot establish causal/raw performance",
+      "Seven startup days discarded and fixed-size windows used to reduce alignment-boundary leakage",
+      "Participant grouping inferred by removing final cycle suffix; no independent identity mapping",
+      "Non-ring skin sensor; transfer to Oura unvalidated"
+    ],
+    "evaluation_status": "Processed-data research benchmark only, not prospective real-world validation"
+  }
+}

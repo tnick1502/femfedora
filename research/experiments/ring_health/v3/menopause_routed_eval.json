@@ -1,0 +1,18 @@
+{
+ "routed_stage_macro_f1": 0.7355750917834847,
+ "full_only_macro_f1": 0.7343847838965999,
+ "grouped3_macro_f1_routed": 0.8477206270812728,
+ "routed_fraction": 0.04933333333333333,
+ "recall_routed": {
+  "reproductive": 0.9132893496701225,
+  "early_transition": 0.3715083798882682,
+  "late_transition": 0.6597938144329897,
+  "postmenopause": 0.9728682170542635
+ },
+ "routed_fmp_auc_6": 0.9282157831686134,
+ "routed_fmp_auc_12": 0.9296435272045027,
+ "routed_fmp_auc_24": 0.9315826660386245,
+ "routed_fmp_auc_36": 0.9277604044891279,
+ "routed_fmp_auc_48": 0.9259263941742417,
+ "routed_fmp_auc_60": 0.9003220611916265
+}

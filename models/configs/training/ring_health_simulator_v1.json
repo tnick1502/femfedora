@@ -1,0 +1,37 @@
+{
+  "version":"v1",
+  "status":"physiology_informed_engineering_scenarios_not_population_model",
+  "evidence_supported": {
+    "biphasic_temperature":"postovulatory finger-temperature elevation is supported by Oura studies; 0.3..0.7C is the reference range used here",
+    "source":"https://www.jmir.org/2025/1/e60667",
+    "fertile_label":"six-day interval ending on ovulation day",
+    "fertile_source":"https://www.nejm.org/doi/full/10.1056/NEJM199512073332301",
+    "staging":"bleeding history, not ring physiology alone, defines STRAW+10 staging",
+    "stage_source":"https://pmc.ncbi.nlm.nih.gov/articles/PMC3580996/"
+  },
+  "engineering_assumptions_not_estimated_from_clinical_cohort": {
+    "stage_proportions":[0.36,0.32,0.32],
+    "stage_age_mean":[43,49,55],
+    "stage_age_sd":[6,5,5],
+    "stage_cycle_length_mean":[28,35,35],
+    "stage_cycle_length_sd":[3,12,12],
+    "stage_ovulatory_probability":[0.92,0.60,0.0],
+    "stage_burden_mean":[0.4,1.6,1.2],
+    "cycle_prior_typical_mean_sd":[29,3.5],
+    "cycle_variability_choices":[2,5,9],
+    "cycle_variability_mixture":[0.60,0.27,0.13],
+    "fertility_anovulation_probability":0.07,
+    "luteal_length_normal_mean_sd":[13,2],
+    "rhr_luteal_increase_uniform_bpm":[1.5,4],
+    "hrv_luteal_log_effect":-0.07,
+    "respiratory_luteal_effect_per_min":0.25,
+    "temperature_ar_noise_sigma":0.07,
+    "ar_rho":0.65,
+    "nonwear_probability":0.07,
+    "illness_person_probability":0.35,
+    "shift_stage":{"noise_multiplier":2.0,"temperature_attenuation":0.55,"nonwear_probability":0.30,"temperature_offset":0.15},
+    "shift_fertility":{"noise_multiplier":1.8,"temperature_attenuation":0.60,"nonwear_probability":0.25,"anovulation_probability":0.12}
+  },
+  "interpretation":"Joint distributions, stage separability, hormone status and observation errors have not been estimated from representative ring cohorts. High synthetic metrics test recovery of these assumptions, not real physiology. A domain-shift stress test is still synthetic, not external validation.",
+  "implementation":"src/ring_health/simulation.py"
+}

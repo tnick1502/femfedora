@@ -1,0 +1,37 @@
+{
+  "python": "3.12.14",
+  "sklearn": "1.9.1",
+  "numpy": "2.3.5",
+  "pandas": "2.2.3",
+  "code_base_commit": "2f98cf045d6942cdbac050b86476f4c82294ea7c",
+  "code_sha256": {
+    "models/configs/training/ring_health_simulator_v1.json": "e38a713236b8ccb8e21ceb83814205be4cfdb198cd5219ee976edceff9af36a2",
+    "src/ring_health/__init__.py": "5e5969d31527d4874de1de7608799e1a1273754f56869887c96a6953de7b54d2",
+    "src/ring_health/data.py": "ebcb64572dd296bababaef4b15bc6212893aa2397b03bf30fc9e4a45636e70e8",
+    "src/ring_health/evaluation.py": "21412dd580ff40c1067e226a468a530500855c92141fdb9e78ed1b5866a1279a",
+    "src/ring_health/features.py": "5030dc75c80229a2f7183da36857f2741fd0d692aaa903eee3cc6b42c1bf4432",
+    "src/ring_health/ovulation_filter.py": "1451b4d21b94d234a2410906e1b860b1bde297210ef3f3438c4903905f0d7bc6",
+    "src/ring_health/predict.py": "5ae5e0b3e6a16f4b1e6c7cf10d62e2ffb5feb28bcbc0493f32eecaac7ccf1fc6",
+    "src/ring_health/simulation.py": "94929276c2404c463caef12689190bc866d1576ddb6712c869593980db9cc359",
+    "src/ring_health/train.py": "63e751bd548534dbcddfce0eea1b2cadc369bce903471a06c80626f5263226ea",
+    "tests/unit/test_ring_health.py": "18daef4bf96aa1fdafa887afb8126980429bd11847ecd6034aa4633ac532488a",
+    "tools/build_ring_health_report.py": "65433dc063052783762e69627b41acbb9db3b5d03fd6988b3f117ee29f9ed7b1",
+    "tools/download_ring_health_data.py": "eef6ed61fe4b755dd538b2bb5157719f549f09a5a85995ca10a2077ea4f890a3",
+    "tools/package_ring_health.py": "27167e87ba70e866def79a5c0b2e8e507d39a4fa127860ade0c745a996031154",
+    "tools/serve_ring_health.py": "4859d1b2020cc222419d7e66fc25cdc92f30cb802e8591249015f69e4a96ef8e",
+    "tools/validate_ring_health.py": "32406d139807422779249fb8c35e282b80af1e5860684bfb3ac4ad3c7a309182"
+  },
+  "data_sha256": {
+    "data/processed/ring_health/nhanes_current_status.csv": "1a6df978a100d470cbf73d78d5b873272f45c8c0f37c620bc73f55e8e0b90460",
+    "data/processed/ring_health/jordan_stage_proxy.csv": "0a6342027f76b398d8520df82710ef1dae7f2a98ef073bb61f166e9e00929e19",
+    "data/processed/ring_health/tempid_daily_research.csv": "c1c5498f883007287d5dd6272f4502c1fa4e66d961537b8498f25bc66fc8eef6",
+    "data/processed/ring_health/DATASET.md": "fd8dddfd08c57abf5da7a98fd395b526a679261b09edf8b16e14f245b0957a7d",
+    "data/processed/ring_health/synthetic_stage_daily_examples.csv": "000e180e8a2f9555c770658f73f0d04a109e105345aa4d22794256918fdced97",
+    "data/processed/ring_health/questionnaire_extracted.txt": "94062e6ccf42a0e8909c9ab0112edb034038a1fbacfdf76c7e5fdba4570d4bd0",
+    "data/processed/ring_health/synthetic_fertility_features.csv": "6709aaf31c574332e63dea61c1b1eb6fb61220c8d5d3ea4f3dcd7060188c092e",
+    "data/processed/ring_health/synthetic_fertility_events.csv": "b4f272924546b2aa8a038f61feea8df6efa0b757b3fa1b465bdda58ca3616e9e",
+    "data/processed/ring_health/synthetic_stage_features.csv": "53046b467be9f0a91d70f71d564a09cd1fceb20414bebfc63beed04c2a8db3c8",
+    "data/processed/ring_health/synthetic_fertility_daily_examples.csv": "ef3f549760caf20eb31d5ca5c529fde5efc56a9d354f9476b04174fedccf6074"
+  },
+  "note": "Final code fingerprints include inference and validation. Early exploratory results were reviewed; this is a reproducible research benchmark, not a preregistered blinded validation."
+}

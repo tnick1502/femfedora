@@ -1,0 +1,2397 @@
+{
+ "as_of": "2026-11-09",
+ "modules": [
+  "fertility"
+ ],
+ "profile": {
+  "age": 24,
+  "smoker": false,
+  "bmi": 21.0,
+  "parous": false,
+  "college_education": true
+ },
+ "cycle": {
+  "period_starts": [
+   "2026-04-09",
+   "2026-05-14",
+   "2026-06-15",
+   "2026-07-17",
+   "2026-08-16",
+   "2026-09-17",
+   "2026-10-22"
+  ],
+  "period_logs_complete": true,
+  "logging_since": "2026-04-09",
+  "menses_length": 5
+ },
+ "lh_tests": [
+  {
+   "date": "2026-04-21",
+   "result": "negative"
+  },
+  {
+   "date": "2026-04-23",
+   "result": "negative"
+  },
+  {
+   "date": "2026-04-24",
+   "result": "negative"
+  },
+  {
+   "date": "2026-04-25",
+   "result": "negative"
+  },
+  {
+   "date": "2026-04-29",
+   "result": "negative"
+  },
+  {
+   "date": "2026-04-30",
+   "result": "negative"
+  },
+  {
+   "date": "2026-05-01",
+   "result": "negative"
+  },
+  {
+   "date": "2026-05-02",
+   "result": "negative"
+  },
+  {
+   "date": "2026-06-27",
+   "result": "negative"
+  },
+  {
+   "date": "2026-06-28",
+   "result": "negative"
+  },
+  {
+   "date": "2026-06-29",
+   "result": "negative"
+  },
+  {
+   "date": "2026-06-30",
+   "result": "negative"
+  },
+  {
+   "date": "2026-07-01",
+   "result": "negative"
+  },
+  {
+   "date": "2026-07-02",
+   "result": "positive"
+  },
+  {
+   "date": "2026-07-03",
+   "result": "negative"
+  },
+  {
+   "date": "2026-07-04",
+   "result": "positive"
+  },
+  {
+   "date": "2026-07-05",
+   "result": "positive"
+  },
+  {
+   "date": "2026-07-06",
+   "result": "negative"
+  },
+  {
+   "date": "2026-07-07",
+   "result": "negative"
+  },
+  {
+   "date": "2026-07-08",
+   "result": "negative"
+  },
+  {
+   "date": "2026-07-29",
+   "result": "negative"
+  },
+  {
+   "date": "2026-07-30",
+   "result": "negative"
+  },
+  {
+   "date": "2026-07-31",
+   "result": "negative"
+  },
+  {
+   "date": "2026-08-01",
+   "result": "negative"
+  },
+  {
+   "date": "2026-08-02",
+   "result": "negative"
+  },
+  {
+   "date": "2026-08-03",
+   "result": "positive"
+  },
+  {
+   "date": "2026-08-04",
+   "result": "positive"
+  },
+  {
+   "date": "2026-08-05",
+   "result": "negative"
+  },
+  {
+   "date": "2026-08-06",
+   "result": "negative"
+  },
+  {
+   "date": "2026-08-08",
+   "result": "negative"
+  },
+  {
+   "date": "2026-08-09",
+   "result": "negative"
+  },
+  {
+   "date": "2026-08-10",
+   "result": "negative"
+  },
+  {
+   "date": "2026-08-28",
+   "result": "negative"
+  },
+  {
+   "date": "2026-08-30",
+   "result": "negative"
+  },
+  {
+   "date": "2026-08-31",
+   "result": "negative"
+  },
+  {
+   "date": "2026-09-01",
+   "result": "negative"
+  },
+  {
+   "date": "2026-09-02",
+   "result": "negative"
+  },
+  {
+   "date": "2026-09-03",
+   "result": "positive"
+  },
+  {
+   "date": "2026-09-04",
+   "result": "positive"
+  },
+  {
+   "date": "2026-09-05",
+   "result": "negative"
+  },
+  {
+   "date": "2026-09-07",
+   "result": "negative"
+  },
+  {
+   "date": "2026-09-09",
+   "result": "negative"
+  },
+  {
+   "date": "2026-09-29",
+   "result": "negative"
+  },
+  {
+   "date": "2026-09-30",
+   "result": "negative"
+  },
+  {
+   "date": "2026-10-01",
+   "result": "negative"
+  },
+  {
+   "date": "2026-10-02",
+   "result": "negative"
+  },
+  {
+   "date": "2026-10-03",
+   "result": "negative"
+  },
+  {
+   "date": "2026-10-04",
+   "result": "positive"
+  },
+  {
+   "date": "2026-10-05",
+   "result": "positive"
+  },
+  {
+   "date": "2026-10-06",
+   "result": "negative"
+  },
+  {
+   "date": "2026-10-08",
+   "result": "negative"
+  },
+  {
+   "date": "2026-10-09",
+   "result": "negative"
+  },
+  {
+   "date": "2026-10-10",
+   "result": "negative"
+  },
+  {
+   "date": "2026-10-11",
+   "result": "negative"
+  }
+ ],
+ "nights": [
+  {
+   "date": "2026-04-09",
+   "temperature_deviation": -0.19,
+   "resting_hr": 71,
+   "hrv_ms": 45,
+   "respiratory_rate": 14.5,
+   "sleep_minutes": 347,
+   "sleep_efficiency": 94,
+   "awake_minutes": 33
+  },
+  {
+   "date": "2026-04-10",
+   "temperature_deviation": null,
+   "resting_hr": null,
+   "hrv_ms": null,
+   "respiratory_rate": null,
+   "sleep_minutes": null,
+   "sleep_efficiency": null,
+   "awake_minutes": null
+  },
+  {
+   "date": "2026-04-11",
+   "temperature_deviation": -0.27,
+   "resting_hr": 72,
+   "hrv_ms": 52,
+   "respiratory_rate": 14.5,
+   "sleep_minutes": 381,
+   "sleep_efficiency": 98,
+   "awake_minutes": 29
+  },
+  {
+   "date": "2026-04-12",
+   "temperature_deviation": -0.31,
+   "resting_hr": 72,
+   "hrv_ms": 53,
+   "respiratory_rate": 14.3,
+   "sleep_minutes": 361,
+   "sleep_efficiency": 88,
+   "awake_minutes": 27
+  },
+  {
+   "date": "2026-04-13",
+   "temperature_deviation": 0.04,
+   "resting_hr": 69,
+   "hrv_ms": 59,
+   "respiratory_rate": 14.4,
+   "sleep_minutes": 369,
+   "sleep_efficiency": 91,
+   "awake_minutes": 46
+  },
+  {
+   "date": "2026-04-14",
+   "temperature_deviation": -0.11,
+   "resting_hr": 68,
+   "hrv_ms": 43,
+   "respiratory_rate": 14.2,
+   "sleep_minutes": 359,
+   "sleep_efficiency": 85,
+   "awake_minutes": 52
+  },
+  {
+   "date": "2026-04-15",
+   "temperature_deviation": -0.17,
+   "resting_hr": 69,
+   "hrv_ms": 45,
+   "respiratory_rate": null,
+   "sleep_minutes": 317,
+   "sleep_efficiency": 90,
+   "awake_minutes": 38
+  },
+  {
+   "date": "2026-04-16",
+   "temperature_deviation": -0.11,
+   "resting_hr": 69,
+   "hrv_ms": 48,
+   "respiratory_rate": 14.5,
+   "sleep_minutes": 293,
+   "sleep_efficiency": 86,
+   "awake_minutes": 34
+  },
+  {
+   "date": "2026-04-17",
+   "temperature_deviation": -0.2,
+   "resting_hr": 72,
+   "hrv_ms": 49,
+   "respiratory_rate": 14.1,
+   "sleep_minutes": 288,
+   "sleep_efficiency": 86,
+   "awake_minutes": 37
+  },
+  {
+   "date": "2026-04-18",
+   "temperature_deviation": -0.25,
+   "resting_hr": 69,
+   "hrv_ms": 48,
+   "respiratory_rate": 14.2,
+   "sleep_minutes": 235,
+   "sleep_efficiency": 84,
+   "awake_minutes": 39
+  },
+  {
+   "date": "2026-04-19",
+   "temperature_deviation": 0.13,
+   "resting_hr": 69,
+   "hrv_ms": 43,
+   "respiratory_rate": 14.8,
+   "sleep_minutes": 368,
+   "sleep_efficiency": 87,
+   "awake_minutes": 42
+  },
+  {
+   "date": "2026-04-20",
+   "temperature_deviation": -0.12,
+   "resting_hr": 69,
+   "hrv_ms": 45,
+   "respiratory_rate": 14.9,
+   "sleep_minutes": 329,
+   "sleep_efficiency": 89,
+   "awake_minutes": 43
+  },
+  {
+   "date": "2026-04-21",
+   "temperature_deviation": -0.39,
+   "resting_hr": 71,
+   "hrv_ms": 46,
+   "respiratory_rate": 14.9,
+   "sleep_minutes": 294,
+   "sleep_efficiency": 81,
+   "awake_minutes": 36
+  },
+  {
+   "date": "2026-04-22",
+   "temperature_deviation": -0.55,
+   "resting_hr": 70,
+   "hrv_ms": 52,
+   "respiratory_rate": 14.4,
+   "sleep_minutes": 395,
+   "sleep_efficiency": 84,
+   "awake_minutes": 39
+  },
+  {
+   "date": "2026-04-23",
+   "temperature_deviation": -0.22,
+   "resting_hr": 73,
+   "hrv_ms": 54,
+   "respiratory_rate": 14.6,
+   "sleep_minutes": 389,
+   "sleep_efficiency": 87,
+   "awake_minutes": 32
+  },
+  {
+   "date": "2026-04-24",
+   "temperature_deviation": 0.18,
+   "resting_hr": 71,
+   "hrv_ms": 59,
+   "respiratory_rate": 14.7,
+   "sleep_minutes": 442,
+   "sleep_efficiency": 87,
+   "awake_minutes": 33
+  },
+  {
+   "date": "2026-04-25",
+   "temperature_deviation": -0.17,
+   "resting_hr": 71,
+   "hrv_ms": 60,
+   "respiratory_rate": 14.8,
+   "sleep_minutes": 416,
+   "sleep_efficiency": 85,
+   "awake_minutes": 44
+  },
+  {
+   "date": "2026-04-26",
+   "temperature_deviation": -0.41,
+   "resting_hr": 72,
+   "hrv_ms": 57,
+   "respiratory_rate": 14.7,
+   "sleep_minutes": 380,
+   "sleep_efficiency": 88,
+   "awake_minutes": 38
+  },
+  {
+   "date": "2026-04-27",
+   "temperature_deviation": -0.18,
+   "resting_hr": 72,
+   "hrv_ms": 54,
+   "respiratory_rate": 14.5,
+   "sleep_minutes": 384,
+   "sleep_efficiency": 88,
+   "awake_minutes": 33
+  },
+  {
+   "date": "2026-04-28",
+   "temperature_deviation": -0.1,
+   "resting_hr": 76,
+   "hrv_ms": 43,
+   "respiratory_rate": 14.6,
+   "sleep_minutes": 358,
+   "sleep_efficiency": 89,
+   "awake_minutes": 42
+  },
+  {
+   "date": "2026-04-29",
+   "temperature_deviation": -0.16,
+   "resting_hr": 69,
+   "hrv_ms": 44,
+   "respiratory_rate": 14.6,
+   "sleep_minutes": 353,
+   "sleep_efficiency": 88,
+   "awake_minutes": 32
+  },
+  {
+   "date": "2026-04-30",
+   "temperature_deviation": -0.06,
+   "resting_hr": 72,
+   "hrv_ms": 43,
+   "respiratory_rate": 14.7,
+   "sleep_minutes": 288,
+   "sleep_efficiency": 85,
+   "awake_minutes": 29
+  },
+  {
+   "date": "2026-05-01",
+   "temperature_deviation": 0.21,
+   "resting_hr": 76,
+   "hrv_ms": 35,
+   "respiratory_rate": 14.9,
+   "sleep_minutes": 358,
+   "sleep_efficiency": 85,
+   "awake_minutes": 33
+  },
+  {
+   "date": "2026-05-02",
+   "temperature_deviation": 0.37,
+   "resting_hr": 71,
+   "hrv_ms": 51,
+   "respiratory_rate": 14.8,
+   "sleep_minutes": 336,
+   "sleep_efficiency": 96,
+   "awake_minutes": 24
+  },
+  {
+   "date": "2026-05-03",
+   "temperature_deviation": 0.53,
+   "resting_hr": 72,
+   "hrv_ms": 52,
+   "respiratory_rate": 14.9,
+   "sleep_minutes": 441,
+   "sleep_efficiency": 89,
+   "awake_minutes": 46
+  },
+  {
+   "date": "2026-05-04",
+   "temperature_deviation": 0.39,
+   "resting_hr": 75,
+   "hrv_ms": 39,
+   "respiratory_rate": 15.0,
+   "sleep_minutes": 360,
+   "sleep_efficiency": 91,
+   "awake_minutes": 38
+  },
+  {
+   "date": "2026-05-05",
+   "temperature_deviation": 0.52,
+   "resting_hr": 75,
+   "hrv_ms": 37,
+   "respiratory_rate": 15.2,
+   "sleep_minutes": 370,
+   "sleep_efficiency": 82,
+   "awake_minutes": 50
+  },
+  {
+   "date": "2026-05-06",
+   "temperature_deviation": 0.28,
+   "resting_hr": 74,
+   "hrv_ms": 40,
+   "respiratory_rate": null,
+   "sleep_minutes": 389,
+   "sleep_efficiency": 89,
+   "awake_minutes": 35
+  },
+  {
+   "date": "2026-05-07",
+   "temperature_deviation": 0.19,
+   "resting_hr": 77,
+   "hrv_ms": 35,
+   "respiratory_rate": 14.7,
+   "sleep_minutes": 355,
+   "sleep_efficiency": 82,
+   "awake_minutes": 40
+  },
+  {
+   "date": "2026-05-08",
+   "temperature_deviation": 0.21,
+   "resting_hr": 73,
+   "hrv_ms": 39,
+   "respiratory_rate": 14.9,
+   "sleep_minutes": 303,
+   "sleep_efficiency": 87,
+   "awake_minutes": 30
+  },
+  {
+   "date": "2026-05-09",
+   "temperature_deviation": 0.13,
+   "resting_hr": 75,
+   "hrv_ms": null,
+   "respiratory_rate": 15.1,
+   "sleep_minutes": 276,
+   "sleep_efficiency": 88,
+   "awake_minutes": 43
+  },
+  {
+   "date": "2026-05-10",
+   "temperature_deviation": null,
+   "resting_hr": 71,
+   "hrv_ms": 38,
+   "respiratory_rate": 15.2,
+   "sleep_minutes": 342,
+   "sleep_efficiency": 88,
+   "awake_minutes": 36
+  },
+  {
+   "date": "2026-05-11",
+   "temperature_deviation": 0.06,
+   "resting_hr": 72,
+   "hrv_ms": 45,
+   "respiratory_rate": 15.3,
+   "sleep_minutes": 350,
+   "sleep_efficiency": 85,
+   "awake_minutes": 31
+  },
+  {
+   "date": "2026-05-12",
+   "temperature_deviation": 0.13,
+   "resting_hr": 78,
+   "hrv_ms": 32,
+   "respiratory_rate": 15.3,
+   "sleep_minutes": 349,
+   "sleep_efficiency": 84,
+   "awake_minutes": 26
+  },
+  {
+   "date": "2026-05-13",
+   "temperature_deviation": -0.09,
+   "resting_hr": 75,
+   "hrv_ms": 40,
+   "respiratory_rate": 14.7,
+   "sleep_minutes": 353,
+   "sleep_efficiency": 90,
+   "awake_minutes": 28
+  },
+  {
+   "date": "2026-05-14",
+   "temperature_deviation": 0.0,
+   "resting_hr": 71,
+   "hrv_ms": 39,
+   "respiratory_rate": 14.8,
+   "sleep_minutes": 299,
+   "sleep_efficiency": 92,
+   "awake_minutes": 31
+  },
+  {
+   "date": "2026-05-15",
+   "temperature_deviation": -0.11,
+   "resting_hr": 70,
+   "hrv_ms": 42,
+   "respiratory_rate": 15.0,
+   "sleep_minutes": 340,
+   "sleep_efficiency": 91,
+   "awake_minutes": 33
+  },
+  {
+   "date": "2026-05-16",
+   "temperature_deviation": -0.3,
+   "resting_hr": 70,
+   "hrv_ms": 45,
+   "respiratory_rate": 14.3,
+   "sleep_minutes": 370,
+   "sleep_efficiency": 84,
+   "awake_minutes": 35
+  },
+  {
+   "date": "2026-05-17",
+   "temperature_deviation": -0.11,
+   "resting_hr": 73,
+   "hrv_ms": 44,
+   "respiratory_rate": 14.4,
+   "sleep_minutes": 347,
+   "sleep_efficiency": 86,
+   "awake_minutes": 36
+  },
+  {
+   "date": "2026-05-18",
+   "temperature_deviation": 0.12,
+   "resting_hr": 73,
+   "hrv_ms": 41,
+   "respiratory_rate": 14.6,
+   "sleep_minutes": 314,
+   "sleep_efficiency": 81,
+   "awake_minutes": 30
+  },
+  {
+   "date": "2026-05-19",
+   "temperature_deviation": -0.18,
+   "resting_hr": 69,
+   "hrv_ms": 44,
+   "respiratory_rate": 14.5,
+   "sleep_minutes": 337,
+   "sleep_efficiency": 86,
+   "awake_minutes": 29
+  },
+  {
+   "date": "2026-05-20",
+   "temperature_deviation": -0.23,
+   "resting_hr": 73,
+   "hrv_ms": 56,
+   "respiratory_rate": 14.7,
+   "sleep_minutes": 295,
+   "sleep_efficiency": 89,
+   "awake_minutes": 29
+  },
+  {
+   "date": "2026-05-21",
+   "temperature_deviation": -0.54,
+   "resting_hr": 72,
+   "hrv_ms": 47,
+   "respiratory_rate": 14.4,
+   "sleep_minutes": 383,
+   "sleep_efficiency": 87,
+   "awake_minutes": 29
+  },
+  {
+   "date": "2026-05-22",
+   "temperature_deviation": -0.2,
+   "resting_hr": 71,
+   "hrv_ms": 41,
+   "respiratory_rate": 14.3,
+   "sleep_minutes": 440,
+   "sleep_efficiency": 82,
+   "awake_minutes": 48
+  },
+  {
+   "date": "2026-05-23",
+   "temperature_deviation": -0.2,
+   "resting_hr": 68,
+   "hrv_ms": 42,
+   "respiratory_rate": 14.4,
+   "sleep_minutes": 343,
+   "sleep_efficiency": 85,
+   "awake_minutes": 29
+  },
+  {
+   "date": "2026-05-24",
+   "temperature_deviation": -0.26,
+   "resting_hr": 69,
+   "hrv_ms": null,
+   "respiratory_rate": 14.7,
+   "sleep_minutes": 347,
+   "sleep_efficiency": 89,
+   "awake_minutes": 30
+  },
+  {
+   "date": "2026-05-25",
+   "temperature_deviation": -0.2,
+   "resting_hr": 72,
+   "hrv_ms": 38,
+   "respiratory_rate": 14.6,
+   "sleep_minutes": 327,
+   "sleep_efficiency": 84,
+   "awake_minutes": 45
+  },
+  {
+   "date": "2026-05-26",
+   "temperature_deviation": -0.31,
+   "resting_hr": 71,
+   "hrv_ms": 43,
+   "respiratory_rate": 14.4,
+   "sleep_minutes": 442,
+   "sleep_efficiency": 83,
+   "awake_minutes": 30
+  },
+  {
+   "date": "2026-05-27",
+   "temperature_deviation": -0.37,
+   "resting_hr": 70,
+   "hrv_ms": 58,
+   "respiratory_rate": 14.4,
+   "sleep_minutes": 405,
+   "sleep_efficiency": 93,
+   "awake_minutes": 41
+  },
+  {
+   "date": "2026-05-28",
+   "temperature_deviation": -0.39,
+   "resting_hr": 71,
+   "hrv_ms": 48,
+   "respiratory_rate": 14.3,
+   "sleep_minutes": 420,
+   "sleep_efficiency": 74,
+   "awake_minutes": 47
+  },
+  {
+   "date": "2026-05-29",
+   "temperature_deviation": -0.6,
+   "resting_hr": 68,
+   "hrv_ms": 41,
+   "respiratory_rate": 14.4,
+   "sleep_minutes": 334,
+   "sleep_efficiency": 85,
+   "awake_minutes": 25
+  },
+  {
+   "date": "2026-05-30",
+   "temperature_deviation": -0.23,
+   "resting_hr": 69,
+   "hrv_ms": 44,
+   "respiratory_rate": 14.6,
+   "sleep_minutes": 336,
+   "sleep_efficiency": 89,
+   "awake_minutes": 35
+  },
+  {
+   "date": "2026-05-31",
+   "temperature_deviation": -0.26,
+   "resting_hr": 72,
+   "hrv_ms": 34,
+   "respiratory_rate": null,
+   "sleep_minutes": 423,
+   "sleep_efficiency": 88,
+   "awake_minutes": 29
+  },
+  {
+   "date": "2026-06-01",
+   "temperature_deviation": null,
+   "resting_hr": null,
+   "hrv_ms": null,
+   "respiratory_rate": null,
+   "sleep_minutes": null,
+   "sleep_efficiency": null,
+   "awake_minutes": null
+  },
+  {
+   "date": "2026-06-02",
+   "temperature_deviation": -0.01,
+   "resting_hr": 74,
+   "hrv_ms": 40,
+   "respiratory_rate": null,
+   "sleep_minutes": 265,
+   "sleep_efficiency": 87,
+   "awake_minutes": 35
+  },
+  {
+   "date": "2026-06-03",
+   "temperature_deviation": 0.23,
+   "resting_hr": 73,
+   "hrv_ms": 35,
+   "respiratory_rate": 15.0,
+   "sleep_minutes": 334,
+   "sleep_efficiency": 86,
+   "awake_minutes": 38
+  },
+  {
+   "date": "2026-06-04",
+   "temperature_deviation": 0.29,
+   "resting_hr": 72,
+   "hrv_ms": 42,
+   "respiratory_rate": 15.1,
+   "sleep_minutes": 359,
+   "sleep_efficiency": 84,
+   "awake_minutes": 29
+  },
+  {
+   "date": "2026-06-05",
+   "temperature_deviation": null,
+   "resting_hr": null,
+   "hrv_ms": null,
+   "respiratory_rate": null,
+   "sleep_minutes": null,
+   "sleep_efficiency": null,
+   "awake_minutes": null
+  },
+  {
+   "date": "2026-06-06",
+   "temperature_deviation": 0.2,
+   "resting_hr": 73,
+   "hrv_ms": 37,
+   "respiratory_rate": 15.1,
+   "sleep_minutes": 317,
+   "sleep_efficiency": 88,
+   "awake_minutes": 36
+  },
+  {
+   "date": "2026-06-07",
+   "temperature_deviation": 0.56,
+   "resting_hr": 69,
+   "hrv_ms": 36,
+   "respiratory_rate": 14.8,
+   "sleep_minutes": 417,
+   "sleep_efficiency": 87,
+   "awake_minutes": 46
+  },
+  {
+   "date": "2026-06-08",
+   "temperature_deviation": 0.29,
+   "resting_hr": 69,
+   "hrv_ms": 34,
+   "respiratory_rate": 14.4,
+   "sleep_minutes": 373,
+   "sleep_efficiency": 85,
+   "awake_minutes": 31
+  },
+  {
+   "date": "2026-06-09",
+   "temperature_deviation": 0.47,
+   "resting_hr": 72,
+   "hrv_ms": 36,
+   "respiratory_rate": 14.7,
+   "sleep_minutes": 316,
+   "sleep_efficiency": 85,
+   "awake_minutes": 32
+  },
+  {
+   "date": "2026-06-10",
+   "temperature_deviation": 0.12,
+   "resting_hr": 73,
+   "hrv_ms": 41,
+   "respiratory_rate": 14.9,
+   "sleep_minutes": 354,
+   "sleep_efficiency": 89,
+   "awake_minutes": 33
+  },
+  {
+   "date": "2026-06-11",
+   "temperature_deviation": 0.24,
+   "resting_hr": 73,
+   "hrv_ms": null,
+   "respiratory_rate": 15.2,
+   "sleep_minutes": 350,
+   "sleep_efficiency": 90,
+   "awake_minutes": 37
+  },
+  {
+   "date": "2026-06-12",
+   "temperature_deviation": 0.07,
+   "resting_hr": 72,
+   "hrv_ms": 33,
+   "respiratory_rate": 14.7,
+   "sleep_minutes": 319,
+   "sleep_efficiency": 86,
+   "awake_minutes": 34
+  },
+  {
+   "date": "2026-06-13",
+   "temperature_deviation": 0.02,
+   "resting_hr": 70,
+   "hrv_ms": 39,
+   "respiratory_rate": 15.0,
+   "sleep_minutes": 393,
+   "sleep_efficiency": 96,
+   "awake_minutes": 42
+  },
+  {
+   "date": "2026-06-14",
+   "temperature_deviation": -0.12,
+   "resting_hr": 71,
+   "hrv_ms": 35,
+   "respiratory_rate": 14.6,
+   "sleep_minutes": 225,
+   "sleep_efficiency": 83,
+   "awake_minutes": 24
+  },
+  {
+   "date": "2026-06-15",
+   "temperature_deviation": -0.06,
+   "resting_hr": 75,
+   "hrv_ms": 38,
+   "respiratory_rate": 14.5,
+   "sleep_minutes": 388,
+   "sleep_efficiency": 89,
+   "awake_minutes": 31
+  },
+  {
+   "date": "2026-06-16",
+   "temperature_deviation": null,
+   "resting_hr": 70,
+   "hrv_ms": null,
+   "respiratory_rate": 14.3,
+   "sleep_minutes": 311,
+   "sleep_efficiency": 85,
+   "awake_minutes": 26
+  },
+  {
+   "date": "2026-06-17",
+   "temperature_deviation": -0.65,
+   "resting_hr": 70,
+   "hrv_ms": 47,
+   "respiratory_rate": 14.4,
+   "sleep_minutes": 387,
+   "sleep_efficiency": 89,
+   "awake_minutes": 47
+  },
+  {
+   "date": "2026-06-18",
+   "temperature_deviation": -0.53,
+   "resting_hr": 68,
+   "hrv_ms": 34,
+   "respiratory_rate": 14.4,
+   "sleep_minutes": 380,
+   "sleep_efficiency": 86,
+   "awake_minutes": 25
+  },
+  {
+   "date": "2026-06-19",
+   "temperature_deviation": -0.34,
+   "resting_hr": 69,
+   "hrv_ms": 42,
+   "respiratory_rate": 14.8,
+   "sleep_minutes": 319,
+   "sleep_efficiency": 81,
+   "awake_minutes": 29
+  },
+  {
+   "date": "2026-06-20",
+   "temperature_deviation": -0.2,
+   "resting_hr": 69,
+   "hrv_ms": 37,
+   "respiratory_rate": 15.1,
+   "sleep_minutes": 337,
+   "sleep_efficiency": 86,
+   "awake_minutes": 39
+  },
+  {
+   "date": "2026-06-21",
+   "temperature_deviation": -0.48,
+   "resting_hr": 66,
+   "hrv_ms": 52,
+   "respiratory_rate": 14.8,
+   "sleep_minutes": 384,
+   "sleep_efficiency": 89,
+   "awake_minutes": 32
+  },
+  {
+   "date": "2026-06-22",
+   "temperature_deviation": -0.39,
+   "resting_hr": 68,
+   "hrv_ms": 47,
+   "respiratory_rate": 14.7,
+   "sleep_minutes": 409,
+   "sleep_efficiency": 83,
+   "awake_minutes": 64
+  },
+  {
+   "date": "2026-06-23",
+   "temperature_deviation": -0.08,
+   "resting_hr": 74,
+   "hrv_ms": 38,
+   "respiratory_rate": 14.8,
+   "sleep_minutes": 369,
+   "sleep_efficiency": 91,
+   "awake_minutes": 29
+  },
+  {
+   "date": "2026-06-24",
+   "temperature_deviation": -0.11,
+   "resting_hr": 75,
+   "hrv_ms": 41,
+   "respiratory_rate": 14.6,
+   "sleep_minutes": 366,
+   "sleep_efficiency": 89,
+   "awake_minutes": 42
+  },
+  {
+   "date": "2026-06-25",
+   "temperature_deviation": -0.42,
+   "resting_hr": 70,
+   "hrv_ms": 47,
+   "respiratory_rate": 14.1,
+   "sleep_minutes": 429,
+   "sleep_efficiency": 87,
+   "awake_minutes": 47
+  },
+  {
+   "date": "2026-06-26",
+   "temperature_deviation": -0.4,
+   "resting_hr": 68,
+   "hrv_ms": 52,
+   "respiratory_rate": 13.8,
+   "sleep_minutes": 329,
+   "sleep_efficiency": 78,
+   "awake_minutes": 41
+  },
+  {
+   "date": "2026-06-27",
+   "temperature_deviation": -0.23,
+   "resting_hr": 70,
+   "hrv_ms": 43,
+   "respiratory_rate": 14.3,
+   "sleep_minutes": 285,
+   "sleep_efficiency": 80,
+   "awake_minutes": 37
+  },
+  {
+   "date": "2026-06-28",
+   "temperature_deviation": -0.63,
+   "resting_hr": 69,
+   "hrv_ms": 39,
+   "respiratory_rate": 14.2,
+   "sleep_minutes": 363,
+   "sleep_efficiency": 94,
+   "awake_minutes": 31
+  },
+  {
+   "date": "2026-06-29",
+   "temperature_deviation": -0.1,
+   "resting_hr": 66,
+   "hrv_ms": 42,
+   "respiratory_rate": 14.8,
+   "sleep_minutes": 373,
+   "sleep_efficiency": 93,
+   "awake_minutes": 30
+  },
+  {
+   "date": "2026-06-30",
+   "temperature_deviation": 0.03,
+   "resting_hr": null,
+   "hrv_ms": 46,
+   "respiratory_rate": 14.8,
+   "sleep_minutes": 444,
+   "sleep_efficiency": 85,
+   "awake_minutes": 32
+  },
+  {
+   "date": "2026-07-01",
+   "temperature_deviation": -0.41,
+   "resting_hr": 70,
+   "hrv_ms": 49,
+   "respiratory_rate": 14.4,
+   "sleep_minutes": 243,
+   "sleep_efficiency": 82,
+   "awake_minutes": 38
+  },
+  {
+   "date": "2026-07-02",
+   "temperature_deviation": -0.39,
+   "resting_hr": 71,
+   "hrv_ms": 44,
+   "respiratory_rate": 14.5,
+   "sleep_minutes": 247,
+   "sleep_efficiency": 83,
+   "awake_minutes": 61
+  },
+  {
+   "date": "2026-07-03",
+   "temperature_deviation": -0.42,
+   "resting_hr": 68,
+   "hrv_ms": 41,
+   "respiratory_rate": 14.6,
+   "sleep_minutes": 483,
+   "sleep_efficiency": 80,
+   "awake_minutes": 41
+  },
+  {
+   "date": "2026-07-04",
+   "temperature_deviation": -0.61,
+   "resting_hr": 72,
+   "hrv_ms": 36,
+   "respiratory_rate": 14.6,
+   "sleep_minutes": 331,
+   "sleep_efficiency": 86,
+   "awake_minutes": 54
+  },
+  {
+   "date": "2026-07-05",
+   "temperature_deviation": -0.57,
+   "resting_hr": null,
+   "hrv_ms": 43,
+   "respiratory_rate": 14.3,
+   "sleep_minutes": 371,
+   "sleep_efficiency": 90,
+   "awake_minutes": 35
+  },
+  {
+   "date": "2026-07-06",
+   "temperature_deviation": -0.44,
+   "resting_hr": 72,
+   "hrv_ms": 45,
+   "respiratory_rate": 15.0,
+   "sleep_minutes": 367,
+   "sleep_efficiency": 85,
+   "awake_minutes": 32
+  },
+  {
+   "date": "2026-07-07",
+   "temperature_deviation": 0.26,
+   "resting_hr": 75,
+   "hrv_ms": 33,
+   "respiratory_rate": 15.0,
+   "sleep_minutes": 345,
+   "sleep_efficiency": 82,
+   "awake_minutes": 27
+  },
+  {
+   "date": "2026-07-08",
+   "temperature_deviation": 0.19,
+   "resting_hr": 74,
+   "hrv_ms": 37,
+   "respiratory_rate": 14.8,
+   "sleep_minutes": 369,
+   "sleep_efficiency": 90,
+   "awake_minutes": 48
+  },
+  {
+   "date": "2026-07-09",
+   "temperature_deviation": 0.2,
+   "resting_hr": 73,
+   "hrv_ms": 33,
+   "respiratory_rate": 15.1,
+   "sleep_minutes": 328,
+   "sleep_efficiency": 91,
+   "awake_minutes": 39
+  },
+  {
+   "date": "2026-07-10",
+   "temperature_deviation": 0.47,
+   "resting_hr": 72,
+   "hrv_ms": 41,
+   "respiratory_rate": 14.9,
+   "sleep_minutes": 317,
+   "sleep_efficiency": 88,
+   "awake_minutes": 28
+  },
+  {
+   "date": "2026-07-11",
+   "temperature_deviation": 0.65,
+   "resting_hr": 72,
+   "hrv_ms": 45,
+   "respiratory_rate": 14.6,
+   "sleep_minutes": 357,
+   "sleep_efficiency": 90,
+   "awake_minutes": 34
+  },
+  {
+   "date": "2026-07-12",
+   "temperature_deviation": 0.38,
+   "resting_hr": 71,
+   "hrv_ms": null,
+   "respiratory_rate": 15.0,
+   "sleep_minutes": 359,
+   "sleep_efficiency": 86,
+   "awake_minutes": 29
+  },
+  {
+   "date": "2026-07-13",
+   "temperature_deviation": 0.17,
+   "resting_hr": 71,
+   "hrv_ms": 45,
+   "respiratory_rate": 15.3,
+   "sleep_minutes": 285,
+   "sleep_efficiency": 85,
+   "awake_minutes": 71
+  },
+  {
+   "date": "2026-07-14",
+   "temperature_deviation": 0.3,
+   "resting_hr": 73,
+   "hrv_ms": 48,
+   "respiratory_rate": 14.8,
+   "sleep_minutes": 338,
+   "sleep_efficiency": 77,
+   "awake_minutes": 32
+  },
+  {
+   "date": "2026-07-15",
+   "temperature_deviation": -0.02,
+   "resting_hr": 73,
+   "hrv_ms": 53,
+   "respiratory_rate": 14.8,
+   "sleep_minutes": 364,
+   "sleep_efficiency": 81,
+   "awake_minutes": 42
+  },
+  {
+   "date": "2026-07-16",
+   "temperature_deviation": -0.26,
+   "resting_hr": 70,
+   "hrv_ms": 38,
+   "respiratory_rate": 14.7,
+   "sleep_minutes": 307,
+   "sleep_efficiency": 89,
+   "awake_minutes": 29
+  },
+  {
+   "date": "2026-07-17",
+   "temperature_deviation": -0.44,
+   "resting_hr": 70,
+   "hrv_ms": 36,
+   "respiratory_rate": 14.6,
+   "sleep_minutes": 330,
+   "sleep_efficiency": 83,
+   "awake_minutes": 35
+  },
+  {
+   "date": "2026-07-18",
+   "temperature_deviation": -0.23,
+   "resting_hr": 75,
+   "hrv_ms": 36,
+   "respiratory_rate": 14.5,
+   "sleep_minutes": 333,
+   "sleep_efficiency": 83,
+   "awake_minutes": 33
+  },
+  {
+   "date": "2026-07-19",
+   "temperature_deviation": -0.28,
+   "resting_hr": 70,
+   "hrv_ms": null,
+   "respiratory_rate": 14.3,
+   "sleep_minutes": 387,
+   "sleep_efficiency": 84,
+   "awake_minutes": 36
+  },
+  {
+   "date": "2026-07-20",
+   "temperature_deviation": -0.59,
+   "resting_hr": 70,
+   "hrv_ms": 45,
+   "respiratory_rate": 14.5,
+   "sleep_minutes": 380,
+   "sleep_efficiency": 84,
+   "awake_minutes": 29
+  },
+  {
+   "date": "2026-07-21",
+   "temperature_deviation": -0.62,
+   "resting_hr": 69,
+   "hrv_ms": 50,
+   "respiratory_rate": 14.2,
+   "sleep_minutes": 275,
+   "sleep_efficiency": 90,
+   "awake_minutes": 32
+  },
+  {
+   "date": "2026-07-22",
+   "temperature_deviation": -0.31,
+   "resting_hr": 71,
+   "hrv_ms": 41,
+   "respiratory_rate": 14.4,
+   "sleep_minutes": 301,
+   "sleep_efficiency": 88,
+   "awake_minutes": 45
+  },
+  {
+   "date": "2026-07-23",
+   "temperature_deviation": -0.52,
+   "resting_hr": 68,
+   "hrv_ms": 46,
+   "respiratory_rate": 14.3,
+   "sleep_minutes": 347,
+   "sleep_efficiency": 91,
+   "awake_minutes": 32
+  },
+  {
+   "date": "2026-07-24",
+   "temperature_deviation": -0.38,
+   "resting_hr": 71,
+   "hrv_ms": 38,
+   "respiratory_rate": 14.5,
+   "sleep_minutes": 439,
+   "sleep_efficiency": 89,
+   "awake_minutes": 27
+  },
+  {
+   "date": "2026-07-25",
+   "temperature_deviation": -0.12,
+   "resting_hr": 73,
+   "hrv_ms": 57,
+   "respiratory_rate": 14.4,
+   "sleep_minutes": 360,
+   "sleep_efficiency": 89,
+   "awake_minutes": 32
+  },
+  {
+   "date": "2026-07-26",
+   "temperature_deviation": -0.23,
+   "resting_hr": 71,
+   "hrv_ms": null,
+   "respiratory_rate": 14.3,
+   "sleep_minutes": 323,
+   "sleep_efficiency": 84,
+   "awake_minutes": 32
+  },
+  {
+   "date": "2026-07-27",
+   "temperature_deviation": null,
+   "resting_hr": 74,
+   "hrv_ms": 43,
+   "respiratory_rate": 14.6,
+   "sleep_minutes": 356,
+   "sleep_efficiency": 89,
+   "awake_minutes": 40
+  },
+  {
+   "date": "2026-07-28",
+   "temperature_deviation": -0.3,
+   "resting_hr": 72,
+   "hrv_ms": 43,
+   "respiratory_rate": 14.7,
+   "sleep_minutes": 352,
+   "sleep_efficiency": 84,
+   "awake_minutes": 34
+  },
+  {
+   "date": "2026-07-29",
+   "temperature_deviation": -0.34,
+   "resting_hr": 69,
+   "hrv_ms": 48,
+   "respiratory_rate": 14.2,
+   "sleep_minutes": 404,
+   "sleep_efficiency": 94,
+   "awake_minutes": 49
+  },
+  {
+   "date": "2026-07-30",
+   "temperature_deviation": -0.54,
+   "resting_hr": 68,
+   "hrv_ms": 46,
+   "respiratory_rate": 14.3,
+   "sleep_minutes": 321,
+   "sleep_efficiency": 90,
+   "awake_minutes": 32
+  },
+  {
+   "date": "2026-07-31",
+   "temperature_deviation": null,
+   "resting_hr": null,
+   "hrv_ms": null,
+   "respiratory_rate": null,
+   "sleep_minutes": null,
+   "sleep_efficiency": null,
+   "awake_minutes": null
+  },
+  {
+   "date": "2026-08-01",
+   "temperature_deviation": null,
+   "resting_hr": null,
+   "hrv_ms": null,
+   "respiratory_rate": null,
+   "sleep_minutes": null,
+   "sleep_efficiency": null,
+   "awake_minutes": null
+  },
+  {
+   "date": "2026-08-02",
+   "temperature_deviation": null,
+   "resting_hr": null,
+   "hrv_ms": null,
+   "respiratory_rate": null,
+   "sleep_minutes": null,
+   "sleep_efficiency": null,
+   "awake_minutes": null
+  },
+  {
+   "date": "2026-08-03",
+   "temperature_deviation": null,
+   "resting_hr": null,
+   "hrv_ms": null,
+   "respiratory_rate": null,
+   "sleep_minutes": null,
+   "sleep_efficiency": null,
+   "awake_minutes": null
+  },
+  {
+   "date": "2026-08-04",
+   "temperature_deviation": -0.39,
+   "resting_hr": 70,
+   "hrv_ms": 38,
+   "respiratory_rate": 14.3,
+   "sleep_minutes": 345,
+   "sleep_efficiency": 88,
+   "awake_minutes": 29
+  },
+  {
+   "date": "2026-08-05",
+   "temperature_deviation": -0.01,
+   "resting_hr": 74,
+   "hrv_ms": 45,
+   "respiratory_rate": 14.3,
+   "sleep_minutes": 284,
+   "sleep_efficiency": 83,
+   "awake_minutes": 44
+  },
+  {
+   "date": "2026-08-06",
+   "temperature_deviation": 0.01,
+   "resting_hr": 71,
+   "hrv_ms": 50,
+   "respiratory_rate": 14.8,
+   "sleep_minutes": 382,
+   "sleep_efficiency": 88,
+   "awake_minutes": 32
+  },
+  {
+   "date": "2026-08-07",
+   "temperature_deviation": 0.17,
+   "resting_hr": 70,
+   "hrv_ms": 47,
+   "respiratory_rate": null,
+   "sleep_minutes": 414,
+   "sleep_efficiency": 82,
+   "awake_minutes": 38
+  },
+  {
+   "date": "2026-08-08",
+   "temperature_deviation": 0.4,
+   "resting_hr": 70,
+   "hrv_ms": 41,
+   "respiratory_rate": null,
+   "sleep_minutes": 303,
+   "sleep_efficiency": 88,
+   "awake_minutes": 27
+  },
+  {
+   "date": "2026-08-09",
+   "temperature_deviation": 0.32,
+   "resting_hr": 70,
+   "hrv_ms": 43,
+   "respiratory_rate": 14.8,
+   "sleep_minutes": 374,
+   "sleep_efficiency": 91,
+   "awake_minutes": 26
+  },
+  {
+   "date": "2026-08-10",
+   "temperature_deviation": 0.04,
+   "resting_hr": 73,
+   "hrv_ms": 40,
+   "respiratory_rate": null,
+   "sleep_minutes": 408,
+   "sleep_efficiency": 90,
+   "awake_minutes": 44
+  },
+  {
+   "date": "2026-08-11",
+   "temperature_deviation": 0.05,
+   "resting_hr": 71,
+   "hrv_ms": 50,
+   "respiratory_rate": null,
+   "sleep_minutes": 424,
+   "sleep_efficiency": 91,
+   "awake_minutes": 35
+  },
+  {
+   "date": "2026-08-12",
+   "temperature_deviation": 0.36,
+   "resting_hr": 70,
+   "hrv_ms": 44,
+   "respiratory_rate": 14.7,
+   "sleep_minutes": 282,
+   "sleep_efficiency": 81,
+   "awake_minutes": 27
+  },
+  {
+   "date": "2026-08-13",
+   "temperature_deviation": 0.42,
+   "resting_hr": 75,
+   "hrv_ms": 38,
+   "respiratory_rate": 14.9,
+   "sleep_minutes": 373,
+   "sleep_efficiency": 88,
+   "awake_minutes": 24
+  },
+  {
+   "date": "2026-08-14",
+   "temperature_deviation": 0.08,
+   "resting_hr": 74,
+   "hrv_ms": 39,
+   "respiratory_rate": 14.9,
+   "sleep_minutes": 341,
+   "sleep_efficiency": 86,
+   "awake_minutes": 43
+  },
+  {
+   "date": "2026-08-15",
+   "temperature_deviation": -0.12,
+   "resting_hr": 76,
+   "hrv_ms": 41,
+   "respiratory_rate": 14.4,
+   "sleep_minutes": 296,
+   "sleep_efficiency": 92,
+   "awake_minutes": 33
+  },
+  {
+   "date": "2026-08-16",
+   "temperature_deviation": -0.47,
+   "resting_hr": 74,
+   "hrv_ms": 44,
+   "respiratory_rate": 14.3,
+   "sleep_minutes": 364,
+   "sleep_efficiency": 89,
+   "awake_minutes": 28
+  },
+  {
+   "date": "2026-08-17",
+   "temperature_deviation": -0.33,
+   "resting_hr": 72,
+   "hrv_ms": 51,
+   "respiratory_rate": 14.2,
+   "sleep_minutes": 374,
+   "sleep_efficiency": 83,
+   "awake_minutes": 31
+  },
+  {
+   "date": "2026-08-18",
+   "temperature_deviation": -0.13,
+   "resting_hr": 71,
+   "hrv_ms": 44,
+   "respiratory_rate": 14.2,
+   "sleep_minutes": 320,
+   "sleep_efficiency": 83,
+   "awake_minutes": 42
+  },
+  {
+   "date": "2026-08-19",
+   "temperature_deviation": -0.49,
+   "resting_hr": 71,
+   "hrv_ms": 47,
+   "respiratory_rate": 14.2,
+   "sleep_minutes": 430,
+   "sleep_efficiency": 78,
+   "awake_minutes": 31
+  },
+  {
+   "date": "2026-08-20",
+   "temperature_deviation": -0.62,
+   "resting_hr": 69,
+   "hrv_ms": 46,
+   "respiratory_rate": 14.6,
+   "sleep_minutes": 397,
+   "sleep_efficiency": 84,
+   "awake_minutes": 39
+  },
+  {
+   "date": "2026-08-21",
+   "temperature_deviation": -0.27,
+   "resting_hr": 68,
+   "hrv_ms": 51,
+   "respiratory_rate": 14.9,
+   "sleep_minutes": 348,
+   "sleep_efficiency": 82,
+   "awake_minutes": 38
+  },
+  {
+   "date": "2026-08-22",
+   "temperature_deviation": -0.26,
+   "resting_hr": 68,
+   "hrv_ms": 45,
+   "respiratory_rate": 14.8,
+   "sleep_minutes": 343,
+   "sleep_efficiency": 97,
+   "awake_minutes": 28
+  },
+  {
+   "date": "2026-08-23",
+   "temperature_deviation": -0.19,
+   "resting_hr": 68,
+   "hrv_ms": 46,
+   "respiratory_rate": 15.0,
+   "sleep_minutes": 358,
+   "sleep_efficiency": 87,
+   "awake_minutes": 39
+  },
+  {
+   "date": "2026-08-24",
+   "temperature_deviation": -0.37,
+   "resting_hr": 69,
+   "hrv_ms": 48,
+   "respiratory_rate": 14.9,
+   "sleep_minutes": 334,
+   "sleep_efficiency": 79,
+   "awake_minutes": 27
+  },
+  {
+   "date": "2026-08-25",
+   "temperature_deviation": -0.35,
+   "resting_hr": 70,
+   "hrv_ms": 38,
+   "respiratory_rate": 14.7,
+   "sleep_minutes": 307,
+   "sleep_efficiency": 86,
+   "awake_minutes": 49
+  },
+  {
+   "date": "2026-08-26",
+   "temperature_deviation": -0.31,
+   "resting_hr": 69,
+   "hrv_ms": 47,
+   "respiratory_rate": 14.7,
+   "sleep_minutes": 447,
+   "sleep_efficiency": 91,
+   "awake_minutes": 25
+  },
+  {
+   "date": "2026-08-27",
+   "temperature_deviation": -0.0,
+   "resting_hr": 72,
+   "hrv_ms": null,
+   "respiratory_rate": 14.1,
+   "sleep_minutes": 315,
+   "sleep_efficiency": 84,
+   "awake_minutes": 38
+  },
+  {
+   "date": "2026-08-28",
+   "temperature_deviation": 0.11,
+   "resting_hr": 73,
+   "hrv_ms": 40,
+   "respiratory_rate": 14.4,
+   "sleep_minutes": 371,
+   "sleep_efficiency": 95,
+   "awake_minutes": 27
+  },
+  {
+   "date": "2026-08-29",
+   "temperature_deviation": 0.08,
+   "resting_hr": 73,
+   "hrv_ms": 35,
+   "respiratory_rate": 14.6,
+   "sleep_minutes": 294,
+   "sleep_efficiency": 76,
+   "awake_minutes": 30
+  },
+  {
+   "date": "2026-08-30",
+   "temperature_deviation": -0.34,
+   "resting_hr": 68,
+   "hrv_ms": 45,
+   "respiratory_rate": 14.1,
+   "sleep_minutes": 335,
+   "sleep_efficiency": 85,
+   "awake_minutes": 39
+  },
+  {
+   "date": "2026-08-31",
+   "temperature_deviation": -0.26,
+   "resting_hr": 70,
+   "hrv_ms": 41,
+   "respiratory_rate": 14.1,
+   "sleep_minutes": 385,
+   "sleep_efficiency": 86,
+   "awake_minutes": 37
+  },
+  {
+   "date": "2026-09-01",
+   "temperature_deviation": -0.54,
+   "resting_hr": 72,
+   "hrv_ms": 55,
+   "respiratory_rate": 14.4,
+   "sleep_minutes": 452,
+   "sleep_efficiency": 93,
+   "awake_minutes": 36
+  },
+  {
+   "date": "2026-09-02",
+   "temperature_deviation": null,
+   "resting_hr": 70,
+   "hrv_ms": 62,
+   "respiratory_rate": 14.2,
+   "sleep_minutes": 367,
+   "sleep_efficiency": 87,
+   "awake_minutes": 27
+  },
+  {
+   "date": "2026-09-03",
+   "temperature_deviation": -0.49,
+   "resting_hr": 70,
+   "hrv_ms": 51,
+   "respiratory_rate": 14.0,
+   "sleep_minutes": 364,
+   "sleep_efficiency": 91,
+   "awake_minutes": 32
+  },
+  {
+   "date": "2026-09-04",
+   "temperature_deviation": -0.27,
+   "resting_hr": 68,
+   "hrv_ms": 49,
+   "respiratory_rate": 14.2,
+   "sleep_minutes": 340,
+   "sleep_efficiency": 91,
+   "awake_minutes": 27
+  },
+  {
+   "date": "2026-09-05",
+   "temperature_deviation": -0.4,
+   "resting_hr": 71,
+   "hrv_ms": 39,
+   "respiratory_rate": null,
+   "sleep_minutes": 349,
+   "sleep_efficiency": 90,
+   "awake_minutes": 30
+  },
+  {
+   "date": "2026-09-06",
+   "temperature_deviation": -0.26,
+   "resting_hr": 71,
+   "hrv_ms": 43,
+   "respiratory_rate": 14.6,
+   "sleep_minutes": 318,
+   "sleep_efficiency": 88,
+   "awake_minutes": 30
+  },
+  {
+   "date": "2026-09-07",
+   "temperature_deviation": 0.23,
+   "resting_hr": 73,
+   "hrv_ms": 46,
+   "respiratory_rate": 14.8,
+   "sleep_minutes": 335,
+   "sleep_efficiency": 89,
+   "awake_minutes": 28
+  },
+  {
+   "date": "2026-09-08",
+   "temperature_deviation": 0.49,
+   "resting_hr": 75,
+   "hrv_ms": 40,
+   "respiratory_rate": 14.9,
+   "sleep_minutes": 334,
+   "sleep_efficiency": 90,
+   "awake_minutes": 30
+  },
+  {
+   "date": "2026-09-09",
+   "temperature_deviation": null,
+   "resting_hr": null,
+   "hrv_ms": null,
+   "respiratory_rate": null,
+   "sleep_minutes": null,
+   "sleep_efficiency": null,
+   "awake_minutes": null
+  },
+  {
+   "date": "2026-09-10",
+   "temperature_deviation": 0.28,
+   "resting_hr": 72,
+   "hrv_ms": 45,
+   "respiratory_rate": 14.9,
+   "sleep_minutes": 317,
+   "sleep_efficiency": 88,
+   "awake_minutes": 34
+  },
+  {
+   "date": "2026-09-11",
+   "temperature_deviation": 0.25,
+   "resting_hr": 75,
+   "hrv_ms": 40,
+   "respiratory_rate": 14.8,
+   "sleep_minutes": 374,
+   "sleep_efficiency": 88,
+   "awake_minutes": 34
+  },
+  {
+   "date": "2026-09-12",
+   "temperature_deviation": 0.54,
+   "resting_hr": 72,
+   "hrv_ms": 40,
+   "respiratory_rate": 15.0,
+   "sleep_minutes": 367,
+   "sleep_efficiency": 89,
+   "awake_minutes": 51
+  },
+  {
+   "date": "2026-09-13",
+   "temperature_deviation": 0.12,
+   "resting_hr": 73,
+   "hrv_ms": 36,
+   "respiratory_rate": 15.1,
+   "sleep_minutes": 312,
+   "sleep_efficiency": 86,
+   "awake_minutes": 37
+  },
+  {
+   "date": "2026-09-14",
+   "temperature_deviation": 0.07,
+   "resting_hr": 76,
+   "hrv_ms": 38,
+   "respiratory_rate": 15.0,
+   "sleep_minutes": 308,
+   "sleep_efficiency": 88,
+   "awake_minutes": 30
+  },
+  {
+   "date": "2026-09-15",
+   "temperature_deviation": 0.16,
+   "resting_hr": 75,
+   "hrv_ms": 34,
+   "respiratory_rate": 15.1,
+   "sleep_minutes": 308,
+   "sleep_efficiency": 94,
+   "awake_minutes": 34
+  },
+  {
+   "date": "2026-09-16",
+   "temperature_deviation": 0.04,
+   "resting_hr": 71,
+   "hrv_ms": 36,
+   "respiratory_rate": 14.3,
+   "sleep_minutes": 383,
+   "sleep_efficiency": 83,
+   "awake_minutes": 28
+  },
+  {
+   "date": "2026-09-17",
+   "temperature_deviation": -0.39,
+   "resting_hr": 71,
+   "hrv_ms": 43,
+   "respiratory_rate": 14.2,
+   "sleep_minutes": 250,
+   "sleep_efficiency": 85,
+   "awake_minutes": 38
+  },
+  {
+   "date": "2026-09-18",
+   "temperature_deviation": -0.06,
+   "resting_hr": 72,
+   "hrv_ms": 40,
+   "respiratory_rate": 14.1,
+   "sleep_minutes": 417,
+   "sleep_efficiency": 88,
+   "awake_minutes": 27
+  },
+  {
+   "date": "2026-09-19",
+   "temperature_deviation": -0.25,
+   "resting_hr": 71,
+   "hrv_ms": 34,
+   "respiratory_rate": 14.0,
+   "sleep_minutes": 320,
+   "sleep_efficiency": 84,
+   "awake_minutes": 33
+  },
+  {
+   "date": "2026-09-20",
+   "temperature_deviation": -0.2,
+   "resting_hr": 70,
+   "hrv_ms": null,
+   "respiratory_rate": 14.4,
+   "sleep_minutes": 321,
+   "sleep_efficiency": 92,
+   "awake_minutes": 26
+  },
+  {
+   "date": "2026-09-21",
+   "temperature_deviation": -0.25,
+   "resting_hr": 67,
+   "hrv_ms": null,
+   "respiratory_rate": 14.4,
+   "sleep_minutes": 316,
+   "sleep_efficiency": 88,
+   "awake_minutes": 41
+  },
+  {
+   "date": "2026-09-22",
+   "temperature_deviation": -0.36,
+   "resting_hr": 68,
+   "hrv_ms": null,
+   "respiratory_rate": 14.7,
+   "sleep_minutes": 330,
+   "sleep_efficiency": 83,
+   "awake_minutes": 54
+  },
+  {
+   "date": "2026-09-23",
+   "temperature_deviation": -0.1,
+   "resting_hr": 71,
+   "hrv_ms": 41,
+   "respiratory_rate": 14.4,
+   "sleep_minutes": 321,
+   "sleep_efficiency": 83,
+   "awake_minutes": 27
+  },
+  {
+   "date": "2026-09-24",
+   "temperature_deviation": -0.27,
+   "resting_hr": 75,
+   "hrv_ms": 44,
+   "respiratory_rate": 14.0,
+   "sleep_minutes": 426,
+   "sleep_efficiency": 85,
+   "awake_minutes": 42
+  },
+  {
+   "date": "2026-09-25",
+   "temperature_deviation": -0.28,
+   "resting_hr": 70,
+   "hrv_ms": 46,
+   "respiratory_rate": null,
+   "sleep_minutes": 314,
+   "sleep_efficiency": 88,
+   "awake_minutes": 61
+  },
+  {
+   "date": "2026-09-26",
+   "temperature_deviation": -0.08,
+   "resting_hr": 71,
+   "hrv_ms": 39,
+   "respiratory_rate": null,
+   "sleep_minutes": 394,
+   "sleep_efficiency": 94,
+   "awake_minutes": 33
+  },
+  {
+   "date": "2026-09-27",
+   "temperature_deviation": -0.35,
+   "resting_hr": 70,
+   "hrv_ms": 40,
+   "respiratory_rate": 14.0,
+   "sleep_minutes": 390,
+   "sleep_efficiency": 87,
+   "awake_minutes": 29
+  },
+  {
+   "date": "2026-09-28",
+   "temperature_deviation": -0.45,
+   "resting_hr": 72,
+   "hrv_ms": 54,
+   "respiratory_rate": 14.5,
+   "sleep_minutes": 291,
+   "sleep_efficiency": 84,
+   "awake_minutes": 44
+  },
+  {
+   "date": "2026-09-29",
+   "temperature_deviation": -0.33,
+   "resting_hr": 68,
+   "hrv_ms": 46,
+   "respiratory_rate": 14.7,
+   "sleep_minutes": 358,
+   "sleep_efficiency": 92,
+   "awake_minutes": 38
+  },
+  {
+   "date": "2026-09-30",
+   "temperature_deviation": null,
+   "resting_hr": 71,
+   "hrv_ms": 44,
+   "respiratory_rate": 14.7,
+   "sleep_minutes": 296,
+   "sleep_efficiency": 89,
+   "awake_minutes": 25
+  },
+  {
+   "date": "2026-10-01",
+   "temperature_deviation": -0.44,
+   "resting_hr": 69,
+   "hrv_ms": 42,
+   "respiratory_rate": 14.6,
+   "sleep_minutes": 316,
+   "sleep_efficiency": 81,
+   "awake_minutes": 53
+  },
+  {
+   "date": "2026-10-02",
+   "temperature_deviation": -0.3,
+   "resting_hr": 69,
+   "hrv_ms": 52,
+   "respiratory_rate": 14.3,
+   "sleep_minutes": 411,
+   "sleep_efficiency": 89,
+   "awake_minutes": 38
+  },
+  {
+   "date": "2026-10-03",
+   "temperature_deviation": -0.52,
+   "resting_hr": 69,
+   "hrv_ms": 60,
+   "respiratory_rate": 14.4,
+   "sleep_minutes": 387,
+   "sleep_efficiency": 79,
+   "awake_minutes": 29
+  },
+  {
+   "date": "2026-10-04",
+   "temperature_deviation": -0.54,
+   "resting_hr": 70,
+   "hrv_ms": 61,
+   "respiratory_rate": 14.6,
+   "sleep_minutes": 341,
+   "sleep_efficiency": 82,
+   "awake_minutes": 26
+  },
+  {
+   "date": "2026-10-05",
+   "temperature_deviation": -0.03,
+   "resting_hr": 75,
+   "hrv_ms": 51,
+   "respiratory_rate": 14.6,
+   "sleep_minutes": 296,
+   "sleep_efficiency": 89,
+   "awake_minutes": 36
+  },
+  {
+   "date": "2026-10-06",
+   "temperature_deviation": -0.02,
+   "resting_hr": 71,
+   "hrv_ms": 57,
+   "respiratory_rate": 14.6,
+   "sleep_minutes": 335,
+   "sleep_efficiency": 93,
+   "awake_minutes": 29
+  },
+  {
+   "date": "2026-10-07",
+   "temperature_deviation": 0.54,
+   "resting_hr": 74,
+   "hrv_ms": null,
+   "respiratory_rate": 14.7,
+   "sleep_minutes": 330,
+   "sleep_efficiency": 79,
+   "awake_minutes": 53
+  },
+  {
+   "date": "2026-10-08",
+   "temperature_deviation": 0.08,
+   "resting_hr": 72,
+   "hrv_ms": 46,
+   "respiratory_rate": 14.8,
+   "sleep_minutes": 470,
+   "sleep_efficiency": 81,
+   "awake_minutes": 38
+  },
+  {
+   "date": "2026-10-09",
+   "temperature_deviation": 0.62,
+   "resting_hr": 73,
+   "hrv_ms": 42,
+   "respiratory_rate": 14.5,
+   "sleep_minutes": 315,
+   "sleep_efficiency": 84,
+   "awake_minutes": 50
+  },
+  {
+   "date": "2026-10-10",
+   "temperature_deviation": 0.6,
+   "resting_hr": 75,
+   "hrv_ms": 48,
+   "respiratory_rate": 14.7,
+   "sleep_minutes": 341,
+   "sleep_efficiency": 83,
+   "awake_minutes": 45
+  },
+  {
+   "date": "2026-10-11",
+   "temperature_deviation": 0.37,
+   "resting_hr": 73,
+   "hrv_ms": 46,
+   "respiratory_rate": 14.7,
+   "sleep_minutes": 336,
+   "sleep_efficiency": 91,
+   "awake_minutes": 32
+  },
+  {
+   "date": "2026-10-12",
+   "temperature_deviation": null,
+   "resting_hr": null,
+   "hrv_ms": null,
+   "respiratory_rate": null,
+   "sleep_minutes": null,
+   "sleep_efficiency": null,
+   "awake_minutes": null
+  },
+  {
+   "date": "2026-10-13",
+   "temperature_deviation": 0.22,
+   "resting_hr": 72,
+   "hrv_ms": 46,
+   "respiratory_rate": 15.0,
+   "sleep_minutes": 393,
+   "sleep_efficiency": 81,
+   "awake_minutes": 41
+  },
+  {
+   "date": "2026-10-14",
+   "temperature_deviation": 0.48,
+   "resting_hr": 72,
+   "hrv_ms": 37,
+   "respiratory_rate": 14.8,
+   "sleep_minutes": 417,
+   "sleep_efficiency": 90,
+   "awake_minutes": 32
+  },
+  {
+   "date": "2026-10-15",
+   "temperature_deviation": 0.48,
+   "resting_hr": 70,
+   "hrv_ms": 39,
+   "respiratory_rate": 15.2,
+   "sleep_minutes": 323,
+   "sleep_efficiency": 95,
+   "awake_minutes": 41
+  },
+  {
+   "date": "2026-10-16",
+   "temperature_deviation": 0.37,
+   "resting_hr": 71,
+   "hrv_ms": 36,
+   "respiratory_rate": 15.1,
+   "sleep_minutes": 434,
+   "sleep_efficiency": 87,
+   "awake_minutes": 29
+  },
+  {
+   "date": "2026-10-17",
+   "temperature_deviation": 0.44,
+   "resting_hr": 72,
+   "hrv_ms": 36,
+   "respiratory_rate": 15.0,
+   "sleep_minutes": 375,
+   "sleep_efficiency": 82,
+   "awake_minutes": 30
+  },
+  {
+   "date": "2026-10-18",
+   "temperature_deviation": 0.47,
+   "resting_hr": 70,
+   "hrv_ms": 36,
+   "respiratory_rate": 15.0,
+   "sleep_minutes": 352,
+   "sleep_efficiency": 87,
+   "awake_minutes": 32
+  },
+  {
+   "date": "2026-10-19",
+   "temperature_deviation": 0.38,
+   "resting_hr": 73,
+   "hrv_ms": 45,
+   "respiratory_rate": 15.4,
+   "sleep_minutes": 355,
+   "sleep_efficiency": 97,
+   "awake_minutes": 29
+  },
+  {
+   "date": "2026-10-20",
+   "temperature_deviation": -0.08,
+   "resting_hr": 71,
+   "hrv_ms": 46,
+   "respiratory_rate": 14.7,
+   "sleep_minutes": 314,
+   "sleep_efficiency": 89,
+   "awake_minutes": 25
+  },
+  {
+   "date": "2026-10-21",
+   "temperature_deviation": -0.18,
+   "resting_hr": 72,
+   "hrv_ms": 43,
+   "respiratory_rate": 14.4,
+   "sleep_minutes": 400,
+   "sleep_efficiency": 88,
+   "awake_minutes": 25
+  },
+  {
+   "date": "2026-10-22",
+   "temperature_deviation": null,
+   "resting_hr": null,
+   "hrv_ms": null,
+   "respiratory_rate": null,
+   "sleep_minutes": null,
+   "sleep_efficiency": null,
+   "awake_minutes": null
+  },
+  {
+   "date": "2026-10-23",
+   "temperature_deviation": null,
+   "resting_hr": null,
+   "hrv_ms": null,
+   "respiratory_rate": null,
+   "sleep_minutes": null,
+   "sleep_efficiency": null,
+   "awake_minutes": null
+  },
+  {
+   "date": "2026-10-24",
+   "temperature_deviation": -0.01,
+   "resting_hr": 68,
+   "hrv_ms": 49,
+   "respiratory_rate": 14.3,
+   "sleep_minutes": 366,
+   "sleep_efficiency": 97,
+   "awake_minutes": 33
+  },
+  {
+   "date": "2026-10-25",
+   "temperature_deviation": -0.28,
+   "resting_hr": 69,
+   "hrv_ms": 58,
+   "respiratory_rate": 14.6,
+   "sleep_minutes": 394,
+   "sleep_efficiency": 93,
+   "awake_minutes": 37
+  },
+  {
+   "date": "2026-10-26",
+   "temperature_deviation": -0.37,
+   "resting_hr": 74,
+   "hrv_ms": 44,
+   "respiratory_rate": 14.5,
+   "sleep_minutes": 329,
+   "sleep_efficiency": 82,
+   "awake_minutes": 48
+  },
+  {
+   "date": "2026-10-27",
+   "temperature_deviation": -0.15,
+   "resting_hr": 70,
+   "hrv_ms": 50,
+   "respiratory_rate": 14.3,
+   "sleep_minutes": 320,
+   "sleep_efficiency": 85,
+   "awake_minutes": 27
+  },
+  {
+   "date": "2026-10-28",
+   "temperature_deviation": -0.24,
+   "resting_hr": 69,
+   "hrv_ms": 52,
+   "respiratory_rate": 14.4,
+   "sleep_minutes": 362,
+   "sleep_efficiency": 85,
+   "awake_minutes": 37
+  },
+  {
+   "date": "2026-10-29",
+   "temperature_deviation": -0.42,
+   "resting_hr": 67,
+   "hrv_ms": 48,
+   "respiratory_rate": 14.5,
+   "sleep_minutes": 285,
+   "sleep_efficiency": 83,
+   "awake_minutes": 30
+  },
+  {
+   "date": "2026-10-30",
+   "temperature_deviation": -0.04,
+   "resting_hr": 69,
+   "hrv_ms": 44,
+   "respiratory_rate": 14.4,
+   "sleep_minutes": 359,
+   "sleep_efficiency": 90,
+   "awake_minutes": 32
+  },
+  {
+   "date": "2026-10-31",
+   "temperature_deviation": -0.3,
+   "resting_hr": 70,
+   "hrv_ms": null,
+   "respiratory_rate": 14.4,
+   "sleep_minutes": 382,
+   "sleep_efficiency": 94,
+   "awake_minutes": 33
+  },
+  {
+   "date": "2026-11-01",
+   "temperature_deviation": -0.59,
+   "resting_hr": 70,
+   "hrv_ms": 58,
+   "respiratory_rate": 14.3,
+   "sleep_minutes": 320,
+   "sleep_efficiency": 88,
+   "awake_minutes": 43
+  },
+  {
+   "date": "2026-11-02",
+   "temperature_deviation": -0.25,
+   "resting_hr": 71,
+   "hrv_ms": 69,
+   "respiratory_rate": 14.2,
+   "sleep_minutes": 299,
+   "sleep_efficiency": 93,
+   "awake_minutes": 53
+  },
+  {
+   "date": "2026-11-03",
+   "temperature_deviation": -0.18,
+   "resting_hr": 70,
+   "hrv_ms": 61,
+   "respiratory_rate": 14.2,
+   "sleep_minutes": 386,
+   "sleep_efficiency": 98,
+   "awake_minutes": 30
+  },
+  {
+   "date": "2026-11-04",
+   "temperature_deviation": -0.42,
+   "resting_hr": 71,
+   "hrv_ms": 50,
+   "respiratory_rate": 14.6,
+   "sleep_minutes": 371,
+   "sleep_efficiency": 89,
+   "awake_minutes": 30
+  },
+  {
+   "date": "2026-11-05",
+   "temperature_deviation": -0.28,
+   "resting_hr": 69,
+   "hrv_ms": 55,
+   "respiratory_rate": 14.5,
+   "sleep_minutes": 409,
+   "sleep_efficiency": 82,
+   "awake_minutes": 44
+  },
+  {
+   "date": "2026-11-06",
+   "temperature_deviation": -0.22,
+   "resting_hr": 70,
+   "hrv_ms": 52,
+   "respiratory_rate": 14.3,
+   "sleep_minutes": 363,
+   "sleep_efficiency": 88,
+   "awake_minutes": 27
+  },
+  {
+   "date": "2026-11-07",
+   "temperature_deviation": -0.23,
+   "resting_hr": 67,
+   "hrv_ms": 43,
+   "respiratory_rate": 14.2,
+   "sleep_minutes": 437,
+   "sleep_efficiency": 85,
+   "awake_minutes": 28
+  },
+  {
+   "date": "2026-11-08",
+   "temperature_deviation": -0.24,
+   "resting_hr": 67,
+   "hrv_ms": 44,
+   "respiratory_rate": 14.6,
+   "sleep_minutes": 309,
+   "sleep_efficiency": 84,
+   "awake_minutes": 36
+  },
+  {
+   "date": "2026-11-09",
+   "temperature_deviation": -0.3,
+   "resting_hr": 66,
+   "hrv_ms": 49,
+   "respiratory_rate": 14.5,
+   "sleep_minutes": 361,
+   "sleep_efficiency": 87,
+   "awake_minutes": 34
+  }
+ ]
+}

@@ -1,0 +1,13 @@
+services:
+  ring-health-v3:
+    build:
+      context: ../..
+      dockerfile: deployment/ring_health_v3/Dockerfile
+    ports:
+      - "127.0.0.1:8790:8790"
+    environment:
+      RING_HEALTH_DEPLOYMENT: production
+      RING_HEALTH_API_KEY: ${RING_HEALTH_API_KEY:?set RING_HEALTH_API_KEY}
+    read_only: true
+    tmpfs: [/tmp]
+    restart: unless-stopped

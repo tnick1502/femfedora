@@ -1,0 +1,77 @@
+{
+ "fedcycle_calendar_prospective": {
+  "cycles_scored": 1369,
+  "women": 144,
+  "ovulation_day_mae": 1.7859751643535426,
+  "ovulation_within2": 0.7567567567567568,
+  "cycle_length_mae": 2.0665646644114766,
+  "cycle_length_within2": 0.6252739225712198,
+  "calendar_fertile_day_auroc": 0.9336228102950617,
+  "calendar_fertile_sensitivity_at_0.30": 0.8534209885561237,
+  "calendar_fertile_specificity_at_0.30": 0.8641294065712304,
+  "by_history_cycles": [
+   {
+    "h": 1,
+    "ov_mae": 2.128,
+    "len_mae": 2.374,
+    "n": 133
+   },
+   {
+    "h": 2,
+    "ov_mae": 1.584,
+    "len_mae": 2.085,
+    "n": 125
+   },
+   {
+    "h": 3,
+    "ov_mae": 2.229,
+    "len_mae": 2.432,
+    "n": 118
+   },
+   {
+    "h": 4,
+    "ov_mae": 1.991,
+    "len_mae": 2.105,
+    "n": 112
+   },
+   {
+    "h": 5,
+    "ov_mae": 1.75,
+    "len_mae": 1.986,
+    "n": 108
+   },
+   {
+    "h": 6,
+    "ov_mae": 1.668,
+    "len_mae": 1.96,
+    "n": 773
+   }
+  ]
+ },
+ "tempid_oura_profile": {
+  "series": 59,
+  "people_by_prefix": 39,
+  "mae_all": 5.728813559322034,
+  "median_ae_all": 6.0,
+  "within1_all": 0.2033898305084746,
+  "within2_all": 0.2542372881355932,
+  "detection_rate": 0.05084745762711865,
+  "mae_detected": 3.6666666666666665,
+  "within2_detected": 0.6666666666666666
+ },
+ "tempid_device_profile_cv": {
+  "series": 59,
+  "people_by_prefix": 39,
+  "folds": 3,
+  "mae": 4.8474576271186445,
+  "median_ae": 4.0,
+  "within1": 0.3050847457627119,
+  "within2": 0.3559322033898305,
+  "within3": 0.4576271186440678,
+  "fitted_amplitude_mean_c": 0.07158011666113973,
+  "fitted_noise_sd_c": 0.0945302914903857,
+  "fitted_lag_days": {
+   "1": 59
+  }
+ }
+}

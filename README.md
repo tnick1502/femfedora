@@ -217,3 +217,22 @@ poetry run jupyter lab research/notebooks/preeclampsia_cdc
 ## CDC PTB: модель прогноза для женщины
 
 Шесть выполненных ноутбуков находятся в [`research/notebooks/preterm_cdc/`](research/notebooks/preterm_cdc/). Они готовят одноплодную когорту живорождений CDC, сравнивают мультиномиальную логистику, LightGBM и CatBoost, проводят подбор параметров, абляции и перестановочную важность. Шестой ноутбук строит прогноз для одной женщины на указанном сроке, проверяет входы и маски, отказывает при незаполненных или внеобластных признаках, измеряет точность на допустимой части 2024 года, сравнивает модель с простым правилом анамнеза и экспортирует модель. Фолдов нет: 2023 один раз разделён на обучение, валидацию и калибровку. Подробности — в [README набора](research/notebooks/preterm_cdc/README.md) и [контракте модели](research/notebooks/preterm_cdc/WOMAN_FORECAST_CONTRACT.md).
+
+## Менопаузальный этап и фертильное окно по данным кольца
+
+Актуальная версия — **v3**: [отчёт](research/reports/ring_health_v3_report_ru.md), [контракт API](docs/ring_health_v3_api_ru.md), [OpenAPI](docs/ring_health_v3.openapi.json), код `src/ring_health_v3/`, артефакты `models/exported/ring_health/v3/`, примеры `data/samples/ring_health/v3/`, Docker `deployment/ring_health_v3/`. Многосигнальная байесовская модель цикла (окно, овуляция, месячные), стадия STRAW+10 и вероятность FMP на 6–60 мес, ночные приливы; синтетика откалибрована по литературе и реальным FedCycleData и NHANES; клиническая точность не установлена. Запуск: `python -m tools.train_ring_health_v3 cycle|real|menopause|paired`, `pytest tests/unit/test_ring_health_v3.py`.
+
+Предыдущая версия — **v2**: [перепроверка науки и метрик](research/reports/ring_health_v2_review_ru.md), [развёртывание API](docs/ring_health_v2_deployment_ru.md), [OpenAPI](docs/ring_health_v2.openapi.json). Готовый переносимый архив: `output/ring_health_mvp_v2.zip`. Добавлены необязательные каналы, обработка разреженных наблюдений, явные статусы неопределённости, строгий контракт и Docker. Клиническое качество на Oura не установлено. Описание ниже относится к исторической v1.
+
+Ветка `src/ring_health/` содержит выполненное исследование и локальный MVP: реальный NHANES baseline текущего статуса, аудит предоставленной анкеты, температурный benchmark TempID, отдельные синтетические модели кольца и байесовский прогноз окна. Реальные и искусственные данные не смешиваются. Качество будущей менопаузы и переноса на реальное Oura не подтверждено.
+
+[Основной отчёт и источники](research/reports/ring_health_mvp_ru.md), [точные метрики](research/reports/ring_health_metrics_ru.md), [контракт JSON](docs/ring_health_input_contract_ru.md). Каталог 27 источников: `data/registry/ring_health_sources.json`; восемь локальных артефактов: `models/exported/ring_health/v1/`; реестр и SHA256: `models/registry/ring_health_v1.json`.
+
+Изолированное окружение Python 3.12 для этой ветки уже создано в `tmp/ring_venv/`; зависимости — `requirements-ring-health.txt`. Оно не меняет основной Poetry-проект.
+
+```bash
+tmp/ring_venv/bin/python -m src.ring_health.predict --input data/samples/ring_health/fertility_demo_input.json
+PYTHONPATH=. tmp/ring_venv/bin/python tools/serve_ring_health.py --port 8787
+```
+
+Полное воспроизведение: `tools/download_ring_health_data.py` → `python -m src.ring_health.train` → `PYTHONPATH=. python tools/validate_ring_health.py` → `PYTHONPATH=. python tools/build_ring_health_report.py`. Проверки: `python -m pytest tests/unit/test_ring_health.py -q`. Загрузчик не обходит регистрацию/DUA; mcPHASES и SWAN в обучение этой версии не вошли.

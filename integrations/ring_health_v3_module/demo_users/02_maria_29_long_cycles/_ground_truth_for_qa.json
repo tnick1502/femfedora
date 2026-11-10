@@ -1,0 +1,21 @@
+{
+ "note": "Synthetic hidden truth for QA only. NEVER send to the API or show as data.",
+ "true_ovulation_current_cycle": "2026-11-02",
+ "true_current_cycle_start": "2026-10-15",
+ "cycle_lengths": [
+  32,
+  37,
+  34,
+  41,
+  29,
+  32
+ ],
+ "ovulation_days": [
+  19,
+  null,
+  20,
+  null,
+  16,
+  19
+ ]
+}

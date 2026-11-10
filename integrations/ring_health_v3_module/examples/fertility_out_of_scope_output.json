@@ -1,0 +1,47 @@
+{
+ "model_version": "ring-health-v3.0.0",
+ "artifact_registry_sha256": "6d9e588c97c56b998c948193972ec20073646f6d6b72869686337af84fa5ab47",
+ "as_of": "2024-07-11",
+ "mode": "demonstration",
+ "clinical_validation": "not_established",
+ "training_data": "synthetic (literature- and real-data-calibrated generator)",
+ "recommendations": [],
+ "data_quality": {
+  "nights_supplied": 193,
+  "coverage": {
+   "temperature_deviation": {
+    "nights_last30": 30,
+    "coverage_last30": 1.0
+   },
+   "resting_hr": {
+    "nights_last30": 30,
+    "coverage_last30": 1.0
+   },
+   "hrv_ms": {
+    "nights_last30": 29,
+    "coverage_last30": 0.97
+   },
+   "respiratory_rate": {
+    "nights_last30": 29,
+    "coverage_last30": 0.97
+   },
+   "sleep_minutes": {
+    "nights_last30": 30,
+    "coverage_last30": 1.0
+   },
+   "sleep_efficiency": {
+    "nights_last30": 30,
+    "coverage_last30": 1.0
+   },
+   "awake_minutes": {
+    "nights_last30": 30,
+    "coverage_last30": 1.0
+   },
+   "longest_temperature_gap_last90": 3
+  }
+ },
+ "fertility": {
+  "status": "out_of_scope",
+  "reason": "Cycle model not applicable: hormonal_contraception"
+ }
+}

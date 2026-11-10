@@ -1,0 +1,15 @@
+{
+  "version": "v2",
+  "selection": "validation log loss; no test-targeted optimization or required score",
+  "test_policy": "new synthetic seeds and heldout people; real3fold personCV, no Oura clinical comparator equivalence",
+  "synthetic_seed": 29418,
+  "random_split": 29420,
+  "missing_regimes": [
+    "0/10/30/50/70%",
+    "3/7/14day blocks",
+    "channel dropout",
+    "illness-related missingness",
+    "missed period logs"
+  ],
+  "claim": "Deployable research API, clinical performance unvalidated"
+}

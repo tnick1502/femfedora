@@ -1,0 +1,17 @@
+{
+  "date": "2026-11-09",
+  "pytest_tests": 14,
+  "pytest_passed": true,
+  "fresh_extracted_bundle_tests_passed": true,
+  "independent_metric_recomputation_artifacts": 8,
+  "metrics_recomputed": [
+    "accuracy",
+    "Brier",
+    "probability_simplex"
+  ],
+  "http_health_passed": true,
+  "http_matches_python": true,
+  "seven_day_forecast_present": true,
+  "all_four_figures_visually_reviewed": true,
+  "individual_records_ignored_by_git": true
+}

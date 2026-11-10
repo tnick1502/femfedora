@@ -1,0 +1,378 @@
+[
+ {
+  "folder": "01_anna_24_ttc_lh",
+  "name": "Анна",
+  "age": 24,
+  "goal": "планирует беременность, отслеживает фертильное окно",
+  "fertility": {
+   "status": "ok",
+   "cycle_day": 19,
+   "phase": "fertile_window",
+   "cycle_start_source": "logged",
+   "today": 0.776,
+   "ovulation": "predicted",
+   "ovulation_date": "2026-11-10",
+   "next_period": "2026-11-24",
+   "confidence": "high",
+   "suggestions": [],
+   "illness_nights": 0
+  },
+  "truth": {
+   "true_ovulation_current_cycle": "2026-11-11",
+   "true_current_cycle_start": "2026-10-22",
+   "cycle_lengths": [
+    35,
+    32,
+    32,
+    30,
+    32,
+    35,
+    32
+   ],
+   "ovulation_days": [
+    20,
+    19,
+    21,
+    20,
+    21,
+    19,
+    21
+   ]
+  }
+ },
+ {
+  "folder": "02_maria_29_long_cycles",
+  "name": "Мария",
+  "age": 29,
+  "goal": "хочет понимать свой цикл, планирует беременность через год",
+  "fertility": {
+   "status": "ok",
+   "cycle_day": 26,
+   "phase": "luteal",
+   "cycle_start_source": "logged",
+   "today": 0.0,
+   "ovulation": "detected",
+   "ovulation_date": "2026-11-01",
+   "next_period": "2026-11-15",
+   "confidence": "high",
+   "suggestions": [],
+   "illness_nights": 0
+  },
+  "truth": {
+   "true_ovulation_current_cycle": "2026-11-02",
+   "true_current_cycle_start": "2026-10-15",
+   "cycle_lengths": [
+    32,
+    37,
+    34,
+    41,
+    29,
+    32
+   ],
+   "ovulation_days": [
+    19,
+    null,
+    20,
+    null,
+    16,
+    19
+   ]
+  }
+ },
+ {
+  "folder": "03_ekaterina_33_forgot_period_oura",
+  "name": "Екатерина",
+  "age": 33,
+  "goal": "следит за циклом и сном, данные приходят прямо из Oura",
+  "fertility": {
+   "status": "ok",
+   "cycle_day": 9,
+   "phase": "fertile_window",
+   "cycle_start_source": "inferred_from_physiology",
+   "today": 0.731,
+   "ovulation": "predicted",
+   "ovulation_date": "2026-11-12",
+   "next_period": "2026-11-28",
+   "confidence": "high",
+   "suggestions": [
+    {
+     "date": "2026-11-01",
+     "probability": 0.886,
+     "action": "ask_user_to_confirm_period_start"
+    }
+   ],
+   "illness_nights": 0
+  },
+  "truth": {
+   "true_ovulation_current_cycle": "2026-11-09",
+   "true_current_cycle_start": "2026-11-01",
+   "cycle_lengths": [
+    24,
+    30,
+    29,
+    25,
+    29,
+    27
+   ],
+   "ovulation_days": [
+    9,
+    12,
+    13,
+    10,
+    15,
+    9
+   ]
+  }
+ },
+ {
+  "folder": "04_darya_27_new_user",
+  "name": "Дарья",
+  "age": 27,
+  "goal": "только что купила кольцо, хочет видеть прогноз месячных и окна",
+  "fertility": {
+   "status": "ok",
+   "cycle_day": 12,
+   "phase": "fertile_window",
+   "cycle_start_source": "logged",
+   "today": 0.47,
+   "ovulation": "predicted",
+   "ovulation_date": "2026-11-14",
+   "next_period": "2026-11-28",
+   "confidence": "medium",
+   "suggestions": [],
+   "illness_nights": 0
+  },
+  "truth": {
+   "true_ovulation_current_cycle": "2026-11-10",
+   "true_current_cycle_start": "2026-10-29",
+   "cycle_lengths": [
+    25,
+    26,
+    26,
+    27,
+    26
+   ],
+   "ovulation_days": [
+    14,
+    15,
+    14,
+    14,
+    13
+   ]
+  }
+ },
+ {
+  "folder": "05_olga_36_fever",
+  "name": "Ольга",
+  "age": 36,
+  "goal": "отслеживает цикл, двое детей, не планирует беременность (без гормональной контрацепции)",
+  "fertility": {
+   "status": "ok",
+   "cycle_day": 15,
+   "phase": "fertile_window",
+   "cycle_start_source": "logged",
+   "today": 0.825,
+   "ovulation": "predicted",
+   "ovulation_date": "2026-11-11",
+   "next_period": "2026-11-26",
+   "confidence": "high",
+   "suggestions": [],
+   "illness_nights": 2
+  },
+  "truth": {
+   "true_ovulation_current_cycle": "2026-11-15",
+   "true_current_cycle_start": "2026-10-26",
+   "cycle_lengths": [
+    30,
+    33,
+    35,
+    28,
+    31,
+    33
+   ],
+   "ovulation_days": [
+    18,
+    21,
+    null,
+    17,
+    19,
+    21
+   ]
+  }
+ },
+ {
+  "folder": "06_irina_41_cycle_and_perimenopause",
+  "name": "Ирина",
+  "age": 41,
+  "goal": "замечает, что циклы стали короче; хочет понимать цикл и начало перименопаузы",
+  "fertility": {
+   "status": "ok",
+   "cycle_day": 16,
+   "phase": "luteal_expected",
+   "cycle_start_source": "logged",
+   "today": 0.01,
+   "ovulation": "likely_passed_not_confirmed",
+   "ovulation_date": "2026-11-06",
+   "next_period": "2026-11-22",
+   "confidence": "high",
+   "suggestions": [],
+   "illness_nights": 0
+  },
+  "menopause": {
+   "status": "ok",
+   "stage": "reproductive",
+   "grouped": "reproductive",
+   "basis": "model",
+   "fmp12": 0.001,
+   "median": ">60",
+   "vms": {
+    "index_last30": 0.27,
+    "share_of_scored_nights_with_likely_hot_flashes_last30": 0.115,
+    "self_reported_symptom_days_last30": 0
+   },
+   "model": "full"
+  },
+  "truth": {
+   "true_ovulation_current_cycle": "2026-11-06",
+   "true_current_cycle_start": "2026-10-25",
+   "cycle_lengths": [
+    29,
+    30,
+    29,
+    37,
+    28,
+    31,
+    27,
+    27
+   ],
+   "ovulation_days": [
+    13,
+    13,
+    13,
+    null,
+    14,
+    13,
+    12,
+    13
+   ]
+  }
+ },
+ {
+  "folder": "07_elena_46_late_transition",
+  "name": "Елена",
+  "age": 46,
+  "goal": "отслеживает менопаузальный переход: нерегулярные месячные и приливы",
+  "menopause": {
+   "status": "ok",
+   "stage": "late_transition",
+   "grouped": "transition",
+   "basis": "model",
+   "fmp12": 0.434,
+   "median": 13.6,
+   "vms": {
+    "index_last30": 0.255,
+    "share_of_scored_nights_with_likely_hot_flashes_last30": 0.0,
+    "self_reported_symptom_days_last30": 20
+   },
+   "model": "full"
+  },
+  "truth": {
+   "age_at_fmp": 48.05,
+   "years_to_fmp": 1.52,
+   "stage": "late_transition",
+   "vms_class": "high",
+   "nights_with_hot_flash_last30": 18
+  }
+ },
+ {
+  "folder": "08_natalya_49_no_logs_fsh",
+  "name": "Наталья",
+  "age": 49,
+  "goal": "хочет понять, близка ли менопауза",
+  "menopause": {
+   "status": "ok",
+   "stage": "late_transition",
+   "grouped": "transition",
+   "basis": "model",
+   "fmp12": 0.407,
+   "median": 14.1,
+   "vms": {
+    "index_last30": 0.289,
+    "share_of_scored_nights_with_likely_hot_flashes_last30": 0.103,
+    "self_reported_symptom_days_last30": null
+   },
+   "model": "full"
+  },
+  "truth": {
+   "age_at_fmp": 48.68,
+   "years_to_fmp": 0.4,
+   "stage": "late_transition",
+   "vms_class": "low",
+   "nights_with_hot_flash_last30": 1
+  }
+ },
+ {
+  "folder": "09_svetlana_53_postmenopause",
+  "name": "Светлана",
+  "age": 53,
+  "goal": "постменопауза, беспокоят приливы и сон",
+  "menopause": {
+   "status": "ok",
+   "stage": "postmenopause",
+   "grouped": "postmenopause",
+   "basis": "STRAW+10: >=12 months without a period",
+   "fmp12": 1.0,
+   "median": "<6",
+   "vms": {
+    "index_last30": 0.281,
+    "share_of_scored_nights_with_likely_hot_flashes_last30": 0.133,
+    "self_reported_symptom_days_last30": 19
+   },
+   "model": "full"
+  },
+  "truth": {
+   "age_at_fmp": 51.51,
+   "years_to_fmp": -1.6,
+   "stage": "postmenopause",
+   "vms_class": "high",
+   "nights_with_hot_flash_last30": 13
+  }
+ },
+ {
+  "folder": "10_tatiana_31_sparse_data",
+  "name": "Татьяна",
+  "age": 31,
+  "goal": "4 месяца назад отменила оральные контрацептивы, ждёт восстановления цикла",
+  "fertility": {
+   "status": "ok",
+   "cycle_day": 18,
+   "phase": "luteal_expected",
+   "cycle_start_source": "logged",
+   "today": 0.061,
+   "ovulation": "likely_passed_not_confirmed",
+   "ovulation_date": "2026-11-06",
+   "next_period": "2026-11-20",
+   "confidence": "medium",
+   "suggestions": [],
+   "illness_nights": 0
+  },
+  "truth": {
+   "true_ovulation_current_cycle": "2026-10-31",
+   "true_current_cycle_start": "2026-10-21",
+   "cycle_lengths": [
+    25,
+    27,
+    27,
+    31,
+    25
+   ],
+   "ovulation_days": [
+    10,
+    12,
+    14,
+    null,
+    11
+   ]
+  }
+ }
+]

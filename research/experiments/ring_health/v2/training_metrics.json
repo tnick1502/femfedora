@@ -1,0 +1,192 @@
+{
+  "fertile_target": {
+    "selected": "hist_gradient",
+    "validation": {
+      "hist_gradient": {
+        "n": 16792,
+        "accuracy": 0.8255717008099095,
+        "balanced_accuracy": 0.6050483977012837,
+        "macro_f1": 0.6256767108450753,
+        "log_loss": 0.3669561648596784,
+        "confusion_matrix": [
+          [
+            13067,
+            521
+          ],
+          [
+            2408,
+            796
+          ]
+        ],
+        "roc_auc": 0.8349003485670877,
+        "average_precision": 0.5204389126731505,
+        "brier": 0.11825400212410463,
+        "positive_f1": 0.35213448352134485,
+        "precision": 0.6044039483675019,
+        "sensitivity": 0.2484394506866417,
+        "positive_prevalence": 0.19080514530728918,
+        "threshold": 0.5
+      },
+      "forest": {
+        "n": 16792,
+        "accuracy": 0.8108027632205812,
+        "balanced_accuracy": 0.5074334425947548,
+        "macro_f1": 0.464010883310494,
+        "log_loss": 0.4045952823624707,
+        "confusion_matrix": [
+          [
+            13561,
+            27
+          ],
+          [
+            3150,
+            54
+          ]
+        ],
+        "roc_auc": 0.8016344744224267,
+        "average_precision": 0.465720818697443,
+        "brier": 0.1294782990356548,
+        "positive_f1": 0.03287671232876712,
+        "precision": 0.6666666666666666,
+        "sensitivity": 0.016853932584269662,
+        "positive_prevalence": 0.19080514530728918,
+        "threshold": 0.5
+      }
+    },
+    "test": {
+      "n": 16886,
+      "accuracy": 0.7831931777804098,
+      "balanced_accuracy": 0.7345167624887845,
+      "macro_f1": 0.6917528204267351,
+      "log_loss": 0.36061355887484814,
+      "confusion_matrix": [
+        [
+          11211,
+          2615
+        ],
+        [
+          1046,
+          2014
+        ]
+      ],
+      "roc_auc": 0.8299305608737539,
+      "average_precision": 0.5071350716672036,
+      "brier": 0.11512937813026802,
+      "positive_f1": 0.5238652620626869,
+      "precision": 0.4350831713112983,
+      "sensitivity": 0.6581699346405229,
+      "positive_prevalence": 0.18121520786450313,
+      "threshold": 0.27
+    },
+    "threshold": 0.27
+  },
+  "postovulatory_target": {
+    "selected": "hist_gradient",
+    "validation": {
+      "hist_gradient": {
+        "n": 16792,
+        "accuracy": 0.8809552167698904,
+        "balanced_accuracy": 0.8657391188570647,
+        "macro_f1": 0.8702128245552923,
+        "log_loss": 0.26869338056918257,
+        "confusion_matrix": [
+          [
+            9812,
+            820
+          ],
+          [
+            1179,
+            4981
+          ]
+        ],
+        "roc_auc": 0.9536217773714247,
+        "average_precision": 0.9212962897066859,
+        "brier": 0.08403057748007609,
+        "positive_f1": 0.8328735055597358,
+        "precision": 0.8586450611963454,
+        "sensitivity": 0.8086038961038962,
+        "positive_prevalence": 0.3668413530252501,
+        "threshold": 0.5
+      },
+      "forest": {
+        "n": 16792,
+        "accuracy": 0.8629704621248213,
+        "balanced_accuracy": 0.8360708422503005,
+        "macro_f1": 0.8469354676487797,
+        "log_loss": 0.3253617209307186,
+        "confusion_matrix": [
+          [
+            9963,
+            669
+          ],
+          [
+            1632,
+            4528
+          ]
+        ],
+        "roc_auc": 0.9440400915393862,
+        "average_precision": 0.903058647128746,
+        "brier": 0.09976456739023812,
+        "positive_f1": 0.7973936779078982,
+        "precision": 0.8712718876274774,
+        "sensitivity": 0.7350649350649351,
+        "positive_prevalence": 0.3668413530252501,
+        "threshold": 0.5
+      }
+    },
+    "test": {
+      "n": 16886,
+      "accuracy": 0.8713135141537368,
+      "balanced_accuracy": 0.8731036927451226,
+      "macro_f1": 0.8615555442037973,
+      "log_loss": 0.27087100857382584,
+      "confusion_matrix": [
+        [
+          9598,
+          1468
+        ],
+        [
+          705,
+          5115
+        ]
+      ],
+      "roc_auc": 0.9500674180471684,
+      "average_precision": 0.9062114265195242,
+      "brier": 0.08522372829700149,
+      "positive_f1": 0.8248004515036684,
+      "precision": 0.7770013671578307,
+      "sensitivity": 0.8788659793814433,
+      "positive_prevalence": 0.3446642188795452,
+      "threshold": 0.36
+    },
+    "threshold": 0.36
+  },
+  "stage": {
+    "test": {
+      "n": 1200,
+      "accuracy": 0.82,
+      "balanced_accuracy": 0.8269390079734907,
+      "macro_f1": 0.825289764094726,
+      "log_loss": 0.5265168029109011,
+      "confusion_matrix": [
+        [
+          350,
+          94,
+          0
+        ],
+        [
+          70,
+          306,
+          32
+        ],
+        [
+          0,
+          20,
+          328
+        ]
+      ],
+      "brier": 0.2635512248233148
+    },
+    "provenance": "synthetic_only_not_menopause_diagnosis"
+  }
+}

@@ -1,0 +1,179 @@
+{
+  "retrieved_date": "2026-11-09",
+  "files": [
+    {
+      "path": "data/external/ring_health/tempid/temperature_ovulation_dataset.csv",
+      "url": "https://zenodo.org/records/20160611/files/temperature_ovulation_dataset.csv?download=1",
+      "sha256": "9495aeeafd3945fe8e56aa03c33404a6f76f6cf64c8e1a11e4876892b0f73543",
+      "bytes": 2311861
+    },
+    {
+      "path": "data/external/ring_health/tempid/MaxRange.csv",
+      "url": "https://zenodo.org/records/20160611/files/MaxRange.csv?download=1",
+      "sha256": "763f12dfec0123c9b6bc06ba2c3efd97b684644695f35b8d9de4b1e4dde97324",
+      "bytes": 146750
+    },
+    {
+      "path": "data/external/ring_health/tempid/metadata.json",
+      "url": "https://zenodo.org/api/records/20160611",
+      "sha256": "99eec1f79cd41aa97a07f63f73596897c2203b8d2cb9f297252df04bdbaec875",
+      "bytes": 6648
+    },
+    {
+      "path": "data/external/ring_health/provenance/assaf_article.pdf",
+      "url": "https://www.ammanu.edu.jo/media/w1jdiahg/f1000research-11-162087.pdf",
+      "sha256": "e5a6bd76254d39b76e03124d06b9682a8fa14ff843f8933877b2083bf5b1c9a9",
+      "bytes": 330678
+    },
+    {
+      "path": "data/external/ring_health/provenance/tempid_preprocessing.py",
+      "url": "https://raw.githubusercontent.com/nach00gar/Monitoring-female-fertile-ground-temperature-measurement-using-a-skin-wearable-and-ML-integration/main/src/preprocessing.py",
+      "sha256": "ef9c97788c655f320e972f9c896454dcaf559fddee856817409c8d503e835464",
+      "bytes": 24602
+    },
+    {
+      "path": "data/external/ring_health/provenance/tempid_construction.py",
+      "url": "https://raw.githubusercontent.com/nach00gar/Monitoring-female-fertile-ground-temperature-measurement-using-a-skin-wearable-and-ML-integration/main/src/construction.py",
+      "sha256": "b7f9d8d8574ca6432e97c89384fa3f788bb2f0847b07a82b0de8ee4de35d366b",
+      "bytes": 12836
+    },
+    {
+      "path": "data/external/ring_health/provenance/tempid_LICENSE.txt",
+      "url": "https://raw.githubusercontent.com/nach00gar/Monitoring-female-fertile-ground-temperature-measurement-using-a-skin-wearable-and-ML-integration/main/LICENSE",
+      "sha256": "3ec558dc6e9c9355ab4b28c942caa92bf90b0b82c12d7838d2ef92467ad135c1",
+      "bytes": 1057
+    },
+    {
+      "path": "data/external/ring_health/nhanes/DEMO_I.xpt",
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2015/DataFiles/DEMO_I.xpt",
+      "sha256": "c9297c6c37ae8f78f29be9568fa2a03cf3b112616a39afee04030fc775a66a0d",
+      "bytes": 3756480
+    },
+    {
+      "path": "data/external/ring_health/nhanes/DEMO_I.htm",
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2015/DataFiles/DEMO_I.htm",
+      "sha256": "ae488b8a00e7cdbae20f2fb279819dcb180b03373efa13abf784c52a0b82e473",
+      "bytes": 172117
+    },
+    {
+      "path": "data/external/ring_health/nhanes/RHQ_I.xpt",
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2015/DataFiles/RHQ_I.xpt",
+      "sha256": "471c93fc2d27f8e9aad1a5a2ed235f43b02973cbc88fd2d0b058b2ee40ee317c",
+      "bytes": 1284560
+    },
+    {
+      "path": "data/external/ring_health/nhanes/RHQ_I.htm",
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2015/DataFiles/RHQ_I.htm",
+      "sha256": "7d99b3da8a55111ba61ad475cf01ec744a540817f0df34b1131f7756582350f5",
+      "bytes": 144848
+    },
+    {
+      "path": "data/external/ring_health/nhanes/BMX_I.xpt",
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2015/DataFiles/BMX_I.xpt",
+      "sha256": "d31da84e14212b4e58e8340598a5b8e2144fac83333563e966eb1b332e4141d6",
+      "bytes": 1989600
+    },
+    {
+      "path": "data/external/ring_health/nhanes/BMX_I.htm",
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2015/DataFiles/BMX_I.htm",
+      "sha256": "a0c7d0e76a882259d93e0e22f175be57bca746f704f753aab9c673163601f2bd",
+      "bytes": 67003
+    },
+    {
+      "path": "data/external/ring_health/nhanes/BPX_I.xpt",
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2015/DataFiles/BPX_I.xpt",
+      "sha256": "45d5c9fa101ccc6da82241bd45c99611595e699665eed2cfed232e9070b52cc1",
+      "bytes": 1607120
+    },
+    {
+      "path": "data/external/ring_health/nhanes/BPX_I.htm",
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2015/DataFiles/BPX_I.htm",
+      "sha256": "8e45eccbf040fe42deb60c44f89ab6045b4f01216153ab47427f044b730481e2",
+      "bytes": 52009
+    },
+    {
+      "path": "data/external/ring_health/nhanes/SLQ_I.xpt",
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2015/DataFiles/SLQ_I.xpt",
+      "sha256": "42dc4ce269704791223954e8513d91bd9b1da4cca89224b3ba87f043a9fa736a",
+      "bytes": 368880
+    },
+    {
+      "path": "data/external/ring_health/nhanes/SLQ_I.htm",
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2015/DataFiles/SLQ_I.htm",
+      "sha256": "2f1bb1c84ecde0bde568e64a06a4354edfa26e4dad57e74e5f2272577e3e1e93",
+      "bytes": 27249
+    },
+    {
+      "path": "data/external/ring_health/nhanes/DEMO_J.xpt",
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/DEMO_J.xpt",
+      "sha256": "c0b46e0345ea19404928656277c8b0d10b0cca348a9b2fe4fc3c67e8b7ee73ec",
+      "bytes": 3412720
+    },
+    {
+      "path": "data/external/ring_health/nhanes/DEMO_J.htm",
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/DEMO_J.htm",
+      "sha256": "07f8f1e7f884fab180ccf53c705652de9d663833fdad85b0d759919c8464cde0",
+      "bytes": 167262
+    },
+    {
+      "path": "data/external/ring_health/nhanes/RHQ_J.xpt",
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/RHQ_J.xpt",
+      "sha256": "c919896216154ea207470dd84e428f5fdd65ced39735148c78fb6032e0b77a7b",
+      "bytes": 1242960
+    },
+    {
+      "path": "data/external/ring_health/nhanes/RHQ_J.htm",
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/RHQ_J.htm",
+      "sha256": "ff09bd30160388cc43e5d3837fab274b3808afce649565a24f9dee44d0bbf943",
+      "bytes": 146670
+    },
+    {
+      "path": "data/external/ring_health/nhanes/BMX_J.xpt",
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/BMX_J.xpt",
+      "sha256": "8d675e42d8826ac98714b2c3dd4c5138a5e353fb4424f7eff5e6db4a01ce838a",
+      "bytes": 1466000
+    },
+    {
+      "path": "data/external/ring_health/nhanes/BMX_J.htm",
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/BMX_J.htm",
+      "sha256": "557b2ad6946237b7a169819006e7126e48e25cdb45926605cb368342c6773689",
+      "bytes": 49460
+    },
+    {
+      "path": "data/external/ring_health/nhanes/BPX_J.xpt",
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/BPX_J.xpt",
+      "sha256": "f98f1d9a4c18173e715c749b4294f6f1525140d5ad5751316bb17cc038fb3423",
+      "bytes": 1466000
+    },
+    {
+      "path": "data/external/ring_health/nhanes/BPX_J.htm",
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/BPX_J.htm",
+      "sha256": "a7583578150897efec8748a3bc05ecbc6e54d5a0b5a32cdfda87c883aba56a37",
+      "bytes": 52515
+    },
+    {
+      "path": "data/external/ring_health/nhanes/SLQ_J.xpt",
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/SLQ_J.xpt",
+      "sha256": "5486e1c51d56a959c94106d131a11b2e58bdec8ff30917ad7748917c6fa09f3a",
+      "bytes": 470560
+    },
+    {
+      "path": "data/external/ring_health/nhanes/SLQ_J.htm",
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/SLQ_J.htm",
+      "sha256": "d151c434f7a24b086cb1858d64708c63e33a8e49e7d2f54c33d881c3ba66b6f4",
+      "bytes": 37776
+    },
+    {
+      "path": "data/external/ring_health/data set menopause.xlsx",
+      "source": "/Users/nikita/Downloads/20822032/data set menopause.xlsx",
+      "sha256": "9abbe166de846ea74119b04d44ea35c1d4e55a148cd528573166e8a7455dc77a",
+      "bytes": 51921
+    },
+    {
+      "path": "data/external/ring_health/menapouse study questionnaire.docx",
+      "source": "/Users/nikita/Downloads/20822032/menapouse study questionnaire.docx",
+      "sha256": "5efeba7f51631f8ecd5cd974debb9b1e9f2a08695dd518dafe96271ab512d01c",
+      "bytes": 1328721
+    }
+  ]
+}

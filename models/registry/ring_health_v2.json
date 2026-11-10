@@ -1,0 +1,21 @@
+{
+  "version": "ring-health-v2",
+  "python": "3.12.14",
+  "sklearn": "1.9.1",
+  "clinical_validation": "not_established",
+  "artifacts": {
+    "fertile_target.joblib": {
+      "sha256": "e66292ff363e0a108bde4c06931bdfb25d8ecfcab76a5c00ead64e22fc30b245"
+    },
+    "thermal_profiles.json": {
+      "sha256": "5bebb4ef3e4e996b474a8add744bb4f110210fca02495a939d90ec67b9614b89"
+    },
+    "stage.joblib": {
+      "sha256": "2a276b199f9393c51498f6a31710625932e8d48d0147dbc460fc2c311dea0a20"
+    },
+    "postovulatory_target.joblib": {
+      "sha256": "4392ff33d77b48efaf8c73975c994cb568198bcd5f935a9675215c36e361fc26"
+    }
+  },
+  "literature_and_assumptions": "models/configs/training/ring_health_evidence_v2.json"
+}

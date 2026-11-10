@@ -1,0 +1,80 @@
+{
+  "model_version": "ring-health-v2",
+  "artifact_manifest_sha256": "c62d48b0200e7e1f9f4a2736236ff1beb4b9def988f9165b6f838c09c8d8b6b4",
+  "as_of": "2024-04-05",
+  "clinical_validation": "not_established",
+  "recommendations": [],
+  "measurement_imputation": "none; missing measurements remain unobserved",
+  "status": "ok",
+  "observed_nights_last28": {
+    "temperature_deviation": 0,
+    "resting_hr": 0,
+    "hrv_ms": 0,
+    "respiratory_rate": 0,
+    "sleep_minutes": 0,
+    "sleep_efficiency": 0,
+    "steps": 0
+  },
+  "fertility": {
+    "status": "calendar_only_stale_measurements",
+    "cycle_day": 11,
+    "evidence_source": "cycle_prior_only",
+    "reference_event_date": null,
+    "event_day_conditional_quantiles_05_50_95": [
+      12,
+      17,
+      22
+    ],
+    "event_day_quantiles_are_clinically_calibrated": false,
+    "postovulatory_component_probability": 0.01633770206554598,
+    "no_ovulation_component_probability": 0.10000000000000002,
+    "observed_temperature_nights": 0,
+    "days_since_last_temperature": 11,
+    "uncertain_history_intervals": 0,
+    "missing_observations_method": "marginalized_in_likelihood",
+    "imputed_measurement_count": 0,
+    "night_counts_before_after_estimate": [
+      0,
+      0
+    ],
+    "observed_shift_celsius": null,
+    "forecast": [
+      {
+        "date": "2024-04-05",
+        "fertile_day_probability": 0.4036269952452506
+      },
+      {
+        "date": "2024-04-06",
+        "fertile_day_probability": 0.5038283741421739
+      },
+      {
+        "date": "2024-04-07",
+        "fertile_day_probability": 0.5793908224822405
+      },
+      {
+        "date": "2024-04-08",
+        "fertile_day_probability": 0.614938054111403
+      },
+      {
+        "date": "2024-04-09",
+        "fertile_day_probability": 0.6028672475280175
+      },
+      {
+        "date": "2024-04-10",
+        "fertile_day_probability": 0.5457842185829413
+      },
+      {
+        "date": "2024-04-11",
+        "fertile_day_probability": 0.4556651345852439
+      }
+    ],
+    "interpretation": "Model hypothesis of a sustained thermal shift; neither hormone-confirmed ovulation nor a pregnancy probability",
+    "model_profile": "oura_literature",
+    "profile_evidence": "literature_constrained; joint model not validated on Oura cohort"
+  },
+  "menopause": {
+    "status": "insufficient_history_or_age_support",
+    "required": "Age35..65;90calendar days with at least20observed temperature nights; other signals optional",
+    "future_onset_prediction": null
+  }
+}
