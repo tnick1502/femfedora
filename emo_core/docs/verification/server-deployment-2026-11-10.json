@@ -1,0 +1,75 @@
+{
+  "tls_verified": true,
+  "health": "ok",
+  "frontend_assets_checked": 7,
+  "openapi": "EMO Core",
+  "anonymous_access_blocked": true,
+  "runtime": {
+    "ai_mode": "live",
+    "revision": 0
+  },
+  "models": {
+    "llm": "deepseek-flash",
+    "jev": "jev-1.14.0"
+  },
+  "chat": {
+    "origin": "reactive",
+    "models": {
+      "llm": "deepseek-flash",
+      "jev": "jev-1.14.0"
+    },
+    "route": "normal",
+    "llm_calls": 1,
+    "jev_input_called": true,
+    "jev_output_calls": 1,
+    "fallback": null,
+    "seconds": 2.71
+  },
+  "decision_report_persisted": true,
+  "tenant_isolation_verified": true,
+  "questionnaire_codes": [
+    "EPDS",
+    "GAD2",
+    "GAD7",
+    "PHQ9"
+  ],
+  "questionnaire_workflow": {
+    "draft_saved": true,
+    "resumed": true,
+    "completed": true,
+    "score": 0,
+    "calculated_by": "python"
+  },
+  "settings_available": true,
+  "journal_available": true,
+  "trends_available": true,
+  "checkins_available": true,
+  "support_contacts_available": true,
+  "checked_at": "2026-11-10T15:49:17.482712+00:00",
+  "server": "81.31.245.115",
+  "source_commit": "f45a514bc4bd7dd0a7b23912c5390edc36bdc8ae",
+  "environment_matches_local": true,
+  "env_file_mode": "0600",
+  "env_absent_from_image": true,
+  "alembic_schema_consistent": true,
+  "container_restart_verified": true,
+  "data_persisted_after_restart": true,
+  "database_host_port_published": false,
+  "api_host_bind": "127.0.0.1:8086",
+  "https_renewal_dry_run_with_deploy_hook": "passed",
+  "backup_restore": {
+    "verified": true,
+    "tables": 18,
+    "temporary_database_removed": true,
+    "file_mode": "0600"
+  },
+  "startup_units_enabled": [
+    "emo-core.service",
+    "nginx.service",
+    "snap.certbot.renew.timer",
+    "emo-core-backup.timer"
+  ],
+  "os_reboot_performed": false,
+  "fixtures": "Synthetic technical conversation and GAD2 zero-score attempt in demo profile anna; no real patient data",
+  "network_probe_scope": "Backend publication checked from Compose and host listeners. Bare TCP-connect probes from the local VPN environment were inconclusive and are not treated as evidence of port exposure."
+}

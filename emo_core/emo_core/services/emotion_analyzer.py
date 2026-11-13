@@ -7,17 +7,22 @@ class EmotionAnalyzer:
         """Сохраняет провайдера анализа эмоциональных и защитных маркеров."""
         self.provider = provider
 
-    async def analyze(self, text: str) -> EmotionAnalysis:
+    async def analyze(self, text: str, previous_turns=None) -> EmotionAnalysis:
         """Запрашивает анализ текста или возвращает available=False при сбое провайдера.
 
         В ошибочном результате сохраняет только известный безопасный код ошибки;
         оценки маркеров при недоступности не придумывает.
         """
         try:
+            contextual = getattr(self.provider, "analyze_with_context", None)
+            if contextual and previous_turns:
+                return await contextual(text, previous_turns)
             return await self.provider.analyze(text)
         except ProviderUnavailable as error:
             code = str(error)
             allowed = {"jev_unavailable", "jev_invalid_response", "external_ai_disabled"}
             return EmotionAnalysis(
-                available=False, error_code=code if code in allowed else "classifier_unavailable"
+                available=False,
+                scope="unavailable",
+                error_code=code if code in allowed else "classifier_unavailable",
             )

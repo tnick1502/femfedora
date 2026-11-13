@@ -457,11 +457,12 @@ function syncStage() {
   if (stage === 'pregnant' && due) { const week = Math.floor((280 - Math.round((new Date(due + 'T12:00:00') - Date.now()) / 864e5)) / 7); if (week >= 0 && week <= 43) note = `Сейчас примерно ${week}-я неделя. EMO сама пересчитывает срок с течением времени.`; }
   if (stage === 'loss') note = 'Мне очень жаль. EMO учтёт это: не будет спрашивать о сроке и говорить о родах как о предстоящих.';
   if (stage === 'none') note = 'EMO не будет опираться на срок беременности или возраст ребёнка.';
+  if (stage === 'preconception') note = 'Для подготовки доступны PHQ-9 и GAD-7. Дополнительные шкалы появятся на соответствующем этапе.';
   $('#stage-note').textContent = note;
 }
 function fillPerinatal(d) {
   const f = $('#perinatal-form').elements, today = new Date();
-  f.stage.value = d.pregnancy_outcome === 'loss' ? 'loss' : d.birth_date ? 'postpartum' : d.estimated_due_date || d.gestational_week != null ? 'pregnant' : 'none';
+  f.stage.value = d.reproductive_stage === 'preconception' ? 'preconception' : d.reproductive_stage === 'unknown' ? 'none' : d.pregnancy_outcome === 'loss' ? 'loss' : d.birth_date ? 'postpartum' : d.estimated_due_date || d.gestational_week != null ? 'pregnant' : 'none';
   f.estimated_due_date.value = d.estimated_due_date || ''; f.birth_date.value = d.birth_date ? isoDay(new Date(d.birth_date)) : '';
   f.estimated_due_date.min = isoDay(new Date(+today - 30 * 864e5)); f.estimated_due_date.max = isoDay(new Date(+today + 310 * 864e5)); f.birth_date.max = isoDay(today);
   syncStage();
@@ -469,7 +470,7 @@ function fillPerinatal(d) {
 }
 $('#perinatal-form').onchange = syncStage;
 $('#perinatal-form').onsubmit = e => { e.preventDefault(); safe(async () => {
-  const f = e.target.elements, stage = f.stage.value, body = {estimated_due_date: null, birth_date: null, pregnancy_outcome: null};
+  const f = e.target.elements, stage = f.stage.value, body = {reproductive_stage: stage === 'none' ? 'unknown' : stage === 'loss' ? 'after_loss' : stage, estimated_due_date: null, birth_date: null, pregnancy_outcome: null};
   if (stage === 'pregnant') { if (!f.estimated_due_date.value) throw Error('Укажи предполагаемую дату родов.'); body.estimated_due_date = f.estimated_due_date.value; body.pregnancy_outcome = 'ongoing'; }
   else body.gestational_week = null;
   if (stage === 'postpartum') { if (!f.birth_date.value) throw Error('Укажи дату родов.'); body.birth_date = new Date(f.birth_date.value + 'T00:00:00').toISOString(); body.pregnancy_outcome = 'live_birth'; }

@@ -1,0 +1,9 @@
+[Unit]
+Description=Local PostgreSQL backup for EMO Core
+Requires=docker.service
+After=docker.service emo-core.service
+
+[Service]
+Type=oneshot
+ExecStart=/opt/emo-core/ops/backup.sh
+UMask=0077

@@ -17,6 +17,7 @@ async def test_multiple_markers():
 
 async def test_real_adapter_contract(config):
     """Проверяет схему вопросов TypeSafe SDK, преобразование оценок и фиксацию версии Jev."""
+    config.jev_gate_enabled = False
     provider = TypeSafeJevProvider(config)
 
     async def ask(state, questions):

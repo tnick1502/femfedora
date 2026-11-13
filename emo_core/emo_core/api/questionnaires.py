@@ -5,7 +5,8 @@ from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from emo_core.core.auth import current_user
-from emo_core.db.models import Questionnaire, TestAttempt
+from emo_core.db.base import utcnow
+from emo_core.db.models import Questionnaire, TestAttempt, UserSettings
 from emo_core.db.repositories import tenant_read_session, tenant_session
 from emo_core.schemas.screening import (
     AttemptCreate,
@@ -16,9 +17,14 @@ from emo_core.schemas.screening import (
     QuestionnaireView,
     ScheduleAction,
 )
+from emo_core.services.perinatal import perinatal_context
 from emo_core.services.questionnaire_materials import questionnaire_view
 from emo_core.services.screening_engine import ScreeningEngine
-from emo_core.services.screening_scheduler import ScreeningScheduler
+from emo_core.services.screening_scheduler import (
+    SCALE_CODES,
+    STAGE_SCALES,
+    ScreeningScheduler,
+)
 
 router = APIRouter(tags=["Questionnaires"])
 
@@ -36,8 +42,10 @@ async def questionnaires(
             )
         ).all()
     )
+    stage = perinatal_context(await session.get(UserSettings, user_id), utcnow()).stage
+    allowed = STAGE_SCALES[stage]
     return {
-        "items": [questionnaire_view(q) for q in rows if q.enabled],
+        "items": [questionnaire_view(q) for q in rows if q.enabled and q.code in allowed],
         "unavailable": [
             {
                 "code": q.code,
@@ -45,7 +53,9 @@ async def questionnaires(
                 "reason": q.definition.get("blocked_reason", "Отключён администратором"),
             }
             for q in rows
-            if not q.enabled and q.code not in {row.code for row in rows if row.enabled}
+            if q.code in allowed
+            and not q.enabled
+            and q.code not in {row.code for row in rows if row.enabled}
         ],
     }
 
@@ -186,7 +196,7 @@ async def schedule_action(
     session: AsyncSession = Depends(tenant_session, scope="function"),
 ):
     """Фиксирует предложение, отказ или перенос известной шкалы для владельца JWT."""
-    if code not in ("EPDS", "GAD2", "GAD7", "PHQ9"):
+    if code not in SCALE_CODES:
         raise HTTPException(404, "Шкала не найдена")
     await ScreeningScheduler(request.app.state.settings).record(session, user_id, code, body.action)
     return {"status": "saved"}

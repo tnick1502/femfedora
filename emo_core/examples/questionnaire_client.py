@@ -18,7 +18,7 @@ def main():
     """
     load_dotenv(Path(__file__).with_name("client.env"))
     parser = argparse.ArgumentParser(description="Пройти опросник через EMO REST API")
-    parser.add_argument("--code", choices=["GAD2", "GAD7", "EPDS", "PHQ9"], default="GAD2")
+    parser.add_argument("--code", choices=["GAD7", "EPDS", "PHQ9", "CITYBITS"], default="PHQ9")
     parser.add_argument("--attempt", help="UUID сохранённого черновика")
     args = parser.parse_args()
     token = os.getenv("EMO_API_TOKEN")
@@ -39,9 +39,14 @@ def main():
         if args.attempt:
             attempt = call("GET", "questionnaire-attempts/" + args.attempt)
         else:
-            material = next(
-                q for q in call("GET", "questionnaires")["items"] if q["code"] == args.code
-            )
+            catalog = call("GET", "questionnaires")
+            material = next((q for q in catalog["items"] if q["code"] == args.code), None)
+            if material is None:
+                reason = next(
+                    (q["reason"] for q in catalog["unavailable"] if q["code"] == args.code),
+                    "Шкала неприменима на текущем этапе",
+                )
+                raise SystemExit(reason)
             attempt = call(
                 "POST",
                 "questionnaire-attempts",
@@ -68,13 +73,15 @@ def main():
                     for index, option in enumerate(item["options"]):
                         print(f"{index}: {option}")
                     while True:
-                        prompt = "Индекс 0–3; q — сохранить и выйти"
+                        prompt = f"Индекс 0–{len(item['options']) - 1}; q — сохранить и выйти"
                         if optional:
                             prompt += "; Enter — пропустить"
                         value = input(prompt + ": ").strip()
                         if value.lower() == "q":
                             return
-                        if value in ("0", "1", "2", "3") or (optional and not value):
+                        if value in {str(n) for n in range(len(item["options"]))} or (
+                            optional and not value
+                        ):
                             break
                     if not value:
                         continue

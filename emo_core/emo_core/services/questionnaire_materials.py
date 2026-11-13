@@ -7,7 +7,17 @@ from pathlib import Path
 
 from emo_core.core.exceptions import InvalidMaterial
 
-EXPECTED = {"GAD2": (2, 6), "GAD7": (7, 21), "EPDS": (10, 30), "PHQ9": (9, 27)}
+EXPECTED = {
+    "GAD7": (7, 21),
+    "EPDS": (10, 30),
+    "PHQ9": (9, 27),
+    "CITYBITS": (29, 60),
+}
+# Exact PHQ-9 v1 material from immutable questionnaires_20261110_v1.json.
+# Keep existing drafts valid after v2 changes only the product usage/label metadata.
+HISTORICAL_BUNDLED_HASHES = frozenset(
+    {"e6e39a16477b581c0d34d0af139387a6fc021e5738f3b94ef30c04fefbc0a0e4"}
+)
 MATERIAL_FIELDS = (
     "code",
     "version",
@@ -30,7 +40,9 @@ def material_hash(data):
 def bundled_hashes():
     """Читает встроенные JSON-редакции и кэширует множество их контрольных сумм."""
     directory = Path(__file__).resolve().parents[1] / "questionnaires"
-    return frozenset(material_hash(json.loads(p.read_text())) for p in directory.glob("*.json"))
+    return HISTORICAL_BUNDLED_HASHES | frozenset(
+        material_hash(json.loads(p.read_text())) for p in directory.glob("*.json")
+    )
 
 
 def validate_material(data):
@@ -64,15 +76,48 @@ def validate_material(data):
         raise InvalidMaterial("Неверное число или повторение пунктов")
     for item in items:
         options, scores = item.get("options", []), item.get("score_map", [])
+        if data["code"] == "CITYBITS":
+            number = int(item["id"])
+            expected_scores = (
+                [1, 0]
+                if number <= 2
+                else [0, 1, 2, None]
+                if number in (25, 26)
+                else [2, 0, 1]
+                if number >= 27
+                else [0, 1, 2, 3]
+            )
+        else:
+            expected_scores = [0, 1, 2, 3]
         if (
             not isinstance(item.get("id"), str)
             or not item.get("text")
-            or len(options) != 4
+            or len(options) != len(expected_scores)
             or not all(isinstance(o, str) and o for o in options)
-            or any(type(s) is not int for s in scores)
-            or sorted(scores) != [0, 1, 2, 3]
+            or len(scores) != len(expected_scores)
+            or any(s is not None and type(s) is not int for s in scores)
+            or (
+                scores != expected_scores
+                if data["code"] == "CITYBITS"
+                else sorted(scores) != expected_scores
+            )
         ):
-            raise InvalidMaterial("Нужны четыре варианта и проверенный ключ каждого пункта")
+            raise InvalidMaterial("Варианты и ключ должны соответствовать редакции шкалы")
+    if data["code"] == "CITYBITS" and (
+        {i["id"] for i in items} != {str(n) for n in range(1, 30)}
+        or rules.get("total_item_ids") != [str(n) for n in range(3, 23)]
+    ):
+        raise InvalidMaterial("В сумму City BiTS входят только пункты 3–22")
+    total_ids = rules.get("total_item_ids", [i["id"] for i in items])
+    if data["code"] != "CITYBITS" and total_ids != [i["id"] for i in items]:
+        raise InvalidMaterial("Все основные пункты этой шкалы должны входить в сумму")
+    for subscale in rules.get("subscales", {}).values():
+        if (
+            not subscale
+            or len(subscale) != len(set(subscale))
+            or not set(subscale) <= {i["id"] for i in items}
+        ):
+            raise InvalidMaterial("Неверные пункты подшкалы")
     auxiliary = definition.get("auxiliary_items", [])
     ids = {item["id"] for item in items}
     aux_ids = {item["id"] for item in auxiliary}
@@ -87,8 +132,8 @@ def validate_material(data):
             or item.get("scored") is not False
         ):
             raise InvalidMaterial("Дополнительные пункты не должны входить в сумму")
-    if rules.get("maximum") != maximum:
-        raise InvalidMaterial("Неверная максимальная сумма")
+    if rules.get("maximum") != maximum or rules.get("minimum", 0) != 0:
+        raise InvalidMaterial("Неверный диапазон суммы")
     followup = rules.get("followup_score")
     if followup is not None and (type(followup) is not int or not 0 <= followup <= maximum):
         raise InvalidMaterial("Некорректный порог следующего шага")

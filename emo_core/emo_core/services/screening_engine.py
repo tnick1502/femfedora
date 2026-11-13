@@ -1,7 +1,7 @@
 import copy
 import hashlib
 import json
-from datetime import timedelta
+from datetime import datetime, timedelta
 from types import SimpleNamespace
 
 from fastapi import HTTPException
@@ -11,7 +11,7 @@ from emo_core.core.exceptions import InvalidMaterial
 from emo_core.db.base import utcnow
 from emo_core.db.models import AssessmentSchedule, Questionnaire, TestAttempt, UserSettings
 from emo_core.db.repositories import public
-from emo_core.services.perinatal import perinatal_context
+from emo_core.services.perinatal import perinatal_context, same_assessment_episode
 from emo_core.services.policies import policy
 from emo_core.services.questionnaire_materials import (
     material_hash,
@@ -19,6 +19,12 @@ from emo_core.services.questionnaire_materials import (
     validate_material,
 )
 from emo_core.services.safety_guard import SafetyGuard
+from emo_core.services.screening_scheduler import (
+    SCALE_CODES,
+    STAGE_SCALES,
+    ScreeningScheduler,
+    assessment_history,
+)
 
 # Re-exported for existing integrations / administrative imports.
 __all__ = ["ScreeningEngine", "score_answers", "validate_material"]
@@ -26,43 +32,51 @@ __all__ = ["ScreeningEngine", "score_answers", "validate_material"]
 ELEVATED_ACTIONS = (
     "immediate_safety_assessment",
     "professional_assessment",
-    "gad7_or_professional_assessment",
 )
 
 
-async def recent_results(session, user_id, now, valid_days=30):
-    """Возвращает последний завершённый результат каждой шкалы за valid_days дней.
+async def recent_results(session, user_id, now, valid_days=30, *, history=None):
+    """Возвращает свежие результаты и safety-флаги последних черновиков каждой шкалы.
 
-    Просматривает до 20 последних прохождений пользователя. Коды, флаги и
-    интерпретацию берёт из сохранённого отчёта; модели результат не вычисляют.
+    Оконная выборка ограничена одной попыткой каждого статуса на код.
+    Сырые ответы модели не передаются, результат модель не вычисляет.
     """
-    rows = (
-        await session.execute(
-            select(TestAttempt, Questionnaire)
-            .join(Questionnaire)
-            .where(
-                TestAttempt.user_id == user_id,
-                TestAttempt.status == "completed",
-                TestAttempt.completed_at >= now - timedelta(days=valid_days),
-            )
-            .order_by(TestAttempt.completed_at.desc())
-            .limit(20)
-        )
-    ).all()
+    rows = history if history is not None else await assessment_history(session, user_id)
+    user = await session.get(UserSettings, user_id)
     latest = {}
+    seen = set()
     for attempt, questionnaire in rows:
-        if questionnaire.code in latest:
+        if not same_assessment_episode(attempt, user):
             continue
-        result = attempt.result or {}
-        latest[questionnaire.code] = {
-            "code": questionnaire.code,
-            "score": attempt.total_score,
-            "maximum": result.get("maximum_score"),
-            "at": attempt.completed_at.isoformat(),
-            "band": (result.get("interpretation") or {}).get("code"),
-            "followup": result.get("recommended_action") in ELEVATED_ACTIONS,
-            "safety_flags": bool(attempt.safety_flags),
-        }
+        code = questionnaire.code
+        at = attempt.completed_at or attempt.started_at
+        safety_at = (
+            datetime.fromisoformat(attempt.context["safety_observed_at"])
+            if attempt.context.get("safety_observed_at")
+            else at
+        )
+        fresh_safety = (
+            bool(attempt.safety_flags) and now - timedelta(days=valid_days) <= safety_at <= now
+        )
+        current_result = attempt.status == "completed" and code not in seen
+        if attempt.status == "completed":
+            seen.add(code)
+        current_result = current_result and now - timedelta(days=valid_days) <= at <= now
+        if not current_result and not fresh_safety:
+            continue
+        row = latest.setdefault(code, {"code": code, "followup": False, "safety_flags": False})
+        if current_result:
+            result = attempt.result or {}
+            row.update(
+                score=attempt.total_score,
+                maximum=result.get("maximum_score"),
+                at=at.isoformat(),
+                band=(result.get("interpretation") or {}).get("code"),
+                followup=result.get("recommended_action") in ELEVATED_ACTIONS,
+            )
+        if fresh_safety:
+            row["safety_flags"] = True
+            row["safety_at"] = max(row.get("safety_at", ""), safety_at.isoformat())
     return list(latest.values())
 
 
@@ -104,7 +118,8 @@ def score_answers(questionnaire, answers, complete):
         for rule in questionnaire.scoring_rules.get("safety_items", [])
         if scores.get(rule["item_id"], -1) >= rule["minimum_score"]
     ]
-    return sum(scores.values()) if complete else None, flags
+    total_ids = questionnaire.scoring_rules.get("total_item_ids", list(items))
+    return sum(scores[k] for k in total_ids) if complete else None, flags
 
 
 DEFAULT_SAFETY_GUIDANCE = (
@@ -125,13 +140,41 @@ def result_report(questionnaire, answers, auxiliary, score, flags, safety_guidan
     band = next(
         (r for r in rules.get("thresholds", []) if r["minimum"] <= score <= r["maximum"]), None
     )
-    followup = score >= rules.get("followup_score", 3 if questionnaire.code == "GAD2" else 10)
+    followup_score = rules.get("followup_score")
+    followup = followup_score is not None and score >= followup_score
+    subscales = {
+        code: sum(
+            next(i for i in questionnaire.definition["items"] if i["id"] == key)["score_map"][
+                answers[key]
+            ]
+            for key in ids
+        )
+        for code, ids in rules.get("subscales", {}).items()
+    }
+    review = {}
+    if questionnaire.code == "PHQ9" and auxiliary.get("difficulty") in (2, 3):
+        review["functional_impact"] = True
+        followup = True  # Same functional-impact rule as chat; auxiliary stays outside the sum.
+    if questionnaire.code == "CITYBITS":
+        values = {
+            i["id"]: i["score_map"][answers[i["id"]]] for i in questionnaire.definition["items"]
+        }
+        review = {
+            "reexperiencing": any(values[str(n)] >= 1 for n in range(3, 8)),
+            "avoidance": any(values[str(n)] >= 1 for n in range(8, 10)),
+            "negative_mood": sum(values[str(n)] >= 1 for n in range(10, 17)) >= 2,
+            "hyperarousal": sum(values[str(n)] >= 1 for n in range(17, 23)) >= 2,
+            "distress_or_impairment": values["27"] >= 1 or values["28"] >= 1,
+            "duration_at_least_month": values["26"] in (1, 2),
+            "possible_other_cause": values["29"] >= 1,
+        }
+        # Повод для обсуждения с врачом, а не автоматическое заключение о ПТСР.
+        followup = review["distress_or_impairment"] or all(
+            review[k] for k in ("reexperiencing", "avoidance", "negative_mood", "hyperarousal")
+        )
     if flags:
         action = "immediate_safety_assessment"
         next_step = safety_guidance or DEFAULT_SAFETY_GUIDANCE
-    elif questionnaire.code == "GAD2" and followup:
-        action = "gad7_or_professional_assessment"
-        next_step = "Можно пройти GAD-7 или обратиться за профессиональной оценкой состояния."
     elif followup:
         action = "professional_assessment"
         next_step = (
@@ -151,6 +194,8 @@ def result_report(questionnaire, answers, auxiliary, score, flags, safety_guidan
         },
         "auxiliary_answers": auxiliary,
         "auxiliary_in_total": False,
+        "subscales": subscales,
+        "review_indicators": review,
         "interpretation": copy.deepcopy(band),
         "recommended_action": action,
         "next_step": next_step,
@@ -182,9 +227,13 @@ class ScreeningEngine:
             raise HTTPException(404, "Прохождение не найдено")
         return attempt
 
-    def safety_guidance(self, country=None):
+    def safety_guidance(self, country=None, code=None):
         """Получает шаблон помощи при safety-ответе с контактами заданной страны."""
-        return SafetyGuard(self.settings, self.jev).template("questionnaire_safety", country)
+        kind = "citybits_safety" if code == "CITYBITS" else "questionnaire_safety"
+        guard = SafetyGuard(self.settings, self.jev)
+        if kind == "citybits_safety" and "citybits_safety_template" not in guard.rules:
+            kind = "professional"
+        return guard.template(kind, country)
 
     def view(self, attempt, questionnaire, country=None):
         """Собирает прохождение для API с исходной редакцией, прогрессом и результатом.
@@ -209,7 +258,9 @@ class ScreeningEngine:
                 "required": len(required),
                 "missing_item_ids": [i for i in required if i not in attempt.answers],
             },
-            "safety_guidance": self.safety_guidance(country) if attempt.safety_flags else None,
+            "safety_guidance": self.safety_guidance(country, snapshot["code"])
+            if attempt.safety_flags
+            else None,
             "next_step": attempt.result.get("next_step") if attempt.result else None,
             "not_a_diagnosis": True,
         }
@@ -246,6 +297,8 @@ class ScreeningEngine:
         if body.attempt_id:
             attempt = await self.owned(session, user_id, body.attempt_id)
             questionnaire = await session.get(Questionnaire, attempt.questionnaire_id)
+            if questionnaire.code not in SCALE_CODES:
+                raise HTTPException(409, "Шкала снята с использования; доступна только история")
             if body.questionnaire_id and body.questionnaire_id != attempt.questionnaire_id:
                 raise HTTPException(422, "Нельзя сменить версию опросника")
             if attempt.status == "completed":
@@ -299,6 +352,10 @@ class ScreeningEngine:
                 raise HTTPException(409, "Опросник отключён; новые прохождения недоступны")
             settings = await session.get(UserSettings, user_id)
             perinatal = perinatal_context(settings, utcnow())
+            if questionnaire.code not in SCALE_CODES:
+                raise HTTPException(409, "Шкала снята с использования; доступна только история")
+            if questionnaire.code not in STAGE_SCALES[perinatal.stage]:
+                raise HTTPException(409, "Шкала не применяется на текущем этапе")
             attempt = TestAttempt(
                 user_id=user_id,
                 questionnaire_id=questionnaire.id,
@@ -342,6 +399,7 @@ class ScreeningEngine:
             attempt.revision += 1
         await session.flush()
         if new_flags:
+            attempt.context = {**attempt.context, "safety_observed_at": utcnow().isoformat()}
             SafetyGuard(self.settings, self.jev).record(
                 session,
                 user_id,
@@ -360,20 +418,20 @@ class ScreeningEngine:
                     auxiliary,
                     score,
                     attempt.safety_flags,
-                    self.safety_guidance(country),
+                    self.safety_guidance(country, material.code),
                 ),
                 "questionnaire_hash": material_hash(snapshot),
                 "completed_at": attempt.completed_at.isoformat(),
             }
-            await self.completed_schedule(session, user_id, material.code, score)
+            await self.completed_schedule(session, user_id, material.code, attempt)
         await session.flush()
         return self.view(attempt, questionnaire, country)
 
-    async def completed_schedule(self, session, user_id, code, score):
+    async def completed_schedule(self, session, user_id, code, attempt):
         """Отмечает завершение шкалы и устанавливает срок допустимого повторного предложения.
 
-        GAD-7 не делает периодическим. После GAD-2 с пороговым баллом назначает GAD-7
-        сейчас, если недавно завершённая GAD-7 не попадает в период minimum_reoffer_days.
+        Интервал берёт из политики конкретной шкалы с учётом результата.
+        Завершение снимает прежнюю отсрочку, история предложений сохраняется.
         """
         schedule = await session.scalar(
             select(AssessmentSchedule).where(
@@ -385,25 +443,9 @@ class ScreeningEngine:
             session.add(schedule)
         now = utcnow()
         schedule.last_completed_at = now
-        # GAD-7 — второй шаг после GAD-2, а не периодический тест: повтор только по новому поводу.
-        schedule.next_due_at = (
-            None if code == "GAD7" else now + timedelta(days=self.rules["minimum_reoffer_days"])
+        schedule.next_due_at = now + timedelta(
+            days=ScreeningScheduler(self.settings).interval(code, attempt)
         )
-        if code == "GAD7":
-            schedule.trigger_reason = "completed"
-        if code == "GAD2" and score >= self.rules["gad2_next_step_score"]:
-            followup = await session.scalar(
-                select(AssessmentSchedule).where(
-                    AssessmentSchedule.user_id == user_id,
-                    AssessmentSchedule.questionnaire_code == "GAD7",
-                )
-            )
-            if followup is None:
-                followup = AssessmentSchedule(user_id=user_id, questionnaire_code="GAD7")
-                session.add(followup)
-            recent = followup.last_completed_at and followup.last_completed_at > now - timedelta(
-                days=self.rules["minimum_reoffer_days"]
-            )
-            if not recent:
-                followup.trigger_reason = "gad2_followup_or_professional"
-                followup.next_due_at = now
+        schedule.snoozed_until = None
+        schedule.trigger_reason = "completed"
+        schedule.policy_version = self.rules["version"]

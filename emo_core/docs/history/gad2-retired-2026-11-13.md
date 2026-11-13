@@ -46,4 +46,4 @@
 - [GAD-7 Russian for Russia · бланк Pfizer, Project TEACH](https://projectteachny.org/app/uploads/2022/07/GAD7_Russian-for-Russia.pdf) · с. 1
 - [PHQ / GAD: руководство авторов](https://www.phqscreeners.com/images/sites/g/files/g10016261/f/201412/instructions.pdf) · с. 2–3, 6–8
 
-[Сведения о проверке, правах и ограничениях](RESEARCH.md#gad2).
+[Сведения о проверке, правах и ограничениях](../questionnaires/RESEARCH.md#gad2).

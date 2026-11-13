@@ -1,0 +1,31 @@
+# Дополнение к docker-compose.yml для сервера с Nginx на хосте.
+services:
+  db:
+    restart: unless-stopped
+    mem_limit: 512m
+    logging: &bounded_logs
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+  migrate:
+    image: emo-core:server
+    mem_limit: 512m
+    logging: *bounded_logs
+  api:
+    image: emo-core:server
+    restart: unless-stopped
+    init: true
+    mem_limit: 512m
+    security_opt:
+      - no-new-privileges:true
+    command: ["uvicorn", "emo_core.main:app", "--host", "0.0.0.0", "--port", "8000", "--no-access-log", "--proxy-headers", "--forwarded-allow-ips", "*"]
+    logging: *bounded_logs
+  worker:
+    image: emo-core:server
+    restart: unless-stopped
+    init: true
+    mem_limit: 256m
+    security_opt:
+      - no-new-privileges:true
+    logging: *bounded_logs

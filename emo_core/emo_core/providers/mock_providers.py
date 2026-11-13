@@ -1,6 +1,7 @@
 import re
 
 from emo_core.core.exceptions import ProviderUnavailable
+from emo_core.providers.jev_provider import gate_may_skip
 from emo_core.schemas.emotion import CATEGORIES, EXTRA_SIGNALS, EmotionAnalysis
 from emo_core.services import safety_lexicon
 
@@ -60,6 +61,19 @@ class MockJevProvider:
         """
         current = self_report_text(text)
         risks = set(safety_lexicon.assess(text).risks)
+        if (
+            not risks
+            and gate_may_skip(text)
+            and not any(re.search(pattern, current) for pattern in PATTERNS.values())
+        ):
+            return EmotionAnalysis(
+                intent="other",
+                markers={},
+                source="mock",
+                model_version="deterministic-demo-v1",
+                scope="irrelevant",
+                input_calls=0,
+            )
         markers = {}
         for code in (*CATEGORIES, *EXTRA_SIGNALS):
             if code in LEXICON_MARKERS:

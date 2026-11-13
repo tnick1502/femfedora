@@ -11,3 +11,8 @@ __pycache__/
 
 # JWT for the standalone integration example
 examples/client.env
+
+# Local package build output
+dist/
+build/
+*.egg-info/

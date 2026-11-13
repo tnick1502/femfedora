@@ -47,6 +47,8 @@ class Settings(BaseSettings):
     # Порог блокировки ответа модели по оценкам Jev (отдельно от порогов входа).
     jev_output_threshold: float = 0.5
     jev_max_retries: int = Field(default=1, ge=0, le=3)
+    jev_gate_enabled: bool = True
+    jev_gate_skip_threshold: float = Field(default=0.05, ge=0, le=0.1)
     llm_max_output_tokens: int = Field(default=600, ge=64, le=8000)
     # Окно контекста одного запроса к LLM и резерв; цель входа пользователь задаёт в кабинете.
     context_window_tokens: int = Field(default=256_000, ge=8_192, le=4_000_000)

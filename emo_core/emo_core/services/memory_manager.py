@@ -3,9 +3,8 @@ from datetime import timedelta
 from sqlalchemy import func, select
 
 from emo_core.db.base import utcnow
-from emo_core.db.models import Checkin, Complaint, Message, UserSettings, UserState
+from emo_core.db.models import Complaint, Message, UserSettings, UserState
 from emo_core.services.perinatal import perinatal_context
-from emo_core.services.screening_engine import recent_results
 
 # Верхняя граница числа реплик, загружаемых для сборки контекста одной беседы.
 HISTORY_MESSAGES_LOADED = 3000
@@ -58,7 +57,8 @@ class MemoryManager:
                     )
                 ).all()
             )
-            state.facts = [
+            corrected = [f for f in state.facts if f.get("source") == "user_edit"]
+            state.facts = corrected + [
                 {
                     "source": "user_report",
                     "message_id": str(m.id),
@@ -70,13 +70,25 @@ class MemoryManager:
                 # иначе кризисная фраза возвращалась бы в контекст каждой следующей беседы.
                 if (m.details or {}).get("route") != "urgent"
             ]
-            # Source excerpts, not AI-inferred facts. User corrections are preserved until next update.
-            state.summary = "\n".join(f"{f['observed_at'][:10]}: {f['text']}" for f in state.facts)[
-                -3000:
-            ]
+            # Explicit corrections survive automatic refresh; deletion still removes them.
+            pinned = "\n".join(f["text"] for f in corrected)
+            excerpts = "\n".join(
+                f"{f['observed_at'][:10]}: {f['text']}"
+                for f in state.facts
+                if f.get("source") != "user_edit"
+            )
+            room = max(0, 3000 - len(pinned) - (1 if pinned else 0))
+            state.summary = "\n".join(
+                part for part in (pinned, excerpts[-room:] if room else "") if part
+            )
             state.last_summarized_message_id = message.id
             state.updated_at = utcnow()
-        topics = {x["category"]: x for x in state.recurring_topics}
+        topics = {
+            x["category"]: x
+            for x in state.recurring_topics
+            if x.get("observed_at")
+            and x["observed_at"] >= (utcnow() - timedelta(days=30)).isoformat()
+        }
         for key, value in analysis.markers.items():
             if value >= threshold:
                 topics[key] = {
@@ -87,12 +99,11 @@ class MemoryManager:
                 }
         state.recurring_topics = list(topics.values())[-25:]
 
-    async def context(self, session, user_id, perinatal=None, screenings=None):
+    async def context(self, session, user_id, perinatal=None):
         """Собирает персональный контекст и возвращает пару (данные, жалобы).
 
-        В данные входят память, три последние самооценки, свежие результаты шкал
-        и перинатальный этап. Жалобы старше 30 дней отмечает как возможно устаревшие.
-        Историю текущей беседы этот метод не добавляет.
+        В данные входят память и перинатальный этап. Жалобы старше 30 дней отмечает
+        как возможно устаревшие. Шкалы и самооценки собирает PatientStateBuilder один раз.
         """
         state = await self.get(session, user_id)
         now = utcnow()
@@ -105,21 +116,9 @@ class MemoryManager:
                 )
             ).all()
         )
-        checkins = list(
-            (
-                await session.scalars(
-                    select(Checkin)
-                    .where(Checkin.user_id == user_id)
-                    .order_by(Checkin.created_at.desc())
-                    .limit(3)
-                )
-            ).all()
-        )
         settings = await session.get(UserSettings, user_id)
         if perinatal is None:
             perinatal = perinatal_context(settings, now)
-        if screenings is None:
-            screenings = await recent_results(session, user_id, now)
         data = {
             "summary": state.summary,
             "summary_note": "Выдержки из её прошлых реплик, в том числе из других бесед, с датами. Это фон, а не текущее сообщение: не приписывай их сегодняшнему дню и не пересказывай без повода.",
@@ -131,26 +130,14 @@ class MemoryManager:
                     "status": c.status,
                     "last_seen_at": c.last_seen_at.isoformat(),
                     "confirmed": c.user_confirmed,
+                    "other_episode": c.pregnancy_id != settings.pregnancy_id,
                     # Давние жалобы не считаются актуальными без уточнения (ТЗ §15).
                     "possibly_outdated": c.last_seen_at
                     < now - timedelta(days=STALE_COMPLAINT_DAYS),
                 }
                 for c in complaints
             ],
-            "checkins": [
-                {
-                    "anxiety": c.anxiety_score,
-                    "mood": c.mood_score,
-                    "sleep": c.sleep_quality,
-                    "at": c.created_at.isoformat(),
-                }
-                for c in checkins
-            ],
             "screenings_note": "Суммы шкал — самооценка, не диагноз. Не называй баллы признаком болезни и не пересчитывай их.",
-            "screenings": [
-                {k: r[k] for k in ("code", "score", "maximum", "at", "band", "followup")}
-                for r in screenings
-            ],
             "perinatal": {
                 "stage": perinatal.stage,
                 "gestational_week": perinatal.gestational_week,
@@ -181,6 +168,7 @@ class MemoryManager:
         )
         return [
             {
+                "id": str(m.id),
                 "role": m.role,
                 "content": m.content,
                 "at": m.created_at.isoformat(),

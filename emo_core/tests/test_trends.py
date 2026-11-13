@@ -19,6 +19,9 @@ async def test_checkin_delta_stale(client, auth, sessions):
                 json={"mood_score": mood, "anxiety_score": anxiety, "sleep_quality": sleep},
             )
         ).status_code == 201
+    async with sessions() as s, s.begin():
+        first = await s.scalar(select(Checkin).order_by(Checkin.created_at).limit(1))
+        first.created_at = utcnow() - timedelta(days=1)
     data = (await client.get(P + "/trends", headers=auth["anna"])).json()["checkins"]
     assert data["sufficient_data"] and data["deltas"] == {
         "mood_score": 2,
@@ -44,7 +47,11 @@ async def test_incomparable_versions(client, auth, sessions):
         await client.post(
             P + "/questionnaire-attempts",
             headers=auth["anna"],
-            json={"questionnaire_id": qid, "answers": {"0": 1, "1": 1}, "complete": True},
+            json={
+                "questionnaire_id": qid,
+                "answers": dict.fromkeys(map(str, range(7)), 1),
+                "complete": True,
+            },
         )
-    data = (await client.get(P + "/trends", headers=auth["anna"])).json()["questionnaires"]["GAD2"]
+    data = (await client.get(P + "/trends", headers=auth["anna"])).json()["questionnaires"]["GAD7"]
     assert all(p["delta"] is None for p in data)

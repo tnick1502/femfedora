@@ -103,7 +103,10 @@ async def test_questionnaire_parallel_completion_preserves_first_result(client, 
             client.post(
                 path + "/complete",
                 headers=auth["anna"],
-                json={"expected_revision": 0, "answers": {"1": 1, "2": 2}},
+                json={
+                    "expected_revision": 0,
+                    "answers": {**dict.fromkeys(map(str, range(1, 8)), 0), "1": 1, "2": 2},
+                },
             )
             for _ in range(3)
         )
@@ -153,3 +156,29 @@ async def test_model_call_holds_no_connection_and_no_user_lock(config, auth, cli
     await engine.dispose()
     assert response.status_code == 200 and seen == {"free": True}
     assert response.json()["assistant_message"]["origin"] == "reactive"
+
+
+@postgres
+@pytest.mark.postgres
+async def test_two_chats_share_one_daily_screening_offer(client, auth, app):
+    class BarrierLLM:
+        def __init__(self):
+            self.arrived = 0
+            self.ready = asyncio.Event()
+
+        async def generate(self, messages, repair=False):
+            self.arrived += 1
+            if self.arrived == 2:
+                self.ready.set()
+            await asyncio.wait_for(self.ready.wait(), timeout=10)
+            return "Привет! О чём хочешь поговорить?"
+
+    app.state.llm = BarrierLLM()
+    first, second = await conversation(client, auth), await conversation(client, auth)
+    results = await asyncio.gather(
+        send(client, auth, first, "Привет"), send(client, auth, second, "Привет")
+    )
+    assert all(r.status_code == 200 for r in results)
+    answers = [r.json()["assistant_message"] for r in results]
+    assert sum("необязательный опросник" in r["content"] for r in answers) == 1
+    assert sum(bool(r["metadata"]["state"]["screening_offer"]) for r in answers) == 1

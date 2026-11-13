@@ -41,6 +41,10 @@ class EmotionAnalysis(BaseModel):
     source: str = "jev"
     available: bool = True
     error_code: str | None = None
+    # Пропущенная классификация не равна 24 отрицательным результатам.
+    scope: str = "full"  # full | irrelevant | unavailable
+    gate_score: float | None = None
+    input_calls: int = 1
 
 
 class SupportState(BaseModel):
@@ -51,6 +55,7 @@ class SupportState(BaseModel):
     recommend_specialist: bool = False
     screening_offer: str | None = None
     support_protocol: str = "general_support"
+    support_basis: str = "no_support_marker_above_threshold"
     postpartum: bool = False
     perinatal_stage: str = "unknown"
     gestational_week: int | None = None
@@ -59,3 +64,12 @@ class SupportState(BaseModel):
     specialist_reasons: list[str] = Field(default_factory=list)
     # Нужно ли обязательно упомянуть специалиста именно в этом ответе.
     referral_required: bool = False
+    current_signals: list[str] = Field(default_factory=list)
+    recent_signals: list[str] = Field(default_factory=list)
+    analysis_scope: str = "full"
+    change: str = "unknown"
+    functional_impact: bool = False
+    screening_reason: str | None = None
+    screening_attempt_id: str | None = None
+    birth_trauma_followup: bool = False
+    context_conflicts: list[str] = Field(default_factory=list)

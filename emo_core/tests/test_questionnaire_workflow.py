@@ -3,6 +3,7 @@
 import copy
 import hashlib
 import json
+from datetime import timedelta
 from pathlib import Path
 from uuid import UUID, uuid4
 
@@ -10,6 +11,7 @@ import pytest
 from sqlalchemy import func, select
 
 from emo_core.core.exceptions import InvalidMaterial
+from emo_core.db.base import utcnow
 from emo_core.db.models import Questionnaire, SafetyEvent
 from emo_core.db.models import TestAttempt as QuestionnaireAttempt
 from emo_core.services.questionnaire_materials import material_hash, validate_material
@@ -31,12 +33,22 @@ def minimum_answers(code):
 
 async def catalog(client, auth, code):
     """Загружает каталог доступных шкал через API тестового профиля."""
+    if code == "EPDS":
+        settings = (await client.get(P + "/settings", headers=auth["anna"])).json()
+        if settings["reproductive_stage"] not in ("pregnant", "postpartum"):
+            await client.patch(P + "/settings", headers=auth["anna"], json={"gestational_week": 20})
+    elif code == "CITYBITS":
+        await client.patch(
+            P + "/settings",
+            headers=auth["anna"],
+            json={"birth_date": (utcnow() - timedelta(days=50)).isoformat()},
+        )
     response = await client.get(P + "/questionnaires", headers=auth["anna"])
     assert response.status_code == 200
     return next(q for q in response.json()["items"] if q["code"] == code)
 
 
-async def start(client, auth, code="GAD2", request_id=None):
+async def start(client, auth, code="GAD7", request_id=None):
     """Начинает прохождение с новым UUID идемпотентности и возвращает его представление."""
     q = await catalog(client, auth, code)
     body = {"questionnaire_id": q["id"], "client_request_id": request_id or str(uuid4())}
@@ -59,7 +71,7 @@ def test_bundled_source_integrity_and_no_fictitious_approval():
                     hashlib.sha256((root / ref["source_file"]).read_bytes()).hexdigest()
                     == ref["sha256"]
                 )
-    frozen = json.loads((root / "alembic/data/questionnaires_20261110_v1.json").read_text())
+    frozen = json.loads((root / "alembic/data/questionnaires_20261113_v2.json").read_text())
     assert {material_hash(q) for q in frozen} == {material_hash(q) for q in REGISTRY}
 
 
@@ -79,7 +91,7 @@ def test_epds_all_published_response_keys_and_worked_example():
     )
 
 
-@pytest.mark.parametrize("code,max_score", [("GAD2", 6), ("GAD7", 21), ("PHQ9", 27)])
+@pytest.mark.parametrize("code,max_score", [("GAD7", 21), ("PHQ9", 27)])
 def test_published_forward_keys_and_range(code, max_score):
     """Проверяет прямые ключи и диапазон сумм GAD-2, GAD-7 и PHQ-9."""
     q = Questionnaire(**MATERIALS[code])
@@ -88,18 +100,15 @@ def test_published_forward_keys_and_range(code, max_score):
     assert score_answers(q, dict.fromkeys(minimum_answers(code), 3), True)[0] == max_score
 
 
-def test_gad2_is_exact_published_gad7_subset():
-    """Проверяет совпадение GAD-2 с первыми пунктами GAD-7 и периоды самооценки шкал."""
-    assert MATERIALS["GAD2"]["definition"]["items"] == MATERIALS["GAD7"]["definition"]["items"][:2]
-    assert MATERIALS["GAD2"]["definition"]["timeframe_days"] == 14
+def test_active_registry_has_no_gad2_and_correct_timeframes():
+    assert "GAD2" not in MATERIALS
+    assert MATERIALS["GAD7"]["definition"]["timeframe_days"] == 14
     assert MATERIALS["EPDS"]["definition"]["timeframe_days"] == 7
 
 
 @pytest.mark.parametrize(
     "code,score,band,action",
     [
-        ("GAD2", 2, "below_followup_threshold", "discuss_if_concerned"),
-        ("GAD2", 3, "followup_suggested", "gad7_or_professional_assessment"),
         ("GAD7", 4, "minimal", "discuss_if_concerned"),
         ("GAD7", 5, "mild", "discuss_if_concerned"),
         ("GAD7", 9, "mild", "discuss_if_concerned"),
@@ -149,7 +158,7 @@ def test_source_verified_is_not_an_unrestricted_import_bypass():
 async def test_real_catalog_and_openapi_contract(client, auth):
     """Проверяет доступность четырёх встроенных форм и описание workflow в OpenAPI."""
     data = (await client.get(P + "/questionnaires", headers=auth["anna"])).json()
-    assert {q["code"] for q in data["items"]} == set(MATERIALS)
+    assert {q["code"] for q in data["items"]} == {"PHQ9", "GAD7"}
     assert not data["unavailable"]
     q = data["items"][0]
     assert (await client.get(P + "/questionnaires/" + q["id"], headers=auth["anna"])).json() == q
@@ -196,7 +205,11 @@ async def test_resume_revision_validation_and_idempotent_completion(client, auth
     assert response.status_code == 200, response.text
     draft = response.json()
     assert draft["total_score"] is None and draft["result"] is None
-    assert draft["progress"] == {"answered": 1, "required": 2, "missing_item_ids": ["2"]}
+    assert draft["progress"] == {
+        "answered": 1,
+        "required": 7,
+        "missing_item_ids": [str(n) for n in range(2, 8)],
+    }
     assert (await client.get(path, headers=auth["anna"])).json() == draft
     response = await client.patch(
         path, headers=auth["anna"], json={"expected_revision": 0, "answers": {"2": 1}}
@@ -205,14 +218,16 @@ async def test_resume_revision_validation_and_idempotent_completion(client, auth
     response = await client.post(
         path + "/complete", headers=auth["anna"], json={"expected_revision": 1}
     )
-    assert response.status_code == 422 and response.json()["detail"]["missing_item_ids"] == ["2"]
-    body = {"expected_revision": 1, "answers": {"2": 2}}
+    assert response.status_code == 422 and response.json()["detail"]["missing_item_ids"] == [
+        str(n) for n in range(2, 8)
+    ]
+    body = {"expected_revision": 1, "answers": {**minimum_answers("GAD7"), "1": 1, "2": 2}}
     result = await client.post(path + "/complete", headers=auth["anna"], json=body)
     assert result.status_code == 200, result.text
     completed = result.json()
     assert completed["total_score"] == 3
-    assert completed["result"]["item_scores"] == {"1": 1, "2": 2}
-    assert completed["result"]["recommended_action"] == "gad7_or_professional_assessment"
+    assert completed["result"]["item_scores"] == {**minimum_answers("GAD7"), "1": 1, "2": 2}
+    assert completed["result"]["recommended_action"] == "discuss_if_concerned"
     assert (
         await client.post(path + "/complete", headers=auth["anna"], json=body)
     ).json() == completed
@@ -230,7 +245,7 @@ async def test_resume_revision_validation_and_idempotent_completion(client, auth
         await client.get(P + "/questionnaire-attempts?status=in_progress", headers=auth["anna"])
     ).json()["items"] == []
     trends = (await client.get(P + "/trends", headers=auth["anna"])).json()["questionnaires"][
-        "GAD2"
+        "GAD7"
     ]
     assert len(trends) == 1 and trends[0]["score"] == 3
 
@@ -308,7 +323,7 @@ async def test_snapshot_survives_registry_change_and_disabled_version(client, au
     response = await client.post(
         P + "/questionnaire-attempts/" + a["id"] + "/complete",
         headers=auth["anna"],
-        json={"expected_revision": 0, "answers": {"1": 0, "2": 0}},
+        json={"expected_revision": 0, "answers": minimum_answers("GAD7")},
     )
     assert response.status_code == 200, response.text
     assert response.json()["questionnaire"] == a["questionnaire"]
@@ -345,8 +360,9 @@ async def test_no_duplicate_automatic_offers_or_offer_of_active_draft(client, au
     await start(client, auth, "EPDS")
     actions = (await client.get(P + "/next-actions", headers=auth["anna"])).json()["items"]
     offered = {a.get("code") for a in actions}
-    assert "PHQ9" not in offered and "EPDS" not in offered and "GAD7" not in offered
-    assert "GAD2" in offered
+    assert {"PHQ9", "EPDS", "GAD7"} <= offered
+    assert next(a for a in actions if a.get("code") == "EPDS")["status"] == "in_progress"
+    assert "GAD2" not in offered
 
 
 async def test_import_retires_old_version_without_losing_attempt(
@@ -370,7 +386,7 @@ async def test_import_retires_old_version_without_losing_attempt(
             (
                 await s.scalars(
                     select(Questionnaire).where(
-                        Questionnaire.code == "GAD2", Questionnaire.enabled.is_(True)
+                        Questionnaire.code == "GAD7", Questionnaire.enabled.is_(True)
                     )
                 )
             ).all()

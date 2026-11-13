@@ -12,7 +12,11 @@ emo-config = "emo_core.cli:main"
 
 [tool.poetry]
 packages = [{include = "emo_core"}]
-include = ["emo_core/policies/**/*", "emo_core/questionnaires/*", "demo/*"]
+include = [
+    "emo_core/policies/**/*",
+    "emo_core/questionnaires/*",
+    { path = "demo/*", format = ["sdist", "wheel"] },
+]
 
 [tool.poetry.dependencies]
 python = ">=3.12,<3.15"

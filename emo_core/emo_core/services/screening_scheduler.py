@@ -1,94 +1,251 @@
+"""Stage-aware assessment plan. Intervals are product policy, not diagnostic standards."""
+
 from datetime import timedelta
 
-from sqlalchemy import select
+from sqlalchemy import String, case, func, select
 
 from emo_core.db.base import utcnow
 from emo_core.db.models import (
     AssessmentSchedule,
     Checkin,
-    Complaint,
     Questionnaire,
     SafetyEvent,
     TestAttempt,
     UserSettings,
 )
-from emo_core.services.perinatal import perinatal_context
+from emo_core.services.perinatal import perinatal_context, same_assessment_episode
 from emo_core.services.policies import policy
 
+STAGE_SCALES = {
+    "preconception": ("PHQ9", "GAD7"),
+    "pregnant": ("PHQ9", "GAD7", "EPDS"),
+    "postpartum": ("PHQ9", "GAD7", "EPDS", "CITYBITS"),
+    "after_loss": ("PHQ9", "GAD7"),
+    "unknown": ("PHQ9", "GAD7"),
+}
+SCALE_CODES = ("PHQ9", "GAD7", "EPDS", "CITYBITS")
+SCALE_NAMES = {
+    "PHQ9": "PHQ-9",
+    "GAD7": "GAD-7",
+    "EPDS": "EPDS",
+    "CITYBITS": "City Birth Trauma Scale",
+}
 ELEVATED_ACTIONS = ("immediate_safety_assessment", "professional_assessment")
-GAD7_TRIGGER = "gad2_followup_or_professional"
+
+
+async def assessment_history(session, user_id):
+    """One shared read: latest two completions, latest draft and latest safety observation (<=16 rows)."""
+    ranked = (
+        select(
+            TestAttempt.id.label("id"),
+            func.row_number()
+            .over(
+                partition_by=(Questionnaire.code, TestAttempt.status),
+                order_by=(
+                    func.coalesce(TestAttempt.completed_at, TestAttempt.started_at).desc(),
+                    TestAttempt.id.desc(),
+                ),
+            )
+            .label("rank"),
+            func.row_number()
+            .over(
+                partition_by=Questionnaire.code,
+                order_by=(
+                    case((TestAttempt.safety_flags != [], 0), else_=1),
+                    func.coalesce(
+                        TestAttempt.context["safety_observed_at"].as_string(),
+                        func.replace(TestAttempt.completed_at.cast(String), " ", "T"),
+                        func.replace(TestAttempt.started_at.cast(String), " ", "T"),
+                    ).desc(),
+                    TestAttempt.id.desc(),
+                ),
+            )
+            .label("safety_rank"),
+        )
+        .join(Questionnaire)
+        .where(
+            TestAttempt.user_id == user_id,
+            Questionnaire.code.in_(SCALE_CODES),
+            TestAttempt.status.in_(("completed", "in_progress")),
+        )
+        .subquery()
+    )
+    rows = (
+        await session.execute(
+            select(TestAttempt, Questionnaire)
+            .join(Questionnaire)
+            .join(ranked, ranked.c.id == TestAttempt.id)
+            .where(
+                (ranked.c.rank == 1)
+                | ((TestAttempt.status == "completed") & (ranked.c.rank == 2))
+                | ((ranked.c.safety_rank == 1) & (TestAttempt.safety_flags != []))
+            )
+            .order_by(
+                func.coalesce(TestAttempt.completed_at, TestAttempt.started_at).desc(),
+                TestAttempt.id.desc(),
+            )
+        )
+    ).all()
+    return rows
 
 
 class ScreeningScheduler:
-    """Когда уместно предложить шкалу. Только чтение в next_actions; запись — в record()."""
-
     def __init__(self, settings):
-        """Загружает интервалы шкал и срочного маршрута; проверяет допуск предложений в production."""
         self.rules = policy(settings, "screening_policy.yaml")
         self.urgent_cooldown_days = policy(settings, "safety_rules.yaml").get(
             "urgent_cooldown_days", 30
         )
-        self.offers_approved = (
-            settings.app_env != "production"
-            or self.rules.get("clinical_review_status") == "approved"
-        )
-
-    def window(self, user, perinatal, now):
-        """Возвращает название текущего перинатального окна и дату его начала либо пару None."""
-        low, high = self.rules["postpartum_weeks"]
-        if perinatal.stage == "postpartum" and low <= perinatal.postpartum_weeks <= high:
-            return "postpartum", user.birth_date + timedelta(weeks=low)
-        low, high = self.rules["late_pregnancy"]
-        if perinatal.stage == "pregnant" and low <= perinatal.gestational_week <= high:
-            return "late_pregnancy", now - timedelta(weeks=perinatal.gestational_week - low + 1)
-        return None, None
-
-    def due_reason(self, code, schedule, last, window, window_start, complaints, now):
-        """Возвращает код основания предложить шкалу либо None.
-
-        Учитывает первое прохождение, минимальный интервал, перинатальное окно,
-        повышенный прошлый результат и жалобы. GAD-7 предлагает только по отдельному
-        триггеру следующего шага после GAD-2.
-        """
-        if code == "GAD7":
-            # Второй шаг после GAD-2 от 3 баллов, не самостоятельный первичный тест.
-            due = (
-                schedule is not None
-                and schedule.trigger_reason == GAD7_TRIGGER
-                and schedule.next_due_at is not None
-                and schedule.next_due_at <= now
+        self.offers_approved = settings.app_env != "production" or all(
+            (
+                self.rules.get("clinical_review_status") == "approved",
+                self.rules.get("reviewed_by"),
+                self.rules.get("approval_reference"),
             )
-            return GAD7_TRIGGER if due else None
-        if last is None:
-            return "initial" if self.rules.get("initial", True) else None
-        completed_at = last.completed_at
-        if completed_at > now - timedelta(days=self.rules["minimum_reoffer_days"]):
-            return None
-        if window and completed_at < window_start:
-            return window
-        elevated = (last.result or {}).get("recommended_action") in ELEVATED_ACTIONS or bool(
-            last.safety_flags
         )
-        if (
-            code in ("EPDS", "PHQ9")
-            and elevated
-            and completed_at
-            <= now - timedelta(days=self.rules.get("recheck_after_elevated_days", 14))
-        ):
-            return "recheck_after_elevated"
-        if complaints and completed_at <= now - timedelta(
-            days=self.rules.get("complaint_reoffer_days", 30)
-        ):
-            return "new_or_recurring_complaints"
+
+    def interval(self, code, result=None):
+        rule = self.rules.get("scales", {}).get(code, {})
+        elevated = result and (
+            (result.result or {}).get("recommended_action") in ELEVATED_ACTIONS
+            or result.safety_flags
+        )
+        return rule.get("elevated_repeat_days", 14) if elevated else rule.get("repeat_days", 30)
+
+    def stage_start(self, user, perinatal, now):
+        if perinatal.stage == "postpartum":
+            return user.birth_date
+        if perinatal.stage == "pregnant" and perinatal.gestational_week is not None:
+            return now - timedelta(weeks=perinatal.gestational_week)
         return None
 
-    async def next_actions(self, session, user_id, now=None):
-        """Возвращает доступные предложения шкал и недельного check-in без записи в БД.
+    async def plan(self, session, user_id, now=None, *, history=None):
+        """Four bounded status rows, including missing forms, drafts, snoozes and due dates."""
+        now = now or utcnow()
+        user = await session.get(UserSettings, user_id)
+        if user is None:
+            return []
+        perinatal = perinatal_context(user, now)
+        allowed = STAGE_SCALES[perinatal.stage]
+        registry = list(
+            (
+                await session.scalars(
+                    select(Questionnaire).where(
+                        Questionnaire.enabled.is_(True),
+                        Questionnaire.code.in_(SCALE_CODES),
+                    )
+                )
+            ).all()
+        )
+        enabled = {q.code for q in registry}
+        history = history if history is not None else await assessment_history(session, user_id)
+        attempts = {}
+        for attempt, questionnaire in history:
+            attempts.setdefault((questionnaire.code, attempt.status), attempt)
+        schedules = {
+            r.questionnaire_code: r
+            for r in (
+                await session.scalars(
+                    select(AssessmentSchedule).where(AssessmentSchedule.user_id == user_id)
+                )
+            ).all()
+        }
+        start = self.stage_start(user, perinatal, now)
+        rows = []
+        for code in SCALE_CODES:
+            last = attempts.get((code, "completed"))
+            draft = attempts.get((code, "in_progress"))
+            schedule = schedules.get(code)
+            interval = self.interval(code, last)
+            reason = "initial"
+            due = now
+            if last:
+                due = last.completed_at + timedelta(days=interval)
+                reason = (
+                    "recheck_after_elevated"
+                    if (
+                        (last.result or {}).get("recommended_action") in ELEVATED_ACTIONS
+                        or last.safety_flags
+                    )
+                    else "periodic"
+                )
+                # A new stage/episode needs a fresh baseline; minimum interval still applies.
+                other_episode = not same_assessment_episode(last, user)
+                changed_stage = last.context.get("perinatal_stage") not in (None, perinatal.stage)
+                if other_episode or changed_stage or (start and last.completed_at < start):
+                    due = last.completed_at + timedelta(days=self.rules["minimum_reoffer_days"])
+                    reason = "stage_baseline"
+                elif perinatal.stage == "pregnant" and perinatal.gestational_week is not None:
+                    low, high = self.rules["late_pregnancy"]
+                    window_start = now - timedelta(weeks=perinatal.gestational_week - low)
+                    if (
+                        low <= perinatal.gestational_week <= high
+                        and last.completed_at < window_start
+                    ):
+                        due = last.completed_at + timedelta(days=self.rules["minimum_reoffer_days"])
+                        reason = "late_pregnancy"
+            first_allowed = None
+            if code == "CITYBITS" and user.birth_date:
+                first_allowed = user.birth_date + timedelta(
+                    days=self.rules.get("citybits_first_after_birth_days", 42)
+                )
+                due = max(due if last else first_allowed, first_allowed)
+            row = {
+                "code": code,
+                "name": SCALE_NAMES[code],
+                "stage": perinatal.stage,
+                "interval_days": interval,
+                "last_completed_at": last.completed_at.isoformat() if last else None,
+                "last_offered_at": schedule.last_offered_at.isoformat()
+                if schedule and schedule.last_offered_at
+                else None,
+                "due_at": due.isoformat(),
+                "reason": reason,
+                "status": "due" if due <= now else "up_to_date",
+            }
+            if code not in allowed:
+                row.update(status="not_applicable", reason="stage", due_at=None)
+            elif code not in enabled:
+                row.update(
+                    status="unavailable",
+                    reason="Редакция отключена или отсутствует",
+                )
+            elif not self.offers_approved:
+                row.update(status="unavailable", reason="screening_policy_not_approved")
+            elif code == "CITYBITS" and not user.birth_date:
+                row.update(status="waiting_window", reason="birth_date_required", due_at=None)
+            elif draft:
+                # Resume only drafts of this episode/stage (old drafts stay readable in history).
+                same_episode = same_assessment_episode(draft, user)
+                same_stage = draft.context.get("perinatal_stage") == perinatal.stage
+                newer_completion = last and last.completed_at >= draft.started_at
+                if same_episode and same_stage and not newer_completion:
+                    row.update(status="in_progress", attempt_id=str(draft.id), reason="resume")
+            if (
+                row["status"] in ("due", "in_progress", "up_to_date")
+                and first_allowed
+                and first_allowed > now
+            ):
+                row.update(status="waiting_window", reason="postpartum_window")
+            if row["status"] in ("due", "in_progress"):
+                if schedule and schedule.snoozed_until and schedule.snoozed_until > now:
+                    row.update(status="deferred", remind_at=schedule.snoozed_until.isoformat())
+                elif (
+                    schedule
+                    and schedule.last_offered_at
+                    and schedule.last_offered_at
+                    > now - timedelta(days=self.rules["minimum_reoffer_days"])
+                ):
+                    row.update(
+                        status="offered_recently",
+                        remind_at=(
+                            schedule.last_offered_at
+                            + timedelta(days=self.rules["minimum_reoffer_days"])
+                        ).isoformat(),
+                    )
+            rows.append(row)
+        return rows
 
-        Учитывает редакции, черновики, отказы, сроки, жалобы и перинатальный этап.
-        После недавнего urgent возвращает только professional_support. now задаёт
-        момент проверки; по умолчанию используется текущее UTC-время.
-        """
+    async def next_actions(self, session, user_id, now=None, plan=None, *, screening=None):
         now = now or utcnow()
         urgent = await session.scalar(
             select(SafetyEvent.id)
@@ -100,101 +257,52 @@ class ScreeningScheduler:
             .limit(1)
         )
         if urgent:
-            # Помощь не откладывается ради повторного теста (ТЗ §10.2).
             return [
                 {"type": "professional_support", "reason": "safety_priority", "optional": False}
             ]
-        user = await session.get(UserSettings, user_id)
-        perinatal = perinatal_context(user, now)
-        window, window_start = self.window(user, perinatal, now)
-        enabled = list(
-            (
-                await session.scalars(select(Questionnaire).where(Questionnaire.enabled.is_(True)))
-            ).all()
-        )
-        codes = {q.code for q in enabled} if self.offers_approved else set()
-        if "EPDS" in codes and not self.rules["allow_phq9_with_epds"]:
-            codes.discard("PHQ9")
-        complaints = list(
-            (
-                await session.scalars(
-                    select(Complaint).where(
-                        Complaint.user_id == user_id,
-                        Complaint.status.in_(["new", "active"]),
-                        Complaint.last_seen_at >= now - timedelta(days=30),
-                    )
-                )
-            ).all()
-        )
-        attempts = (
-            await session.execute(
-                select(TestAttempt, Questionnaire.code)
-                .join(Questionnaire)
-                .where(TestAttempt.user_id == user_id)
-                .order_by(TestAttempt.completed_at.desc())
-            )
-        ).all()
-        draft_codes = {code for attempt, code in attempts if attempt.status == "in_progress"}
-        last_completed = {}
-        for attempt, code in attempts:
-            if attempt.status == "completed" and code not in last_completed:
-                last_completed[code] = attempt
-        schedules = {
-            row.questionnaire_code: row
-            for row in (
-                await session.scalars(
-                    select(AssessmentSchedule).where(AssessmentSchedule.user_id == user_id)
-                )
-            ).all()
-        }
-        result = []
-        for code in sorted(codes):
-            if code in draft_codes:
-                continue
-            schedule = schedules.get(code)
-            if schedule is not None:
-                if schedule.snoozed_until and schedule.snoozed_until > now:
-                    continue
-                if schedule.last_offered_at and schedule.last_offered_at > now - timedelta(
-                    days=self.rules["minimum_reoffer_days"]
-                ):
-                    continue
-                if code != "GAD7" and schedule.next_due_at and schedule.next_due_at > now:
-                    continue
-            reason = self.due_reason(
-                code, schedule, last_completed.get(code), window, window_start, complaints, now
-            )
-            if reason is None:
-                continue
-            result.append(
+        if screening is None:
+            # Local import avoids the scoring engine / scheduler module dependency cycle.
+            from emo_core.services.screening_engine import recent_results
+
+            screening = await recent_results(session, user_id, now)
+        if any(r.get("safety_flags") for r in screening):
+            return [
                 {
-                    "type": "questionnaire",
-                    "code": code,
-                    "reason": reason,
-                    "policy_version": self.rules["version"],
-                    "optional": True,
+                    "type": "professional_support",
+                    "reason": "screening_safety_priority",
+                    "optional": False,
                 }
-            )
+            ]
+        rows = plan if plan is not None else await self.plan(session, user_id, now)
+        result = [
+            {
+                **row,
+                "type": "questionnaire",
+                "optional": True,
+                "policy_version": self.rules["version"],
+            }
+            for row in rows
+            if row["status"] in ("due", "in_progress")
+        ]
+        # Prefer a started form, then the oldest due date; stable core-scale ordering for ties.
+        result.sort(key=lambda row: (row["status"] != "in_progress", row["due_at"]))
         last = await session.scalar(
             select(Checkin)
             .where(Checkin.user_id == user_id)
             .order_by(Checkin.created_at.desc())
             .limit(1)
         )
-        interval = timedelta(days=self.rules.get("checkin_interval_days", 7))
-        if last is None or last.created_at <= now - interval:
+        if last is None or last.created_at <= now - timedelta(
+            days=self.rules.get("checkin_interval_days", 7)
+        ):
             result.append({"type": "checkin", "optional": True, "reason": "weekly"})
         return result
 
     async def record(self, session, user_id, code, action):
-        """Записывает показ, отказ или отсрочку шкалы и версию правил.
-
-        Создаёт расписание при отсутствии. Показ обновляет срок повторного предложения,
-        кроме GAD-7; остальные действия устанавливают snoozed_until. Commit не выполняет.
-        """
         row = await session.scalar(
             select(AssessmentSchedule).where(
-                AssessmentSchedule.user_id == user_id, AssessmentSchedule.questionnaire_code == code
+                AssessmentSchedule.user_id == user_id,
+                AssessmentSchedule.questionnaire_code == code,
             )
         )
         if row is None:
@@ -203,8 +311,6 @@ class ScreeningScheduler:
         now = utcnow()
         if action == "offered":
             row.last_offered_at = now
-            if code != "GAD7":
-                row.next_due_at = now + timedelta(days=self.rules["minimum_reoffer_days"])
         else:
             row.snoozed_until = now + timedelta(days=self.rules["decline_cooldown_days"])
         row.policy_version = self.rules["version"]

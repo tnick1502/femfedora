@@ -94,7 +94,7 @@ async def send(client, auth, cid, text, user="anna", client_message_id=None):
     )
 
 
-def synthetic_material(code="GAD2", version="test-v1"):
+def synthetic_material(code="GAD7", version="test-v1"):
     """Создаёт искусственные пункты шкалы для проверки механизма подсчёта и импорта.
 
     Тексты, ключи и отметка approved относятся только к тестовой фикстуре;
@@ -132,7 +132,7 @@ def synthetic_material(code="GAD2", version="test-v1"):
 
 @pytest_asyncio.fixture
 async def enabled(sessions):
-    """Добавляет искусственную редакцию GAD-2 в тестовую БД и возвращает её UUID."""
+    """Добавляет искусственную редакцию GAD-7 в тестовую БД и возвращает её UUID."""
     async with sessions() as session, session.begin():
         q = Questionnaire(**synthetic_material())
         session.add(q)

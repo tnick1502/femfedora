@@ -30,7 +30,13 @@ class TrendAnalyzer:
         ).all()
         scales, previous = {}, {}
         for attempt, questionnaire in attempts:
-            key = (questionnaire.code, questionnaire.version, questionnaire.language)
+            key = (
+                questionnaire.code,
+                questionnaire.version,
+                questionnaire.language,
+                attempt.pregnancy_id,
+                attempt.context.get("birth_date"),
+            )
             scales.setdefault(questionnaire.code, []).append(
                 {
                     "at": attempt.completed_at,
@@ -50,11 +56,17 @@ class TrendAnalyzer:
                 )
             ).all()
         )
-        sufficient = len(checkins) >= 2 and checkins[-1].created_at >= now - timedelta(days=14)
+        daily = {c.created_at.date(): c for c in checkins}
+        comparison = list(daily.values())[-2:]
+        sufficient = (
+            len(comparison) == 2
+            and comparison[-1].created_at >= now - timedelta(days=14)
+            and comparison[0].created_at >= now - timedelta(days=30)
+        )
         deltas = {}
         if sufficient:
             for name in ("mood_score", "anxiety_score", "sleep_quality"):
-                values = [getattr(c, name) for c in checkins if getattr(c, name) is not None]
+                values = [getattr(c, name) for c in comparison if getattr(c, name) is not None]
                 deltas[name] = values[-1] - values[-2] if len(values) >= 2 else None
         complaints = list(
             (await session.scalars(select(Complaint).where(Complaint.user_id == user_id))).all()

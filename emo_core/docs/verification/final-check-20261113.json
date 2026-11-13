@@ -1,0 +1,55 @@
+{
+  "date": "2026-11-13",
+  "scope": "local EMO Core final review; no commit, push or deployment",
+  "sqlite": {
+    "passed": 338,
+    "skipped": 10
+  },
+  "postgresql_16": {
+    "passed": 348
+  },
+  "ruff": {
+    "check": "passed",
+    "format_files": 103
+  },
+  "poetry": {
+    "check_lock": "passed",
+    "wheel_build": "passed",
+    "isolated_wheel_smoke_assets": 7,
+    "demo_assets_in_wheel": 12,
+    "env_files_in_wheel": 0
+  },
+  "javascript_syntax_files": 3,
+  "server_shell_syntax_files": 3,
+  "secret_pattern_candidates": 0,
+  "migrations": {
+    "head": "d92c45e17a60",
+    "upgrade_check_downgrade_reupgrade_check": "passed",
+    "historical_draft_preserved": true,
+    "custom_phq9_stays_sole_active_version_on_rollback": true
+  },
+  "regressions": [
+    "superseded draft is not offered",
+    "test completion during generation cancels invitation",
+    "snooze, stage change and new safety item cancel invitation",
+    "parallel conversations share one daily offer"
+  ],
+  "clinical_approval_changed": false,
+  "live_ai_called": false,
+  "sha256": {
+    "emo_core/services/chat_engine.py": "aeec1c17ab72bca47c97db62dad46e7d30ccb037a75b6af7f3b5d7958ee87483",
+    "emo_core/services/screening_scheduler.py": "66d9922be3c045b82b13971b30fbe941b60261d85a0b387f4469dcfc6491b067",
+    "alembic/versions/c8d31a906f42_stage_screening_plan.py": "f8b3f8a810eadb48da2e1772fef4e6fa10f3b669a2425620eef0eb72b59d2443",
+    "alembic/versions/d92c45e17a60_disable_passr.py": "0bf534c9018738b19127cbb5fb4433229d865483e5591b214d5fc2f6cdc3b2d2",
+    "pyproject.toml": "1fc3f9451ad7d3b92628bce60b379f515ad3e7ee03331680f3e14fd8c94f3651"
+  },
+  "python_312_syntax_files": 102,
+  "python_312_runtime_smoke": "not executed: one-off containers stuck at Docker Created; full suite and wheel smoke use Python 3.14.6",
+  "cleanup": {
+    "temporary_postgres": "removed",
+    "python_312_containers": {
+      "emo-runtime312-final": "removed",
+      "jovial_torvalds": "Docker container lock prevented removal; see VERIFICATION.md"
+    }
+  }
+}

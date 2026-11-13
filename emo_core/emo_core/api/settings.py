@@ -14,6 +14,7 @@ from emo_core.schemas.user import ContextSettings, PrivacySettings, SettingsPatc
 from emo_core.services.anonymizer import boundary_for
 from emo_core.services.context_manager import COMPRESSION_MODES, ContextBudget
 from emo_core.services.memory_manager import MemoryManager
+from emo_core.services.patient_state import PatientStateBuilder
 from emo_core.services.safety_guard import SafetyGuard
 
 router = APIRouter()
@@ -126,8 +127,40 @@ async def patch(
         "birth_date",
         "pregnancy_outcome",
         "country_code",
+        "reproductive_stage",
     }
     changes = body.model_dump(exclude_unset=True)
+    # Resolve inferred stage BEFORE clearing incompatible calendar data.
+    new_episode = "pregnancy_id" in changes and changes["pregnancy_id"] != obj.pregnancy_id
+    if new_episode:
+        for key in (
+            "gestational_week",
+            "estimated_due_date",
+            "birth_date",
+            "pregnancy_outcome",
+            "reproductive_stage",
+        ):
+            changes.setdefault(key, None)
+    if (
+        "reproductive_stage" not in body.model_fields_set
+        or changes.get("reproductive_stage") is None
+    ):
+        if changes.get("pregnancy_outcome") == "loss":
+            changes["reproductive_stage"] = "after_loss"
+        elif changes.get("birth_date"):
+            changes["reproductive_stage"] = "postpartum"
+        elif changes.get("estimated_due_date") or changes.get("gestational_week") is not None:
+            changes["reproductive_stage"] = "pregnant"
+    stage = changes.get("reproductive_stage")
+    if stage in ("preconception", "unknown", "after_loss"):
+        changes.update(gestational_week=None, estimated_due_date=None, birth_date=None)
+        changes["pregnancy_outcome"] = "loss" if stage == "after_loss" else None
+    elif stage == "pregnant":
+        changes.update(birth_date=None, pregnancy_outcome="ongoing")
+    elif stage == "postpartum":
+        changes.update(
+            gestational_week=None, estimated_due_date=None, pregnancy_outcome="live_birth"
+        )
     server = request.app.state.settings
     preferences = dict(obj.ai_preferences or {})
     for section in ("privacy", "context"):
@@ -180,11 +213,18 @@ async def patch(
 
 @router.get("/state")
 async def state(
+    request: Request,
     user_id: UUID = Depends(current_user),
     session: AsyncSession = Depends(tenant_session, scope="function"),
 ):
     """Возвращает или создаёт память профиля, отмечая данные как недиагностические."""
-    return {**public(await MemoryManager().get(session, user_id)), "not_a_diagnosis": True}
+    return {
+        **public(await MemoryManager().get(session, user_id)),
+        "patient_context": await PatientStateBuilder(request.app.state.settings).build(
+            session, user_id
+        ),
+        "not_a_diagnosis": True,
+    }
 
 
 @router.patch("/memory")
@@ -200,8 +240,13 @@ async def memory(
     """
     obj = await MemoryManager().get(session, user_id)
     obj.summary, obj.preferences = body.summary, body.preferences
-    obj.facts, obj.recurring_topics = [], []
     obj.updated_at = obj.memory_cleared_at = utcnow()
+    obj.facts = (
+        [{"source": "user_edit", "text": body.summary, "observed_at": obj.updated_at.isoformat()}]
+        if body.summary
+        else []
+    )
+    obj.recurring_topics = []
     return public(obj)
 
 
@@ -287,6 +332,7 @@ async def remove_data(
     user.deleted_at = utcnow()
     user.pregnancy_id = user.gestational_week = user.birth_date = user.country_code = None
     user.gestational_week_recorded_at = user.estimated_due_date = user.pregnancy_outcome = None
+    user.reproductive_stage = None
     user.timezone, user.proactive_paused_until, user.proactive_pause_reason = "UTC", None, None
     user.ai_preferences = {}
     return {

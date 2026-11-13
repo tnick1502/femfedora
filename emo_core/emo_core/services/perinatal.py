@@ -15,7 +15,7 @@ PERINATAL_POSTPARTUM_DAYS = 365  # перинатальный период: бе
 
 @dataclass(frozen=True)
 class PerinatalContext:
-    stage: str = "unknown"  # pregnant | postpartum | after_loss | unknown
+    stage: str = "unknown"  # preconception | pregnant | postpartum | after_loss | unknown
     gestational_week: int | None = None
     trimester: int | None = None
     postpartum_weeks: int | None = None
@@ -36,6 +36,14 @@ def _trimester(week: int) -> int:
     return 1 if week <= 13 else 2 if week <= 27 else 3
 
 
+def same_assessment_episode(attempt, user):
+    """Use explicit episode ID and known birth date; don't infer a new pregnancy from prose."""
+    if attempt.pregnancy_id != user.pregnancy_id:
+        return False
+    birth = attempt.context.get("birth_date")
+    return not (birth and user.birth_date and birth != user.birth_date.isoformat())
+
+
 def perinatal_context(user, now: datetime) -> PerinatalContext:
     """Приводит переданные сведения о беременности или родах к моменту now.
 
@@ -44,6 +52,9 @@ def perinatal_context(user, now: datetime) -> PerinatalContext:
     полные недели к сроку на дату его передачи. Срок вне 0–43 недель даёт unknown
     с указанием устаревшего источника. Профиль не меняет; даты ожидаются с поясом.
     """
+    explicit = getattr(user, "reproductive_stage", None)
+    if explicit in ("preconception", "unknown", "after_loss"):
+        return PerinatalContext(stage=explicit, source="reproductive_stage")
     if getattr(user, "pregnancy_outcome", None) == "loss":
         return PerinatalContext(stage="after_loss", source="pregnancy_outcome")
     birth = getattr(user, "birth_date", None)
@@ -63,7 +74,9 @@ def perinatal_context(user, now: datetime) -> PerinatalContext:
         elapsed = (now - recorded).days // 7 if recorded else 0
         week, source = user.gestational_week + max(elapsed, 0), "gestational_week"
     if week is None:
-        return PerinatalContext()
+        return PerinatalContext(
+            stage=explicit or "unknown", source="reproductive_stage" if explicit else "none"
+        )
     if not 0 <= week <= MAX_PREGNANCY_WEEKS:
         # Срок не обновлялся или дата родов не передана: не выдумываем текущий статус.
         return PerinatalContext(source=f"{source}_stale")

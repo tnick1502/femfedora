@@ -57,6 +57,7 @@ class UserSettings(Base):
     birth_date: Mapped[datetime | None] = mapped_column(UTCDateTime())
     # ongoing | live_birth | loss; передаётся основным приложением.
     pregnancy_outcome: Mapped[str | None] = mapped_column(String(16))
+    reproductive_stage: Mapped[str | None] = mapped_column(String(24))
     country_code: Mapped[str | None] = mapped_column(String(2))
     # Настройки личного кабинета: обезличивание и управление контекстом.
     ai_preferences: Mapped[dict] = mapped_column(J, default=dict)

@@ -1,0 +1,26 @@
+{
+  "fixture": "synthetic pregnancy at week 20; PHQ9=0; no chat history",
+  "full_state_chars": 1551,
+  "prompt_state_chars": 777,
+  "full_state_estimated_tokens": 554,
+  "prompt_state_estimated_tokens": 278,
+  "reduction_percent": 49.9,
+  "measurement": "character count; tokens estimated at 2.8 chars/token; not provider usage",
+  "live_jev_measured": false,
+  "verification": {
+    "sqlite": {
+      "passed": 335,
+      "skipped": 9
+    },
+    "postgresql_16": {
+      "passed": 344
+    },
+    "ruff_check": "passed",
+    "ruff_format_files": 102,
+    "git_diff_check": "passed",
+    "alembic_head": "d92c45e17a60",
+    "alembic_cycle": "upgrade/check/downgrade/reupgrade/check; no schema drift",
+    "passr_migration_fixture": "disabled; historical row retained",
+    "deployment_performed": false
+  }
+}

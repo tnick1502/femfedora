@@ -28,7 +28,7 @@ from sqlalchemy import select
 
 from emo_core.core.exceptions import ProviderUnavailable
 from emo_core.db.base import utcnow
-from emo_core.db.models import Message
+from emo_core.db.models import AssessmentSchedule, Message, SafetyEvent
 from emo_core.db.repositories import ensure_user, owned_conversation, public
 from emo_core.providers.mock_providers import DisabledJevProvider
 from emo_core.schemas.emotion import CATEGORIES, EmotionAnalysis
@@ -38,11 +38,16 @@ from emo_core.services.context_manager import ChatContextManager, ContextBudget,
 from emo_core.services.decision_report import DecisionReport, describe_models
 from emo_core.services.emotion_analyzer import EmotionAnalyzer
 from emo_core.services.memory_manager import MemoryManager
+from emo_core.services.patient_state import PatientStateBuilder, prompt_patient_state
 from emo_core.services.perinatal import perinatal_context
 from emo_core.services.safety_guard import SafetyGuard
 from emo_core.services.safety_lexicon import LEXICON_VERSION
 from emo_core.services.screening_engine import recent_results
-from emo_core.services.screening_scheduler import ScreeningScheduler
+from emo_core.services.screening_scheduler import (
+    SCALE_NAMES,
+    ScreeningScheduler,
+    assessment_history,
+)
 from emo_core.services.state_evaluator import StateEvaluator
 from emo_core.services.support_protocol_selector import SupportProtocolSelector
 
@@ -56,13 +61,15 @@ class ChatEngine:
         """Сохраняет провайдеров и снимок моделей для обработки одной реплики.
 
         Время ожидания незавершённой обработки рассчитывает из тайм-аутов двух
-        генераций, трёх проверок Jev и десятисекундного запаса.
+        генераций, четырёх обращений Jev с повторами и десятисекундного запаса.
         """
         self.settings, self.llm, self.jev = settings, llm, jev
         self.models = models or describe_models(settings)
-        # Верхняя оценка длительности обработки: две генерации и три обращения к Jev.
+        # Отбор, полный анализ и две выходные проверки; SDK может повторить запрос.
         self.processing_timeout = timedelta(
-            seconds=2 * settings.llm_timeout_seconds + 3 * settings.jev_timeout_seconds + 10
+            seconds=2 * settings.llm_timeout_seconds
+            + 4 * settings.jev_timeout_seconds * (settings.jev_max_retries + 1)
+            + 10
         )
 
     # ------------------------------------------------------------------ helpers
@@ -190,7 +197,28 @@ class ChatEngine:
                 # Автоматическая пауза снимается ответом; пауза, заданная пользователем, сохраняется.
                 settings.proactive_paused_until = settings.proactive_pause_reason = None
             await session.flush()
+            previous_turns = []
+            if len(body.content.strip()) <= 100:
+                prior = list(
+                    (
+                        await session.scalars(
+                            select(Message)
+                            .where(
+                                Message.user_id == user_id,
+                                Message.conversation_id == conversation_id,
+                                Message.id != message.id,
+                                Message.created_at >= now - timedelta(hours=72),
+                            )
+                            .order_by(Message.created_at.desc(), Message.id.desc())
+                            .limit(2)
+                        )
+                    ).all()
+                )
+                previous_turns = [
+                    {"role": m.role, "content": m.content[-1200:]} for m in reversed(prior)
+                ]
             snapshot = SimpleNamespace(
+                previous_turns=previous_turns,
                 message_id=message.id,
                 consent=settings.external_ai_consent,
                 country=settings.country_code,
@@ -318,9 +346,11 @@ class ChatEngine:
             and self.settings.ai_mode != "disabled"
         )
         if deterministic == "urgent":
-            analysis = EmotionAnalysis(available=False)
+            analysis = EmotionAnalysis(available=False, scope="unavailable", input_calls=0)
         else:
-            analysis = await EmotionAnalyzer(jev).analyze(boundary.mask(body.content))
+            analysis = await EmotionAnalyzer(jev).analyze(
+                boundary.mask(body.content), boundary.mask_messages(accepted.previous_turns)
+            )
         reasons = (
             ["urgent_bypass"]
             if deterministic == "urgent"
@@ -328,6 +358,8 @@ class ChatEngine:
             if consent_missing
             else ["ai_disabled"]
             if self.settings.ai_mode == "disabled"
+            else ["irrelevant_message_full_analysis_skipped"]
+            if analysis.scope == "irrelevant"
             else ["classifier_completed"]
             if analysis.available
             else ["classifier_unavailable"]
@@ -337,6 +369,9 @@ class ChatEngine:
             "completed" if analysis.available else "unavailable" if input_called else "skipped",
             reasons,
             called=input_called,
+            scope=analysis.scope,
+            gate_score=analysis.gate_score,
+            input_calls=analysis.input_calls if input_called else 0,
             error_code=analysis.error_code,
             provider=self.models["jev"]["provider"],
             model=analysis.model_version if analysis.available else self.models["jev"]["model"],
@@ -496,12 +531,7 @@ class ChatEngine:
                         "recommend_professional",
                     )
                 )
-            offered = bool(
-                state.screening_offer
-                and origin == "reactive"
-                and route == "normal"
-                and re.search(r"опрос|анкет|тест", text.lower())
-            )
+            offered = bool(state.screening_offer and origin == "reactive" and route == "normal")
         report.stage(
             "privacy",
             "applied" if boundary.enabled else "disabled",
@@ -559,10 +589,65 @@ class ChatEngine:
             for risk_type, action in events:
                 safety.record(session, user_id, message_id, risk_type, route, action)
             if offered:
-                # Предложение прозвучало: фиксируем, чтобы не повторять его навязчиво.
+                # Generation runs without a DB lock: completion, snooze, stage and offers
+                # may have changed. Recheck under the same user lock before delivery.
+                offer_time = utcnow()
+                schedules = list(
+                    (
+                        await session.scalars(
+                            select(AssessmentSchedule).where(AssessmentSchedule.user_id == user_id)
+                        )
+                    ).all()
+                )
+                schedule = next(
+                    (r for r in schedules if r.questionnaire_code == state.screening_offer), None
+                )
+                new_risk = await session.scalar(
+                    select(SafetyEvent.id)
+                    .where(
+                        SafetyEvent.user_id == user_id,
+                        SafetyEvent.created_at >= plan.decision_at,
+                        SafetyEvent.risk_route.in_(("urgent", "recommend_professional")),
+                    )
+                    .limit(1)
+                )
+                offered = (
+                    settings_row.pregnancy_id == plan.pregnancy_id
+                    and settings_row.birth_date == plan.birth_date
+                    and perinatal_context(settings_row, offer_time).stage == state.perinatal_stage
+                    and new_risk is None
+                    and all(
+                        r.last_offered_at is None
+                        or r.last_offered_at <= offer_time - timedelta(hours=24)
+                        for r in schedules
+                    )
+                    and not (
+                        schedule and schedule.snoozed_until and schedule.snoozed_until > offer_time
+                    )
+                    and not (
+                        schedule
+                        and schedule.last_completed_at
+                        and schedule.last_completed_at >= plan.decision_at
+                    )
+                )
+            if offered:
+                verb = "продолжить начатый" if state.screening_attempt_id else "пройти"
+                text = text.rstrip() + (
+                    f"\n\nЕсли захочешь, можно {verb} необязательный опросник "
+                    f"{SCALE_NAMES[state.screening_offer]} в разделе «Опросники». "
+                    "Это самооценка самочувствия, а не диагноз."
+                )
                 await ScreeningScheduler(self.settings).record(
                     session, user_id, state.screening_offer, "offered"
                 )
+            else:
+                state.screening_offer = state.screening_reason = state.screening_attempt_id = None
+            report.stage(
+                "screening_offer",
+                "offered" if offered else "skipped",
+                ["invitation_delivered"] if offered else ["no_eligible_invitation_at_delivery"],
+                code=state.screening_offer,
+            )
             if boundary.enabled:
                 # Имена, названные в этой реплике, запоминаются для следующих запросов.
                 known = list(settings_row.ai_preferences.get("learned_names") or [])
@@ -704,14 +789,46 @@ class ChatEngine:
                     if k in CATEGORIES and v >= self.settings.jev_threshold
                 ],
             )
+            history = await assessment_history(session, user_id)
             screenings = await recent_results(
-                session, user_id, now, safety.rules.get("screening_result_valid_days", 30)
+                session,
+                user_id,
+                now,
+                safety.rules.get("screening_result_valid_days", 30),
+                history=history,
             )
             memory = MemoryManager()
-            context, complaints = await memory.context(session, user_id, perinatal, screenings)
+            context, complaints = await memory.context(session, user_id, perinatal)
+            patient_context = await PatientStateBuilder(self.settings).build(
+                session,
+                user_id,
+                analysis,
+                perinatal,
+                message_id,
+                now,
+                history=history,
+                screening=screenings,
+            )
+            recurrence = patient_context["long"]["patterns"]
+            context["patient_state"] = prompt_patient_state(patient_context)
             rows = await memory.history(
                 session, user_id, conversation_id, conversation.context_summary_until
             )
+            # Do not pay twice for source excerpts already present verbatim in the dialogue.
+            stored_memory = await memory.get(session, user_id)
+            history_ids = {row["id"] for row in rows}
+            if stored_memory.facts:
+                remaining = [
+                    f
+                    for f in stored_memory.facts
+                    if f.get("source") != "user_edit" and f.get("message_id") not in history_ids
+                ]
+                context["user_memory"] = "\n".join(
+                    f["text"] for f in stored_memory.facts if f.get("source") == "user_edit"
+                )
+                context["summary"] = "\n".join(
+                    f"{f['observed_at'][:10]}: {f['text']}" for f in remaining
+                )
             summary = conversation.context_summary or ""
             evaluator = StateEvaluator(safety.rules)
             state = evaluator.evaluate(
@@ -720,40 +837,61 @@ class ChatEngine:
                 route,
                 threshold=self.settings.jev_threshold,
                 perinatal=perinatal,
-                recurrence=await complaint_manager.recurrence(
-                    session, user_id, now, evaluator.persistence["window_days"]
-                )
-                if analysis.available
-                else None,
+                recurrence=recurrence,
                 screening=screenings,
+                patient_context=patient_context,
             )
             if route != "urgent":
                 actions = await ScreeningScheduler(self.settings).next_actions(
-                    session, user_id, now
+                    session, user_id, now, plan=patient_context["assessments"], screening=screenings
                 )
-                state.screening_offer = next(
-                    (a["code"] for a in actions if a["type"] == "questionnaire"), None
-                )
+                last_offers = [
+                    r.get("last_offered_at")
+                    for r in patient_context["assessments"]
+                    if r.get("last_offered_at")
+                ]
+                chat_cooldown = timedelta(hours=24)
+                if (
+                    not last_offers
+                    or max(datetime.fromisoformat(t) for t in last_offers) <= now - chat_cooldown
+                ):
+                    offer = next((a for a in actions if a["type"] == "questionnaire"), None)
+                    if offer:
+                        state.screening_offer = offer["code"]
+                        state.screening_reason = offer["reason"]
+                        state.screening_attempt_id = offer.get("attempt_id")
             standing_reason = None
             if state.recommend_specialist and route == "normal":
                 # Постоянное основание (длительные жалобы, результат шкалы) напоминается
                 # с интервалом, а не превращает каждый ответ в направление к врачу.
                 reminder = timedelta(days=safety.rules.get("referral_reminder_days", 7))
-                if await self.last_referral(session, user_id, now - reminder) is None:
+                last_referral = await self.last_referral(session, user_id, now - reminder)
+                new_safety = any(
+                    r.get("safety_flags")
+                    and (
+                        last_referral is None
+                        or datetime.fromisoformat(r["safety_at"]) > last_referral
+                    )
+                    for r in screenings
+                )
+                if last_referral is None or new_safety:
                     route = state.safety_route = "recommend_professional"
                     standing_reason = "standing_referral_due"
                 else:
                     standing_reason = "standing_referral_recently_made"
             state.referral_required = route == "recommend_professional"
+            if state.recommend_specialist or route != "normal":
+                state.screening_offer = state.screening_reason = state.screening_attempt_id = None
             content, country = message.content, settings.country_code
         state_reasons = (
-            ["highest_marker_above_action_threshold"]
+            [state.support_basis]
             if state.primary_support_need != "general"
             else ["no_support_marker_above_threshold"]
         )
         primary_value = analysis.markers.get(state.primary_support_need, 0)
         if (
             state.primary_support_need != "general"
+            and state.support_basis == "highest_marker_above_action_threshold"
             and sum(analysis.markers.get(key, -1) == primary_value for key in CATEGORIES) > 1
         ):
             state_reasons.append("equal_markers_fixed_category_priority")
@@ -799,6 +937,9 @@ class ChatEngine:
             support_contact_allowed=allow_contact,
         )
         return SimpleNamespace(
+            decision_at=now,
+            pregnancy_id=settings.pregnancy_id,
+            birth_date=settings.birth_date,
             route=route,
             state=state,
             system_prompt=selector.system_prompt(

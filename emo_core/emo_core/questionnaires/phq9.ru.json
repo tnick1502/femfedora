@@ -1,6 +1,6 @@
 {
   "code": "PHQ9",
-  "version": "ru-russia-pfizer-2026-11-10-v1",
+  "version": "ru-russia-pfizer-2026-11-13-v2",
   "language": "ru",
   "enabled": true,
   "license_reference": "https://www.phqscreeners.com/images/sites/g/files/g10016261/f/201412/instructions.pdf#page=8",
@@ -194,8 +194,8 @@
         "pages": "2–3, 6–8"
       }
     ],
-    "usage": "alternative_to_epds",
-    "usage_note": "Альтернатива EPDS; не предлагается автоматически вместе с EPDS. Выбирайте вместо EPDS по согласованию со специалистом.",
+    "usage": "core",
+    "usage_note": "Постоянная шкала самооценки депрессивных симптомов при подготовке к беременности, во время беременности и после родов. Дополнительная EPDS не заменяет PHQ-9.",
     "derivation": null
   },
   "scoring_rules": {

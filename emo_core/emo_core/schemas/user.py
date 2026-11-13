@@ -60,6 +60,9 @@ class SettingsPatch(StrictModel):
     estimated_due_date: date | None = None
     birth_date: datetime | None = None
     pregnancy_outcome: Literal["ongoing", "live_birth", "loss"] | None = None
+    reproductive_stage: (
+        Literal["preconception", "pregnant", "postpartum", "after_loss", "unknown"] | None
+    ) = None
     country_code: str | None = Field(None, pattern=r"^[A-Z]{2}$")
 
     @field_validator("timezone")

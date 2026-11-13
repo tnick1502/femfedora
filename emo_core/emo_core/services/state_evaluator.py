@@ -57,6 +57,7 @@ class StateEvaluator:
         perinatal=None,
         recurrence=None,
         screening=None,
+        patient_context=None,
     ):
         """Выбирает потребность в поддержке и основания для обращения к специалисту.
 
@@ -69,12 +70,65 @@ class StateEvaluator:
             ((k, v) for k, v in analysis.markers.items() if k in CATEGORIES and v >= threshold),
             key=lambda kv: (-kv[1], CATEGORIES.index(kv[0])),
         )
+        patient_context = patient_context or {}
+        short = patient_context.get("short", {})
+        long = patient_context.get("long", {})
+        basis = "highest_marker_above_action_threshold"
+        # Continuations may refer to recent observations, never evidence of a current symptom.
+        if (
+            not markers
+            and analysis.available
+            and analysis.scope == "full"
+            and analysis.markers.get("request_for_support", 0) >= threshold
+        ):
+            recent_categories = sorted(
+                (s for s in short.get("recent", []) if s["code"] in PROTOCOLS),
+                key=lambda s: (s["last"], -CATEGORIES.index(s["code"])),
+                reverse=True,
+            )
+            if recent_categories:
+                markers = [(recent_categories[0]["code"], 0)]
+                basis = "recent_observation_needs_confirmation"
+            else:
+                domains = {
+                    "PHQ9": "low_mood",
+                    "EPDS": "low_mood",
+                    "GAD7": "anxiety",
+                }
+                screens = sorted(
+                    (
+                        r
+                        for r in long.get("scales", [])
+                        if r.get("code") in domains
+                        and r.get("followup")
+                        and not r.get("stale")
+                        and not r.get("other_episode")
+                        and r.get("applicable", True)
+                    ),
+                    key=lambda r: r["at"],
+                    reverse=True,
+                )
+                if screens:
+                    markers = [(domains[screens[0]["code"]], 0)]
+                    basis = "screening_result_needs_confirmation"
+        if not markers:
+            basis = "no_support_marker_above_threshold"
         main = markers[0][0] if markers else "general"
         pattern = self.pattern(main, recurrence, complaints)
         reasons = []
         if route != "normal":
             reasons.append("safety_route")
         if pattern == "persistent":
+            reasons.append("persistent_complaint")
+        if (
+            pattern != "persistent"
+            and recurrence is not None
+            and any(
+                self.pattern(c.category, recurrence, complaints) == "persistent"
+                for c in complaints
+                if c.status in ("new", "active")
+            )
+        ):
             reasons.append("persistent_complaint")
         if analysis.markers.get("functional_impact", 0) >= threshold:
             reasons.append("functional_impact")
@@ -90,6 +144,9 @@ class StateEvaluator:
                 reasons.append(f"screening_followup:{result['code']}")
         if perinatal is not None:
             postpartum = perinatal.postpartum
+        recent = [s["code"] for s in short.get("recent", [])]
+        improving = analysis.markers.get("self_reported_improvement", 0) >= threshold
+        worsening = analysis.markers.get("self_reported_worsening", 0) >= threshold
         return SupportState(
             primary_support_need=main,
             secondary_support_need=markers[1][0] if len(markers) > 1 else None,
@@ -98,8 +155,28 @@ class StateEvaluator:
             recommend_specialist=bool(reasons),
             specialist_reasons=reasons,
             support_protocol=PROTOCOLS.get(main, "general_support"),
+            support_basis=basis,
             postpartum=postpartum,
             perinatal_stage=perinatal.stage if perinatal else "unknown",
             gestational_week=perinatal.gestational_week if perinatal else None,
             postpartum_weeks=perinatal.postpartum_weeks if perinatal else None,
+            current_signals=[k for k, v in analysis.markers.items() if v >= threshold],
+            recent_signals=recent,
+            analysis_scope=analysis.scope if analysis.available else "unavailable",
+            change="mixed"
+            if improving and worsening
+            else "worsening"
+            if worsening
+            else "improving"
+            if improving
+            else "unknown",
+            functional_impact=analysis.markers.get("functional_impact", 0) >= threshold,
+            birth_trauma_followup=any(
+                r.get("code") == "CITYBITS"
+                and r.get("followup")
+                and not r.get("stale")
+                and not r.get("other_episode")
+                for r in long.get("scales", [])
+            ),
+            context_conflicts=patient_context.get("conflicts", []),
         )

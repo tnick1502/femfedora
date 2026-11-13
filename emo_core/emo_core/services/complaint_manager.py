@@ -1,6 +1,6 @@
 from datetime import timedelta
 
-from sqlalchemy import select
+from sqlalchemy import func, select
 
 from emo_core.db.base import utcnow
 from emo_core.db.models import Complaint, MessageSignal
@@ -17,8 +17,18 @@ class ComplaintManager:
         """
         if not analysis.available:
             return
+        existing = set(
+            (
+                await session.scalars(
+                    select(MessageSignal.signal_code).where(
+                        MessageSignal.user_id == user_id,
+                        MessageSignal.message_id == message.id,
+                    )
+                )
+            ).all()
+        )
         for code, confidence in analysis.markers.items():
-            if confidence < threshold:
+            if confidence < threshold or code in existing:
                 continue
             session.add(
                 MessageSignal(
@@ -28,7 +38,10 @@ class ComplaintManager:
                     confidence=confidence,
                     source=analysis.source,
                     model_version=analysis.model_version,
-                    details={"not_diagnostic": True},
+                    details={
+                        "not_diagnostic": True,
+                        "pregnancy_id": str(pregnancy_id) if pregnancy_id else None,
+                    },
                 )
             )
             if code not in CATEGORIES:
@@ -46,6 +59,11 @@ class ComplaintManager:
                 )
                 session.add(complaint)
             else:
+                if complaint.pregnancy_id != pregnancy_id:
+                    complaint.pregnancy_id = pregnancy_id
+                    complaint.first_seen_at = utcnow()
+                    complaint.details = {"observations": 0}
+                    complaint.user_confirmed = False
                 complaint.last_seen_at = utcnow()
                 complaint.status = "active"
                 complaint.details = {
@@ -54,7 +72,7 @@ class ComplaintManager:
                 }
         await session.flush()
 
-    async def recurrence(self, session, user_id, now, window_days=30):
+    async def recurrence(self, session, user_id, now, window_days=30, pregnancy_id=None):
         """Считает разные даты и длительность наблюдений каждого маркера за window_days.
 
         days — число календарных дат UTC, span_days — расстояние между первой
@@ -62,16 +80,23 @@ class ComplaintManager:
         """
         rows = (
             await session.execute(
-                select(MessageSignal.signal_code, MessageSignal.observed_at).where(
+                select(
+                    MessageSignal.signal_code,
+                    func.count(func.distinct(func.date(MessageSignal.observed_at))),
+                    func.min(MessageSignal.observed_at),
+                    func.max(MessageSignal.observed_at),
+                )
+                .where(
                     MessageSignal.user_id == user_id,
                     MessageSignal.observed_at >= now - timedelta(days=window_days),
+                    MessageSignal.details["pregnancy_id"].as_string() == str(pregnancy_id)
+                    if pregnancy_id
+                    else MessageSignal.details["pregnancy_id"].as_string().is_(None),
                 )
+                .group_by(MessageSignal.signal_code)
             )
         ).all()
-        days = {}
-        for code, observed_at in rows:
-            days.setdefault(code, set()).add(observed_at.date())
         return {
-            code: {"days": len(dates), "span_days": (max(dates) - min(dates)).days}
-            for code, dates in days.items()
+            code: {"days": days, "span_days": (last.date() - first.date()).days}
+            for code, days, first, last in rows
         }

@@ -10,7 +10,7 @@ from emo_core.schemas.user import StrictModel
 class AttemptCreate(StrictModel):
     questionnaire_id: UUID | None = None
     attempt_id: UUID | None = None
-    answers: dict[str, StrictInt] = Field(default_factory=dict, max_length=30)
+    answers: dict[str, StrictInt] = Field(default_factory=dict, max_length=31)
     auxiliary_answers: dict[str, StrictInt] = Field(default_factory=dict, max_length=10)
     client_request_id: UUID | None = None
     expected_revision: StrictInt | None = Field(None, ge=0)
@@ -19,7 +19,7 @@ class AttemptCreate(StrictModel):
 
 class AttemptUpdate(StrictModel):
     expected_revision: StrictInt = Field(ge=0)
-    answers: dict[str, StrictInt] = Field(default_factory=dict, max_length=30)
+    answers: dict[str, StrictInt] = Field(default_factory=dict, max_length=31)
     auxiliary_answers: dict[str, StrictInt] = Field(default_factory=dict, max_length=10)
 
 
@@ -56,7 +56,9 @@ class ScoreBand(StrictModel):
 class ScreeningResult(StrictModel):
     total_score: int
     maximum_score: int
-    item_scores: dict[str, int]
+    item_scores: dict[str, int | None]
+    subscales: dict[str, int] = Field(default_factory=dict)
+    review_indicators: dict[str, bool] = Field(default_factory=dict)
     auxiliary_answers: dict[str, int]
     auxiliary_in_total: Literal[False]
     interpretation: ScoreBand | None

@@ -34,6 +34,12 @@ docker compose down
 
 Остановка сохраняет БД. `docker compose down --volumes` удаляет её данные; эта команда нужна только для сброса расходуемого стенда.
 
+## Развёрнутый сервер
+
+Стенд доступен по [HTTPS на 81.31.245.115](https://81.31.245.115/demo/). Вход использует `APP_LOGIN` и `APP_PASSWORD` из локального `.env`. На сервере работают реальные `deepseek-flash` и `jev-1.14.0`; текущий режим development/live и клинические ограничения сохранены.
+
+Пути установки, команды обновления, автозапуск, HTTPS и резервное копирование описаны в [docs/SERVER_DEPLOYMENT.md](docs/SERVER_DEPLOYMENT.md). Секреты в Git и Docker-образ не включены.
+
 ## Вход и токены
 
 Серверные секреты задаются в `.env`: `APP_LOGIN`, `APP_PASSWORD`, `ADMIN_API_TOKEN`, `MODEL_SECRETS_KEY`, `LLM_API_KEY`, `TYPESAFE_API_KEY`, `DEMO_JWT_SECRET`, `POSTGRES_PASSWORD` и `DATABASE_URL`. Полный справочник, дополнительные ключи и порядок смены настроек — в [docs/CONFIGURATION.md](docs/CONFIGURATION.md). Файл с реальными значениями исключён из Git и Docker build context.
@@ -66,12 +72,12 @@ docker compose down
 cp examples/client.env.example examples/client.env
 chmod 600 examples/client.env
 # Заполнить EMO_API_TOKEN в examples/client.env.
-poetry run python examples/questionnaire_client.py --code GAD2
+poetry run python examples/questionnaire_client.py --code PHQ9
 ```
 
 ## Опросники и ограничения
 
-В поставке есть русские EPDS, GAD-2, GAD-7 и PHQ-9. Вопросы, варианты, ключи, пороги, источники и основания использования сохранены в [материалах шкал](docs/questionnaires/RESEARCH.md). Суммы считает Python без AI. Попытка хранит снимок редакции и хеш; завершённый результат неизменяем. Safety-пункты проверяются уже при сохранении черновика, независимо от суммы.
+В поставке есть русские PHQ-9, GAD-7, EPDS и City Birth Trauma Scale. PHQ-9/GAD-7 — постоянное ядро; EPDS добавляется при беременности, EPDS/City BiTS — после родов. PASS-R отключена по текущему заданию. GAD-2 снята с использования; история сохраняется. Вопросы, варианты, ключи, пороги, источники и основания использования сохранены в [описании новой логики и источников](docs/CLINICAL_DESIGN.md). Суммы считает Python без AI. Попытка хранит снимок редакции и хеш; завершённый результат неизменяем. Safety-пункты проверяются уже при сохранении черновика, независимо от суммы.
 
 Проверка источников не является клиническим утверждением приложения. У встроенных форм `source_review_status=verified`, `clinical_review_status=not_performed`. Шесть протоколов поддержки имеют статус `pending`; до документированного одобрения используется `safe_baseline`. Production не запускается без одобрения safety policy. Предварительные пороги Jev, словарь и окна предложений также требуют клинической проверки. Подробности — в [описании архитектуры](docs/ARCHITECTURE.md#материалы-и-границы-готовности) и [формате материалов](docs/MATERIALS.md).
 

@@ -284,37 +284,39 @@ async def offers(sessions, config):
     return {a["code"]: a["reason"] for a in actions if a["type"] == "questionnaire"}
 
 
-async def test_no_periodic_reoffer_without_reason(client, auth, sessions, config):
-    """Проверяет отсутствие автоматического повтора шкал без нового основания."""
-    await complete(client, auth, "EPDS", epds_answers(3))
-    await complete(client, auth, "GAD2", {"1": 0, "2": 0})
-    await backdate(sessions, {"EPDS": 60, "GAD2": 60})
+async def test_periodic_core_reoffer(client, auth, sessions, config):
+    for code in ("PHQ9", "GAD7"):
+        await complete(client, auth, code, minimum_answers(code))
     assert await offers(sessions, config) == {}
+    await backdate(sessions, {"PHQ9": 31, "GAD7": 31})
+    assert await offers(sessions, config) == {"PHQ9": "periodic", "GAD7": "periodic"}
 
 
 async def test_window_and_elevated_recheck(client, auth, sessions, config):
-    """Проверяет предложения по перинатальному окну и повтор после повышенного результата."""
     await complete(client, auth, "EPDS", epds_answers(12))
-    await complete(client, auth, "GAD2", {"1": 0, "2": 0})
-    await backdate(sessions, {"EPDS": 5, "GAD2": 5})
+    for code in ("PHQ9", "GAD7"):
+        await complete(client, auth, code, minimum_answers(code))
+    await backdate(sessions, {"EPDS": 5, "PHQ9": 5, "GAD7": 5})
     assert await offers(sessions, config) == {}
-    await backdate(sessions, {"EPDS": 15, "GAD2": 15})
+    await backdate(sessions, {"EPDS": 15, "PHQ9": 15, "GAD7": 15})
     assert await offers(sessions, config) == {"EPDS": "recheck_after_elevated"}
-    due = (utcnow() + timedelta(weeks=10)).date().isoformat()  # 30-я неделя
+    due = (utcnow() + timedelta(weeks=10)).date().isoformat()
     await client.patch(P + "/settings", headers=auth["anna"], json={"estimated_due_date": due})
-    await backdate(sessions, {"EPDS": 40, "GAD2": 40})
-    assert await offers(sessions, config) == {"EPDS": "late_pregnancy", "GAD2": "late_pregnancy"}
-    await backdate(sessions, {"EPDS": 15, "GAD2": 15})  # уже пройдены внутри окна
-    assert (await offers(sessions, config)).get("GAD2") is None
+    await backdate(sessions, {"EPDS": 40, "PHQ9": 40, "GAD7": 40})
+    assert await offers(sessions, config) == {
+        "EPDS": "late_pregnancy",
+        "PHQ9": "late_pregnancy",
+        "GAD7": "late_pregnancy",
+    }
 
 
-async def test_gad7_is_offered_once_per_gad2_trigger(client, auth, sessions, config):
-    """Проверяет одно предложение GAD-7 на основание, полученное после GAD-2."""
-    await complete(client, auth, "GAD2", {"1": 2, "2": 1})
-    assert (await offers(sessions, config)).get("GAD7") == "gad2_followup_or_professional"
-    await complete(client, auth, "GAD7", dict.fromkeys(map(str, range(1, 8)), 0))
-    await backdate(sessions, {"GAD7": 40})
+async def test_gad7_is_initial_and_periodic_without_gad2(client, auth, sessions, config):
+    await client.get(P + "/settings", headers=auth["anna"])
+    assert (await offers(sessions, config)).get("GAD7") == "initial"
+    await complete(client, auth, "GAD7", minimum_answers("GAD7"))
     assert "GAD7" not in await offers(sessions, config)
+    await backdate(sessions, {"GAD7": 31})
+    assert (await offers(sessions, config))["GAD7"] == "periodic"
 
 
 async def test_next_actions_is_read_only(client, auth, sessions):
@@ -330,7 +332,7 @@ async def test_chat_offer_is_recorded_once(client, auth, app, sessions):
     class Offers:
         async def generate(self, messages, repair=False):
             """Проверяет наличие предложения шкалы в первом запросе к генератору."""
-            assert "необязательный опросник" in messages[0]["content"]
+            assert "не предлагай опросники" in messages[0]["content"].lower()
             return "Спасибо, что написала. Если захочешь, в приложении есть короткий опросник."
 
     app.state.llm = Offers()
@@ -340,7 +342,7 @@ async def test_chat_offer_is_recorded_once(client, auth, app, sessions):
     class NoOffer:
         async def generate(self, messages, repair=False):
             """Проверяет отсутствие повторного предложения шкалы в запросе к генератору."""
-            assert "необязательный опросник" not in messages[0]["content"]
+            assert "не предлагай опросники" in messages[0]["content"].lower()
             return "Я рядом."
 
     # Обе первичные шкалы уже предложены по одной за ответ; третьего предложения нет.

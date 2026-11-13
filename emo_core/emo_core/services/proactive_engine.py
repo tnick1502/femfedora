@@ -15,7 +15,7 @@ from emo_core.db.models import (
     UserSettings,
 )
 from emo_core.services.policies import policy
-from emo_core.services.screening_scheduler import ScreeningScheduler
+from emo_core.services.screening_scheduler import SCALE_NAMES, ScreeningScheduler
 
 TEMPLATES = {
     "weekly_checkin": "Привет! Как ты себя чувствуешь в последние дни? Если хочется, можем немного поговорить.",
@@ -268,12 +268,19 @@ class ProactiveMessagingEngine:
                     if job.job_type not in TEMPLATES:
                         job.status, job.last_error = "cancelled", "unsupported_job_type"
                         continue
+                    content = TEMPLATES[job.job_type]
+                    if job.job_type == "questionnaire_due":
+                        content = (
+                            f"Если тебе удобно, можно пройти или продолжить опросник "
+                            f"{SCALE_NAMES[job.details['code']]} в разделе «Опросники». "
+                            "Это добровольная самооценка, не диагноз; её можно отложить."
+                        )
                     message = Message(
                         user_id=user_id,
                         conversation_id=job.conversation_id,
                         role="assistant",
                         origin="proactive",
-                        content=TEMPLATES[job.job_type],
+                        content=content,
                         created_at=now,
                         details={
                             "job_type": job.job_type,

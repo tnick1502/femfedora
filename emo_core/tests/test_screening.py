@@ -20,7 +20,7 @@ def test_exact_scoring_and_reverse():
     assert score_answers(q, {"9": 1}, False) == (None, ["9"])
 
 
-@pytest.mark.parametrize("code,score", [("GAD2", 6), ("GAD7", 21), ("PHQ9", 27)])
+@pytest.mark.parametrize("code,score", [("GAD7", 21), ("PHQ9", 27)])
 def test_scale_maximum(code, score):
     """Проверяет максимальную сумму искусственной шкалы для каждого кода."""
     q = Questionnaire(**synthetic_material(code))
@@ -38,12 +38,13 @@ def test_unapproved_blocked():
 
 async def test_disabled_registry(client, auth, sessions):
     """Проверяет исключение отключённой редакции из каталога доступных шкал."""
+    await client.patch(P + "/settings", headers=auth["anna"], json={"gestational_week": 20})
     async with sessions() as s, s.begin():
         q = await s.scalar(select(Questionnaire).where(Questionnaire.code == "EPDS"))
         q.enabled = False
         qid = str(q.id)
     result = (await client.get(P + "/questionnaires", headers=auth["anna"])).json()
-    assert len(result["items"]) == 3 and result["unavailable"][0]["code"] == "EPDS"
+    assert len(result["items"]) == 2 and result["unavailable"][0]["code"] == "EPDS"
     assert (
         await client.post(
             P + "/questionnaire-attempts",
@@ -62,19 +63,22 @@ async def test_all_attempts_partial_excluded_gad_next_step(client, auth, enabled
     )
     assert partial.status_code == 200, partial.text
     assert partial.json()["total_score"] is None
-    for answers in ({"0": 1, "1": 2}, {"0": 2, "1": 3}):
+    for answers in (
+        {**dict.fromkeys(map(str, range(7)), 0), "0": 1, "1": 2},
+        {**dict.fromkeys(map(str, range(7)), 0), "0": 2, "1": 3},
+    ):
         result = await client.post(
             P + "/questionnaire-attempts",
             headers=auth["anna"],
             json={"questionnaire_id": enabled, "answers": answers, "complete": True},
         )
-        assert "GAD-7" in result.json()["next_step"]
+        assert result.status_code == 200, result.text
     history = (await client.get(P + "/questionnaire-attempts", headers=auth["anna"])).json()[
         "items"
     ]
     assert len(history) == 3
     trends = (await client.get(P + "/trends", headers=auth["anna"])).json()["questionnaires"][
-        "GAD2"
+        "GAD7"
     ]
     assert [p["score"] for p in trends] == [3, 5]
     assert trends[1]["delta"] == 2
@@ -94,6 +98,7 @@ async def test_safety_item_before_completion(client, auth, sessions):
         s.add(q)
         await s.flush()
         qid = str(q.id)
+    await client.patch(P + "/settings", headers=auth["anna"], json={"gestational_week": 20})
     result = await client.post(
         P + "/questionnaire-attempts",
         headers=auth["anna"],
@@ -111,14 +116,14 @@ async def test_safety_item_before_completion(client, auth, sessions):
 async def test_cooldown(client, auth, enabled):
     """Проверяет отсрочку повторного предложения шкалы после отказа."""
     assert any(
-        a.get("code") == "GAD2"
+        a.get("code") == "GAD7"
         for a in (await client.get(P + "/next-actions", headers=auth["anna"])).json()["items"]
     )
     await client.post(
-        P + "/assessment-schedule/GAD2", headers=auth["anna"], json={"action": "declined"}
+        P + "/assessment-schedule/GAD7", headers=auth["anna"], json={"action": "declined"}
     )
     assert not any(
-        a.get("code") == "GAD2"
+        a.get("code") == "GAD7"
         for a in (await client.get(P + "/next-actions", headers=auth["anna"])).json()["items"]
     )
     # Voluntary completion remains available during a declined-offer cooldown.
@@ -126,6 +131,10 @@ async def test_cooldown(client, auth, enabled):
         await client.post(
             P + "/questionnaire-attempts",
             headers=auth["anna"],
-            json={"questionnaire_id": enabled, "answers": {"0": 0, "1": 0}, "complete": True},
+            json={
+                "questionnaire_id": enabled,
+                "answers": dict.fromkeys(map(str, range(7)), 0),
+                "complete": True,
+            },
         )
     ).status_code == 200
