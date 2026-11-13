@@ -127,6 +127,10 @@ class ModelRegistry:
         ).one()
         values = self.settings.model_dump()
         values["ai_mode"] = row.ai_mode or self.settings.ai_mode
+        values["voice_enabled"] = (
+            row.voice_enabled if row.voice_enabled is not None else self.settings.voice_enabled
+        )
+        values["voice_backend"] = row.voice_backend or self.settings.voice_backend
         for profile in (llm_profile, jev_profile):
             if profile is None:
                 continue
@@ -176,7 +180,12 @@ class ModelRegistry:
             }
         return RuntimeSnapshot(
             effective,
-            {"ai_mode": mode, "revision": row.revision, **descriptions},
+            {
+                "ai_mode": mode,
+                "revision": row.revision,
+                "voice": {"enabled": effective.voice_enabled, "backend": effective.voice_backend},
+                **descriptions,
+            },
             row.revision,
             bool(row.ai_mode or llm_profile or jev_profile),
         )

@@ -9,6 +9,7 @@ from emo_core.db.models import NotificationOutbox, UserSettings
 from emo_core.db.session import Session, engine
 from emo_core.providers.notification_provider import GENERIC_PUSH, InAppOnlyProvider
 from emo_core.services.proactive_engine import ProactiveMessagingEngine
+from emo_core.services.retention import prune
 
 
 async def dispatch_outbox(sessions, provider):
@@ -79,8 +80,19 @@ async def main():
     settings = get_settings()
     configure_logging(settings.log_level)
     scheduler = ProactiveMessagingEngine(settings, Session)
+    next_prune = 0
     try:
         while True:
+            if asyncio.get_running_loop().time() >= next_prune:
+                try:
+                    await prune(
+                        Session,
+                        settings.retention_days,
+                        prompt_days=settings.prompt_trace_retention_days,
+                    )
+                    next_prune = asyncio.get_running_loop().time() + 86400
+                except Exception:
+                    logging.getLogger(__name__).error("retention_cycle_failed")
             try:
                 await scheduler.run_once()
                 await dispatch_outbox(Session, InAppOnlyProvider())

@@ -10,7 +10,13 @@ from emo_core.db import models as m
 from emo_core.db.base import utcnow
 from emo_core.db.repositories import public, tenant_read_session, tenant_session
 from emo_core.schemas.chat import FeedbackCreate, MemoryPatch
-from emo_core.schemas.user import ContextSettings, PrivacySettings, SettingsPatch, StrictModel
+from emo_core.schemas.user import (
+    ContextSettings,
+    PrivacySettings,
+    SettingsPatch,
+    StrictModel,
+    VoiceSettings,
+)
 from emo_core.services.anonymizer import boundary_for
 from emo_core.services.context_manager import COMPRESSION_MODES, ContextBudget
 from emo_core.services.memory_manager import MemoryManager
@@ -36,6 +42,7 @@ def settings_view(obj, server):
     return {
         **data,
         "privacy": privacy,
+        "voice": VoiceSettings(**(stored.get("voice") or {})).model_dump(),
         # Имена, которые система сама встретила в репликах и скрывает впредь.
         "learned_names": stored.get("learned_names") or [],
         "context": context,
@@ -163,7 +170,7 @@ async def patch(
         )
     server = request.app.state.settings
     preferences = dict(obj.ai_preferences or {})
-    for section in ("privacy", "context"):
+    for section in ("privacy", "context", "voice"):
         if section in changes:
             value = changes.pop(section)
             if value is None:
@@ -315,6 +322,7 @@ async def remove_data(
     for model in (
         m.NotificationOutbox,
         m.SupportFeedback,
+        m.PromptTrace,
         m.SafetyEvent,
         m.ProactiveJob,
         m.MessageSignal,
@@ -323,6 +331,7 @@ async def remove_data(
         m.TestAttempt,
         m.AssessmentSchedule,
         m.UserState,
+        m.VoiceInput,
         m.Message,
         m.Conversation,
     ):

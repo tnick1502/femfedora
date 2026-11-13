@@ -2,10 +2,11 @@
 const diagnostics = (() => {
   let adminToken = '', registry = null, editing = null;
   const stageNames = {
-    authorization:'Авторизация', persistence:'Сохранение сообщения', input_rules:'Правила на входе',
+    authorization:'Авторизация', persistence:'Сохранение сообщения', input_rules:'Правила на входе', voice_input:'Голос: распознавание, отбор и эмоции',
     jev_analysis:'Анализ Jev', safety_route:'Маршрут безопасности', complaints:'Наблюдения и жалобы',
     context:'Сборка контекста', state_evaluation:'Оценка потребности', protocol_selection:'Выбор протокола',
-    llm_generation:'Генерация ответа', output_safety:'Проверка ответа', memory:'Обновление памяти'
+    llm_generation:'Генерация ответа', output_safety:'Проверка ответа', memory:'Обновление памяти',
+    privacy:'Обезличивание', screening_offer:'Предложение опросника'
   };
   const reasons = {
     jwt_verified:'JWT проверен', conversation_ownership_verified:'Проверен владелец беседы',
@@ -13,6 +14,12 @@ const diagnostics = (() => {
     urgent_bypass:'Срочная реакция до вызова моделей', external_ai_consent_missing:'Нет согласия на внешний AI',
     ai_disabled:'Внешняя обработка отключена', classifier_completed:'Классификация завершена',
     classifier_unavailable:'Классификатор недоступен; оценок нет', analysis_skipped_for_urgent:'Классификация пропущена для немедленного ответа',
+    transcript_uses_text_pipeline:'Расшифровка обработана обычным конвейером чата',
+    short_speech_or_transcript:'Слишком короткая речь или расшифровка: API эмоций не вызывался',
+    greeting_acknowledgement_or_mic_check:'Приветствие, подтверждение или проверка микрофона: API эмоций не вызывался',
+    routine_interface_or_factual_request:'Служебный или простой фактический запрос: API эмоций не вызывался',
+    substantive_speech:'Содержательная речь: анализ интонации допустим', urgent_text_bypass:'Срочные признаки в тексте: анализ голоса пропущен',
+    irrelevant_message_full_analysis_skipped:'Проверка релевантности Jev пропустила полную классификацию',
     no_risk_rule_triggered:'Правила риска не сработали', deterministic_urgent_rule:'Сработало детерминированное срочное правило',
     deterministic_referral_rule:'Сработало правило рекомендации специалиста',
     highest_marker_above_action_threshold:'Основная потребность выбрана по максимальному маркеру выше порога',
@@ -44,9 +51,11 @@ const diagnostics = (() => {
   };
   const routeNames = {normal:'обычный маршрут', recommend_professional:'рекомендован специалист', urgent:'срочный маршрут'};
   const statuses = {passed:'Пройдено', completed:'Выполнено', skipped:'Пропущено', unavailable:'Недоступно', ok:'В пределах окна', compressed:'Сжато', over_budget:'Превышение окна', applied:'Применено', disabled:'Выключено',
-    failed:'Ошибка', blocked:'Заблокировано', updated:'Обновлено', unchanged:'Без изменений'};
+    failed:'Ошибка', blocked:'Заблокировано', updated:'Обновлено', unchanged:'Без изменений', offered:'Предложено', available:'Доступно', not_configured:'Не настроено', consent_missing:'Нет согласия на аудио', skipped_safety:'Пропущено по безопасности', insufficient_speech:'Недостаточно речи', multiple_speakers:'Несколько говорящих'};
+  const protocolNames = {general_support:'Общая поддержка', anxiety_support:'Поддержка при тревоге', low_mood_support:'Поддержка при сниженном настроении', overload_support:'Поддержка при перегрузке', social_support:'Социальная поддержка', safe_baseline:'Базовая безопасная инструкция'};
   function reasonText(value) {
     if (reasons[value]) return reasons[value];
+    if (value.startsWith('voice_cue_needs_confirmation:')) return 'По текущей интонации в промпт добавлено бережное уточнение; чувства не считаются установленным фактом';
     const screening = /^specialist:screening_(followup|safety_item):(\w+)$/.exec(value);
     if (screening) return screening[1] === 'followup'
       ? `Основание: результат ${screening[2]} на уровне порога направления (самооценка, не диагноз)`
@@ -62,17 +71,23 @@ const diagnostics = (() => {
     const root = node('details', undefined, 'decision-report dev-only');
     root.dataset.traceId=report.trace_id;
     const summary = node('summary'), route = report.result.route;
-    summary.append(node('span', 'Как принят ответ'), node('span', routeNames[route] || route, 'route route--' + route), node('span', `${(report.total_ms / 1000).toFixed(1)} с`));
+    const voiceTimings = report.stages.find(s=>s.stage==='voice_input')?.facts.timings_ms;
+    const duration = voiceTimings ? `чат ${(report.total_ms / 1000).toFixed(1)} с · голос ${(Object.values(voiceTimings).reduce((a,b)=>a+b,0) / 1000).toFixed(1)} с` : `${(report.total_ms / 1000).toFixed(1)} с`;
+    summary.append(node('span', 'Как принят ответ'), node('span', routeNames[route] || route, 'route route--' + route), node('span', duration));
     root.append(summary);
     const models = node('div', undefined, 'report-models');
     for (const kind of ['llm','jev']) {
       const m = report.models[kind];
-      const calls = kind === 'llm' ? report.result.llm_calls : Number(report.result.jev_input_called) + report.result.jev_output_calls;
+      const calls = kind === 'llm' ? report.result.llm_calls + (report.result.summary_llm_calls || 0) : (report.stages.find(s=>s.stage==='jev_analysis')?.facts.input_calls ?? Number(report.result.jev_input_called)) + report.result.jev_output_calls;
       models.append(node('span', `${kind.toUpperCase()}: ${m.model || 'отключена'}, ${m.provider}, вызовов: ${calls}`, 'tag'));
     }
     root.append(models, node('p', `Настройки моделей: ревизия ${report.models.revision}. Trace: ${report.trace_id}`, 'hint'));
     const protocol = report.stages.find(s=>s.stage==='protocol_selection');
+    const contextUsage = report.stages.find(s=>s.stage==='context')?.facts;
+    if (contextUsage?.provider_prompt_tokens != null) root.append(node('p', `LLM: ${contextUsage.provider_prompt_tokens} входных и ${contextUsage.provider_completion_tokens ?? 'неизвестно'} выходных токенов по данным провайдера, включая резюме и повтор. ${contextUsage.provider_usage_complete ? '' : 'Учтены только вызовы, для которых получен usage.'}`, 'hint'));
     if (protocol) root.append(node('p', `Паттерн: ${protocol.facts.requested}. Применён: ${protocol.facts.applied || 'срочный шаблон'}. ${protocol.reasons.map(reasonText).join('. ')}`));
+    renderVoice(report, root);
+    renderPrompt(message, report, root);
     const jev = report.stages.find(s=>s.stage==='jev_analysis');
     if (jev) {
       root.append(node('h4','Результат анализа Jev'), node('p', `${statuses[jev.status] || jev.status}. ${jev.reasons.map(reasonText).join('. ')}`));
@@ -93,6 +108,49 @@ const diagnostics = (() => {
     }
     const raw = node('details'); raw.append(node('summary','Полный JSON-отчёт'),node('pre',JSON.stringify(report,null,2)));
     root.append(timeline,raw); host.append(root);
+  }
+  function renderVoice(report, host) {
+    const stage = report.stages.find(s=>s.stage==='voice_input');
+    if (!stage) return;
+    const v = stage.facts, emotion = v.emotion || {}, gate = v.emotion_gate;
+    host.append(node('h4', 'Что получено из голоса'), node('p', `Распознавание: ${v.backend} / ${v.model}, ${v.seconds} сек. Анализ интонации: ${statuses[emotion.status] || emotion.status}.`));
+    if (gate) host.append(node('p', `${reasonText(gate.reason)}. Слов: ${gate.words}; длительность: ${gate.seconds} сек. Вызов Behavioral Signals: ${v.emotion_provider_called ? 'да' : 'нет'}.`, 'hint'));
+    if (emotion.emotion) {
+      const labels = {sad:'Печаль', angry:'Раздражение / напряжение', happy:'Радость', neutral:'Нейтральная интонация'};
+      host.append(table(['Признак интонации', 'Оценка провайдера'], Object.entries(emotion.emotion).sort((a,b)=>b[1]-a[1]).map(([k,v])=>[labels[k] || k, Number(v).toFixed(3)])));
+      host.append(node('p', `Источник: Behavioral Signals ${emotion.model || ''}; проанализировано ${emotion.speech_seconds} сек. Оценки не являются симптомами или вероятностью заболевания.`, 'hint'));
+    }
+    if (v.timings_ms) host.append(node('p', `Декодирование: ${Math.round(v.timings_ms.decode_ms)} мс; расшифровка: ${Math.round(v.timings_ms.transcription_ms)} мс; эмоции: ${Math.round(v.timings_ms.emotion_ms)} мс.`, 'hint'));
+  }
+  function renderPrompt(message, report, host) {
+    const state = report.stages.find(s=>s.stage==='state_evaluation'), protocol = report.stages.find(s=>s.stage==='protocol_selection');
+    host.append(node('h4', 'Промпт общения и основания выбора'));
+    if (state) host.append(node('p', state.reasons.map(reasonText).join('. ')));
+    if (protocol) host.append(node('p', `Выбран: ${protocolNames[protocol.facts.requested] || protocol.facts.requested}. Применён: ${protocolNames[protocol.facts.applied] || protocol.facts.applied || 'срочный шаблон'}. ${protocol.reasons.map(reasonText).join('. ')}`));
+    if (!report.prompt_trace?.available) { host.append(node('p', report.prompt_trace?.reason === 'disabled_by_operator' ? 'Сохранение полного промпта отключено оператором.' : report.prompt_trace?.reason ? 'Снимок превысил допустимый размер; его содержимое не сохранялось.' : 'Для этого старого ответа снимок промпта не сохранялся.', 'hint')); return; }
+    const viewer = node('details', undefined, 'prompt-view'), body = node('div');
+    viewer.append(node('summary', 'Посмотреть промпт и переданный контекст'), body); host.append(viewer);
+    let loading = false, loaded = false;
+    viewer.ontoggle = async () => {
+      if (!viewer.open || loading || loaded) return;
+      loading = true; body.replaceChildren(node('p', 'Загружаем сохранённый снимок…', 'hint'));
+      const sessionToken = token;
+      try {
+        const data = await api(`/conversations/${message.conversation_id}/messages/${message.id}/prompt`);
+        if (sessionToken !== token || !viewer.isConnected) return;
+        loaded = true; body.replaceChildren();
+        body.append(node('p', data.mode === 'live' ? 'Сохранены инструкции и сообщения после обработки контекста и обезличивания, в виде, переданном провайдеру.' : 'Режим mock/disabled: внешнего запроса нет. Ниже сохранены инструкции и входы локального провайдера.', 'hint'));
+        if (!data.requests.some(r=>r.purpose === 'answer' || r.purpose === 'answer_repair')) body.append(node('p', 'Промпт общения был подготовлен, но LLM для ответа не вызывалась.'));
+        const copy = node('button', 'Скопировать системный промпт', 'secondary'); copy.type = 'button';
+        copy.onclick = () => safe(async () => { await navigator.clipboard.writeText(data.selected_system_prompt); notice('Системный промпт скопирован.'); });
+        body.append(copy, node('pre', data.selected_system_prompt));
+        for (const request of data.requests) {
+          const row = node('details'), titles = {answer:'Ответ', answer_repair:'Повтор после выходной проверки', history_summary:'Сжатие истории'};
+          row.append(node('summary', `${titles[request.purpose] || request.purpose} · сообщений: ${request.messages.length}`), node('pre', JSON.stringify(request.messages, null, 2))); body.append(row);
+        }
+      } catch (error) { if (sessionToken === token && viewer.isConnected) body.replaceChildren(node('p', error.message, 'hint')); }
+      finally { loading = false; }
+    };
   }
   async function showModels() {
     if (!token) return;
@@ -132,7 +190,7 @@ const diagnostics = (() => {
   async function setRuntime(changes) {
     if(!registry)throw Error('Обновите список моделей.');
     await adminApi('/admin/model-runtime',{method:'PATCH',body:JSON.stringify({...changes,expected_revision:registry.runtime.revision})});
-    await refreshAdmin(); if(token)await showModels();
+    await refreshAdmin(); if(token){await showModels();await voice.refresh();}
     notice('Общие настройки применены. Новые сообщения всех пользователей используют эту конфигурацию.');
   }
   async function refreshAdmin() {
@@ -140,6 +198,9 @@ const diagnostics = (() => {
     registry=await adminApi('/admin/models');
     $('#admin-panel').hidden=false; $('#admin-login-state').textContent='Администратор авторизован';
     $('#runtime-mode').value=registry.runtime.ai_mode;
+    $('#voice-global-enabled').checked=registry.voice.enabled;
+    $('#voice-model').value=registry.voice.backend;
+    $('#voice-provider-status').textContent=`Deepgram: ${registry.voice_credentials.deepgram ? 'ключ задан' : 'нет ключа'}. GigaAM: ${registry.voice.backends.gigaam ? 'модель доступна' : 'проверьте установку весов и голосовой режим'}. Behavioral Signals: ${registry.voice_credentials.behavioral_signals ? 'ключ и Client ID заданы' : 'настройте ключ и Client ID'}.`;
     $('#runtime-description').textContent=registry.runtime.configuration_error || `Ревизия ${registry.runtime.revision}. Общая LLM: ${registry.runtime.llm.model||'отключена'}; общий Jev: ${registry.runtime.jev.model||'отключён'}.`;
     $('#model-hosts').textContent=`Разрешённые hosts из .env: LLM — ${registry.allowed_hosts.llm||'не заданы'}; Jev — ${registry.allowed_hosts.jev||'не заданы'}.`;
     const refs=$('#model-credential-ref'); refs.replaceChildren(node('option','Выберите ключ из .env')); refs.firstElementChild.value='';
@@ -173,6 +234,7 @@ const diagnostics = (() => {
       clearEditor();await refreshAdmin();if(token)await showModels();notice(wasActive?'Активный профиль изменён для всех пользователей; новые сообщения используют обновление.':'Профиль сохранён. Выберите его для всех, чтобы применить.');
     });};
     $('#runtime-form').onsubmit=e=>{e.preventDefault();safe(()=>setRuntime({ai_mode:$('#runtime-mode').value}));};
+    $('#voice-runtime-form').onsubmit=e=>{e.preventDefault();safe(()=>setRuntime({voice_enabled:$('#voice-global-enabled').checked,voice_backend:$('#voice-model').value}));};
     $('#reset-model-profiles').onclick=()=>safe(()=>setRuntime({llm_profile_id:null,jev_profile_id:null}));
     $('#refresh-models').onclick=()=>safe(refreshAdmin);
     clearEditor();

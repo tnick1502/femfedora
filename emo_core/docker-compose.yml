@@ -23,6 +23,8 @@ services:
   api:
     build: .
     env_file: .env
+    volumes:
+      - ./models:/app/models:ro
     ports:
       - "127.0.0.1:${EMO_HTTP_PORT:-8086}:8000"
     depends_on:

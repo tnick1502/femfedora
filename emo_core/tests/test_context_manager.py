@@ -214,3 +214,22 @@ async def test_compression_off_refuses_to_send_over_the_window(client, auth, app
     assert steps["context"]["status"] == "over_budget"
     assert "слишком длинной" in response.json()["assistant_message"]["content"]
     assert len(llm.chat_prompts) < 4
+
+
+def test_summary_batch_is_bounded_and_preserves_unsummarized_sources():
+    from emo_core.services.context_manager import (
+        estimate_messages_tokens,
+        summary_batch,
+        summary_request,
+    )
+
+    history = [
+        {"role": "user", "content": "x" * 8000 + " DISCLOSURE_AT_END", "index": i}
+        for i in range(100)
+    ]
+    batch = summary_batch("Предыдущее резюме", history, 10_000)
+    assert 0 < len(batch) < len(history)
+    assert batch[-1]["content"].endswith("DISCLOSURE_AT_END")
+    assert estimate_messages_tokens(summary_request("Предыдущее резюме", batch)) <= 10_000
+    assert history[len(batch)]["index"] == len(batch)
+    assert summary_batch("", history, 1024) == []

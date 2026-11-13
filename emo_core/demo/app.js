@@ -6,6 +6,7 @@ let profileEpoch = 0;
 let gateToken = '', loginRequired = false;
 let token = '', conversationId = '', lastAnswer = '', attemptOffset = 0, memoryPreferences = {};
 let contacts = null, sending = false, pendingMessage = null, noticeTimer = 0;
+let messageLoad = 0;
 const names = {anxiety:'Тревога',fear_for_baby:'Переживания за ребёнка',low_mood:'Сниженное настроение',loss_of_interest:'Потеря интереса',sleep_problem:'Трудности со сном',fatigue:'Усталость',irritability:'Раздражительность',loneliness:'Одиночество',relationship_stress:'Напряжение в отношениях',overwhelm:'Перегрузка',physical_discomfort:'Физический дискомфорт'};
 const complaintStatus = {new:'Замечено впервые',active:'Повторяется',improving:'Становится легче',resolved:'Больше не беспокоит',unknown:'Не уточнялось'};
 const signalNames = {...names, request_for_support:'Просьба о поддержке', self_reported_worsening:'Стало хуже', need_for_clarification:'Нужно уточнить', functional_impact:'Трудно справляться с делами', possible_self_harm:'Тяжёлые мысли', self_harm_intent:'Тяжёлые мысли', possible_violence_exposure:'Небезопасно дома', maternal_estrangement:'Трудно чувствовать связь с ребёнком', possible_urgent_medical_issue:'Тревожные симптомы', request_for_medical_advice:'Медицинский вопрос', possible_psychosis:'Необычные ощущения'};
@@ -75,6 +76,7 @@ function confirmDialog(title, text, actionLabel) {
 
 /* ---------- Вид: раздел, тема, служебный режим ---------- */
 function show(view) {
+  if (view !== 'chat' && voice.active) voice.reset();
   document.querySelectorAll('.view').forEach(v => v.hidden = v.id !== view);
   document.querySelectorAll('#nav button[data-view]').forEach(b => {
     const on = b.dataset.view === view; b.classList.toggle('active', on);
@@ -137,6 +139,8 @@ function gateHeaders() { return {'Content-Type': 'application/json', ...(gateTok
 async function login() {
   const epoch = ++profileEpoch;
   screenings.reset(); pendingMessage = null; sending = false; token = ''; conversationId = ''; lastAnswer = ''; contacts = null;
+  voice.reset(); voice.setBusy(false);
+  for (const control of [$('#text-send'), $('#message'), $('#conversations'), $('#new-chat')]) control.disabled = false;
   $('#messages').replaceChildren(); $('#messages').dataset.signature = ''; $('#feedback').hidden = true;
   $('#complaint-list').replaceChildren(); $('#trends').replaceChildren(); $('#journal-list').replaceChildren(); journalData = null; $('#memory-summary').value = '';
   const response = await fetch('/dev/token', {method: 'POST', headers: gateHeaders(), body: JSON.stringify({user: $('#user').value})});
@@ -145,7 +149,7 @@ async function login() {
   if (epoch !== profileEpoch) return;
   token = data.access_token;
   contacts = await api('/support-contacts').catch(() => null);
-  await loadConversations(); await refresh();
+  await loadConversations(); await refresh(); await voice.refresh();
 }
 async function copyApiKey() {
   // Отдельный долгоживущий токен выбранного профиля; сессионный токен интерфейса не раскрывается.
@@ -164,7 +168,7 @@ $('#gate-form').onsubmit = e => { e.preventDefault(); (async () => {
   gateToken = data.access_token; $('#gate').hidden = true; $('#gate-logout').hidden = false;
   await diagnostics.useConsoleSession(gateToken); await safe(login);
 })().catch(() => { $('#gate-error').textContent = 'Сервис не отвечает. Проверь, что он запущен, и попробуй снова.'; }); };
-$('#gate-logout').onclick = () => { gateToken = ''; token = ''; profileEpoch++; diagnostics.useConsoleSession(''); $('#messages').replaceChildren(); $('#gate-logout').hidden = true; $('#gate').hidden = false; $('#gate-login').focus(); };
+$('#gate-logout').onclick = () => { gateToken = ''; token = ''; profileEpoch++; voice.reset(); voice.setBusy(false); diagnostics.useConsoleSession(''); $('#messages').replaceChildren(); $('#gate-logout').hidden = true; $('#gate').hidden = false; $('#gate-login').focus(); };
 $('#login').onclick = () => safe(async () => { await login(); notice('Сессия профиля обновлена.'); });
 $('#user').onchange = () => safe(login);
 
@@ -214,6 +218,7 @@ function messageNode(m, book) {
   const meta = node('footer', undefined, 'msg__meta'), time = node('time', clock(m.created_at));
   time.dateTime = m.created_at; time.title = localDate(m.created_at);
   if (m.origin === 'proactive') meta.append(node('span', 'EMO написала первой'));
+  if (mine && m.metadata?.voice) meta.append(node('span', 'Голосом · ' + (m.metadata.voice.backend === 'gigaam' ? 'GigaAM' : 'Deepgram')));
   meta.append(time); e.append(meta);
   diagnostics.renderMessage(m, e);
   return e;
@@ -225,6 +230,7 @@ async function loadConversations() {
   conversationId = data.items[0].id; await loadMessages();
 }
 async function newConversation() {
+  voice.reset();
   pendingMessage = null;
   const c = await post('/conversations', {title: 'Разговор ' + new Date().toLocaleString('ru-RU', {day: 'numeric', month: 'long', hour: '2-digit', minute: '2-digit'})});
   conversationId = c.id; const option = node('option', c.title); option.value = c.id;
@@ -233,13 +239,18 @@ async function newConversation() {
 }
 async function loadMessages() {
   if (!conversationId) return;
-  const data = await api(`/conversations/${conversationId}/messages?limit=100`), box = $('#messages');
-  const signature = conversationId + ':' + data.items.map(m => m.id).join(',');
+  const cid = conversationId, epoch = profileEpoch, request = ++messageLoad, wasSending = sending, box = $('#messages');
+  const known = box.dataset.conversation === cid && box.dataset.signature ? box.dataset.version : '';
+  const data = await api(`/conversations/${cid}/messages?limit=100${known ? '&known_version=' + known : ''}`);
+  if (epoch !== profileEpoch || cid !== conversationId || request !== messageLoad || (sending && !wasSending)) return;
+  if (data.unchanged) return;
+  const signature = cid + ':' + data.items.map(m => m.id).join(',');
   if (box.dataset.signature === signature && box.childNodes.length) return;
   const atBottom = box.scrollHeight - box.scrollTop - box.clientHeight < 80, scrollTop = box.scrollTop;
   const expanded = new Set([...box.querySelectorAll('.decision-report[open]')].map(e => e.dataset.traceId));
   const book = phoneBook(); let day = '';
   box.replaceChildren(); box.dataset.signature = signature;
+  box.dataset.conversation = cid; box.dataset.version = data.version;
   for (const m of data.items.reverse()) {
     const label = dayLabel(m.created_at);
     if (label !== day) { box.append(node('div', label, 'day')); day = label; }
@@ -249,35 +260,57 @@ async function loadMessages() {
   }
   if (!data.items.length) box.append(greeting());
   box.scrollTop = atBottom ? box.scrollHeight : scrollTop;
-  await post(`/conversations/${conversationId}/read`, {});
+  await post(`/conversations/${cid}/read`, {});
 }
 function autosize() { const field = $('#message'); field.style.height = 'auto'; field.style.height = Math.min(field.scrollHeight, innerHeight * .38) + 'px'; }
 $('#message').oninput = autosize;
 $('#message').onkeydown = e => { if (e.key === 'Enter' && !e.shiftKey && !e.isComposing) { e.preventDefault(); $('#chat-form').requestSubmit(); } };
 // Пустой разговор уже открыт — второй такой же не нужен.
 $('#new-chat').onclick = () => safe(async () => { if ($('#messages .hello')) { $('#message').focus(); return; } await newConversation(); });
-$('#conversations').onchange = () => safe(async () => { conversationId = $('#conversations').value; $('#feedback').hidden = true; await loadMessages(); $('#messages').scrollTop = $('#messages').scrollHeight; });
-$('#chat-form').onsubmit = e => { e.preventDefault(); safe(async () => {
-  if (!token) throw Error('Сначала войди в профиль.');
-  const field = $('#message'), text = field.value.trim(), button = $('#chat-form .send'), box = $('#messages');
-  if (!text || sending) return;
-  // Повтор того же текста после сбоя уходит с прежним идентификатором: сервер не создаст дубль.
-  if (!pendingMessage || pendingMessage.content !== text) pendingMessage = {content: text, client_message_id: crypto.randomUUID()};
-  sending = true; button.disabled = true; field.value = ''; autosize(); $('#feedback').hidden = true; notice('');
-  const mine = node('article', undefined, 'msg msg--user msg--pending'), typing = node('div', 'EMO пишет…', 'msg msg--emo msg--typing');
-  mine.append(node('p', text, 'msg__text')); typing.setAttribute('role', 'status');
+$('#conversations').onchange = () => safe(async () => { voice.reset(); pendingMessage = null; conversationId = $('#conversations').value; $('#feedback').hidden = true; await loadMessages(); $('#messages').scrollTop = $('#messages').scrollHeight; });
+async function deliverMessage(label, request) {
+  if (sending) throw Error('Предыдущее сообщение ещё отправляется.');
+  const epoch = profileEpoch, cid = conversationId, box = $('#messages');
+  sending = true; voice.setBusy(true);
+  for (const control of [$('#text-send'), $('#message'), $('#conversations'), $('#new-chat')]) control.disabled = true;
+  $('#feedback').hidden = true; notice('');
+  const mine = node('article', undefined, 'msg msg--user msg--pending'), typing = node('div', 'EMO готовит ответ…', 'msg msg--emo msg--typing');
+  mine.append(node('p', label, 'msg__text')); typing.setAttribute('role', 'status');
   box.querySelector('.hello')?.remove(); box.append(mine, typing); box.scrollTop = box.scrollHeight;
   try {
-    const result = await post(`/conversations/${conversationId}/messages`, pendingMessage);
-    pendingMessage = null; lastAnswer = result.assistant_message.id; box.dataset.signature = '';
+    const result = await request();
+    if (epoch !== profileEpoch || cid !== conversationId) return result;
+    lastAnswer = result.assistant_message.id; box.dataset.signature = '';
     await loadMessages(); box.scrollTop = box.scrollHeight;
-    // После срочного шаблона оценка разговора неуместна.
     $('#feedback').hidden = result.assistant_message.origin === 'safety_template';
+    return result;
   } catch (error) {
-    mine.remove(); typing.remove(); field.value = text; autosize();
-    if (!box.children.length) box.append(greeting());
+    if (epoch === profileEpoch && cid === conversationId) { mine.remove(); typing.remove(); if (!box.children.length) box.append(greeting()); }
     throw error;
-  } finally { sending = false; button.disabled = false; field.focus(); }
+  } finally {
+    if (epoch === profileEpoch) {
+      sending = false; voice.setBusy(false);
+      for (const control of [$('#text-send'), $('#message'), $('#conversations'), $('#new-chat')]) control.disabled = false;
+      $('#message').focus();
+    }
+  }
+}
+$('#chat-form').onsubmit = e => { e.preventDefault(); safe(async () => {
+  if (!token) throw Error('Сначала войди в профиль.');
+  const field = $('#message'), text = field.value.trim(), epoch = profileEpoch, cid = conversationId;
+  if (!text || sending) return;
+  if (voice.active) throw Error('Сначала останови или удали голосовую запись.');
+  if (voice.hasDraft) throw Error('Сначала отправь или удали голосовую запись.');
+  // Повтор того же текста после сбоя уходит с прежним идентификатором: сервер не создаст дубль.
+  if (!pendingMessage || pendingMessage.content !== text) pendingMessage = {content: text, client_message_id: crypto.randomUUID()};
+  const payload = pendingMessage; field.value = ''; autosize();
+  try {
+    await deliverMessage(text, () => post(`/conversations/${cid}/messages`, payload));
+    if (epoch === profileEpoch) pendingMessage = null;
+  } catch (error) {
+    if (epoch === profileEpoch) { field.value = text; autosize(); }
+    throw error;
+  }
 }); };
 $('#feedback').onclick = e => { if (e.target.dataset.rating) safe(async () => { await post('/feedback', {message_id: lastAnswer, rating: e.target.dataset.rating}); $('#feedback').hidden = true; notice(e.target.dataset.rating === 'skip' ? 'Хорошо, без оценки.' : 'Спасибо, отметила.'); }); };
 
@@ -487,6 +520,8 @@ async function settings() {
 function fillAi(d) {
   const e = $('#ai-form').elements, l = d.limits, k = v => Math.round(v / 1000);
   e.external_ai_consent.checked = d.external_ai_consent;
+  e.voice_enabled.checked = d.voice.enabled;
+  e.audio_consent.checked = d.voice.external_audio_consent;
   e.anonymize.checked = l.anonymize_policy === 'always' ? true : l.anonymize_policy === 'never' ? false : d.privacy.anonymize;
   e.anonymize.disabled = l.anonymize_policy !== 'user';
   $('#anonymize-policy').textContent = l.anonymize_policy === 'user' ? '' : 'Этот режим задан оператором сервера и здесь не меняется.';
@@ -503,10 +538,11 @@ $('#ai-form').onsubmit = e => { e.preventDefault(); safe(async () => {
   const f = e.target.elements, terms = f.protected_terms.value.split(/[\n,;]/).map(v => v.trim()).filter(Boolean);
   const d = await api('/settings', {method: 'PATCH', body: JSON.stringify({
     external_ai_consent: f.external_ai_consent.checked,
+    voice: {enabled: f.voice_enabled.checked, external_audio_consent: f.audio_consent.checked},
     privacy: {anonymize: f.anonymize.checked, level: f.level.value, protected_terms: terms},
     context: {compression: f.compression.value, input_target_tokens: Math.max(0, Math.round(+f.input_target.value || 0)) * 1000, keep_recent_messages: Math.max(2, Math.round(+f.keep_recent.value || 12))},
   })});
-  fillAi(d); notice('Сохранено.');
+  fillAi(d); await voice.refresh(); notice('Сохранено.');
 }); };
 $('#privacy-preview').onclick = () => safe(async () => {
   const text = $('#privacy-sample').value.trim(), out = $('#privacy-result'); if (!text) { $('#privacy-sample').focus(); return; }
@@ -537,7 +573,7 @@ $('#followup-form').onsubmit = e => { e.preventDefault(); safe(async () => {
 $('#run-worker').onclick = () => safe(async () => { const value = $('#worker-now').value; const d = await post('/dev/worker/run', {now: value ? new Date(value).toISOString() : null}); notice(`Планировщик выполнен. Отправлено сообщений: ${d.sent}.`); await loadMessages(); });
 $('#delete-data').onclick = () => safe(async () => {
   if (!await confirmDialog('Удалить все данные?', 'Разговоры, память и результаты этого профиля будут удалены, профиль — отключён. Отменить это нельзя.', 'Удалить мои данные')) return;
-  await api('/data', {method: 'DELETE'}); token = ''; $('#messages').replaceChildren(); $('#memory-summary').value = ''; notice('Данные профиля удалены.');
+  await api('/data', {method: 'DELETE'}); token = ''; profileEpoch++; voice.reset(); voice.setBusy(false); $('#messages').replaceChildren(); $('#memory-summary').value = ''; notice('Данные профиля удалены.');
 });
 
 /* ---------- Обновление и запуск ---------- */
@@ -552,7 +588,9 @@ async function refresh() {
   if (view === 'admin') await diagnostics.refreshAdmin();
   if (token) await diagnostics.showModels();
 }
-setInterval(() => { if (token && !sending && !$('#chat').hidden) safe(async () => { await loadMessages(); await diagnostics.showModels(); }); }, 15000);
+voice.init({context: () => ({ready: !!token && !!conversationId, busy: sending, epoch: profileEpoch, cid: conversationId}), api, deliver: deliverMessage, notice, safe,
+  openSettings: () => { show('settings'); safe(settings); $('#set-voice').scrollIntoView({block: 'center'}); }});
+setInterval(() => { if (token && !sending && !$('#chat').hidden) safe(async () => { await loadMessages(); await diagnostics.showModels(); await voice.refresh(); }); }, 15000);
 safe(async () => {
   const c = await (await fetch('/demo/config')).json();
   $('#mode').textContent = c.ai_mode === 'mock' ? 'Режим: шаблонная модель' : c.ai_mode === 'disabled' ? 'Режим: AI отключён' : 'Режим: внешние модели';

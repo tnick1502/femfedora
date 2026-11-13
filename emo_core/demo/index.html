@@ -13,6 +13,7 @@
 <link rel="stylesheet" href="/demo/styles.css">
 <script src="/demo/diagnostics.js" defer></script>
 <script src="/demo/questionnaires.js" defer></script>
+<script src="/demo/voice.js" defer></script>
 <script src="/demo/app.js" defer></script>
 </head>
 <body data-view="chat">
@@ -30,6 +31,11 @@
   <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.6"/><path d="M12 3.500v2M12 18.500v2M3.500 12h2M18.500 12h2M6 6l1.400 1.400M16.600 16.600L18 18M6 18l1.400-1.400M16.600 7.400L18 6"/></symbol>
   <symbol id="i-auto" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 4a8 8 0 0 1 0 16z" fill="currentColor"/></symbol>
   <symbol id="i-send" viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6"/></symbol>
+  <symbol id="i-mic" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="12" rx="3"/><path d="M6 11v1a6 6 0 0 0 12 0v-1M12 18v3M9 21h6"/></symbol>
+  <symbol id="i-stop" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="m8 5 11 7-11 7z" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-pause" viewBox="0 0 24 24"><path d="M8 5v14M16 5v14" stroke-width="4"/></symbol>
+  <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 6h16M9 6V3h6v3M6 6l1 15h10l1-15M10 10v7M14 10v7"/></symbol>
   <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
   <symbol id="i-more" viewBox="0 0 24 24"><circle cx="6" cy="12" r="1.400" fill="currentColor"/><circle cx="12" cy="12" r="1.400" fill="currentColor"/><circle cx="18" cy="12" r="1.400" fill="currentColor"/></symbol>
   <symbol id="i-code" viewBox="0 0 24 24"><path d="M9 8l-4 4 4 4M15 8l4 4-4 4"/></symbol>
@@ -103,8 +109,20 @@
       <form id="chat-form" class="composer">
         <label class="sr-only" for="message">Сообщение</label>
         <textarea id="message" maxlength="12000" placeholder="Напиши, что на душе" rows="1" required></textarea>
-        <button type="submit" class="send" aria-label="Отправить"><svg class="icon" aria-hidden="true"><use href="#i-send"/></svg></button>
+        <div id="voice-draft" class="voice-draft" hidden role="group" aria-label="Голосовая запись">
+          <button id="voice-cancel" type="button" class="icon-btn" aria-label="Удалить запись"><svg class="icon" aria-hidden="true"><use href="#i-trash"/></svg></button>
+          <button id="voice-play" type="button" class="icon-btn" aria-label="Прослушать запись" hidden><svg class="icon" aria-hidden="true"><use id="voice-play-icon" href="#i-play"/></svg></button>
+          <span id="voice-wave" class="voice-wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+          <progress id="voice-progress" class="voice-progress" max="1" value="0" aria-label="Прослушивание записи" hidden></progress>
+          <output id="voice-time" class="voice-time" aria-label="Длительность записи">0:00</output>
+          <audio id="voice-preview" hidden preload="metadata"></audio>
+          <button id="voice-send" type="button" class="send" aria-label="Отправить голосовое сообщение" hidden><svg class="icon" aria-hidden="true"><use href="#i-send"/></svg></button>
+        </div>
+        <button id="voice-record" type="button" class="icon-btn voice-record" aria-label="Записать голосовое сообщение" aria-describedby="voice-help" hidden><svg class="icon" aria-hidden="true"><use id="voice-record-icon" href="#i-mic"/></svg></button>
+        <button id="text-send" type="submit" class="send" aria-label="Отправить"><svg class="icon" aria-hidden="true"><use href="#i-send"/></svg></button>
       </form>
+      <span id="voice-help" class="sr-only">Удерживай микрофон и отпусти для прослушивания. Клик или Enter включает запись без удержания; повторный клик останавливает.</span>
+      <p id="voice-status" class="sr-only" role="status" aria-live="polite"></p>
       <p class="composer-note">EMO — AI-помощник, не врач и не психолог. Если есть опасность, открой <button type="button" class="link" data-sos>срочную помощь</button>.</p>
       <p id="model-hint" class="hint dev-only"></p>
     </section>
@@ -222,6 +240,13 @@
           <div class="actions"><button>Сохранить</button></div>
         </div>
         <div class="panel">
+          <h2 id="set-voice">Голосовые сообщения</h2>
+          <label class="switch"><input name="voice_enabled" type="checkbox"><span>Голосовой режим<small>При отключении кнопка микрофона исчезает из чата.</small></span></label>
+          <label class="switch"><input name="audio_consent" type="checkbox"><span>Разрешить внешнюю обработку аудио<small>Deepgram распознаёт речь, Behavioral Signals анализирует интонацию. Голос и произнесённые слова нельзя обезличить. GigaAM можно использовать без передачи аудио этим сервисам.</small></span></label>
+          <p class="hint">В EMO сохраняются расшифровка и краткое наблюдение об интонации. Исходное аудио не хранится. Распознаватель выбирается в разделе «Модели».</p>
+          <div class="actions"><button>Сохранить</button></div>
+        </div>
+        <div class="panel">
           <h2 id="set-context">Длинные разговоры</h2>
           <p>Когда разговор перестаёт помещаться в память модели, EMO сворачивает ранние реплики в краткое резюме, а последние передаёт дословно.</p>
           <div class="columns">
@@ -260,6 +285,14 @@
       <div id="admin-panel" hidden>
         <form id="runtime-form" class="panel"><h2>Текущая конфигурация</h2><p id="runtime-description"></p><label>Режим AI<select id="runtime-mode"><option value="mock">Mock — без внешних вызовов</option><option value="live">Live — реальные провайдеры</option><option value="disabled">Отключён — только шаблоны</option></select></label><p class="hint">Live требует ключей LLM и Jev, разрешения внешнего AI и региона в .env, а также согласия каждого пользователя. Смена режима действует на новые сообщения всех профилей.</p><div class="actions"><button>Применить ко всем</button><button id="reset-model-profiles" type="button" class="secondary">Вернуть профили из .env</button><button id="refresh-models" type="button" class="secondary">Обновить список</button><button id="admin-logout" type="button" class="secondary">Выйти из админского режима</button></div></form>
         <p id="model-hosts" class="hint"></p>
+        <form id="voice-runtime-form" class="panel">
+          <h2>Голос и распознавание речи</h2>
+          <label class="switch"><input id="voice-global-enabled" type="checkbox"><span>Разрешить голосовой режим на сервере</span></label>
+          <label>Распознаватель речи<select id="voice-model"><option value="deepgram">Deepgram Nova-3 — облако, до 90 секунд</option><option value="gigaam">GigaAM v3 E2E CTC INT8 — сервер EMO, до 25 секунд</option></select></label>
+          <p id="voice-provider-status" class="hint"></p>
+          <p class="hint">Ключи Deepgram и Behavioral Signals задаются в .env; их значения не передаются браузеру. Внешние запросы выполняются только в Live и с согласиями профиля. Выбор применяется к новым записям всех профилей.</p>
+          <button>Применить голосовые настройки</button>
+        </form>
         <div id="model-profiles"></div>
         <form id="model-form" class="panel" autocomplete="off"><h2 id="model-form-title">Добавить модель</h2>
           <div class="columns"><label>Тип<select name="kind"><option value="llm">LLM, OpenAI-совместимый API</option><option value="jev">Jev, TypeSafe</option></select></label><label>Название профиля<input name="name" maxlength="100" required placeholder="Основная LLM"></label></div>

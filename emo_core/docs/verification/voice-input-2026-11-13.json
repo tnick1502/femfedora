@@ -1,0 +1,64 @@
+{
+  "date": "2026-11-13",
+  "scope": "local voice input implementation, not deployed",
+  "pytest_postgresql": {
+    "passed": 388,
+    "failed": 0
+  },
+  "pytest_sqlite": {
+    "passed": 378,
+    "skipped": 10
+  },
+  "voice_backend_cases": 40,
+  "frontend_node_tests": {
+    "passed": 5
+  },
+  "ruff": "passed, 110 Python files",
+  "js_syntax": "passed",
+  "poetry_lock": "passed; pre-existing versions unchanged",
+  "migration": {
+    "head": "e46b37a910cd",
+    "upgrade": "passed",
+    "downgrade_and_upgrade": "passed",
+    "orm_drift": "none"
+  },
+  "docker": {
+    "python": "3.12.16",
+    "dependencies_import": "passed",
+    "ffmpeg_decode": "passed",
+    "real_gigaam_offline_inference": "passed",
+    "secrets_in_image": false,
+    "weights_in_image": false
+  },
+  "wheel": {
+    "built": true,
+    "installed_smoke": "6 assets, voice config, binary OpenAPI, microphone policy"
+  },
+  "real_asr": {
+    "input": "synthetic Russian speech only; 4.25 seconds",
+    "gigaam": {
+      "macos_python314": "passed",
+      "linux_python312": "passed",
+      "sha256": "both files verified",
+      "full_http_chat_path": "passed",
+      "replay": "same messages, no repeated ASR"
+    },
+    "deepgram": {
+      "model": "nova-3",
+      "language": "ru",
+      "mip_opt_out": true,
+      "redact_usage": true,
+      "single_request_seconds": 1.75,
+      "synthetic_recognition": "passed"
+    }
+  },
+  "behavioral_signals": {
+    "contract_tests": "passed; v5 envelope and posterior",
+    "live_status": "blocked: numeric Client ID needed",
+    "supplied_uuid_check": "matches Deepgram project; Behavioral Signals HTTP 400",
+    "mock_fallback": false
+  },
+  "microphone_hardware_tested": false,
+  "patient_data_used": false,
+  "known_test_environment_issue": "Docker lost disposable DB port forwarding; restarting only that DB restored it; final suite passed"
+}

@@ -9,6 +9,7 @@ dynamic = ["dependencies"]
 
 [project.scripts]
 emo-config = "emo_core.cli:main"
+emo-voice-model = "emo_core.audio.gigaam:download_model"
 
 [tool.poetry]
 packages = [{include = "emo_core"}]
@@ -21,6 +22,7 @@ include = [
 [tool.poetry.dependencies]
 python = ">=3.12,<3.15"
 fastapi = ">=0.115,<1"
+anyio = ">=4.8,<5"
 uvicorn = {version = ">=0.34,<1", extras = ["standard"]}
 pydantic-settings = ">=2.7,<3"
 sqlalchemy = {version = ">=2.0.36,<3", extras = ["asyncio"]}
@@ -32,6 +34,9 @@ cryptography = ">=43,<51"
 python-dotenv = ">=1.0,<2"
 pyyaml = ">=6.0.2,<7"
 typesafe-sdk = ">=0.1,<1"
+imageio-ffmpeg = ">=0.6,<0.7"
+sherpa-onnx = ">=1.12.20,<2"
+numpy = ">=2.1,<3"
 
 [tool.poetry.group.dev.dependencies]
 pytest = ">=8.3,<10"

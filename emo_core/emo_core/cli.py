@@ -53,7 +53,10 @@ async def execute(command, data):
 
     try:
         if command == "prune":
-            print(f"Removed records: {await prune(Session, get_settings().retention_days)}")
+            settings = get_settings()
+            print(
+                f"Removed records: {await prune(Session, settings.retention_days, prompt_days=settings.prompt_trace_retention_days)}"
+            )
         else:
             async with Session() as session, session.begin():
                 existing = await session.scalar(

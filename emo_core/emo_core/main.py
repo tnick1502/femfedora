@@ -20,7 +20,9 @@ from emo_core.api import (
     questionnaires,
     settings,
     trends,
+    voice,
 )
+from emo_core.audio.ingestion import VoiceService
 from emo_core.core.auth import console_login, console_session, current_user, demo_token
 from emo_core.core.config import get_settings
 from emo_core.core.logging import configure_logging
@@ -95,6 +97,8 @@ def create_app(config=None, sessions=None, llm=None, jev=None):
     app.state.llm, app.state.jev = llm or default_llm, jev or default_jev
     app.state.jwks, app.state.jwks_lock = {}, asyncio.Lock()
     app.state.login_failures = {}
+    app.state.voice = VoiceService(config)
+    app.state.chat_slots = asyncio.Semaphore(config.chat_concurrency)
     router = APIRouter(prefix="/api/v1/emo")
     for module in (
         conversations,
@@ -105,6 +109,7 @@ def create_app(config=None, sessions=None, llm=None, jev=None):
         trends,
         settings,
         proactive,
+        voice,
     ):
         router.include_router(module.router)
     app.include_router(router)
@@ -141,8 +146,9 @@ def create_app(config=None, sessions=None, llm=None, jev=None):
         response.headers["Cache-Control"] = "no-store"
         response.headers["X-Content-Type-Options"] = "nosniff"
         response.headers["Referrer-Policy"] = "no-referrer"
+        response.headers["Permissions-Policy"] = "microphone=(self), camera=()"
         response.headers["Content-Security-Policy"] = (
-            "default-src 'self'; script-src 'self'; style-src 'self'; connect-src 'self'; frame-ancestors 'none'"
+            "default-src 'self'; script-src 'self'; style-src 'self'; connect-src 'self'; media-src 'self' blob:; frame-ancestors 'none'"
         )
         if request.url.path in ("/docs", "/redoc"):
             response.headers["Content-Security-Policy"] = (

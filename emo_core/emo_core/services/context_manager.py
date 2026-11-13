@@ -436,6 +436,31 @@ SUMMARY_SYSTEM_PROMPT = (
 )
 
 
+def summary_line(message):
+    speaker = "Она" if message["role"] == "user" else "Помощник"
+    when = f" ({message['at'][:10]})" if message.get("at") else ""
+    return f"{speaker}{when}: {message['content']}"
+
+
+def summary_batch(previous_summary, messages, max_tokens, mask=lambda value: value):
+    """Longest complete prefix that fits one summary call, including masking/previous summary.
+
+    Keep original messages intact (including their ends). Unselected messages are
+    still history, never marked as summarized. No chain of extra model calls.
+    """
+    base = summary_request(previous_summary, [])
+    system = estimate_tokens(base[0]["content"]) + 2 * MESSAGE_OVERHEAD_TOKENS
+    chars = len(mask(base[1]["content"]))
+    selected = []
+    for message in messages:
+        extra = len(mask(summary_line(message))) + 1
+        if system + math.ceil((chars + extra) / CHARS_PER_TOKEN) > max_tokens:
+            break
+        selected.append(message)
+        chars += extra
+    return selected
+
+
 def summary_request(previous_summary, messages):
     """Собирает запрос на резюме из предыдущего резюме и уходящих реплик.
 
@@ -447,9 +472,7 @@ def summary_request(previous_summary, messages):
         lines.append("Прежнее резюме:\n" + previous_summary + "\n")
     lines.append("Реплики для включения в резюме:")
     for message in messages:
-        speaker = "Она" if message["role"] == "user" else "Помощник"
-        when = f" ({message['at'][:10]})" if message.get("at") else ""
-        lines.append(f"{speaker}{when}: {message['content']}")
+        lines.append(summary_line(message))
     return [
         {"role": "system", "content": SUMMARY_SYSTEM_PROMPT},
         {"role": "user", "content": "\n".join(lines)},

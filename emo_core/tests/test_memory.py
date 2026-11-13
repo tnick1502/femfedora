@@ -1,6 +1,36 @@
 from tests.conftest import conversation, send
 
 
+async def test_model_history_query_excludes_diagnostic_json(client, auth, sessions):
+    from uuid import UUID
+
+    from sqlalchemy import event, select
+
+    from emo_core.db.models import Message
+    from emo_core.services.memory_manager import MemoryManager
+
+    cid = await conversation(client, auth)
+    await send(client, auth, cid, "Мне тревожно")
+    async with sessions() as session, session.begin():
+        message = await session.scalar(select(Message).where(Message.role == "assistant"))
+        uid = message.user_id
+        message.details = {"synthetic_diagnostic": "x" * 240_000}
+    statements = []
+    engine = sessions.kw["bind"].sync_engine
+
+    def capture(conn, cursor, statement, parameters, context, executemany):
+        statements.append(statement.lower())
+
+    event.listen(engine, "before_cursor_execute", capture)
+    try:
+        async with sessions() as session:
+            history = await MemoryManager().history(session, uid, UUID(cid))
+        assert len(history) == 2 and history[0]["content"] == "Мне тревожно"
+        assert all("metadata" not in statement for statement in statements)
+    finally:
+        event.remove(engine, "before_cursor_execute", capture)
+
+
 async def test_inspect_correct_delete(client, auth):
     """Проверяет просмотр, исправление и удаление пользовательской памяти через API."""
     cid = await conversation(client, auth)

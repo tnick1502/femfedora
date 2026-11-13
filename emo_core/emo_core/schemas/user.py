@@ -45,7 +45,13 @@ class ContextSettings(StrictModel):
     keep_recent_messages: int = Field(12, ge=2, le=200)
 
 
+class VoiceSettings(StrictModel):
+    enabled: bool = True
+    external_audio_consent: bool = False
+
+
 class SettingsPatch(StrictModel):
+    voice: VoiceSettings | None = None
     privacy: PrivacySettings | None = None
     context: ContextSettings | None = None
     timezone: str | None = None

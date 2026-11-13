@@ -152,14 +152,16 @@ class MemoryManager:
         Если задан after, читает только сообщения строго после этой даты.
         Возвращает текст, роль, дату ISO и признак шаблона безопасности.
         """
-        query = select(Message).where(
-            Message.user_id == user_id, Message.conversation_id == conversation_id
-        )
+        # Decision-report JSON is for diagnostics, not dialogue history. Avoid loading
+        # up to 3000 copies of it on every turn.
+        query = select(
+            Message.id, Message.role, Message.content, Message.created_at, Message.origin
+        ).where(Message.user_id == user_id, Message.conversation_id == conversation_id)
         if after is not None:
             query = query.where(Message.created_at > after)
         rows = list(
             (
-                await session.scalars(
+                await session.execute(
                     query.order_by(Message.created_at.desc(), Message.id.desc()).limit(
                         HISTORY_MESSAGES_LOADED
                     )

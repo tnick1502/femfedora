@@ -33,11 +33,11 @@ class Settings(BaseSettings):
     llm_base_url: str = ""
     llm_api_key: str = Field(default="", repr=False)
     llm_model: str = ""
-    llm_timeout_seconds: float = 30
+    llm_timeout_seconds: float = Field(default=30, gt=0, le=120)
     typesafe_api_key: str = Field(default="", repr=False)
     typesafe_base_url: str = "https://api.typesafe.ai"
     jev_model: str = "jev-1.14.0"
-    jev_timeout_seconds: float = 15
+    jev_timeout_seconds: float = Field(default=15, gt=0, le=120)
     jev_threshold: float = 0.7
     jev_review_threshold: float = 0.35
     # Мысли о самоповреждении и срочные телесные признаки проверяются с более низким порогом:
@@ -50,9 +50,13 @@ class Settings(BaseSettings):
     jev_gate_enabled: bool = True
     jev_gate_skip_threshold: float = Field(default=0.05, ge=0, le=0.1)
     llm_max_output_tokens: int = Field(default=600, ge=64, le=8000)
+    chat_concurrency: int = Field(default=8, ge=1, le=64)
+    chat_messages_per_hour: int = Field(default=120, ge=1, le=1000)
+    chat_timeout_seconds: float = Field(default=180, ge=5, le=210)
     # Окно контекста одного запроса к LLM и резерв; цель входа пользователь задаёт в кабинете.
     context_window_tokens: int = Field(default=256_000, ge=8_192, le=4_000_000)
     context_safety_margin_tokens: int = Field(default=16_000, ge=0)
+    context_summary_input_tokens: int = Field(default=12_000, ge=1024, le=64_000)
     # user — решает пользователь (по умолчанию включено); always / never — задаёт оператор.
     anonymize_outbound: Literal["user", "always", "never"] = "user"
     allowed_llm_hosts: str = ""
@@ -61,7 +65,20 @@ class Settings(BaseSettings):
     proactive_worker_enabled: bool = True
     proactive_poll_seconds: int = 300
     retention_days: int = 365
+    prompt_trace_enabled: bool = True
+    prompt_trace_retention_days: int = Field(default=7, ge=1, le=30)
     policy_dir: str = ""
+    voice_enabled: bool = False
+    voice_backend: Literal["deepgram", "gigaam"] = "deepgram"
+    deepgram_api_key: str = Field(default="", repr=False)
+    behavioral_signals_api_key: str = Field(default="", repr=False)
+    behavioral_signals_client_id: str = ""
+    voice_max_bytes: int = Field(default=8 * 1024 * 1024, ge=1024, le=16 * 1024 * 1024)
+    voice_max_seconds: int = Field(default=90, ge=5, le=120)
+    voice_timeout_seconds: int = Field(default=90, ge=5, le=120)
+    voice_concurrency: int = Field(default=2, ge=1, le=8)
+    gigaam_model_dir: str = "models/gigaam-v3"
+    gigaam_threads: int = Field(default=2, ge=1, le=8)
 
     @model_validator(mode="after")
     def validate_runtime(self):

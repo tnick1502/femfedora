@@ -1,0 +1,98 @@
+{
+  "date": "2026-11-13",
+  "scope": "voice controls, programmatic emotion gate, private prompt diagnostics; local only",
+  "pytest_postgresql": {
+    "passed": 401,
+    "failed": 0,
+    "seconds": 61.34
+  },
+  "pytest_sqlite": {
+    "passed": 391,
+    "skipped": 10,
+    "failed": 0,
+    "seconds": 28.21
+  },
+  "frontend_node": {
+    "passed": 10,
+    "failed": 0,
+    "hardware_microphone_used": false
+  },
+  "lint": {
+    "ruff_check": "passed",
+    "ruff_format_files": 143,
+    "javascript_syntax_files": 4,
+    "diff_check": "passed"
+  },
+  "migration": {
+    "head": "f70b1c4d9a82",
+    "empty_database_upgrade": "passed",
+    "downgrade_upgrade": "passed",
+    "alembic_check": "no drift",
+    "database": "isolated disposable PostgreSQL 16"
+  },
+  "behavioral_signals_live": {
+    "credentials": "numeric Client ID accepted, HTTP 200",
+    "input": "synthetic Russian speech, 4.25 seconds",
+    "status": "available",
+    "model": "7.9.0",
+    "speech_seconds": 4.1,
+    "emotion": {
+      "neutral": 0.825,
+      "angry": 0.085,
+      "happy": 0.053,
+      "sad": 0.037
+    }
+  },
+  "live_http_pipeline": [
+    "Deepgram Nova-3 ru",
+    "voice-gate-1 substantive speech",
+    "Behavioral Signals 7.9.0",
+    "Jev 1.14.0",
+    "deepseek-flash",
+    "persisted response and private prompt snapshot"
+  ],
+  "browser_ui": [
+    "compact microphone button",
+    "ASR selector in Models",
+    "full prompt loaded from owner endpoint",
+    "profile voice disable hides widget",
+    "reenable restores widget"
+  ],
+  "private_prompt_tests": [
+    "exact request payload",
+    "repair instructions",
+    "no raw prompt in history",
+    "owner and conversation isolation",
+    "authentication required",
+    "urgent template without LLM request",
+    "retention and profile deletion",
+    "bounded decompression and integrity"
+  ],
+  "packaging": {
+    "poetry_lock": "passed",
+    "wheel_build": "passed",
+    "installed_wheel_smoke": "6 assets, voice config, binary OpenAPI, microphone policy",
+    "docker_image": "emo-core:voice-controls-verify",
+    "docker_python": "3.12.16",
+    "docker_network": "none for smoke",
+    "docker_smoke": "gate, compressed trace, ORM, OpenAPI, source and migration syntax passed"
+  },
+  "credentials": {
+    "reviewable_files_scan": "clean",
+    "local_env_mode": "0600",
+    "included_in_git_or_image": false
+  },
+  "clinical_validation": false,
+  "production_data_used": false,
+  "deployment_performed": false,
+  "sha256": {
+    "emo_core/audio/gate.py": "0d684ca0375f8bf2db013f237a61edca44edd211d7b879ddc97ac4d0c87e6b45",
+    "emo_core/audio/ingestion.py": "0889021c3dff70cd4514646e5a2aa855e5390de6b2d03a8c832d57888ad501e4",
+    "emo_core/services/prompt_trace.py": "b707524724706dd778ff4bcc9650f75117eeca3a27a034f2b11d5f2815518662",
+    "emo_core/services/chat_engine.py": "2e0d56ba9d334b678b3eb00e0b1a5d4c7ea3e62dcce8f1c54a167d88a115d244",
+    "emo_core/api/conversations.py": "85761e88f8bf2fa20b52a73539fe4dab5db2b2663489355b73aa5f97da7949c9",
+    "demo/voice.js": "01e620f2ca519e25a954b30337126f983d4b5fb76b4855c414a54f609c4042a7",
+    "demo/diagnostics.js": "15ab215c396f745d3e77372d19d6a726e1532a3ba14ccb40a25b9be2ed473d4a",
+    "alembic/versions/f70b1c4d9a82_voice_controls_prompt_traces.py": "49bb4d5e11655d59f7ec558d8fdde47a839f1b7175a2131b72f671fea03c0170"
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "python": "3.12.16",
+  "console_login": "passed",
+  "state_schema_version": 2,
+  "state_assessment_count": 4,
+  "authenticated_endpoints": {
+    "/settings": "passed",
+    "/state": "passed",
+    "/questionnaires": "passed",
+    "/next-actions": "passed",
+    "/models": "passed",
+    "/trends": "passed"
+  },
+  "tenant_isolation": "passed",
+  "registered_active_scales": [
+    "CITYBITS",
+    "EPDS",
+    "GAD7",
+    "PHQ9"
+  ],
+  "scoring_smoke": "passed_without_saving_attempts",
+  "runtime_mode": "live",
+  "models": {
+    "llm": "deepseek-flash",
+    "jev": "jev-1.14.0"
+  },
+  "live_provider_smoke": {
+    "jev_available": true,
+    "jev_scope": "full",
+    "jev_input_calls": 2,
+    "jev_marker_count": 24,
+    "llm_response_received": true,
+    "output_check_completed": true,
+    "seconds": 1.06,
+    "input": "synthetic technical phrases only; no patient data",
+    "saved_messages": 0
+  },
+  "status": "passed",
+  "tls_verified": true,
+  "assets": [
+    {
+      "path": "/demo/",
+      "status": 200,
+      "matches_commit": true
+    },
+    {
+      "path": "/demo/app.js",
+      "status": 200,
+      "matches_commit": true
+    },
+    {
+      "path": "/demo/questionnaires.js",
+      "status": 200,
+      "matches_commit": true
+    },
+    {
+      "path": "/demo/diagnostics.js",
+      "status": 200,
+      "matches_commit": true
+    },
+    {
+      "path": "/demo/styles.css",
+      "status": 200,
+      "matches_commit": true
+    },
+    {
+      "path": "/demo/favicon.svg",
+      "status": 200,
+      "matches_commit": true
+    },
+    {
+      "path": "/demo/city-university-logo.png",
+      "status": 200,
+      "matches_commit": true
+    }
+  ],
+  "health": "ok",
+  "openapi": "ok",
+  "anonymous_access_blocked": true,
+  "anonymous_token_issue_blocked": true,
+  "server": "81.31.245.115",
+  "source_commit": "4a97e115043bb36dd1a11b2b490d7caadef00ec2",
+  "previous_commit": "f45a514bc4bd7dd0a7b23912c5390edc36bdc8ae",
+  "checked_at": "2026-11-13T11:37:31Z",
+  "image": "sha256:2ac268a2f48e120ef30c2ba3bdbc2102a6f2274b5e3061f9915d6baa751f6d37",
+  "alembic_head": "d92c45e17a60",
+  "alembic_schema_consistent": true,
+  "environment_preserved": true,
+  "env_file_mode": "0600",
+  "env_absent_from_image": true,
+  "running_source_hashes_match_commit": true,
+  "api_worker_restart_count": 0,
+  "startup_units_active_enabled": true,
+  "backup": {
+    "path": "/opt/emo-core/backups/emo-20261113T113056Z.dump",
+    "bytes": 62829,
+    "mode": "0600",
+    "restored_into_separate_database": true,
+    "restored_tables": 18,
+    "historical_payloads_verified": {
+      "messages": 16,
+      "conversations": 1,
+      "completed_attempts": 2
+    },
+    "temporary_database_removed": true
+  },
+  "rollback_image": "emo-core:before-4a97e11",
+  "patient_messages_written_by_smoke_check": 0,
+  "clinical_approvals_changed": false
+}

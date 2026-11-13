@@ -47,6 +47,14 @@ async def list_models(
     return {
         "items": [registry.describe(p, control) for p in profiles],
         "runtime": runtime,
+        "voice": await request.app.state.voice.configuration(session),
+        "voice_credentials": {
+            "deepgram": bool(request.app.state.settings.deepgram_api_key),
+            "behavioral_signals": bool(
+                request.app.state.settings.behavioral_signals_api_key
+                and request.app.state.settings.behavioral_signals_client_id.isdecimal()
+            ),
+        },
         "credential_refs": [
             {"name": key, "configured": bool(value)}
             for key, value in registry.environment_keys().items()
@@ -138,6 +146,9 @@ async def activate(
         setattr(control, key, profile_id)
     if body.ai_mode is not None:
         control.ai_mode = body.ai_mode
+    for key in ("voice_enabled", "voice_backend"):
+        if key in body.model_fields_set:
+            setattr(control, key, getattr(body, key))
     await registry.event(
         session, control, "runtime_updated", fields=body.model_fields_set - {"expected_revision"}
     )

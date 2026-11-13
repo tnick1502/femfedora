@@ -9,7 +9,7 @@ from datetime import timedelta
 from sqlalchemy import func, select
 
 from emo_core.db.base import utcnow
-from emo_core.db.models import Checkin, MessageSignal, UserSettings
+from emo_core.db.models import Checkin, Message, MessageSignal, UserSettings
 from emo_core.schemas.emotion import CATEGORIES
 from emo_core.services.complaint_manager import ComplaintManager
 from emo_core.services.perinatal import perinatal_context, same_assessment_episode
@@ -166,6 +166,41 @@ async def checkin_context(session, user_id, now):
     return result
 
 
+async def voice_context(session, user_id, now, message_id, pregnancy_id):
+    """At most three acoustic observations in 72h, separate from symptoms and self-report."""
+    rows = list(
+        (
+            await session.execute(
+                select(Message.id, Message.details)
+                .where(
+                    Message.user_id == user_id,
+                    Message.role == "user",
+                    Message.created_at >= now - timedelta(hours=72),
+                    Message.created_at <= now,
+                    Message.details["voice"]["emotion"]["status"].as_string() == "available",
+                    Message.details["voice"]["at"].as_string()
+                    >= (now - timedelta(hours=72)).isoformat(timespec="seconds"),
+                    Message.details["voice"]["at"].as_string().is_not(None),
+                    Message.details["voice"]["pregnancy_id"].as_string() == str(pregnancy_id)
+                    if pregnancy_id
+                    else Message.details["voice"]["pregnancy_id"].as_string().is_(None),
+                )
+                .order_by(Message.created_at.desc(), Message.id.desc())
+                .limit(3)
+            )
+        ).all()
+    )
+    current, recent = None, []
+    for row in rows:
+        voice = row.details["voice"]
+        observation = {"at": voice["at"], **voice["emotion"]}
+        if row.id == message_id:
+            current = observation
+        else:
+            recent.append(observation)
+    return {"current": current, "recent": recent} if rows else None
+
+
 class PatientStateBuilder:
     def __init__(self, settings):
         self.settings = settings
@@ -207,6 +242,9 @@ class PatientStateBuilder:
             "current": current,
             "recent": await short_context(session, user_id, now, message_id, user.pregnancy_id),
         }
+        voice = await voice_context(session, user_id, now, message_id, user.pregnancy_id)
+        if voice:
+            short["voice"] = voice
         conflicts = []
         if current.get("self_reported_worsening", 0) >= self.settings.jev_threshold:
             if any(not r["stale"] and not r["followup"] and not r["other_episode"] for r in scales):

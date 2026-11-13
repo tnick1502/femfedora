@@ -16,3 +16,4 @@ examples/client.env
 dist/
 build/
 *.egg-info/
+models/

@@ -48,6 +48,8 @@ class EmotionAnalysis(BaseModel):
 
 
 class SupportState(BaseModel):
+    has_voice_context: bool = False
+    voice_clarification: str | None = None
     primary_support_need: str = "general"
     secondary_support_need: str | None = None
     distress_pattern: str = "unknown"

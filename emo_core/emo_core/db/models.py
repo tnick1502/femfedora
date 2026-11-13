@@ -10,6 +10,7 @@ from sqlalchemy import (
     ForeignKeyConstraint,
     Index,
     Integer,
+    LargeBinary,
     String,
     Text,
     Time,
@@ -101,6 +102,48 @@ class Message(Identified, Tenant, Created, Base):
     protocol_version: Mapped[str | None] = mapped_column(String)
     read_at: Mapped[datetime | None] = mapped_column(UTCDateTime())
     details: Mapped[dict] = mapped_column("metadata", J, default=dict)
+
+
+class VoiceInput(Identified, Tenant, Created, Base):
+    """A resumable ingestion receipt. Raw audio and provider responses are never stored."""
+
+    __tablename__ = "emo_voice_inputs"
+    __table_args__ = (
+        UniqueConstraint("user_id", "client_message_id"),
+        Index("ix_voice_user_created", "user_id", "created_at"),
+        Index("ix_voice_user_processing", "user_id", "status", "started_at"),
+        ForeignKeyConstraint(
+            ["conversation_id", "user_id"],
+            ["emo_conversations.id", "emo_conversations.user_id"],
+            ondelete="CASCADE",
+        ),
+    )
+    conversation_id: Mapped[UUID] = mapped_column(Uuid)
+    client_message_id: Mapped[UUID] = mapped_column(Uuid)
+    audio_sha256: Mapped[str] = mapped_column(String(64))
+    backend: Mapped[str] = mapped_column(String(16))
+    status: Mapped[str] = mapped_column(String(16), default="processing")
+    lease: Mapped[UUID] = mapped_column(Uuid)
+    started_at: Mapped[datetime] = mapped_column(UTCDateTime(), default=utcnow)
+    attempts: Mapped[int] = mapped_column(Integer, default=0, server_default="0")
+    transcript: Mapped[str | None] = mapped_column(Text)
+    details: Mapped[dict] = mapped_column(J, default=dict)
+
+
+class PromptTrace(Tenant, Created, Base):
+    """Compressed private prompt snapshots; read on demand, never via chat history."""
+
+    __tablename__ = "emo_prompt_traces"
+    __table_args__ = (
+        ForeignKeyConstraint(
+            ["message_id", "user_id"],
+            ["emo_messages.id", "emo_messages.user_id"],
+            ondelete="CASCADE",
+        ),
+    )
+    message_id: Mapped[UUID] = mapped_column(Uuid, primary_key=True)
+    compressed: Mapped[bytes] = mapped_column(LargeBinary)
+    sha256: Mapped[str] = mapped_column(String(64))
 
 
 class UserState(Tenant, Base):
@@ -266,6 +309,8 @@ class ModelRuntime(Base):
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
     revision: Mapped[int] = mapped_column(Integer, default=0)
     ai_mode: Mapped[str | None] = mapped_column(String(16))
+    voice_enabled: Mapped[bool | None] = mapped_column(Boolean)
+    voice_backend: Mapped[str | None] = mapped_column(String(16))
     llm_profile_id: Mapped[UUID | None] = mapped_column(Uuid, ForeignKey("emo_model_profiles.id"))
     jev_profile_id: Mapped[UUID | None] = mapped_column(Uuid, ForeignKey("emo_model_profiles.id"))
     updated_at: Mapped[datetime] = mapped_column(UTCDateTime(), default=utcnow, onupdate=utcnow)

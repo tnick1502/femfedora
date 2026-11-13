@@ -5,7 +5,7 @@ from emo_core.db.base import utcnow
 
 
 class DecisionReport:
-    """Structured evidence from executed code; no prompts, raw text, secrets or model reasoning."""
+    """Executed evidence and a private prompt manifest; no raw chat, secrets or model reasoning."""
 
     def __init__(self, models):
         """Создаёт отчёт с Trace ID, снимком моделей и началом отсчёта времени."""

@@ -22,26 +22,37 @@ import re
 from datetime import datetime, timedelta
 from time import perf_counter
 from types import SimpleNamespace
+from uuid import uuid4
 
+import anyio
 from fastapi import HTTPException
 from sqlalchemy import select
 
 from emo_core.core.exceptions import ProviderUnavailable
 from emo_core.db.base import utcnow
-from emo_core.db.models import AssessmentSchedule, Message, SafetyEvent
+from emo_core.db.models import AssessmentSchedule, Message, PromptTrace, SafetyEvent, VoiceInput
 from emo_core.db.repositories import ensure_user, owned_conversation, public
+from emo_core.providers.llm_provider import generation_messages
 from emo_core.providers.mock_providers import DisabledJevProvider
 from emo_core.schemas.emotion import CATEGORIES, EmotionAnalysis
+from emo_core.services.admission import chat_budget
 from emo_core.services.anonymizer import boundary_for
 from emo_core.services.complaint_manager import ComplaintManager
-from emo_core.services.context_manager import ChatContextManager, ContextBudget, summary_request
+from emo_core.services.context_manager import (
+    ChatContextManager,
+    ContextBudget,
+    estimate_messages_tokens,
+    summary_batch,
+    summary_request,
+)
 from emo_core.services.decision_report import DecisionReport, describe_models
 from emo_core.services.emotion_analyzer import EmotionAnalyzer
 from emo_core.services.memory_manager import MemoryManager
 from emo_core.services.patient_state import PatientStateBuilder, prompt_patient_state
 from emo_core.services.perinatal import perinatal_context
+from emo_core.services.prompt_trace import PromptRecorder
 from emo_core.services.safety_guard import SafetyGuard
-from emo_core.services.safety_lexicon import LEXICON_VERSION
+from emo_core.services.safety_lexicon import LEXICON_VERSION, assess
 from emo_core.services.screening_engine import recent_results
 from emo_core.services.screening_scheduler import (
     SCALE_NAMES,
@@ -60,16 +71,19 @@ class ChatEngine:
     def __init__(self, settings, llm, jev, models=None):
         """Сохраняет провайдеров и снимок моделей для обработки одной реплики.
 
-        Время ожидания незавершённой обработки рассчитывает из тайм-аутов двух
-        генераций, четырёх обращений Jev с повторами и десятисекундного запаса.
+        Время обработки учитывает резюме, две генерации, четыре обращения Jev
+        с повторами и запас, но не превышает общий дедлайн сервера.
         """
         self.settings, self.llm, self.jev = settings, llm, jev
         self.models = models or describe_models(settings)
         # Отбор, полный анализ и две выходные проверки; SDK может повторить запрос.
         self.processing_timeout = timedelta(
-            seconds=2 * settings.llm_timeout_seconds
-            + 4 * settings.jev_timeout_seconds * (settings.jev_max_retries + 1)
-            + 10
+            seconds=min(
+                settings.chat_timeout_seconds,
+                3 * settings.llm_timeout_seconds
+                + 4 * settings.jev_timeout_seconds * (settings.jev_max_retries + 1)
+                + 10,
+            )
         )
 
     # ------------------------------------------------------------------ helpers
@@ -126,8 +140,18 @@ class ChatEngine:
             and datetime.fromisoformat(started) > now - self.processing_timeout
         )
 
+    @staticmethod
+    def _check_lease(message, lease):
+        if message is None:
+            raise HTTPException(404, "Сообщение больше не существует")
+        if (
+            message.details.get("processing_lease") != lease
+            or message.details.get("processing") != "pending"
+        ):
+            raise HTTPException(409, "Обработка сообщения уже возобновлена другим запросом")
+
     # ------------------------------------------------------------------ phase 1
-    async def _accept(self, sessions, user_id, conversation_id, body):
+    async def _accept(self, sessions, user_id, conversation_id, body, voice_details=None):
         """Проверяет владельца и ключ повтора, затем сохраняет пользовательскую реплику.
 
         Возвращает пару (status, payload): new со снимком настроек, replay с готовой
@@ -140,22 +164,50 @@ class ChatEngine:
             settings = await ensure_user(session, user_id)
             await owned_conversation(session, user_id, conversation_id)
             now = utcnow()
+            urgent = assess(body.content).route == "urgent"
+            if not voice_details and await session.scalar(
+                select(VoiceInput.id).where(
+                    VoiceInput.user_id == user_id,
+                    VoiceInput.client_message_id == body.client_message_id,
+                )
+            ):
+                raise HTTPException(
+                    409, "client_message_id уже использован для голосового сообщения"
+                )
             previous = await session.scalar(
                 select(Message).where(
                     Message.user_id == user_id, Message.client_message_id == body.client_message_id
                 )
             )
             if previous:
-                if previous.conversation_id != conversation_id or previous.content != body.content:
+                if (
+                    previous.conversation_id != conversation_id
+                    or previous.content != body.content
+                    or bool(previous.details.get("voice")) != bool(voice_details)
+                ):
                     raise HTTPException(
                         409, "client_message_id уже использован для другого сообщения"
                     )
                 assistant = await self._reply_to(session, user_id, conversation_id, previous.id)
                 if assistant:
                     return "replay", self._replay(previous, assistant)
+                if previous.details.get("processing") == "superseded":
+                    raise HTTPException(
+                        409,
+                        "Предыдущее сообщение заменено срочным обращением. Продолжите разговор новым сообщением.",
+                    )
                 if self._fresh(previous, now):
                     return "wait", previous.id
                 # Обработка была прервана: продолжаем её для уже сохранённой реплики.
+                if (
+                    not urgent
+                    and previous.details.get("processing_attempts", 0) >= 3
+                    and previous.details.get("processing_started_at", "")
+                    > (now - timedelta(hours=1)).isoformat()
+                ):
+                    raise HTTPException(
+                        429, "Лимит повторов сообщения исчерпан. Повторите через час."
+                    )
                 message = previous
             else:
                 busy = await session.scalar(
@@ -164,20 +216,27 @@ class ChatEngine:
                         Message.user_id == user_id,
                         Message.conversation_id == conversation_id,
                         Message.role == "user",
-                        Message.created_at >= now - self.processing_timeout,
+                        Message.details["processing"].as_string() == "pending",
+                        Message.details["processing_started_at"].as_string()
+                        > (now - self.processing_timeout).isoformat(),
                     )
                     .order_by(Message.created_at.desc())
                     .limit(1)
                 )
                 if busy is not None and self._fresh(busy, now):
-                    # Порядок реплик в беседе сохраняется: новый текст принимается после ответа.
-                    raise HTTPException(
-                        409,
-                        {
-                            "code": "previous_message_processing",
-                            "message": "Предыдущее сообщение ещё обрабатывается. Повторите через несколько секунд.",
-                        },
-                    )
+                    if urgent:
+                        # An explicit urgent message takes priority over an ordinary
+                        # generation. Its old lease cannot publish a delayed response.
+                        busy.details = {**busy.details, "processing": "superseded"}
+                    else:
+                        # Порядок реплик в беседе сохраняется: новый текст принимается после ответа.
+                        raise HTTPException(
+                            409,
+                            {
+                                "code": "previous_message_processing",
+                                "message": "Предыдущее сообщение ещё обрабатывается. Повторите через несколько секунд.",
+                            },
+                        )
                 message = Message(
                     user_id=user_id,
                     conversation_id=conversation_id,
@@ -186,12 +245,24 @@ class ChatEngine:
                     content=body.content,
                     client_message_id=body.client_message_id,
                     read_at=now,
+                    details={"voice": voice_details} if voice_details else {},
                 )
                 session.add(message)
+            if not urgent:
+                await chat_budget(session, user_id, self.settings, body.client_message_id)
+            attempts = (
+                message.details.get("processing_attempts", 0) + 1
+                if message.details.get("processing_started_at", "")
+                > (now - timedelta(hours=1)).isoformat()
+                else 1
+            )
+            lease = str(uuid4())
             message.details = {
                 **(message.details or {}),
                 "processing": "pending",
                 "processing_started_at": now.isoformat(),
+                "processing_lease": lease,
+                "processing_attempts": attempts,
             }
             if settings.proactive_pause_reason != "user":
                 # Автоматическая пауза снимается ответом; пауза, заданная пользователем, сохраняется.
@@ -220,13 +291,17 @@ class ChatEngine:
             snapshot = SimpleNamespace(
                 previous_turns=previous_turns,
                 message_id=message.id,
+                lease=lease,
                 consent=settings.external_ai_consent,
                 country=settings.country_code,
                 preferences=dict(settings.ai_preferences or {}),
+                voice=message.details.get("voice"),
             )
         return "new", snapshot
 
-    async def _await_result(self, sessions, user_id, conversation_id, body, message_id):
+    async def _await_result(
+        self, sessions, user_id, conversation_id, body, message_id, voice_details=None
+    ):
         """Ждёт ответ на уже принятую реплику, проверяя БД каждые 0,25 секунды.
 
         Готовый ответ возвращает повторно; прерванную или просроченную обработку
@@ -243,36 +318,49 @@ class ChatEngine:
                 message = await session.get(Message, message_id)
                 if message is None:
                     raise HTTPException(404, "Беседа не найдена")
-                if not self._fresh(message, utcnow()):
-                    # Первая обработка прервалась: этот запрос продолжит её.
-                    return await self.send(sessions, user_id, conversation_id, body)
+                resume = not self._fresh(message, utcnow())
+            if resume:
+                # Release the polling connection before resuming (also works with pool_size=1).
+                return await self.send(
+                    sessions, user_id, conversation_id, body, voice_details=voice_details
+                )
         raise HTTPException(
             409,
             {"code": "message_processing", "message": "Сообщение ещё обрабатывается."},
         )
 
     # ------------------------------------------------------------------ public
-    async def send(self, sessions, user_id, conversation_id, body):
+    async def send(self, sessions, user_id, conversation_id, body, *, voice_details=None):
         """Принимает реплику и возвращает сохранённую пару сообщений с отчётом обработки.
 
         Повтор с тем же client_message_id читает готовый результат или ждёт первую
         обработку. При ошибке либо отмене запроса помечает незавершённую реплику
         interrupted, чтобы следующий повтор мог продолжить её сразу.
         """
-        status, accepted = await self._accept(sessions, user_id, conversation_id, body)
+        status, accepted = await self._accept(
+            sessions, user_id, conversation_id, body, voice_details
+        )
         if status == "replay":
             return accepted
         if status == "wait":
-            return await self._await_result(sessions, user_id, conversation_id, body, accepted)
+            return await self._await_result(
+                sessions, user_id, conversation_id, body, accepted, voice_details
+            )
         try:
-            return await self._process(sessions, user_id, conversation_id, body, accepted)
-        except BaseException:
+            async with asyncio.timeout(self.processing_timeout.total_seconds()):
+                return await self._process(sessions, user_id, conversation_id, body, accepted)
+        except BaseException as error:
             # Сбой или обрыв соединения клиента: снимаем отметку обработки, чтобы повтор
             # с тем же client_message_id продолжил работу сразу, а не ждал тайм-аута.
-            await asyncio.shield(self._interrupt(sessions, accepted.message_id))
+            with anyio.move_on_after(5, shield=True):
+                await self._interrupt(sessions, user_id, accepted.message_id, accepted.lease)
+            if isinstance(error, TimeoutError):
+                raise HTTPException(
+                    503, "Ответ занял слишком много времени. Повторите отправку."
+                ) from None
             raise
 
-    async def _interrupt(self, sessions, message_id):
+    async def _interrupt(self, sessions, user_id, message_id, lease):
         """Помечает ещё не завершённую реплику interrupted в отдельной транзакции.
 
         Ошибка очистки записывается фиксированным кодом в журнал и не перекрывает
@@ -280,13 +368,20 @@ class ChatEngine:
         """
         try:
             async with self._tx(sessions) as session:
-                message = await session.get(Message, message_id)
-                if message is not None and message.details.get("processing") == "pending":
+                await ensure_user(session, user_id)
+                message = await session.scalar(
+                    select(Message).where(Message.id == message_id, Message.user_id == user_id)
+                )
+                if (
+                    message is not None
+                    and message.details.get("processing") == "pending"
+                    and message.details.get("processing_lease") == lease
+                ):
                     message.details = {**message.details, "processing": "interrupted"}
         except Exception:
             log.error("chat_interrupt_cleanup_failed")
 
-    async def _summarize(self, boundary, safety, previous, messages):
+    async def _summarize(self, boundary, safety, previous, messages, recorder=None):
         """Получает резюме ранних реплик через LLM по обезличенному тексту.
 
         Восстанавливает псевдонимы, проверяет программные запреты и разрешённые
@@ -294,12 +389,15 @@ class ChatEngine:
         или отклонённом резюме возвращает None; записей в БД не делает.
         """
         request = summary_request(previous, messages)
+        payload = [request[0], {"role": "user", "content": boundary.mask(request[1]["content"])}]
+        if recorder:
+            recorder.add("history_summary", payload)
         try:
-            raw = await self.llm.generate(
-                [request[0], {"role": "user", "content": boundary.mask(request[1]["content"])}]
-            )
+            raw = await self.llm.generate(payload)
         except ProviderUnavailable:
             return None
+        if recorder:
+            recorder.record_usage("history_summary", getattr(raw, "usage", None))
         text = boundary.unmask(str(raw)).strip()
         # Резюме — тоже вывод модели: диагнозы, назначения и выдуманные контакты в контекст не идут.
         if not text or not safety.deterministic_output(text) or safety.unverified_contacts(text):
@@ -320,6 +418,10 @@ class ChatEngine:
         report = DecisionReport(self.models)
         report.stage("authorization", "passed", ["jwt_verified", "conversation_ownership_verified"])
         report.stage("persistence", "passed", ["client_message_id_new", "user_message_saved"])
+        if accepted.voice:
+            report.stage(
+                "voice_input", "completed", ["transcript_uses_text_pipeline"], **accepted.voice
+            )
         jev = self.jev
         consent_missing = self.settings.ai_mode == "live" and not accepted.consent
         if consent_missing:
@@ -408,9 +510,17 @@ class ChatEngine:
             report,
             accepted.preferences,
             boundary.enabled,
+            accepted.lease,
         )
         route, state = plan.route, plan.state
-        uses_llm = route != "urgent" and analysis.available
+        recorder = PromptRecorder(
+            plan.system_prompt, self.models["ai_mode"], enabled=self.settings.prompt_trace_enabled
+        )
+        uses_llm = (
+            route != "urgent"
+            and analysis.available
+            and not (self.settings.ai_mode == "live" and not plan.consent)
+        )
 
         # ---- вне транзакции: контроль контекста, генерация и проверка ответа
         started = perf_counter()
@@ -418,17 +528,29 @@ class ChatEngine:
         fitted = manager.fit(plan.system_prompt, plan.context, plan.history, plan.summary)
         new_summary = folded = None
         summary_calls = 0
+        summary_budget_skipped = False
         if uses_llm and fitted.to_summarize:
-            summary_calls = 1
-            folded = fitted.to_summarize
+            folded = summary_batch(
+                plan.summary,
+                fitted.to_summarize,
+                min(plan.budget.hard_input_budget, self.settings.context_summary_input_tokens),
+                boundary.mask,
+            )
             before_summary = fitted.report.original_prompt_tokens
-            new_summary = await self._summarize(boundary, safety, plan.summary, folded)
+            if folded:
+                summary_calls = 1
+                new_summary = await self._summarize(
+                    boundary, safety, plan.summary, folded, recorder
+                )
+            else:
+                summary_budget_skipped = True
             if new_summary:
                 fitted = manager.fit(
                     plan.system_prompt,
                     plan.context,
                     plan.history[folded[-1]["index"] + 1 :],
                     new_summary,
+                    summary_available=False,
                 )
             else:
                 # Резюме получить не удалось: остаётся усечение с явной пометкой.
@@ -453,12 +575,22 @@ class ChatEngine:
             )
         elif summary_calls:
             context_report.applied_steps.append({"step": "summary_failed", "llm_calls": 1})
+        elif summary_budget_skipped:
+            context_report.applied_steps.append(
+                {"step": "summary_skipped_input_budget", "llm_calls": 0}
+            )
         report.data["timings_ms"]["context_control"] = report.elapsed(started)
+        prompt = (
+            [fitted.messages[0], *boundary.mask_messages(fitted.messages[1:])] if uses_llm else []
+        )
+        if prompt:
+            context_report.estimated_prompt_tokens = estimate_messages_tokens(prompt)
+            if not context_report.within_hard_budget:
+                context_report.verdict = "over_budget"
 
         started = perf_counter()
         origin, fallback, llm_calls, output_checks, events = "reactive", None, 0, [], []
         addendum = offered = False
-        usage = None
         if route == "urgent":
             kind = safety.urgent_kind(decision)
             text, origin, fallback = (
@@ -470,7 +602,7 @@ class ChatEngine:
             events.append(
                 (",".join(decision.risks)[:120] or "possible_immediate_danger", f"{kind}_template")
             )
-        elif not analysis.available:
+        elif not uses_llm:
             text, origin, fallback = (
                 safety.template("limited", country),
                 "safety_template",
@@ -486,19 +618,25 @@ class ChatEngine:
             )
             events.append(("context_over_budget", "context_overflow_template"))
         else:
-            prompt = [fitted.messages[0], *boundary.mask_messages(fitted.messages[1:])]
             try:
                 llm_calls += 1
+                recorder.add("answer", generation_messages(prompt))
                 text = await self.llm.generate(prompt)
-                usage = getattr(text, "usage", None)
+                recorder.record_usage("answer", getattr(text, "usage", None))
                 check = await safety.evaluate_output(text, route, state.referral_required)
                 output_checks.append(check.model_dump())
                 if not check.safe:
-                    events.append(("unsafe_output", "repair_once"))
-                    llm_calls += 1
-                    text = await self.llm.generate(prompt, repair=True)
-                    check = await safety.evaluate_output(text, route, state.referral_required)
-                    output_checks.append(check.model_dump())
+                    repair_prompt = generation_messages(prompt, repair=True)
+                    if estimate_messages_tokens(repair_prompt) <= plan.budget.hard_input_budget:
+                        events.append(("unsafe_output", "repair_once"))
+                        llm_calls += 1
+                        recorder.add("answer_repair", repair_prompt)
+                        text = await self.llm.generate(prompt, repair=True)
+                        recorder.record_usage("answer_repair", getattr(text, "usage", None))
+                        check = await safety.evaluate_output(text, route, state.referral_required)
+                        output_checks.append(check.model_dump())
+                    else:
+                        events.append(("unsafe_output", "repair_input_over_budget"))
                     if not check.safe:
                         text, origin, fallback = (
                             safety.template(
@@ -538,14 +676,22 @@ class ChatEngine:
             ["outbound_text_pseudonymized"] if boundary.enabled else ["anonymization_disabled"],
             **boundary.report.as_dict(),
         )
+        usage = recorder.usage_totals()
         report.stage(
             "context",
             context_report.verdict,
             ["bounded_history_and_personal_context", "user_content_is_untrusted_data"],
             active_complaints=plan.active_complaints,
             sent_to_llm=bool(llm_calls),
-            provider_prompt_tokens=(usage or {}).get("prompt_tokens"),
-            provider_completion_tokens=(usage or {}).get("completion_tokens"),
+            provider_prompt_tokens=usage.get("prompt_tokens"),
+            provider_completion_tokens=usage.get("completion_tokens"),
+            provider_usage_calls=recorder.usage_calls,
+            provider_usage_complete=bool(llm_calls + summary_calls)
+            and sum(
+                {"prompt_tokens", "completion_tokens"} <= (call["usage"] or {}).keys()
+                for call in recorder.usage_calls
+            )
+            == llm_calls + summary_calls,
             summary_llm_calls=summary_calls,
             **context_report.as_event(),
         )
@@ -577,6 +723,8 @@ class ChatEngine:
             referral_required=state.referral_required,
         )
 
+        prompt_manifest, prompt_data = await asyncio.to_thread(recorder.freeze)
+        report.data["prompt_trace"] = prompt_manifest
         # ---- транзакция 3: сохранение ответа
         async with self._tx(sessions) as session:
             settings_row = await ensure_user(session, user_id)
@@ -586,6 +734,7 @@ class ChatEngine:
             if existing:
                 # Параллельное продолжение уже сохранило ответ; второй не создаётся.
                 return self._replay(message, existing)
+            self._check_lease(message, accepted.lease)
             for risk_type, action in events:
                 safety.record(session, user_id, message_id, risk_type, route, action)
             if offered:
@@ -696,7 +845,13 @@ class ChatEngine:
                 **{
                     k: v
                     for k, v in message.details.items()
-                    if k not in ("processing", "processing_started_at")
+                    if k
+                    not in (
+                        "processing",
+                        "processing_started_at",
+                        "processing_lease",
+                        "processing_attempts",
+                    )
                 },
                 "route": route,
             }
@@ -726,6 +881,16 @@ class ChatEngine:
                 ),
             }
             await session.flush()
+            if prompt_data is not None:
+                session.add(
+                    PromptTrace(
+                        user_id=user_id,
+                        message_id=answer.id,
+                        compressed=prompt_data,
+                        sha256=prompt_manifest["sha256"],
+                    )
+                )
+                await session.flush()
             result = {
                 "user_message": public(message),
                 "assistant_message": public(answer),
@@ -753,6 +918,7 @@ class ChatEngine:
         report,
         preferences,
         privacy_enabled,
+        lease,
     ):
         """Собирает план ответа в транзакции с блокировкой профиля.
 
@@ -767,6 +933,7 @@ class ChatEngine:
             conversation = await owned_conversation(session, user_id, conversation_id)
             now = utcnow()
             message = await session.get(Message, message_id)
+            self._check_lease(message, lease)
             perinatal = perinatal_context(settings, now)
             complaint_manager = ComplaintManager()
             await complaint_manager.observe(
@@ -841,6 +1008,14 @@ class ChatEngine:
                 screening=screenings,
                 patient_context=patient_context,
             )
+            voice = patient_context["short"].get("voice", {}).get("current") or {}
+            state.has_voice_context = bool(patient_context["short"].get("voice"))
+            scores = voice.get("emotion", {})
+            # Conversation cue only: this threshold does not measure a symptom or its severity.
+            if route == "normal" and voice.get("status") == "available" and scores:
+                label = max(scores, key=scores.get)
+                if label in ("sad", "angry") and scores[label] >= 0.6:
+                    state.voice_clarification = label
             if route != "urgent":
                 actions = await ScreeningScheduler(self.settings).next_actions(
                     session, user_id, now, plan=patient_context["assessments"], screening=screenings
@@ -904,6 +1079,8 @@ class ChatEngine:
             state_reasons.append("functional_impact_above_threshold")
         if state.postpartum:
             state_reasons.append("postpartum_context_present")
+        if state.voice_clarification:
+            state_reasons.append("voice_cue_needs_confirmation:" + state.voice_clarification)
         report.stage(
             "state_evaluation",
             "completed",
@@ -937,6 +1114,7 @@ class ChatEngine:
             support_contact_allowed=allow_contact,
         )
         return SimpleNamespace(
+            consent=settings.external_ai_consent,
             decision_at=now,
             pregnancy_id=settings.pregnancy_id,
             birth_date=settings.birth_date,

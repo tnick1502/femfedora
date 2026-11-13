@@ -1,19 +1,31 @@
+import hashlib
+from datetime import timedelta
 from uuid import UUID
 
+import anyio
 from fastapi import APIRouter, Depends, HTTPException, Query, Request
 from sqlalchemy import select, update
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from emo_core.core.auth import current_user
 from emo_core.db.base import utcnow
-from emo_core.db.models import Conversation, Message
+from emo_core.db.models import Conversation, Message, PromptTrace
 from emo_core.db.repositories import owned_conversation, public, tenant_read_session, tenant_session
 from emo_core.providers.factory import providers
 from emo_core.schemas.chat import ConversationCreate, MessageCreate
+from emo_core.services.admission import capacity
 from emo_core.services.chat_engine import ChatEngine
 from emo_core.services.model_registry import ModelRegistry
+from emo_core.services.prompt_trace import read_snapshot
+from emo_core.services.safety_lexicon import assess
 
 router = APIRouter()
+
+
+def message_version(conversation_id, limit, offset, ids):
+    return hashlib.sha256(
+        f"{conversation_id}:{limit}:{offset}:".encode() + ",".join(str(mid) for mid in ids).encode()
+    ).hexdigest()
 
 
 @router.post("/conversations", status_code=201)
@@ -52,6 +64,7 @@ async def messages(
     conversation_id: UUID,
     limit: int = Query(50, ge=1, le=100),
     offset: int = Query(0, ge=0),
+    known_version: str | None = Query(None, pattern=r"^[0-9a-f]{64}$"),
     user_id: UUID = Depends(current_user),
     session: AsyncSession = Depends(tenant_read_session, scope="function"),
 ):
@@ -61,18 +74,31 @@ async def messages(
     Перед чтением проверяется владелец беседы; чужой идентификатор даёт 404.
     """
     await owned_conversation(session, user_id, conversation_id)
-    rows = await session.scalars(
+    query = (
         select(Message)
         .where(Message.user_id == user_id, Message.conversation_id == conversation_id)
         .order_by(Message.created_at.desc(), Message.id.desc())
         .offset(offset)
         .limit(limit)
     )
+    if known_version:
+        ids = list((await session.scalars(query.with_only_columns(Message.id))).all())
+        if message_version(conversation_id, limit, offset, ids) == known_version:
+            return {
+                "items": [],
+                "unchanged": True,
+                "version": known_version,
+                "limit": limit,
+                "offset": offset,
+                "order": "newest_first",
+            }
+    rows = list((await session.scalars(query)).all())
     return {
         "items": [public(r) for r in rows],
         "limit": limit,
         "offset": offset,
         "order": "newest_first",
+        "version": message_version(conversation_id, limit, offset, [row.id for row in rows]),
     }
 
 
@@ -90,6 +116,24 @@ async def send(
     client_message_id уникален для пользователя; смена текста или беседы
     при повторе этого ключа возвращает HTTP 409.
     """
+    return await send_message(request, user_id, conversation_id, body)
+
+
+async def send_message(request, user_id, conversation_id, body, *, voice_details=None):
+    """Shared entry point. Only the audio adapter may supply trusted voice metadata."""
+    if assess(body.content).route == "urgent":
+        return await _send_message(
+            request, user_id, conversation_id, body, voice_details=voice_details
+        )
+    async with capacity(
+        request.app.state.chat_slots, "Подготовка ответа занята. Повторите через несколько секунд."
+    ):
+        return await _send_message(
+            request, user_id, conversation_id, body, voice_details=voice_details
+        )
+
+
+async def _send_message(request, user_id, conversation_id, body, *, voice_details=None):
     sessions = request.app.state.sessions
     async with sessions() as session, session.begin():
         snapshot = await ModelRegistry(request.app.state.settings).resolve(session)
@@ -99,7 +143,7 @@ async def send(
         else (request.app.state.llm, request.app.state.jev)
     )
     return await ChatEngine(snapshot.settings, llm, jev, snapshot.models).send(
-        sessions, user_id, conversation_id, body
+        sessions, user_id, conversation_id, body, voice_details=voice_details
     )
 
 
@@ -148,3 +192,41 @@ async def decision_report(
     if message is None or "decision_report" not in message.details:
         raise HTTPException(404, "Отчёт для этого сообщения отсутствует")
     return message.details["decision_report"]
+
+
+@router.get("/conversations/{conversation_id}/messages/{message_id}/prompt")
+async def prompt_snapshot(
+    conversation_id: UUID,
+    message_id: UUID,
+    request: Request,
+    user_id: UUID = Depends(current_user),
+    session: AsyncSession = Depends(tenant_read_session, scope="function"),
+):
+    await owned_conversation(session, user_id, conversation_id)
+    trace = await session.scalar(
+        select(PromptTrace)
+        .join(
+            Message,
+            (Message.id == PromptTrace.message_id) & (Message.user_id == PromptTrace.user_id),
+        )
+        .where(
+            PromptTrace.user_id == user_id,
+            Message.conversation_id == conversation_id,
+            PromptTrace.message_id == message_id,
+            PromptTrace.created_at
+            >= utcnow()
+            - timedelta(
+                days=min(
+                    request.app.state.settings.prompt_trace_retention_days,
+                    request.app.state.settings.retention_days,
+                )
+            ),
+            Message.role == "assistant",
+        )
+    )
+    if trace is None:
+        raise HTTPException(404, "Снимок промпта для этого ответа не сохранён")
+    try:
+        return await anyio.to_thread.run_sync(read_snapshot, trace.compressed, trace.sha256)
+    except (ValueError, UnicodeError):
+        raise HTTPException(503, "Снимок промпта недоступен") from None

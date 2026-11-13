@@ -56,6 +56,8 @@ class ModelPatch(StrictModel):
 
 
 class RuntimePatch(StrictModel):
+    voice_enabled: bool | None = None
+    voice_backend: Literal["deepgram", "gigaam"] | None = None
     ai_mode: Literal["mock", "live", "disabled"] | None = None
     llm_profile_id: UUID | None = None
     jev_profile_id: UUID | None = None
@@ -64,6 +66,9 @@ class RuntimePatch(StrictModel):
     @model_validator(mode="after")
     def non_null_mode(self):
         """Запрещает явный null у ai_mode; пропуск поля оставляет текущий режим."""
-        if "ai_mode" in self.model_fields_set and self.ai_mode is None:
-            raise ValueError("Укажите режим AI")
+        if any(
+            key in self.model_fields_set and getattr(self, key) is None
+            for key in ("ai_mode", "voice_enabled", "voice_backend")
+        ):
+            raise ValueError("Укажите значение настройки")
         return self
